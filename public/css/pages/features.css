@@ -1,0 +1,254 @@
+/* public/css/pages/features.css */
+
+/* --- En-tête de la page des fonctionnalités --- */
+.features-header-section {
+    background-color: var(--primary-color-lighter); /* Un fond doux pour l'en-tête */
+    padding: calc(var(--spacing-unit) * 3) 0;
+    text-align: center;
+}
+
+.features-header-section .section-title {
+    color: var(--primary-color-dark);
+    margin-bottom: calc(var(--spacing-unit) / 2 );
+}
+
+.features-header-section .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Liste détaillée des fonctionnalités --- */
+.detailed-features-section {
+    padding: calc(var(--spacing-unit) * 3) 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start; /* Aligner les items en haut si leur contenu varie en hauteur */
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+/* Style pour alterner la disposition image/texte si souhaité */
+.feature-item:nth-child(even) .feature-image-container {
+    order: 2; /* Met l'image à droite pour les items pairs */
+}
+.feature-item:nth-child(even) .feature-content {
+    order: 1; /* Met le contenu à gauche pour les items pairs */
+     padding-right: calc(var(--spacing-unit) * 2); /* Ajoute un padding à droite au lieu de gauche */
+     padding-left: 0;
+}
+
+
+.feature-icon-wrapper { /* Pour les petites icônes à côté des titres de fonctionnalité */
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: var(--spacing-unit);
+    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+}
+
+.feature-content {
+    flex-grow: 1;
+}
+.feature-item:nth-child(odd) .feature-content { /* Padding pour les items impairs (image à gauche, texte à droite) */
+    padding-left: calc(var(--spacing-unit) * 2);
+}
+
+
+.feature-title {
+    font-size: var(--font-size-xl);
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.feature-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-lg);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-unit);
+}
+
+.feature-benefits-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-unit);
+}
+
+.feature-benefits-list li {
+    position: relative;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) / 3);
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+.feature-benefits-list li::before {
+    content: '✓'; /* Icône de coche */
+    color: var(--success-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+
+.feature-image-container {
+    flex-basis: 40%; /* L'image prend 40% de la largeur */
+    max-width: 400px; /* Limite la taille maximale de l'image */
+    flex-shrink: 0;
+    margin-right: calc(var(--spacing-unit) * 2); /* Marge pour item impair */
+}
+/* Pour les items pairs, l'image est à droite, donc la marge est à gauche */
+.feature-item:nth-child(even) .feature-image-container {
+    margin-right: 0;
+    margin-left: calc(var(--spacing-unit) * 2);
+}
+
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+    object-fit: cover; /* Assure que l'image remplit le conteneur sans se déformer */
+}
+
+/* --- Section "Comment ça marche" --- */
+.how-it-works-section {
+    padding: calc(var(--spacing-unit) * 3) 0;
+    background-color: var(--light-gray-background);
+}
+
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+.step-card { /* Utilise .card, peut être personnalisé */
+    text-align: left;
+}
+
+.step-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.step-card .card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.step-card .card-text {
+    font-size: var(--font-size-base);
+    color: var(--secondary-color);
+}
+
+
+/* --- Section FAQ (Foire Aux Questions) --- */
+.faq-section {
+    padding: calc(var(--spacing-unit) * 3) 0;
+}
+
+.faq-item {
+    margin-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--spacing-unit);
+}
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.faq-question {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color-dark);
+    cursor: pointer; /* Indique que la question est cliquable pour afficher/masquer la réponse */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit)/2); /* Espace avant que la réponse ne s'affiche */
+}
+
+.faq-question .faq-toggle-icon { /* Pour l'icône +/- ou flèche */
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: transform 0.2s ease-in-out;
+}
+.faq-item.active .faq-toggle-icon { /* Quand la réponse est visible */
+    transform: rotate(45deg); /* Exemple pour un '+' qui devient 'x' */
+}
+
+
+.faq-answer {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-lg);
+    color: var(--text-color);
+    padding-left: var(--spacing-unit); /* Léger retrait pour la réponse */
+    display: none; /* Masqué par défaut, géré par JS */
+    margin-top: calc(var(--spacing-unit)/2);
+}
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+
+/* --- Styles responsifs pour la page des fonctionnalités --- */
+@media (max-width: 992px) { /* Tablettes et en dessous */
+    .feature-item {
+        flex-direction: column; /* Les éléments s'empilent verticalement */
+        align-items: center; /* Centrer les éléments empilés */
+        text-align: center;
+    }
+
+    .feature-item .feature-image-container,
+    .feature-item:nth-child(even) .feature-image-container {
+        order: 1; /* L'image vient en premier */
+        margin: 0 0 calc(var(--spacing-unit) * 1.5) 0; /* Marge en bas de l'image */
+        max-width: 90%; /* Permettre à l'image de prendre plus de largeur */
+    }
+
+    .feature-item .feature-content,
+    .feature-item:nth-child(even) .feature-content {
+        order: 2; /* Le contenu vient après l'image */
+        padding-left: 0; /* Pas de padding latéral pour le contenu */
+        padding-right: 0;
+    }
+
+    .feature-benefits-list li {
+        text-align: left; /* Aligner le texte des avantages à gauche */
+        padding-left: calc(var(--spacing-unit) * 1.5); /* Rétablir le padding pour le symbole */
+    }
+}
+
+@media (max-width: 768px) { /* Mobiles */
+    .features-header-section .section-title {
+        font-size: var(--font-size-xxl);
+    }
+    .features-header-section .section-subtitle {
+        font-size: var(--font-size-md);
+    }
+
+    .feature-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .faq-question {
+        font-size: var(--font-size-md);
+    }
+}

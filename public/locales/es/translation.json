@@ -1,0 +1,445 @@
+{
+  "common": {
+    "appName": "ProtLlamada IA"
+  },
+  "pageTitles": {
+    "home": "Inicio - ProtLlamada IA",
+    "homeMetaDescription": "Protege tu tiempo y tranquilidad con nuestro asistente inteligente de filtrado de llamadas. Bloquea spam y llamadas no deseadas eficazmente.",
+    "features": "Características - ProtLlamada IA",
+    "pricing": "Precios - ProtLlamada IA",
+    "contact": "Contacto - ProtLlamada IA",
+    "legal": "Aviso Legal - ProtLlamada IA",
+    "privacy": "Política de Privacidad - ProtLlamada IA",
+    "cgu": "Términos de Servicio - ProtLlamada IA",
+    "sitemap": "Mapa del Sitio - ProtLlamada IA"
+  },
+  "nav": {
+    "home": "Inicio",
+    "features": "Características",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "language_selector_label": "Idioma:",
+    "language_fr": "Francés",
+    "language_en": "Inglés (GB)",
+    "language_es": "Español",
+    "open_menu": "Abrir menú",
+    "close_menu": "Cerrar menú"
+  },
+  "home": {
+    "hero": {
+      "title": "Retoma el control de tus llamadas.",
+      "subtitle": "Nuestro asistente inteligente filtra el spam y las llamadas no deseadas para que puedas concentrarte en lo que realmente importa.",
+      "ctaButton": "Descubrir Características"
+    },
+    "featuresOverview": {
+      "title": "¿Por qué elegirnos?",
+      "feature1": {
+        "title": "Filtrado Inteligente",
+        "description": "Bloquea automáticamente teleoperadores, robollamadas y estafas."
+      },
+      "feature2": {
+        "title": "Personalización Fácil",
+        "description": "Configura tus listas negras y blancas en pocos clics."
+      },
+      "feature3": {
+        "title": "Identificación de Llamadas",
+        "description": "Sabe quién llama antes de descolgar, incluso para números desconocidos."
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1": {
+        "title": "Configuración Fácil",
+        "description": "Configura el asistente en tu teléfono en minutos."
+      },
+      "step2": {
+        "title": "Filtrado Inteligente",
+        "description": "La IA analiza las llamadas entrantes y bloquea las no deseadas."
+      },
+      "step3": {
+        "title": "Tranquilidad Recuperada",
+        "description": "Disfruta de una vida libre de interrupciones innecesarias."
+      }
+    },
+    "testimonials": {
+      "title": "Lo Que Dicen Nuestros Usuarios",
+      "testimonial1": {
+        "quote": "\"¡Finalmente una solución eficaz contra las llamadas constantes! Vuelvo a sentirme vivo.\"",
+        "author": "- Sofía D."
+      },
+      "testimonial2": {
+        "quote": "\"La aplicación es fácil de usar y el filtrado es formidable. ¡Lo recomiendo!\"",
+        "author": "- Marcos L."
+      },
+      "testimonial3": {
+        "quote": "\"Finalmente, una solución que realmente funciona contra las llamadas de spam. ¡Gracias ProtLlamada IA!\"",
+        "author": "- Clara T."
+      }
+    },
+    "pricingPreview": {
+      "title": "Precios Adaptados a Tus Necesidades",
+      "description": "Elige el plan que te convenga y empieza a filtrar tus llamadas hoy mismo.",
+      "ctaButton": "Ver Nuestros Planes"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿Es ProtLlamada IA compatible con mi teléfono?",
+      "a1": "Sí, ProtLlamada IA es compatible con la mayoría de los smartphones iOS y Android.",
+      "q2": "¿Cómo identifica la IA las llamadas no deseadas?",
+      "a2": "Nuestra IA utiliza una base de datos de números de spam constantemente actualizada y algoritmos de análisis de comportamiento para detectar llamadas sospechosas.",
+      "q3": "¿Están seguros mis datos personales?",
+      "a3": "Absolutamente. Damos la máxima importancia a la seguridad y confidencialidad de tus datos. Consulta nuestra política de privacidad para más detalles.",
+      "ctaButton": "¿Más preguntas? Contáctanos"
+    },
+    "cta": {
+      "title": "¿Listo para recuperar tu tranquilidad?",
+      "subtitle": "Prueba nuestro asistente hoy mismo y di adiós a las llamadas no deseadas.",
+      "ctaButton": "Ver Nuestros Planes"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} ProtLlamada IA. Todos los derechos reservados.",
+    "nav": {
+      "legal": "Aviso Legal",
+      "privacy": "Política de Privacidad",
+      "cgu": "Términos de Servicio",
+      "sitemap": "Mapa del Sitio"
+    },
+    "contactInfo": {
+      "title": "Contáctanos",
+      "address": "123 Calle Imaginaria, 75000 Ciudad, País",
+      "email": "contacto@protllamadaia.example.com",
+      "phone": "+34 91 123 45 67"
+    },
+    "socialMedia": {
+      "title": "Síguenos"
+    }
+  },
+  "contactForm": {
+    "title": "Formulario de Contacto",
+    "name": {
+      "label": "Nombre Completo",
+      "placeholder": "Tu nombre y apellidos"
+    },
+    "email": {
+      "label": "Dirección de Correo Electrónico",
+      "placeholder": "tu.email@example.com"
+    },
+    "subject": {
+      "label": "Asunto",
+      "placeholder": "Asunto de tu mensaje"
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Escribe tu mensaje aquí..."
+    },
+    "consent": {
+      "label": "Acepto que mis datos sean procesados de acuerdo con la política de privacidad."
+    },
+    "submitButton": "Enviar Mensaje",
+    "successMessage": "Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo lo antes posible.",
+    "errorMessage": "Se ha producido un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "email": "Por favor, introduce una dirección de correo electrónico válida.",
+      "consent": "Debes aceptar los términos para continuar."
+    }
+  },
+  "featuresPage": {
+    "title": "Descubre Todas las Características de ProtLlamada IA",
+    "section1": {
+      "title": "Filtrado Inteligente de Llamadas Basado en IA",
+      "p1": "Nuestra tecnología de vanguardia analiza cada llamada entrante en tiempo real. Compara el número con una base de datos mundial de números de spam, actualizada continuamente.",
+      "p2": "La IA también detecta comportamientos sospechosos, como llamadas silenciosas, números ocultos repetitivos o patrones típicos de centros de llamadas fraudulentos."
+    },
+    "section2": {
+      "title": "Personalización Avanzada",
+      "listItem1": "<strong>Listas Blancas y Negras:</strong> Decide quién puede llamarte. Añade contactos importantes a tu lista blanca para asegurar que nunca sean filtrados, y bloquea permanentemente números no deseados añadiéndolos a tu lista negra.",
+      "listItem2": "<strong>Niveles de Filtrado Ajustables:</strong> Elige el nivel de protección que te convenga, desde un filtrado ligero hasta el bloqueo estricto de todos los números desconocidos.",
+      "listItem3": "<strong>Notificaciones Personalizadas:</strong> Recibe información de las llamadas bloqueadas según tus preferencias (notificación discreta, resumen diario, etc.)."
+    },
+    "section3": {
+      "title": "Gestión Simplificada y Transparencia",
+      "listItem1": "<strong>Historial de Llamadas Filtradas:</strong> Accede a un registro detallado de todas las llamadas bloqueadas o marcadas, con el motivo del filtrado.",
+      "listItem2": "<strong>Estadísticas de Uso:</strong> Visualiza cuántas llamadas han sido filtradas y gana en serenidad.",
+      "listItem3": "<strong>Interfaz Intuitiva:</strong> Gestiona fácilmente tus ajustes y listas desde una aplicación móvil sencilla y clara."
+    },
+    "cta": {
+      "title": "¿Listo para decir adiós a las llamadas no deseadas?",
+      "button": "Ver Nuestros Planes de Precios"
+    }
+  },
+  "pricingPage": {
+    "title": "Precios Flexibles Para Una Máxima Tranquilidad",
+    "subtitle": "Elige el plan de ProtLlamada IA que mejor se adapte a tus necesidades y presupuesto.",
+    "planBasic": {
+      "title": "Esencial",
+      "price": "4,99€",
+      "period": "/mes",
+      "feature1": "Filtrado IA básico",
+      "feature2": "Lista negra (hasta 50 números)",
+      "feature3": "Notificaciones de llamadas bloqueadas",
+      "feature4": "Soporte por email",
+      "cta": "Elegir Esencial"
+    },
+    "planPremium": {
+      "title": "Premium",
+      "price": "9,99€",
+      "period": "/mes",
+      "feature1": "Todas las características de Esencial",
+      "feature2": "Filtrado IA avanzado y heurístico",
+      "feature3": "Listas negra y blanca ilimitadas",
+      "feature4": "Identificador de llamadas (si disponible)",
+      "feature5": "Soporte prioritario por email y chat",
+      "cta": "Elegir Premium"
+    },
+    "planFamily": {
+      "title": "Familia",
+      "price": "14,99€",
+      "period": "/mes",
+      "feature1": "Todas las características de Premium",
+      "feature2": "Hasta 5 dispositivos conectados",
+      "feature3": "Panel de control familiar compartido",
+      "feature4": "Controles parentales básicos",
+      "cta": "Elegir Familia"
+    },
+    "comparison": {
+      "title": "Compara Nuestros Planes",
+      "featureName": {
+        "filterIa": "Filtrado IA",
+        "blacklist": "Lista Negra",
+        "whitelist": "Lista Blanca",
+        "callerId": "Identificador de Llamadas",
+        "devices": "Dispositivos Conectados",
+        "support": "Soporte al Cliente"
+      }
+    },
+    "faq": {
+      "title": "Preguntas Sobre Precios",
+      "q1": "¿Puedo cambiar de plan más tarde?",
+      "a1": "Sí, puedes cambiar de plan en cualquier momento desde tu área de cliente. El cambio tendrá efecto inmediatamente o al final de tu período de facturación actual.",
+      "q2": "¿Hay un período de prueba gratuito?",
+      "a2": "Ocasionalmente ofrecemos períodos de prueba. Consulta nuestra página de inicio o suscríbete a nuestro boletín para estar informado de las ofertas actuales.",
+      "q3": "¿Qué métodos de pago se aceptan?",
+      "a3": "Aceptamos las principales tarjetas de crédito (Visa, MasterCard, American Express) así como PayPal."
+    }
+  },
+  "contactPage": {
+    "title": "Contáctanos",
+    "intro": "¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Rellena el formulario de abajo o utiliza nuestros datos de contacto directo. Nuestro equipo está aquí para ayudarte.",
+    "info": {
+      "title": "Nuestros Datos de Contacto",
+      "addressLabel": "Dirección:",
+      "emailLabel": "Email:",
+      "phoneLabel": "Teléfono:",
+      "openingHoursLabel": "Horario de Atención al Cliente:",
+      "openingHoursValue": "Lunes - Viernes: 9:00h - 18:00h (CET)"
+    },
+    "mapTitle": "Encuéntranos en el mapa"
+  },
+  "legalPage": {
+    "title": "Aviso Legal",
+    "publisher": {
+      "title": "Editor del Sitio",
+      "name": "Nombre de la empresa: ProtLlamada IA S.L.",
+      "address": "Dirección: Calle Ficticia 123, 28001 Madrid, España",
+      "capital": "Capital social: 10.000 €",
+      "rcs": "Registro Mercantil: Madrid, Tomo X, Folio Y, Hoja M-123456",
+      "vat": "Número de IVA intracomunitario: ESB12345678",
+      "directorLabel": "Director de la publicación:",
+      "directorName": "Sr. Juan Pérez",
+      "contactLabel": "Contacto:",
+      "email": "contacto@protllamadaia.example.com",
+      "phone": "+34 91 123 45 67"
+    },
+    "hosting": {
+      "title": "Alojamiento",
+      "name": "Nombre del proveedor de alojamiento: Servidor Pro XYZ",
+      "address": "Dirección: Avenida Virtual 456, 28002 Madrid, España",
+      "phone": "Teléfono: +34 91 876 54 32"
+    },
+    "ip": {
+      "title": "Propiedad Intelectual",
+      "p1": "La totalidad de este sitio web se rige por la legislación española e internacional sobre derechos de autor y propiedad intelectual. Todos los derechos de reproducción están reservados, incluidos los documentos descargables y las representaciones iconográficas y fotográficas.",
+      "p2": "La reproducción total o parcial de este sitio web en cualquier soporte electrónico está estrictamente prohibida sin la autorización expresa del director de la publicación."
+    },
+    "liability": {
+      "title": "Limitación de Responsabilidad",
+      "p1": "ProtLlamada IA se esfuerza por asegurar, en la medida de sus posibilidades, la exactitud y actualización de la información difundida en este sitio, y se reserva el derecho de corregir el contenido en cualquier momento y sin previo aviso. Sin embargo, ProtLlamada IA no puede garantizar la exactitud, precisión o exhaustividad de la información puesta a disposición en este sitio."
+    },
+    "data": {
+      "title": "Datos Personales",
+      "p1": "Para más información sobre la gestión de sus datos personales, consulte nuestra <a href=\"politique-confidentialite.html\" data-i18n=\"footer.nav.privacy\">Política de Privacidad</a>."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "Para más información sobre el uso de cookies, consulte nuestra <a href=\"politique-confidentialite.html#cookies\" data-i18n=\"privacyPage.cookies.titleShort\">Política de Cookies</a>."
+    },
+    "lastUpdated": "Última actualización: {date}"
+  },
+  "privacyPage": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: {date}",
+    "introduction": {
+      "title": "Introducción",
+      "p1": "ProtLlamada IA S.L. ('nosotros', 'nuestro' o 'nuestros') se compromete a proteger la privacidad de sus usuarios ('usuario' o 'usted'). Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando utiliza nuestro sitio web [protllamadaia.example.com] (el 'Sitio') y nuestros servicios de filtrado de llamadas (los 'Servicios').",
+      "p2": "Por favor, lea esta política atentamente. Si no está de acuerdo con los términos de esta política de privacidad, no acceda al sitio ni utilice nuestros servicios."
+    },
+    "dataCollection": {
+      "title": "Recopilación de Su Información",
+      "p1": "Podemos recopilar información sobre usted de diversas maneras:",
+      "item1": {
+        "title": "Información de identificación personal:",
+        "description": "Información que nos proporciona voluntariamente cuando se registra o utiliza nuestros Servicios, como su nombre, dirección de correo electrónico, número de teléfono e información de pago."
+      },
+      "item2": {
+        "title": "Datos de uso y registros de llamadas:",
+        "description": "Información que nuestros servidores recopilan automáticamente cuando accede al Sitio o utiliza los Servicios, como su dirección IP, tipo de navegador, sistema operativo, horas de acceso y las páginas que ha visitado directamente antes y después de acceder al Sitio. Para el servicio de filtrado, podemos recopilar metadatos de llamadas (números llamantes, fecha, hora, duración, resultado del filtrado) pero nunca el contenido de audio de las llamadas."
+      },
+      "item3": {
+        "title": "Cookies y tecnologías de seguimiento:",
+        "description": "Utilizamos cookies y tecnologías de seguimiento similares para recopilar información sobre su interacción con nuestro Sitio y Servicios. Puede controlar el uso de cookies a nivel de navegador individual."
+      }
+    },
+    "dataUsage": {
+      "title": "Uso de Su Información",
+      "p1": "Tener información precisa sobre usted nos permite ofrecerle una experiencia fluida, eficiente y personalizada. Específicamente, podemos usar la información recopilada sobre usted para:",
+      "listIntro": "",
+      "item1": "Crear y gestionar su cuenta.",
+      "item2": "Proporcionar, operar y mejorar nuestros Servicios, incluido el filtrado de llamadas.",
+      "item3": "Procesar sus transacciones y enviar información relacionada, incluidas confirmaciones de compra y facturas.",
+      "item4": "Enviarle comunicaciones administrativas, como actualizaciones de seguridad o información sobre cambios en nuestras políticas.",
+      "item5": "Responder a sus comentarios, preguntas y solicitudes, y proporcionar servicio al cliente.",
+      "item6": "Monitorear y analizar las tendencias de uso y las actividades relacionadas con nuestro Sitio y Servicios.",
+      "item7": "Personalizar y mejorar el Sitio y los Servicios y proporcionar anuncios, contenido o funciones que coincidan con sus intereses.",
+      "item8": "Cumplir con nuestras obligaciones legales y regulatorias."
+    },
+    "dataSharing": {
+      "title": "Divulgación de Su Información",
+      "p1": "No compartimos la información personal que hemos recopilado sobre usted, excepto en las siguientes circunstancias:",
+      "listIntro": "",
+      "item1": "<strong>Con su consentimiento:</strong> Podemos divulgar su información a terceros si nos ha autorizado a hacerlo.",
+      "item2": "<strong>Proveedores de servicios:</strong> Podemos compartir su información con proveedores externos que realizan servicios para nosotros o en nuestro nombre, como procesamiento de pagos, análisis de datos, entrega de correos electrónicos, servicios de alojamiento, servicio al cliente y asistencia de marketing.",
+      "item3": "<strong>Obligaciones legales:</strong> Podemos divulgar su información si así lo exige la ley o si creemos de buena fe que dicha acción es necesaria para cumplir con una obligación legal, proteger y defender nuestros derechos o propiedad, prevenir o investigar posibles irregularidades en relación con el Servicio, o proteger la seguridad personal de los usuarios del Servicio o del público.",
+      "item4": "<strong>Transferencias comerciales:</strong> Podemos compartir o transferir su información en relación con, o durante las negociaciones de, cualquier fusión, venta de activos de la empresa, financiación o adquisición de la totalidad o una parte de nuestro negocio por otra empresa."
+    },
+    "dataSecurity": {
+      "title": "Seguridad de Su Información",
+      "p1": "Utilizamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para proteger la información personal que nos proporciona, tenga en cuenta que ningún sistema de seguridad es perfecto o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido."
+    },
+    "dataRetention": {
+      "title": "Retención de Su Información",
+      "p1": "Retendremos su información personal solo durante el tiempo que sea necesario para los fines establecidos en esta Política de Privacidad. Retendremos y utilizaremos su información en la medida necesaria para cumplir con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestras políticas."
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "titleShort": "Política de Cookies",
+      "p1": "Las cookies son pequeños archivos de texto que los sitios web que visita colocan en su dispositivo. Se utilizan ampliamente para hacer que los sitios web funcionen, o funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio.",
+      "p2": "Utilizamos los siguientes tipos de cookies:",
+      "listIntro": "",
+      "item1": "<strong>Cookies estrictamente necesarias:</strong> Esenciales para permitirle navegar por el sitio web y utilizar sus funciones.",
+      "item2": "<strong>Cookies de rendimiento/analíticas:</strong> Recopilan información sobre cómo utiliza nuestro sitio web (por ejemplo, qué páginas visita con más frecuencia). Estas cookies no recopilan información que lo identifique.",
+      "item3": "<strong>Cookies de funcionalidad:</strong> Permiten que el sitio web recuerde las elecciones que realiza (como su nombre de usuario, idioma o la región en la que se encuentra) y proporcionen funciones mejoradas y más personales.",
+      "p3": "Puede administrar sus preferencias de cookies a través de la configuración de su navegador. Deshabilitar las cookies puede afectar la funcionalidad de este sitio web."
+    },
+    "yourRights": {
+      "title": "Sus Derechos de Protección de Datos",
+      "p1": "Dependiendo de su ubicación, puede tener los siguientes derechos con respecto a sus datos personales:",
+      "listIntro": "",
+      "item1": "El derecho de acceso: tiene derecho a solicitar copias de sus datos personales.",
+      "item2": "El derecho de rectificación: tiene derecho a solicitar que corrijamos cualquier información que crea que es inexacta o que completemos cualquier información que crea que está incompleta.",
+      "item3": "El derecho de supresión: tiene derecho a solicitar que eliminemos sus datos personales, bajo ciertas condiciones.",
+      "item4": "El derecho a restringir el procesamiento: tiene derecho a solicitar que restrinjamos el procesamiento de sus datos personales, bajo ciertas condiciones.",
+      "item5": "El derecho a oponerse al procesamiento: tiene derecho a oponerse a nuestro procesamiento de sus datos personales, bajo ciertas condiciones.",
+      "item6": "El derecho a la portabilidad de los datos: tiene derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a usted, bajo ciertas condiciones.",
+      "p2": "Si desea ejercer alguno de estos derechos, contáctenos en <a href=\"mailto:privacidad@protllamadaia.example.com\">privacidad@protllamadaia.example.com</a>."
+    },
+    "children": {
+      "title": "Política de Menores",
+      "p1": "Nuestros Servicios no están dirigidos a personas menores de 13 años (o la edad aplicable en su jurisdicción). No recopilamos deliberadamente información de identificación personal de niños menores de 13 años. Si es padre o tutor y sabe que su hijo nos ha proporcionado datos personales, contáctenos. Si nos damos cuenta de que hemos recopilado datos personales de niños sin la verificación del consentimiento de los padres, tomamos medidas para eliminar esa información de nuestros servidores."
+    },
+    "policyUpdates": {
+      "title": "Cambios a Esta Política de Privacidad",
+      "p1": "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de 'Última actualización' en la parte superior de esta Política de Privacidad.",
+      "p2": "Se le recomienda revisar esta Política de Privacidad periódicamente para cualquier cambio. Los cambios a esta Política de Privacidad son efectivos cuando se publican en esta página."
+    },
+    "contactUs": {
+      "title": "Contáctenos",
+      "p1": "Si tiene alguna pregunta sobre esta Política de Privacidad, contáctenos:",
+      "email": "Por correo electrónico: <a href=\"mailto:privacidad@protllamadaia.example.com\">privacidad@protllamadaia.example.com</a>",
+      "address": "Por correo postal: ProtLlamada IA S.L., Departamento de Privacidad, Calle Ficticia 123, 28001 Madrid, España."
+    }
+  },
+  "cguPage": {
+    "title": "Términos de Servicio",
+    "lastUpdated": "Última actualización: {date}",
+    "acceptance": {
+      "title": "1. Aceptación de los Términos",
+      "p1": "Al acceder y utilizar el sitio web de ProtLlamada IA (el 'Sitio') y los servicios de filtrado de llamadas (los 'Servicios') proporcionados por ProtLlamada IA S.L. ('ProtLlamada IA', 'nosotros', 'nuestro'), usted acepta estar sujeto a estos Términos de Servicio ('TDS'). Si no acepta estos TDS, no debe utilizar el Sitio ni los Servicios."
+    },
+    "serviceDescription": {
+      "title": "2. Descripción del Servicio",
+      "p1": "ProtLlamada IA proporciona un servicio de filtrado de llamadas basado en inteligencia artificial diseñado para identificar y bloquear llamadas no deseadas, como spam y llamadas fraudulentas. Las características exactas pueden variar según el plan de suscripción elegido."
+    },
+    "registration": {
+      "title": "3. Registro y Cuenta de Usuario",
+      "p1": "Para utilizar ciertas funciones de los Servicios, es posible que deba crear una cuenta. Usted acepta proporcionar información precisa, actual y completa durante el proceso de registro y actualizar dicha información para mantenerla precisa, actual y completa.",
+      "p2": "Usted es responsable de proteger su contraseña y de todas las actividades que ocurran en su cuenta. Usted acepta notificarnos inmediatamente cualquier uso no autorizado de su cuenta."
+    },
+    "userConduct": {
+      "title": "4. Conducta del Usuario",
+      "p1": "Usted acepta no utilizar el Sitio ni los Servicios para:",
+      "listIntro": "",
+      "item1": "Cualquier actividad ilegal o fraudulenta.",
+      "item2": "Transmitir cualquier material que sea ilegal, acosador, difamatorio, abusivo, amenazante, dañino, vulgar, obsceno o de otro modo objetable.",
+      "item3": "Interferir o interrumpir el funcionamiento del Sitio o los Servicios o los servidores o redes conectados a los Servicios.",
+      "item4": "Intentar obtener acceso no autorizado a cualquier parte del Sitio, los Servicios, otras cuentas, sistemas informáticos o redes conectadas a los Servicios, mediante piratería, extracción de contraseñas o cualquier otro medio."
+    },
+    "feesPayment": {
+      "title": "5. Tarifas y Pago",
+      "p1": "Ciertos aspectos de los Servicios pueden proporcionarse mediante el pago de una tarifa. Usted acepta pagar todas las tarifas aplicables según se describen en el Sitio en relación con los Servicios que seleccione. Todas las tarifas no son reembolsables a menos que se indique expresamente lo contrario o lo exija la ley.",
+      "p2": "Podemos cambiar nuestros precios de vez en cuando. Le notificaremos cualquier cambio de precio publicando los nuevos precios en el Sitio o enviándole una notificación."
+    },
+    "ipRights": {
+      "title": "6. Derechos de Propiedad Intelectual",
+      "p1": "El Sitio, los Servicios y todo su contenido original, características y funcionalidades son y seguirán siendo propiedad exclusiva de ProtLlamada IA S.L. y sus licenciantes. El Sitio y los Servicios están protegidos por derechos de autor, marcas comerciales y otras leyes tanto de España como de países extranjeros."
+    },
+    "termination": {
+      "title": "7. Terminación",
+      "p1": "Podemos rescindir o suspender su acceso al Sitio y a los Servicios de inmediato, sin previo aviso ni responsabilidad, por cualquier motivo, incluido, entre otros, si incumple estos TDS.",
+      "p2": "Tras la terminación, su derecho a utilizar los Servicios cesará de inmediato. Si desea cancelar su cuenta, simplemente puede dejar de usar los Servicios o contactarnos para eliminar su cuenta."
+    },
+    "disclaimer": {
+      "title": "8. Exención de Garantías",
+      "p1": "El Sitio y los Servicios se proporcionan 'TAL CUAL' y 'SEGÚN DISPONIBILIDAD'. ProtLlamada IA no hace declaraciones ni garantías de ningún tipo, expresas o implícitas, en cuanto al funcionamiento del Sitio o los Servicios, o la información, contenido, materiales o productos incluidos en ellos. Usted acepta expresamente que su uso del Sitio y los Servicios es bajo su propio riesgo.",
+      "p2": "Si bien nos esforzamos por proporcionar un servicio de filtrado de llamadas preciso y eficaz, no garantizamos que todas las llamadas no deseadas se bloqueen o que todas las llamadas legítimas se permitan."
+    },
+    "liabilityLimitation": {
+      "title": "9. Limitación de Responsabilidad",
+      "p1": "En ningún caso ProtLlamada IA, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables de ningún daño indirecto, incidental, especial, consecuente o punitivo, incluidos, entre otros, la pérdida de beneficios, datos, uso, fondo de comercio u otras pérdidas intangibles, resultantes de (i) su acceso o uso o incapacidad para acceder o usar el Sitio o los Servicios; (ii) cualquier conducta o contenido de un tercero en el Sitio o los Servicios; (iii) cualquier contenido obtenido del Sitio o los Servicios; y (iv) el acceso, uso o alteración no autorizados de sus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluida la negligencia) o cualquier otra teoría legal, hayamos sido informados o no de la posibilidad de dicho daño."
+    },
+    "indemnification": {
+      "title": "10. Indemnización",
+      "p1": "Usted acepta defender, indemnizar y eximir de responsabilidad a ProtLlamada IA S.L. y a sus licenciatarios y licenciantes, y a sus respectivos empleados, contratistas, agentes, funcionarios y directores, de y contra todas y cada una de las reclamaciones, daños, obligaciones, pérdidas, responsabilidades, costos o deudas, y gastos (incluidos, entre otros, los honorarios de abogados), resultantes de o que surjan de a) su uso y acceso al Sitio y los Servicios, o b) un incumplimiento de estos TDS."
+    },
+    "governingLaw": {
+      "title": "11. Ley Aplicable",
+      "p1": "Estos TDS se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflicto de leyes."
+    },
+    "changes": {
+      "title": "12. Cambios a los TDS",
+      "p1": "Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos TDS en cualquier momento. Si una revisión es material, intentaremos proporcionar un aviso de al menos 30 días antes de que entren en vigor los nuevos términos. Lo que constituye un cambio material se determinará a nuestra entera discreción.",
+      "p2": "Al continuar accediendo o utilizando nuestro Sitio y Servicios después de que esas revisiones entren en vigor, usted acepta estar sujeto a los términos revisados. Si no está de acuerdo con los nuevos términos, deje de usar el Sitio y los Servicios."
+    },
+    "contact": {
+      "title": "13. Contacto",
+      "p1": "Si tiene alguna pregunta sobre estos TDS, contáctenos en <a href=\"mailto:legal@protllamadaia.example.com\">legal@protllamadaia.example.com</a>."
+    }
+  },
+  "sitemapPage": {
+    "title": "Mapa del Sitio",
+    "mainNavTitle": "Navegación Principal",
+    "footerNavTitle": "Enlaces del Pie de Página",
+    "otherPagesTitle": "Otras Páginas"
+  }
+}

@@ -1,0 +1,197 @@
+/* public/css/components/cards.css */
+
+/* Style de base pour une carte */
+.card {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--box-shadow-medium);
+    overflow: hidden; /* Pour que les images et les coins arrondis fonctionnent bien ensemble */
+    display: flex;
+    flex-direction: column; /* Les éléments internes s'empilent verticalement */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: 100%; /* S'assure que les cartes dans une grille ont la même hauteur si nécessaire */
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-large);
+    transform: translateY(-4px); /* Léger effet de soulèvement au survol */
+}
+
+/* Image de la carte (en haut) */
+.card-img-top {
+    width: 100%;
+    height: auto; /* Conserve les proportions de l'image */
+    max-height: 250px; /* Limite la hauteur de l'image pour ne pas dominer la carte */
+    object-fit: cover; /* S'assure que l'image couvre la zone, peut couper les bords */
+    border-bottom: 1px solid var(--border-color-light); /* Séparation optionnelle */
+}
+
+/* Corps de la carte */
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1; /* Permet au corps de la carte de prendre l'espace vertical disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titre de la carte */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+/* Sous-titre de la carte */
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color-muted);
+    margin-top: -0.5rem; /* Rapproche du titre */
+    margin-bottom: 1rem;
+}
+
+/* Texte de la carte */
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color-default);
+    margin-bottom: 1.25rem;
+    flex-grow: 1; /* Permet au texte de pousser le pied de page vers le bas */
+}
+
+.card-text:last-child {
+    margin-bottom: 0; /* Si c'est le dernier élément du corps */
+}
+
+/* Liens dans la carte */
+.card-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.card-link:hover {
+    color: var(--primary-color-dark);
+    text-decoration: underline;
+}
+
+/* Pied de page de la carte */
+.card-footer {
+    padding: 1rem 1.5rem;
+    background-color: var(--background-color-extra-light); /* Légèrement différent du corps */
+    border-top: 1px solid var(--border-color-light);
+    color: var(--text-color-muted);
+    font-size: 0.9rem;
+}
+
+.card-footer:empty {
+    display: none; /* Cache le pied de page s'il est vide */
+}
+
+/* Variations de style pour les cartes */
+
+/* Carte sans bordure */
+.card-borderless {
+    border: none;
+    box-shadow: var(--box-shadow-subtle); /* Ombre plus légère si pas de bordure */
+}
+
+/* Carte avec accentuation (par exemple, pour un plan tarifaire "populaire") */
+.card-accent {
+    border-top: 4px solid var(--primary-color);
+    box-shadow: var(--box-shadow-large);
+}
+.card-accent-secondary {
+    border-top: 4px solid var(--secondary-color);
+}
+
+/* Carte avec un fond coloré (à utiliser avec parcimonie) */
+.card-primary-bg {
+    background-color: var(--primary-color);
+    color: var(--text-color-on-primary);
+    border-color: var(--primary-color-dark);
+}
+.card-primary-bg .card-title,
+.card-primary-bg .card-subtitle,
+.card-primary-bg .card-text {
+    color: var(--text-color-on-primary);
+}
+.card-primary-bg .card-link {
+    color: var(--text-color-on-primary); /* Pourrait avoir besoin d'un ajustement pour le contraste */
+    text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+.card-primary-bg .card-link:hover {
+    text-decoration-color: #fff;
+}
+.card-primary-bg .card-footer {
+    background-color: var(--primary-color-dark); /* Plus sombre pour le pied de page */
+    border-top-color: var(--primary-color-darker);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Carte de type "témoignage" ou "citation" */
+.card-testimonial {
+    text-align: center;
+    padding-top: 2rem; /* Plus d'espace en haut */
+}
+.card-testimonial .card-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem auto;
+    border: 3px solid var(--background-color-light);
+    box-shadow: var(--box-shadow-small);
+}
+.card-testimonial .card-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.card-testimonial .testimonial-author {
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+.card-testimonial .testimonial-role {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+}
+
+/* Carte pour afficher une icône ou une petite image avec du texte */
+.card-feature {
+    text-align: center;
+}
+.card-feature .feature-icon {
+    font-size: 3rem; /* Taille de l'icône */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: inline-block; /* Pour centrer et appliquer la marge */
+}
+.card-feature .card-title {
+    font-size: 1.25rem;
+}
+
+/* Grouper des cartes (par exemple, dans une grille) */
+.card-group {
+    display: flex;
+    flex-direction: column; /* Par défaut, empile verticalement */
+    gap: 1.5rem; /* Espace entre les cartes */
+}
+
+/* Pour une disposition en grille, utiliser flexbox ou CSS Grid sur le conteneur parent.
+   Exemple pour un conteneur de grille simple :
+   .card-grid-container {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+       gap: 1.5rem;
+   }
+*/
+
+/* Assurer que le dernier élément dans card-body pousse le footer vers le bas, même si ce n'est pas card-text */
+.card-body > *:last-child {
+    margin-bottom: 0;
+}

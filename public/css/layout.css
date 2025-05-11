@@ -1,0 +1,71 @@
+/* public/css/layout.css */
+
+.container {
+    width: 90%;
+    max-width: 1140px; /* Un max-width commun pour les grands écrans */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;  /* Gouttières */
+    padding-right: 15px; /* Gouttières */
+}
+
+/* Espacement des sections */
+.section-padding {
+    padding-top: 4rem;    /* 64px */
+    padding-bottom: 4rem; /* 64px */
+}
+
+.section-padding-sm {
+    padding-top: 2rem;    /* 32px */
+    padding-bottom: 2rem; /* 32px */
+}
+
+.section-padding-lg {
+    padding-top: 6rem;    /* 96px */
+    padding-bottom: 6rem; /* 96px */
+}
+
+/* Utilitaires de grille simples (si nécessaire avant d'adopter un système plus complexe) */
+/* Exemple :
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid-cols-2,
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+*/
+
+/* Alignement du texte */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Visibilité */
+.hidden {
+    display: none !important;
+}
+
+/* Pour les éléments qui ne doivent être visibles que pour les lecteurs d'écran,
+   mais cachés visuellement. Déjà défini dans base.css (.sr-only) mais peut être étendu.
+*/

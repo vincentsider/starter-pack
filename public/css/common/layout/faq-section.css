@@ -1,0 +1,199 @@
+/* public/css/common/layout/faq-section.css */
+
+/* Style de base pour la section FAQ */
+.faq-section {
+    padding: var(--section-padding-y, var(--spacing-xxl)) var(--section-padding-x, var(--container-padding-x));
+    background-color: var(--faq-section-bg-color, var(--background-color-base));
+}
+
+/* Conteneur pour le contenu de la section FAQ */
+.faq-container {
+    max-width: var(--faq-container-max-width, 800px); /* FAQ souvent plus étroites */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Titre de la section FAQ */
+.faq-section-title, .faq-section .section-title {
+    font-size: var(--section-title-font-size, var(--font-size-h2));
+    font-weight: var(--section-title-font-weight, var(--font-weight-bold));
+    color: var(--section-title-color, var(--text-color-headings));
+    margin-bottom: var(--spacing-sm);
+    text-align: center; /* Titre souvent centré pour les FAQ */
+}
+
+/* Sous-titre ou description de la section FAQ */
+.faq-section-subtitle, .faq-section .section-subtitle {
+    font-size: var(--section-subtitle-font-size, var(--font-size-lg));
+    color: var(--section-subtitle-color, var(--text-color-secondary));
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    max-width: var(--section-subtitle-max-width, 600px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Conteneur pour la liste des éléments FAQ (accordéon) */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--faq-item-gap, var(--spacing-md));
+}
+
+/* Style pour un élément individuel de la FAQ (question et réponse) */
+.faq-item {
+    background-color: var(--faq-item-bg-color, var(--background-color-light));
+    border: 1px solid var(--faq-item-border-color, var(--border-color-light));
+    border-radius: var(--faq-item-border-radius, var(--border-radius-md));
+    overflow: hidden; /* Empêche le contenu de déborder lors de l'animation */
+    transition: box-shadow var(--transition-speed-base) ease;
+}
+.faq-item:hover {
+    box-shadow: var(--faq-item-hover-shadow, var(--shadow-sm));
+}
+.faq-item.active { /* Classe ajoutée via JS lorsque l'élément est ouvert */
+    border-color: var(--faq-item-active-border-color, var(--primary-color-light));
+    box-shadow: var(--faq-item-active-shadow, var(--shadow-md));
+}
+
+/* Bouton/lien pour la question (cliquable pour afficher/masquer la réponse) */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: var(--faq-question-padding-y, var(--spacing-md)) var(--faq-question-padding-x, var(--spacing-lg));
+    font-size: var(--faq-question-font-size, var(--font-size-lg));
+    font-weight: var(--faq-question-font-weight, var(--font-weight-medium));
+    color: var(--faq-question-color, var(--text-color-primary));
+    background-color: transparent; /* Ou var(--faq-question-bg-color) */
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color var(--transition-speed-base) ease, color var(--transition-speed-base) ease;
+}
+.faq-item.active .faq-question {
+    color: var(--faq-question-active-color, var(--primary-color));
+    /* background-color: var(--faq-question-active-bg-color, var(--primary-color-x-light)); */
+}
+.faq-question:hover {
+    color: var(--faq-question-hover-color, var(--primary-color));
+}
+
+
+/* Icône pour indiquer l'état ouvert/fermé (ex: +, -, flèche) */
+.faq-icon {
+    font-size: var(--faq-icon-size, 1.2em);
+    transition: transform var(--transition-speed-fast) ease-in-out;
+    margin-left: var(--spacing-md);
+}
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Exemple pour une icône '+' qui devient 'x' */
+    /* Ou rotate(180deg) pour une flèche vers le bas */
+}
+
+/* Conteneur pour la réponse (initialement masqué) */
+.faq-answer {
+    padding: 0 var(--faq-answer-padding-x, var(--spacing-lg));
+    max-height: 0;
+    overflow: hidden;
+    font-size: var(--faq-answer-font-size, var(--font-size-base));
+    color: var(--faq-answer-color, var(--text-color-secondary));
+    line-height: var(--line-height-relaxed);
+    transition: max-height var(--transition-speed-base) ease-in-out, padding var(--transition-speed-base) ease-in-out;
+    /* background-color: var(--faq-answer-bg-color, transparent); */
+}
+.faq-item.active .faq-answer {
+    /* max-height doit être suffisant pour le contenu le plus long, ou géré par JS */
+    max-height: var(--faq-answer-max-height, 500px); /* Ajuster si nécessaire */
+    padding-top: var(--faq-answer-padding-top, 0);
+    padding-bottom: var(--faq-answer-padding-bottom, var(--spacing-lg));
+}
+
+/* Contenu de la réponse (paragraphes, listes, etc.) */
+.faq-answer p:last-child,
+.faq-answer ul:last-child,
+.faq-answer ol:last-child {
+    margin-bottom: 0;
+}
+.faq-answer a {
+    color: var(--faq-answer-link-color, var(--link-color));
+    text-decoration: underline;
+}
+.faq-answer a:hover {
+    color: var(--faq-answer-link-hover-color, var(--link-hover-color));
+}
+
+
+/* Section FAQ avec options de filtrage/catégorisation (plus avancé) */
+.faq-filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+.faq-filter-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    background-color: var(--button-secondary-bg-color, var(--neutral-color-200));
+    color: var(--button-secondary-text-color, var(--text-color-secondary));
+    border: 1px solid var(--button-secondary-border-color, var(--neutral-color-300));
+    border-radius: var(--border-radius-pill);
+    cursor: pointer;
+    transition: background-color var(--transition-speed-base) ease, color var(--transition-speed-base) ease, border-color var(--transition-speed-base) ease;
+}
+.faq-filter-button:hover {
+    background-color: var(--button-secondary-hover-bg-color, var(--neutral-color-300));
+    color: var(--button-secondary-hover-text-color, var(--text-color-primary));
+}
+.faq-filter-button.active {
+    background-color: var(--primary-color);
+    color: var(--text-color-on-primary);
+    border-color: var(--primary-color);
+}
+
+/* Styles pour les éléments FAQ appartenant à une catégorie spécifique (si filtrage JS) */
+.faq-item[data-category="some-category"] {
+    /* Peut être utilisé par JS pour afficher/masquer */
+}
+.faq-item.hidden-by-filter {
+    display: none; /* Ou une animation de masquage */
+}
+
+
+/* Responsive pour la section FAQ */
+@media (max-width: 768px) {
+    .faq-section {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+    .faq-question {
+        font-size: calc(var(--faq-question-font-size, var(--font-size-lg)) * 0.95);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    .faq-answer {
+        font-size: calc(var(--faq-answer-font-size, var(--font-size-base)) * 0.95);
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+     .faq-item.active .faq-answer {
+        padding-bottom: var(--spacing-md);
+    }
+}
+
+@media (max-width: 576px) {
+    .faq-section-title, .faq-section .section-title {
+        font-size: calc(var(--section-title-font-size, var(--font-size-h2)) * 0.8);
+    }
+    .faq-section-subtitle, .faq-section .section-subtitle {
+        font-size: calc(var(--section-subtitle-font-size, var(--font-size-lg)) * 0.9);
+        margin-bottom: var(--spacing-lg);
+    }
+    .faq-question {
+        font-size: var(--font-size-base); /* Questions un peu plus petites */
+    }
+    .faq-icon {
+        font-size: 1em;
+    }
+}

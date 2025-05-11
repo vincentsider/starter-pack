@@ -1,0 +1,116 @@
+/* public/css/components/testimonial_card.css */
+
+.testimonial-card {
+    background-color: var(--color-background-component);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne le contenu à gauche */
+    text-align: left;
+    height: 100%; /* Pour que les cartes dans une grille aient la même hauteur */
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.testimonial-quote {
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-left: var(--spacing-lg); /* Espace pour les guillemets */
+    line-height: 1.6;
+}
+
+.testimonial-quote::before {
+    content: "“"; /* Guillemet ouvrant */
+    font-family: 'Georgia', serif; /* Une police avec des guillemets plus stylisés */
+    font-size: calc(var(--font-size-xxxl) * 1.5); /* Taille des guillemets */
+    color: var(--color-primary-light);
+    position: absolute;
+    left: -5px; /* Ajuster pour un placement correct */
+    top: -15px;  /* Ajuster pour un placement correct */
+    opacity: 0.8;
+}
+
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pousse l'auteur en bas si la citation est courte */
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border-extra-subtle); /* Séparateur léger */
+    width: 100%;
+}
+
+.testimonial-author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+    margin-right: var(--spacing-md);
+    object-fit: cover;
+    border: 2px solid var(--color-border-subtle);
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-author-name {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-strong);
+    margin: 0 0 var(--spacing-xxs) 0;
+}
+
+.testimonial-author-title {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Styles pour une grille de témoignages si nécessaire */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: var(--spacing-md);
+    }
+
+    .testimonial-quote {
+        font-size: var(--font-size-sm);
+        padding-left: var(--spacing-md);
+    }
+
+    .testimonial-quote::before {
+        font-size: var(--font-size-xxxl);
+        left: -2px;
+        top: -10px;
+    }
+
+    .testimonial-author-avatar {
+        width: 40px;
+        height: 40px;
+        margin-right: var(--spacing-sm);
+    }
+
+    .testimonial-author-name {
+        font-size: var(--font-size-sm);
+    }
+
+    .testimonial-author-title {
+        font-size: var(--font-size-xs);
+    }
+}

@@ -3,30 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="home.title">Accueil</title>
+    <title data-i18n="home_page_title">Assistant Filtrage d'Appels - Accueil</title>
+    <meta name="description" data-i18n="home_page_meta_description" content="Découvrez notre assistant intelligent de filtrage d'appels. Bloquez les spams et ne manquez plus jamais un appel important.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Favicon (à ajouter) -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="language-selector">
-                <button id="lang-fr">FR</button>
-                <button id="lang-en">EN</button>
-            </div>
-        </nav>
-    </header>
+    <header id="main-header"></header>
 
     <main>
-        <section class="hero">
-            <h1 data-i18n="home.welcome_title">Bienvenue sur Notre Site</h1>
-            <p data-i18n="home.welcome_message">Ceci est un paragraphe de bienvenue générique. Le contenu sera mis à jour ultérieurement.</p>
+        <!-- Section Héros -->
+        <section id="hero" class="hero-section text-center">
+            <div class="container">
+                <h1 data-i18n="hero_title" class="hero-title">Reprenez le contrôle de vos appels.</h1>
+                <p data-i18n="hero_subtitle" class="hero-subtitle">Notre assistant intelligent filtre les spams et les appels indésirables, pour que vous puissiez vous concentrer sur ce qui compte vraiment.</p>
+                <a href="features.html" class="button cta-button cta-button-primary" data-i18n="hero_cta_button">Découvrir les fonctionnalités</a>
+                <!-- Optionnel: Image/Vidéo de présentation -->
+                <!-- <img src="path/to/hero-image.svg" alt="Illustration de l'assistant d'appels" class="hero-image"> -->
+            </div>
+        </section>
+
+        <!-- Section "Comment ça marche ?" -->
+        <section id="how-it-works" class="how-it-works-section section-padding">
+            <div class="container">
+                <h2 data-i18n="how_it_works_title" class="section-title">Comment ça marche ?</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <!-- <img src="icons/step1.svg" alt="Icône Etape 1" class="step-icon"> -->
+                        <div class="step-number">1</div>
+                        <h3 data-i18n="how_it_works_step1_title">Inscription Rapide</h3>
+                        <p data-i18n="how_it_works_step1_desc">Créez votre compte en quelques minutes et connectez votre numéro.</p>
+                    </div>
+                    <div class="step-card">
+                        <!-- <img src="icons/step2.svg" alt="Icône Etape 2" class="step-icon"> -->
+                        <div class="step-number">2</div>
+                        <h3 data-i18n="how_it_works_step2_title">Configuration Personnalisée</h3>
+                        <p data-i18n="how_it_works_step2_desc">Définissez vos règles de filtrage et vos contacts de confiance.</p>
+                    </div>
+                    <div class="step-card">
+                        <!-- <img src="icons/step3.svg" alt="Icône Etape 3" class="step-icon"> -->
+                        <div class="step-number">3</div>
+                        <h3 data-i18n="how_it_works_step3_title">Profitez du Calme</h3>
+                        <p data-i18n="how_it_works_step3_desc">Laissez notre IA gérer les indésirables et ne recevez que les appels importants.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Avantages Clés" -->
+        <section id="key-benefits" class="key-benefits-section section-padding bg-light">
+            <div class="container">
+                <h2 data-i18n="key_benefits_title" class="section-title">Les Avantages Clés</h2>
+                <div class="benefits-grid">
+                    <div class="card">
+                        <!-- <img src="icons/benefit-spam.svg" alt="Icône Anti-Spam" class="card-icon"> -->
+                        <h3 data-i18n="key_benefits_benefit1_title">Anti-Spam Puissant</h3>
+                        <p data-i18n="key_benefits_benefit1_desc">Bloquez efficacement les démarcheurs, les arnaques et autres appels nuisibles.</p>
+                    </div>
+                    <div class="card">
+                        <!-- <img src="icons/benefit-focus.svg" alt="Icône Concentration" class="card-icon"> -->
+                        <h3 data-i18n="key_benefits_benefit2_title">Concentration Optimale</h3>
+                        <p data-i18n="key_benefits_benefit2_desc">Ne soyez plus interrompu par des sonneries intempestives. Restez productif.</p>
+                    </div>
+                    <div class="card">
+                        <!-- <img src="icons/benefit-control.svg" alt="Icône Contrôle" class="card-icon"> -->
+                        <h3 data-i18n="key_benefits_benefit3_title">Contrôle Total</h3>
+                        <p data-i18n="key_benefits_benefit3_desc">Gérez vos listes noires, listes blanches et consultez l'historique des appels filtrés.</p>
+                    </div>
+                     <div class="card">
+                        <!-- <img src="icons/benefit-privacy.svg" alt="Icône Vie Privée" class="card-icon"> -->
+                        <h3 data-i18n="key_benefits_benefit4_title">Vie Privée Protégée</h3>
+                        <p data-i18n="key_benefits_benefit4_desc">Vos données sont sécurisées et ne sont jamais partagées sans votre consentement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Témoignages" (Placeholder) -->
+        <section id="testimonials" class="testimonials-section section-padding">
+            <div class="container">
+                <h2 data-i18n="testimonials_title" class="section-title">Ce que disent nos utilisateurs</h2>
+                <div class="testimonials-grid">
+                    <!-- Placeholder pour les témoignages -->
+                    <div class="card testimonial-card">
+                        <p class="testimonial-text" data-i18n="testimonials_quote1">"Depuis que j'utilise cet assistant, ma vie a changé ! Plus aucun appel de spam."</p>
+                        <p class="testimonial-author" data-i18n="testimonials_author1">- Client Satisfait A</p>
+                    </div>
+                    <div class="card testimonial-card">
+                        <p class="testimonial-text" data-i18n="testimonials_quote2">"Incroyablement efficace et facile à configurer. Je recommande vivement !"</p>
+                        <p class="testimonial-author" data-i18n="testimonials_author2">- Utilisateur Heureux B</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section "Appel à l'action final" -->
+        <section id="final-cta" class="final-cta-section section-padding text-center bg-primary-gradient">
+            <div class="container">
+                <h2 data-i18n="final_cta_title" class="final-cta-title">Prêt à dire adieu aux appels indésirables ?</h2>
+                <p data-i18n="final_cta_subtitle" class="final-cta-subtitle">Rejoignez-nous dès aujourd'hui et retrouvez la sérénité.</p>
+                <a href="pricing.html" class="button cta-button cta-button-light" data-i18n="final_cta_button">Voir nos offres</a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p data-i18n="home.footer_text">&copy; 2025 Mon Entreprise</p>
-    </footer>
+    <footer id="main-footer"></footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/lib/i18next.min.js"></script>
+    <script src="js/lib/i18nextHttpBackend.min.js"></script>
+    <script src="js/lib/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,177 @@
+/* public/css/components/modal.css */
+
+:root {
+    --modal-overlay-bg: rgba(0, 0, 0, 0.6); /* Fond de l'overlay, semi-transparent */
+    --modal-content-bg: var(--background-color-light); /* Fond du contenu de la modale */
+    --modal-content-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Ombre portée pour la modale */
+    --modal-border-radius: var(--border-radius-large);
+    --modal-z-index: 1000; /* Doit être au-dessus des autres contenus */
+    --modal-max-width: 600px; /* Largeur maximale par défaut */
+    --modal-padding: 1.5rem; /* Espace intérieur standard */
+    --modal-header-footer-bg: var(--neutral-color-lightest); /* Fond optionnel pour header/footer */
+    --modal-border-color: var(--neutral-color-light);
+
+    --modal-title-color: var(--text-color-dark);
+    --modal-title-font-size: 1.75rem;
+
+    --modal-close-button-color: var(--text-color-medium);
+    --modal-close-button-color-hover: var(--text-color-dark);
+    --modal-close-button-bg-hover: var(--neutral-color-light);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--modal-z-index);
+    display: flex; /* Pour centrer le contenu */
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Caché par défaut */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Animation douce */
+}
+
+.modal[data-modal-state="open"] {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
+}
+
+.modal-content {
+    background-color: var(--modal-content-bg);
+    border-radius: var(--modal-border-radius);
+    box-shadow: var(--modal-content-shadow);
+    position: relative; /* Pour que l'overlay ne le recouvre pas s'il a un z-index inférieur */
+    z-index: calc(var(--modal-z-index) + 1); /* Au-dessus de l'overlay */
+    width: 90%; /* Largeur sur petits écrans */
+    max-width: var(--modal-max-width);
+    max-height: 90vh; /* Hauteur maximale pour éviter le débordement sur l'écran */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Empêche le contenu de déborder de manière non désirée */
+    transform: scale(0.95); /* Animation d'apparition */
+    transition: transform 0.3s ease;
+}
+
+.modal[data-modal-state="open"] .modal-content {
+    transform: scale(1);
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    padding: var(--modal-padding);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--modal-border-color);
+    /* background-color: var(--modal-header-footer-bg); */ /* Optionnel */
+    border-top-left-radius: var(--modal-border-radius);
+    border-top-right-radius: var(--modal-border-radius);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: var(--modal-title-font-size);
+    color: var(--modal-title-color);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem; /* Zone cliquable plus grande */
+    border-radius: 50%;
+    color: var(--modal-close-button-color);
+    display: flex; /* Pour centrer l'icône SVG si utilisée */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+    background-color: var(--modal-close-button-bg-hover);
+    color: var(--modal-close-button-color-hover);
+    outline: none; /* Style de focus personnalisé si nécessaire */
+}
+
+.modal-close-button svg {
+    width: 1.25em; /* Taille de l'icône */
+    height: 1.25em;
+}
+
+.modal-body {
+    overflow-y: auto; /* Permet le défilement si le contenu est trop long */
+    flex-grow: 1; /* Prend l'espace disponible */
+    line-height: 1.6;
+    color: var(--text-color-default);
+}
+
+.modal-body p:first-child {
+    margin-top: 0;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--modal-border-color);
+    /* background-color: var(--modal-header-footer-bg); */ /* Optionnel */
+    display: flex;
+    justify-content: flex-end; /* Actions généralement à droite */
+    gap: 0.75rem; /* Espace entre les boutons */
+    border-bottom-left-radius: var(--modal-border-radius);
+    border-bottom-right-radius: var(--modal-border-radius);
+}
+.modal-footer:empty {
+    display: none; /* Cache le footer s'il est vide */
+}
+
+/* Styles pour les modales de différentes tailles (optionnel) */
+.modal-content-sm {
+    max-width: 400px;
+}
+
+.modal-content-lg {
+    max-width: 800px;
+}
+
+.modal-content-xl {
+    max-width: 1140px;
+}
+
+/* Styles pour une modale "full-screen" (optionnel) */
+.modal-fullscreen .modal-content {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+}
+
+
+/* Améliorations pour l'accessibilité : focus trapping */
+/* Le focus trap est généralement géré en JavaScript, mais on peut
+   désactiver le défilement du body quand une modale est ouverte. */
+body.modal-open {
+    overflow: hidden; /* Empêche le défilement de la page derrière la modale */
+}

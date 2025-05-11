@@ -1,0 +1,26 @@
+<!-- public/components/testimonial_card.html -->
+<!--
+    Composant: Carte de Témoignage (Testimonial Card)
+    Description: Une carte pour afficher un témoignage client avec le nom, le titre/l'entreprise et une citation.
+    Basé sur le pseudocode de `pseudocode/site_vitrine/common/ui_components.md`.
+
+    Attributs de données pour la personnalisation:
+    - data-testimonial-id: ID unique pour le témoignage.
+    - data-testimonial-quote: La citation du témoignage.
+    - data-testimonial-author-name: Nom de l'auteur du témoignage.
+    - data-testimonial-author-title: Titre ou entreprise de l'auteur.
+    - data-testimonial-author-avatar: URL de l'avatar de l'auteur (optionnel).
+    - Une classe CSS spécifique peut être ajoutée pour le style de la carte.
+-->
+<div class="testimonial-card" data-testimonial-id="testimonial-default" aria-label="Témoignage">
+    <blockquote class="testimonial-quote" data-testimonial-quote-content>
+        "Ceci est un exemple de témoignage. L'assistant de filtrage d'appels a transformé notre communication."
+    </blockquote>
+    <div class="testimonial-author">
+        <img src="assets/images/avatars/default_avatar.png" alt="Avatar de l'auteur" class="testimonial-author-avatar" data-testimonial-author-avatar-src data-testimonial-author-avatar-alt="Avatar de l'auteur du témoignage">
+        <div class="testimonial-author-info">
+            <p class="testimonial-author-name" data-testimonial-author-name-content>Nom de l'Auteur</p>
+            <p class="testimonial-author-title" data-testimonial-author-title-content>Titre/Entreprise</p>
+        </div>
+    </div>
+</div>

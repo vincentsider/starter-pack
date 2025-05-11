@@ -1,0 +1,183 @@
+/* public/css/common/ui_components/cards.css */
+
+/* Style de base pour les cartes */
+.card {
+    background-color: var(--surface-color, #FFFFFF);
+    border: 1px solid var(--border-color-light, #E0E0E0);
+    border-radius: var(--card-border-radius, var(--border-radius-lg));
+    box-shadow: var(--shadow-md);
+    overflow: hidden; /* Pour s'assurer que les coins arrondis s'appliquent aux enfants comme les images */
+    display: flex;
+    flex-direction: column; /* Les éléments de la carte s'empilent verticalement par défaut */
+    transition: box-shadow var(--transition-speed-base) ease-in-out,
+                transform var(--transition-speed-base) ease-in-out;
+    height: 100%; /* Permet aux cartes d'avoir la même hauteur dans une grille flex/grid si nécessaire */
+}
+
+/* Effet de survol sur la carte */
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px); /* Léger soulèvement */
+}
+
+/* Section d'image de la carte */
+.card-image {
+    width: 100%;
+    height: auto; /* Conserve le ratio de l'image */
+    max-height: 250px; /* Limite la hauteur de l'image pour éviter qu'elle ne soit trop grande */
+    object-fit: cover; /* S'assure que l'image couvre la zone sans se déformer */
+    display: block; /* Évite les espaces sous l'image */
+    border-bottom: 1px solid var(--border-color-light, #E0E0E0); /* Séparateur optionnel */
+}
+
+/* Contenu de la carte (texte, etc.) */
+.card-content {
+    padding: var(--card-padding, var(--spacing-lg));
+    flex-grow: 1; /* Permet à cette section de grandir pour remplir l'espace si la carte a une hauteur fixe */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titre de la carte */
+.card-title {
+    font-size: var(--font-size-h4); /* Ou var(--font-size-xl) selon la hiérarchie */
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-headings);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Sous-titre ou texte descriptif de la carte */
+.card-subtitle,
+.card-text {
+    font-size: var(--font-size-base);
+    color: var(--text-color-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-base);
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Section des actions de la carte (boutons, liens) */
+.card-actions {
+    padding: var(--spacing-md) var(--card-padding, var(--spacing-lg));
+    margin-top: auto; /* Pousse les actions en bas de la carte si la carte-content grandit */
+    border-top: 1px solid var(--border-color-light, #E0E0E0);
+    display: flex;
+    gap: var(--spacing-sm); /* Espace entre les boutons */
+    justify-content: flex-end; /* Aligne les boutons à droite par défaut */
+    background-color: var(--surface-color-light, #F9F9F9); /* Léger fond différent pour la section des actions */
+}
+
+.card-actions .button {
+    margin-bottom: 0; /* Annule la marge inférieure par défaut des boutons si nécessaire */
+}
+
+/* Variante de carte sans ombre */
+.card-flat {
+    box-shadow: none;
+}
+.card-flat:hover {
+    box-shadow: var(--shadow-sm); /* Légère ombre au survol pour un retour visuel */
+    transform: none;
+}
+
+/* Variante de carte avec une bordure plus prononcée */
+.card-outlined {
+    border-width: 2px;
+    border-color: var(--border-color-medium, #CCCCCC);
+}
+
+/* Carte interactive (utilisée comme un lien) */
+a.card-interactive {
+    text-decoration: none;
+    color: inherit; /* Hérite la couleur du texte pour que le contenu ne soit pas bleu par défaut */
+    display: block; /* Pour que le lien englobe toute la carte */
+}
+
+a.card-interactive:hover,
+a.card-interactive:focus {
+    /* Les styles de survol de .card sont déjà appliqués */
+    outline: none; /* L'outline sera géré par focus-visible sur la carte elle-même si nécessaire */
+}
+a.card-interactive:focus-visible {
+    outline: 2px solid var(--focus-ring-color, var(--accent-color-dark));
+    outline-offset: 2px; /* Ou gérer le focus sur des éléments internes focusables */
+}
+
+
+/* Carte avec un header distinct */
+.card-header {
+    padding: var(--spacing-md) var(--card-padding, var(--spacing-lg));
+    border-bottom: 1px solid var(--border-color-light, #E0E0E0);
+    background-color: var(--surface-color-medium, #F5F5F5);
+}
+
+.card-header .card-title {
+    margin-bottom: 0;
+    font-size: var(--font-size-lg); /* Un peu plus petit que le titre principal de la carte */
+}
+
+/* Carte avec un footer distinct (similaire à card-actions mais pour info, pas actions) */
+.card-footer {
+    padding: var(--spacing-sm) var(--card-padding, var(--spacing-lg));
+    border-top: 1px solid var(--border-color-light, #E0E0E0);
+    background-color: var(--surface-color-light, #F9F9F9);
+    font-size: var(--font-size-sm);
+    color: var(--text-color-muted);
+    text-align: right;
+}
+
+/* Grille de cartes (exemple simple) */
+/* À utiliser avec un conteneur display: grid ou display: flex */
+/* Par exemple:
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+*/
+
+/* Styles pour les cartes horizontales (image à gauche, contenu à droite) */
+.card-horizontal {
+    flex-direction: row;
+    align-items: stretch; /* Étire les enfants pour qu'ils aient la même hauteur */
+}
+
+.card-horizontal .card-image {
+    width: auto; /* La largeur sera définie par une classe ou un style inline */
+    max-width: 35%; /* Par exemple */
+    height: 100%; /* L'image prendra toute la hauteur de la carte */
+    object-fit: cover;
+    border-right: 1px solid var(--border-color-light, #E0E0E0);
+    border-bottom: none; /* Pas de bordure inférieure pour l'image en mode horizontal */
+}
+
+.card-horizontal .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement si la carte a une hauteur fixe */
+}
+
+.card-horizontal .card-actions {
+    border-top: 1px solid var(--border-color-light, #E0E0E0); /* Conserve la bordure supérieure */
+    /* Peut nécessiter d'ajuster l'alignement ou la direction si la carte devient trop étroite */
+}
+
+@media (max-width: 768px) {
+    .card-horizontal {
+        flex-direction: column; /* Repasse en vertical sur petits écrans */
+    }
+
+    .card-horizontal .card-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto; /* Revient à la hauteur auto */
+        max-height: 200px; /* Limite pour petits écrans */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color-light, #E0E0E0);
+    }
+}

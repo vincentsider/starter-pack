@@ -1,0 +1,123 @@
+/* public/css/pages/contact.css */
+
+#contact-hero h1 {
+    font-size: 2.8rem; /* Taille de police pour le titre principal */
+}
+
+#contact-hero p.lead {
+    font-size: 1.2rem; /* Taille de police pour le sous-titre */
+    color: var(--bs-secondary-color);
+}
+
+#contact-form-section .card {
+    border: none; /* Supprimer la bordure par défaut de la carte pour un look plus épuré */
+    /* background-color: var(--bs-light); */ /* Optionnel: un fond légèrement différent */
+}
+
+#contact-form-section h2 {
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+#contact-form-section .form-label {
+    font-weight: 500;
+}
+
+#contact-form-section .form-control,
+#contact-form-section .form-select {
+    padding: 0.75rem 1rem; /* Augmenter le padding pour une meilleure apparence */
+}
+
+#contact-form-section .form-check-label a {
+    text-decoration: underline;
+    color: var(--bs-primary);
+}
+
+#contact-form-section .form-check-label a:hover {
+    color: var(--bs-primary-dark); /* Assurez-vous que cette variable est définie dans theme.css */
+}
+
+#submitContactForm {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+#submitContactForm .spinner-border {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+#contact-info h2 {
+    color: var(--bs-dark);
+    font-weight: 600;
+}
+
+#contact-info .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--bs-border-color-translucent);
+}
+
+#contact-info .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--bs-box-shadow);
+}
+
+#contact-info .card-title {
+    font-weight: 600;
+    color: var(--bs-body-color);
+}
+
+#contact-info .card-text a {
+    color: var(--bs-primary);
+    text-decoration: none;
+}
+
+#contact-info .card-text a:hover {
+    text-decoration: underline;
+}
+
+#faq-contact h2 {
+    color: var(--bs-dark);
+    font-weight: 600;
+}
+
+#faqAccordionContact .accordion-button {
+    font-weight: 500;
+    color: var(--bs-body-color);
+}
+
+#faqAccordionContact .accordion-button:not(.collapsed) {
+    background-color: var(--bs-primary-soft); /* Assurez-vous que cette variable est définie */
+    color: var(--bs-primary);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+}
+
+#faqAccordionContact .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem var(--bs-primary-focus-ring); /* Assurez-vous que cette variable est définie */
+}
+
+#faqAccordionContact .accordion-body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #contact-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    #contact-hero p.lead {
+        font-size: 1rem;
+    }
+
+    #contact-form-section .card {
+        padding: 1.5rem !important;
+    }
+
+    #contact-info .col-md-4 {
+        margin-bottom: 1.5rem; /* Espace entre les cartes en mode mobile */
+    }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-Nous - Assistant Filtrage d'Appels</title>
+    <meta name="description" content="Contactez l'équipe de l'Assistant de Filtrage d'Appels pour toute question ou demande d'information.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <!-- Les CSS des composants (header, footer, button, card, etc.) seront injectés ou gérés via components.js ou un bundler plus tard -->
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/button.css">
+    <link rel="stylesheet" href="css/components/form.css"> <!-- Pour les styles de base du formulaire -->
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <header id="main-header-placeholder" class="main-header"></header>
+
+    <main>
+        <!-- Section Titre de Page Contact -->
+        <section id="contact-page-title" class="page-title-section text-center spacing-section">
+            <div class="container">
+                <h1 class="heading-xl">Contactez-Nous</h1>
+                <p class="lead">Nous sommes là pour répondre à toutes vos questions.</p>
+            </div>
+        </section>
+
+        <!-- Section Formulaire de Contact et Informations -->
+        <section id="contact-form-section" class="spacing-section">
+            <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <!-- Colonne Formulaire -->
+                <div id="contact-form-container">
+                    <h2 class="heading-lg mb-4">Envoyez-nous un message</h2>
+                    <form id="contact-form" class="contact-form-styles">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nom complet</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="Votre nom complet">
+                            <p class="form-error-message" id="name-error"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="votre.email@example.com">
+                            <p class="form-error-message" id="email-error"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required placeholder="Sujet de votre message">
+                            <p class="form-error-message" id="subject-error"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="6" class="form-textarea" required placeholder="Écrivez votre message ici..."></textarea>
+                            <p class="form-error-message" id="message-error"></p>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg w-full">Envoyer le message</button>
+                        </div>
+                        <div id="form-submission-status" class="form-status-message mt-4"></div>
+                    </form>
+                </div>
+
+                <!-- Colonne Informations de Contact -->
+                <div id="contact-info-container" class="bg-light p-6 md:p-8 rounded-lg shadow-sm">
+                    <h2 class="heading-lg mb-4">Nos Coordonnées</h2>
+                    <p class="mb-4 text-muted">N'hésitez pas à nous contacter directement via les informations ci-dessous ou en utilisant le formulaire.</p>
+                    
+                    <div class="contact-info-item mb-4">
+                        <h3 class="heading-sm font-semibold flex items-center">
+                            <img src="assets/icons/email.svg" alt="Email" class="icon-sm mr-2"> Email
+                        </h3>
+                        <p><a href="mailto:contact@filtreappel.ai" class="text-primary hover:underline">contact@filtreappel.ai</a></p>
+                    </div>
+                    
+                    <div class="contact-info-item mb-4">
+                        <h3 class="heading-sm font-semibold flex items-center">
+                            <img src="assets/icons/phone.svg" alt="Téléphone" class="icon-sm mr-2"> Téléphone
+                        </h3>
+                        <p><a href="tel:+33123456789" class="text-primary hover:underline">+33 1 23 45 67 89</a> (Support)</p>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <h3 class="heading-sm font-semibold flex items-center">
+                            <img src="assets/icons/location-pin.svg" alt="Adresse" class="icon-sm mr-2"> Adresse
+                        </h3>
+                        <p>123 Rue de l'Innovation<br>75000 Paris, France</p>
+                        <p class="text-sm text-muted mt-1">(Visites sur rendez-vous uniquement)</p>
+                    </div>
+
+                    <!-- Placeholder pour carte si nécessaire -->
+                    <!-- <div id="map-placeholder" class="mt-6 h-64 bg-gray-200 rounded">
+                        <p class="text-center p-4">Carte interactive bientôt disponible.</p>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer id="main-footer-placeholder" class="main-footer"></footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

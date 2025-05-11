@@ -1,0 +1,227 @@
+/* public/css/common/footer.css */
+
+.main-footer {
+    background-color: var(--neutral-color-dark); /* Ou var(--primary-color-dark) selon le design */
+    color: var(--text-color-light);
+    padding: var(--spacing-xl) var(--spacing-md);
+    font-family: var(--font-family-base);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--neutral-color-medium-dark); /* Ligne de séparation */
+}
+
+.footer-section {
+    padding: var(--spacing-sm) 0;
+}
+
+.footer-section h3 {
+    font-size: var(--font-size-lg);
+    color: var(--secondary-color-light); /* Ou une couleur d'accentuation */
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-semibold);
+    position: relative;
+}
+
+/* Optionnel: ajouter un petit soulignement aux titres de section */
+.footer-section h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin-top: var(--spacing-xs);
+}
+
+.footer-logo-section .logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.logo-image-footer {
+    height: 40px; /* Ajuster la taille */
+    margin-right: var(--spacing-sm);
+}
+
+.logo-text-footer {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.footer-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-color-light);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-links a {
+    color: var(--neutral-color-light);
+    font-size: var(--font-size-lg); /* Taille des icônes */
+    transition: color var(--transition-speed-fast) ease-in-out, transform var(--transition-speed-fast) ease-in-out;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-link {
+    color: var(--neutral-color-light);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out, padding-left var(--transition-speed-fast) ease-in-out;
+    font-size: var(--font-size-base);
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: var(--accent-color);
+    padding-left: var(--spacing-xs); /* Petit décalage au survol */
+    text-decoration: underline;
+}
+
+.footer-newsletter-section p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-color-light);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column; /* Stack sur mobile par défaut */
+    gap: var(--spacing-sm);
+}
+
+.newsletter-form input[type="email"] {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--neutral-color-medium);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--neutral-color-medium-dark);
+    color: var(--text-color-light);
+    font-size: var(--font-size-base);
+    flex-grow: 1;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: var(--neutral-color-medium);
+}
+
+.newsletter-form .button-primary {
+    padding: var(--spacing-sm) var(--spacing-md);
+    min-width: 120px; /* Pour que le bouton ne soit pas trop petit */
+}
+
+.newsletter-message {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+.newsletter-message.success {
+    color: var(--success-color);
+}
+.newsletter-message.error {
+    color: var(--error-color);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-color-medium);
+    position: relative; /* Pour le positionnement du bouton back-to-top */
+}
+
+.back-to-top-button {
+    background-color: var(--accent-color);
+    color: var(--text-color-on-accent);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    position: absolute;
+    bottom: var(--spacing-md); /* Ajuster si besoin */
+    right: var(--spacing-md); /* Ajuster si besoin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color var(--transition-speed-fast) ease-in-out, transform var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
+    opacity: 0; /* Caché par défaut */
+    visibility: hidden;
+    transform: translateY(10px);
+}
+
+.back-to-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-button:hover,
+.back-to-top-button:focus {
+    background-color: var(--accent-color-dark); /* Version plus foncée au survol */
+    transform: scale(1.1);
+}
+
+
+/* Responsive adjustments pour le footer */
+@media (min-width: 768px) { /* Tablettes et plus */
+    .newsletter-form {
+        flex-direction: row; /* Côte à côte sur écrans plus larges */
+    }
+    .newsletter-form .button-primary {
+        flex-shrink: 0; /* Empêche le bouton de rétrécir */
+    }
+}
+
+@media (max-width: 767px) { /* Mobiles */
+    .footer-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        text-align: center; /* Centrer le texte des sections */
+    }
+
+    .footer-section h3::after {
+        margin-left: auto; /* Centrer le soulignement */
+        margin-right: auto;
+    }
+
+    .social-links {
+        justify-content: center; /* Centrer les icônes sociales */
+    }
+
+    .footer-logo-section .logo-link {
+        justify-content: center;
+    }
+
+    .back-to-top-button {
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+}

@@ -1,80 +1,266 @@
-body {
-    font-family: sans-serif;
+/* public/css/style.css */
+
+/* Variables CSS Globales */
+:root {
+    --primary-color: #007bff; /* Bleu primaire */
+    --secondary-color: #6c757d; /* Gris secondaire */
+    --accent-color: #17a2b8; /* Couleur d'accent (info/cyan) */
+    --success-color: #28a745; /* Vert succès */
+    --danger-color: #dc3545; /* Rouge danger */
+    --warning-color: #ffc107; /* Jaune avertissement */
+
+    --text-color: #333;
+    --text-color-light: #f8f9fa;
+    --background-color: #ffffff;
+    --light-gray-background: #f8f9fa;
+    --border-color: #dee2e6;
+
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --font-size-base: 1rem; /* 16px par défaut */
+    --font-size-lg: 1.25rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.5rem;
+
+
+    --spacing-unit: 1rem; /* Unité de base pour les marges et paddings */
+    --border-radius: 0.25rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175);
+
+    --max-width-container: 1140px;
+    --navbar-height: 60px; /* Hauteur de la barre de navigation */
+}
+
+/* Réinitialisation de base et styles globaux */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; /* Définit 1rem = 16px (ou la préférence utilisateur) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header nav {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 2rem;
-}
-
-.language-selector button {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.language-selector button:hover {
-    background-color: #777;
+    min-height: 100vh; /* Assure que le footer reste en bas */
 }
 
 main {
-    flex: 1;
-    padding: 2rem;
+    flex-grow: 1; /* Permet au contenu principal de prendre l'espace disponible */
+    padding-top: var(--navbar-height); /* Empêche le contenu d'être caché par un header fixe */
+}
+
+/* Liens */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: darken(var(--primary-color), 10%);
+    text-decoration: underline;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1 { font-size: var(--font-size-xxl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+.section-title {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-weight: 600;
+}
+
+/* Paragraphes */
+p {
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Conteneur global */
+.container {
+    width: 100%;
+    max-width: var(--max-width-container);
+    padding-right: calc(var(--spacing-unit) / 2);
+    padding-left: calc(var(--spacing-unit) / 2);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Importation des composants CSS */
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/button.css");
+@import url("components/card.css");
+/* ... autres composants si nécessaire ... */
+
+
+/* Formulaires - Styles de base */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: var(--spacing-unit);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border-color: lighten(var(--primary-color), 25%);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb, 0, 123, 255), 0.25); /* Utiliser --primary-color-rgb si défini, sinon fallback */
+}
+
+/* Placeholder pour --primary-color-rgb si non défini via JS, à améliorer */
+:root {
+    --primary-color-rgb-val: 0, 123, 255; /* Valeur par défaut pour bleu */
+}
+
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Classes de validation pour les formulaires */
+.is-invalid {
+    border-color: var(--danger-color) !important; /* Important pour surcharger les styles de focus */
+}
+.is-invalid:focus {
+     box-shadow: 0 0 0 0.2rem rgba(var(--danger-color-rgb, 220, 53, 69), 0.25);
+}
+.invalid-feedback {
+    display: none; /* Affiché par JS */
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: var(--font-size-sm);
+    color: var(--danger-color);
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.mt-1 { margin-top: var(--spacing-unit); }
+.mb-1 { margin-bottom: var(--spacing-unit); }
+.mt-2 { margin-top: calc(var(--spacing-unit) * 2); }
+.mb-2 { margin-bottom: calc(var(--spacing-unit) * 2); }
+.p-1 { padding: var(--spacing-unit); }
+.p-2 { padding: calc(var(--spacing-unit) * 2); }
+
+/* Classes pour masquer/afficher des éléments (pour JS) */
+.hidden {
+    display: none !important;
+}
+
+/* Styles spécifiques pour le chargement de i18next */
+[data-i18n] {
+    opacity: 0; /* Cache initialement le texte pour éviter le flash de contenu non traduit */
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.i18next-loaded [data-i18n] {
+    opacity: 1; /* Affiche le texte une fois i18next chargé */
+}
+
+/* Pour le focus sur les inputs et boutons pour l'accessibilité */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb-val), 0.3);
+}
+
+
+/* Styles pour les messages de statut de formulaire (succès/erreur) */
+.form-status {
+    padding: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+    border-radius: var(--border-radius);
     text-align: center;
 }
 
-.hero {
-    max-width: 800px;
-    margin: auto;
+.form-success {
+    background-color: #d4edda; /* Vert clair */
+    color: #155724; /* Vert foncé */
+    border: 1px solid #c3e6cb;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.form-error {
+    background-color: #f8d7da; /* Rouge clair */
+    color: #721c24; /* Rouge foncé */
+    border: 1px solid #f5c6cb;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: auto;
-}
-
-/* Responsive adjustments */
+/* Ajustements pour responsivité */
 @media (max-width: 768px) {
-    header nav {
-        justify-content: center;
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    :root {
+        --navbar-height: 50px;
     }
-
-    .hero h1 {
-        font-size: 2rem;
+    main {
+        padding-top: var(--navbar-height);
     }
+}
 
-    .hero p {
-        font-size: 1rem;
+@media (max-width: 576px) {
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    .container {
+        padding-right: calc(var(--spacing-unit) / 1.5);
+        padding-left: calc(var(--spacing-unit) / 1.5);
     }
 }

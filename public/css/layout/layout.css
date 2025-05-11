@@ -1,0 +1,316 @@
+/* public/css/layout/layout.css */
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--header-background-color, var(--neutral-white)); /* Fallback si variable non définie */
+    padding: var(--spacing-unit) 0;
+    border-bottom: 1px solid var(--border-color-light);
+    box-shadow: var(--box-shadow-sm);
+    position: sticky; /* Header qui reste en haut lors du défilement */
+    top: 0;
+    z-index: var(--z-index-header, 1000); /* S'assurer qu'il est au-dessus du reste */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optionnel : style pour le header quand la page est scrollée */
+.site-header.scrolled {
+    background-color: rgba(var(--neutral-white-rgb), 0.95); /* Légèrement transparent */
+    box-shadow: var(--box-shadow-md);
+}
+
+.header-container { /* Utilise .container de base.css */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container .site-logo {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container .site-logo img { /* Si le logo est une image */
+    max-height: 40px; /* Ajuster selon la taille du logo */
+    margin-right: calc(var(--spacing-unit) / 2);
+}
+
+/* --- Navigation principale --- */
+.main-navigation .nav-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation .nav-item {
+    margin-left: calc(var(--spacing-unit) * 1.5); /* Espace entre les éléments de menu */
+}
+
+.main-navigation .nav-link {
+    text-decoration: none;
+    color: var(--nav-link-color, var(--secondary-color));
+    font-weight: 500;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+    border-radius: var(--border-radius);
+    transition: color 0.2s ease, background-color 0.2s ease;
+    position: relative; /* Pour le pseudo-élément indicateur */
+}
+
+.main-navigation .nav-link:hover,
+.main-navigation .nav-link:focus {
+    color: var(--primary-color);
+    background-color: var(--primary-color-lightest);
+}
+
+.main-navigation .nav-link.active {
+    color: var(--primary-color-dark);
+    font-weight: 700; /* Plus gras pour l'élément actif */
+}
+
+/* Indicateur visuel pour le lien actif (optionnel, alternative au font-weight) */
+.main-navigation .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Ajuster pour la position sous le lien */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* Largeur de l'indicateur */
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
+}
+
+/* Bouton d'appel à l'action dans le header (ex: S'inscrire) */
+.header-cta-button { /* Utilise .button-primary de ui_components.css */
+    margin-left: calc(var(--spacing-unit) * 1.5);
+}
+
+/* --- Mobile Navigation Toggle --- */
+.mobile-nav-toggle {
+    display: none; /* Masqué par défaut sur grand écran */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: calc(var(--spacing-unit) / 2);
+}
+
+.mobile-nav-toggle .icon-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color-dark);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 1px;
+}
+
+/* Styles pour l'icône "burger" lorsqu'elle est active (transformée en croix) */
+.mobile-nav-toggle.active .icon-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.mobile-nav-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+.mobile-nav-toggle.active .icon-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--footer-background-color, var(--text-color-darkest));
+    color: var(--footer-text-color, var(--neutral-white-rgb-opacity-70));
+    padding: calc(var(--spacing-unit) * 3) 0;
+    font-size: var(--font-size-sm);
+}
+
+.footer-container { /* Utilise .container de base.css */
+    /* Peut être une grille pour organiser les sections du footer */
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+    border-bottom: 1px solid rgba(var(--neutral-white-rgb), 0.1);
+}
+
+.footer-column h4 {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--neutral-white);
+    margin-bottom: var(--spacing-unit);
+}
+
+.footer-column .footer-logo-tagline .site-logo{
+    color: var(--primary-color-lighter);
+    font-size: var(--font-size-xl);
+    margin-bottom: calc(var(--spacing-unit)/2);
+}
+.footer-column .footer-logo-tagline .tagline{
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-loose);
+}
+
+
+.footer-nav-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-nav-list .nav-item {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.footer-nav-list .nav-link {
+    text-decoration: none;
+    color: inherit; /* Hérite de la couleur du footer */
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-nav-list .nav-link:hover,
+.footer-nav-list .nav-link:focus {
+    color: var(--primary-color-lighter);
+    padding-left: calc(var(--spacing-unit) / 4); /* Léger décalage au survol */
+}
+
+.social-media-links {
+    display: flex;
+    gap: var(--spacing-unit); /* Espace entre les icônes sociales */
+}
+
+.social-media-links .social-link {
+    color: inherit;
+    font-size: var(--font-size-lg); /* Taille des icônes sociales */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-media-links .social-link:hover,
+.social-media-links .social-link:focus {
+    color: var(--primary-color-lighter);
+    transform: scale(1.1);
+}
+
+.footer-contact-info p {
+    margin-bottom: calc(var(--spacing-unit)/2);
+    line-height: var(--line-height-loose);
+}
+.footer-contact-info p i.icon {
+    margin-right: calc(var(--spacing-unit)/2);
+    color: var(--primary-color-lighter);
+}
+
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    gap: var(--spacing-unit);
+    padding-top: var(--spacing-unit);
+    font-size: var(--font-size-xs); /* Texte plus petit pour le copyright */
+}
+
+.copyright-text {
+    margin: 0;
+}
+
+.footer-bottom-links .nav-list {
+    display: flex;
+    gap: var(--spacing-unit); /* Espace entre les liens CGU, etc. */
+}
+.footer-bottom-links .nav-link {
+    text-decoration: underline; /* Souligner pour indiquer un lien cliquable */
+}
+
+
+/* --- Styles pour la navigation mobile (menu déroulant/off-canvas) --- */
+@media (max-width: 768px) {
+    .main-navigation {
+        display: none; /* Cacher la nav principale */
+        position: absolute;
+        top: 100%; /* Se positionne sous le header */
+        left: 0;
+        right: 0;
+        background-color: var(--header-background-color, var(--neutral-white));
+        box-shadow: var(--box-shadow-md);
+        padding: var(--spacing-unit) 0;
+        border-top: 1px solid var(--border-color-light);
+    }
+
+    .main-navigation.active { /* Classe ajoutée par JS pour afficher le menu */
+        display: block;
+    }
+
+    .main-navigation .nav-list {
+        flex-direction: column; /* Afficher les liens verticalement */
+        align-items: flex-start; /* Aligner à gauche */
+    }
+
+    .main-navigation .nav-item {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-navigation .nav-link {
+        display: block; /* Les liens prennent toute la largeur */
+        padding: var(--spacing-unit);
+        border-bottom: 1px solid var(--border-color-lighter);
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 0; /* Pas de coins arrondis dans le menu mobile */
+    }
+    .main-navigation .nav-link.active::after {
+        display: none; /* Cacher l'indicateur de soulignement sur mobile */
+    }
+    .main-navigation .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .header-cta-button {
+        display: none; /* Optionnel: Cacher le CTA principal dans le header, le mettre dans le menu mobile */
+        /* Si gardé, ajuster son style/position */
+    }
+    /* Le CTA peut être réintégré dans le menu mobile s'il est caché du header */
+    .main-navigation .nav-item.cta-mobile {
+        padding: var(--spacing-unit);
+    }
+    .main-navigation .nav-item.cta-mobile .button {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .mobile-nav-toggle {
+        display: block; /* Afficher le bouton burger */
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr; /* Une seule colonne pour le footer sur mobile */
+        text-align: center; /* Centrer le contenu des colonnes du footer */
+    }
+    .footer-column h4 {
+        margin-top: var(--spacing-unit);
+    }
+    .footer-column:first-child h4 {
+        margin-top: 0;
+    }
+    .social-media-links {
+        justify-content: center; /* Centrer les icônes sociales */
+    }
+    .footer-bottom {
+        flex-direction: column; /* Empiler le copyright et les liens */
+        text-align: center;
+    }
+    .footer-bottom-links .nav-list {
+        justify-content: center;
+    }
+}

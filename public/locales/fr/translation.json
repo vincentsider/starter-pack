@@ -1,0 +1,445 @@
+{
+  "common": {
+    "appName": "ProtectAppel"
+  },
+  "pageTitles": {
+    "home": "Accueil - ProtectAppel",
+    "homeMetaDescription": "Protégez votre temps et votre tranquillité avec notre assistant intelligent de filtrage d'appels. Bloquez les spams et les appels indésirables efficacement.",
+    "features": "Fonctionnalités - ProtectAppel",
+    "pricing": "Tarifs - ProtectAppel",
+    "contact": "Contact - ProtectAppel",
+    "legal": "Mentions Légales - ProtectAppel",
+    "privacy": "Politique de Confidentialité - ProtectAppel",
+    "cgu": "CGU - ProtectAppel",
+    "sitemap": "Plan du site - ProtectAppel"
+  },
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "contact": "Contact",
+    "language_selector_label": "Langue:",
+    "language_fr": "Français",
+    "language_en": "Anglais (GB)",
+    "language_es": "Espagnol",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu"
+  },
+  "home": {
+    "hero": {
+      "title": "Reprenez le contrôle de vos appels.",
+      "subtitle": "Notre assistant intelligent filtre les spams et les appels indésirables pour que vous puissiez vous concentrer sur ce qui compte vraiment.",
+      "ctaButton": "Découvrir les fonctionnalités"
+    },
+    "featuresOverview": {
+      "title": "Pourquoi nous choisir ?",
+      "feature1": {
+        "title": "Filtrage Intelligent",
+        "description": "Bloquez automatiquement les démarcheurs, les robots et les arnaques."
+      },
+      "feature2": {
+        "title": "Personnalisation Facile",
+        "description": "Configurez vos listes noires et blanches en quelques clics."
+      },
+      "feature3": {
+        "title": "Identification de l'appelant",
+        "description": "Sachez qui appelle avant de décrocher, même pour les numéros inconnus."
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "step1": {
+        "title": "Installation Facile",
+        "description": "Configurez l'assistant en quelques minutes sur votre téléphone."
+      },
+      "step2": {
+        "title": "Filtrage Intelligent",
+        "description": "L'IA analyse les appels entrants et bloque les indésirables."
+      },
+      "step3": {
+        "title": "Tranquillité Retrouvée",
+        "description": "Profitez d'une vie sans interruptions inutiles."
+      }
+    },
+    "testimonials": {
+      "title": "Ce que disent nos utilisateurs",
+      "testimonial1": {
+        "quote": "\"Enfin une solution efficace contre les appels incessants ! Je revis.\"",
+        "author": "- Sophie D."
+      },
+      "testimonial2": {
+        "quote": "\"L'application est simple à utiliser et le filtrage est redoutable. Je recommande !\"",
+        "author": "- Marc L."
+      },
+      "testimonial3": {
+        "quote": "\"Enfin une solution qui marche vraiment contre les appels de spam. Merci ProtectAppel !\"",
+        "author": "- Chloé T."
+      }
+    },
+    "pricingPreview": {
+      "title": "Des tarifs adaptés à vos besoins",
+      "description": "Choisissez le plan qui vous convient et commencez à filtrer vos appels dès aujourd'hui.",
+      "ctaButton": "Consulter nos offres"
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "q1": "ProtectAppel est-il compatible avec mon téléphone ?",
+      "a1": "Oui, ProtectAppel est compatible avec la majorité des smartphones iOS et Android.",
+      "q2": "Comment l'IA identifie-t-elle les appels indésirables ?",
+      "a2": "Notre IA utilise une base de données de numéros de spam constamment mise à jour et des algorithmes d'analyse comportementale pour détecter les appels suspects.",
+      "q3": "Mes données personnelles sont-elles en sécurité ?",
+      "a3": "Absolument. Nous accordons une importance primordiale à la sécurité et à la confidentialité de vos données. Consultez notre politique de confidentialité pour plus de détails.",
+      "ctaButton": "Plus de questions ? Contactez-nous"
+    },
+    "cta": {
+      "title": "Prêt à retrouver la tranquillité ?",
+      "subtitle": "Essayez notre assistant dès aujourd'hui et dites adieu aux appels indésirables.",
+      "ctaButton": "Voir nos offres"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} ProtectAppel. Tous droits réservés.",
+    "nav": {
+      "legal": "Mentions Légales",
+      "privacy": "Politique de Confidentialité",
+      "cgu": "Conditions Générales d'Utilisation",
+      "sitemap": "Plan du site"
+    },
+    "contactInfo": {
+      "title": "Nous Contacter",
+      "address": "123 Rue Imaginaire, 75000 Ville, Pays",
+      "email": "contact@protectappel.example.com",
+      "phone": "+33 1 23 45 67 89"
+    },
+    "socialMedia": {
+      "title": "Suivez-nous"
+    }
+  },
+  "contactForm": {
+    "title": "Formulaire de Contact",
+    "name": {
+      "label": "Nom complet",
+      "placeholder": "Votre nom et prénom"
+    },
+    "email": {
+      "label": "Adresse e-mail",
+      "placeholder": "votre.email@example.com"
+    },
+    "subject": {
+      "label": "Sujet",
+      "placeholder": "Sujet de votre message"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Écrivez votre message ici..."
+    },
+    "consent": {
+      "label": "J'accepte que mes données soient traitées conformément à la politique de confidentialité."
+    },
+    "submitButton": "Envoyer le message",
+    "successMessage": "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.",
+    "errorMessage": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+    "validation": {
+      "required": "Ce champ est requis.",
+      "email": "Veuillez entrer une adresse e-mail valide.",
+      "consent": "Vous devez accepter les termes pour continuer."
+    }
+  },
+  "featuresPage": {
+    "title": "Découvrez toutes les fonctionnalités de ProtectAppel",
+    "section1": {
+      "title": "Filtrage d'Appels Intelligent Basé sur l'IA",
+      "p1": "Notre technologie de pointe analyse en temps réel chaque appel entrant. Elle compare le numéro à une base de données mondiale de numéros de spam, mise à jour continuellement.",
+      "p2": "L'IA détecte également les comportements suspects, comme les appels silencieux, les numéros masqués répétitifs ou les schémas typiques des centres d'appels frauduleux."
+    },
+    "section2": {
+      "title": "Personnalisation Avancée",
+      "listItem1": "<strong>Listes Blanches et Noires :</strong> Décidez qui peut vous appeler. Ajoutez des contacts importants à votre liste blanche pour garantir qu'ils ne soient jamais filtrés, et bloquez définitivement les numéros indésirables en les ajoutant à votre liste noire.",
+      "listItem2": "<strong>Niveaux de Filtrage Ajustables :</strong> Choisissez le niveau de protection qui vous convient, du filtrage léger au blocage strict de tous les numéros inconnus.",
+      "listItem3": "<strong>Notifications Personnalisées :</strong> Soyez informé des appels bloqués selon vos préférences (notification discrète, résumé quotidien, etc.)."
+    },
+    "section3": {
+      "title": "Gestion Simplifiée et Transparence",
+      "listItem1": "<strong>Historique des Appels Filtrés :</strong> Accédez à un journal détaillé de tous les appels bloqués ou signalés, avec la raison du filtrage.",
+      "listItem2": "<strong>Statistiques d'Utilisation :</strong> Visualisez combien d'appels ont été filtrés et gagnez en sérénité.",
+      "listItem3": "<strong>Interface Intuitive :</strong> Gérez facilement vos paramètres et vos listes depuis une application mobile simple et claire."
+    },
+    "cta": {
+      "title": "Prêt à dire adieu aux appels indésirables ?",
+      "button": "Voir nos offres tarifaires"
+    }
+  },
+  "pricingPage": {
+    "title": "Des Tarifs Flexibles Pour Une Tranquillité Maximale",
+    "subtitle": "Choisissez le plan ProtectAppel qui correspond le mieux à vos besoins et à votre budget.",
+    "planBasic": {
+      "title": "Essentiel",
+      "price": "4.99€",
+      "period": "/mois",
+      "feature1": "Filtrage IA de base",
+      "feature2": "Liste noire (jusqu'à 50 numéros)",
+      "feature3": "Notifications d'appels bloqués",
+      "feature4": "Support par email",
+      "cta": "Choisir Essentiel"
+    },
+    "planPremium": {
+      "title": "Premium",
+      "price": "9.99€",
+      "period": "/mois",
+      "feature1": "Toutes les fonctionnalités Essentiel",
+      "feature2": "Filtrage IA avancé et heuristique",
+      "feature3": "Listes noire et blanche illimitées",
+      "feature4": "Identification de l'appelant (si disponible)",
+      "feature5": "Support prioritaire par email et chat",
+      "cta": "Choisir Premium"
+    },
+    "planFamily": {
+      "title": "Famille",
+      "price": "14.99€",
+      "period": "/mois",
+      "feature1": "Toutes les fonctionnalités Premium",
+      "feature2": "Jusqu'à 5 appareils connectés",
+      "feature3": "Tableau de bord familial partagé",
+      "feature4": "Contrôles parentaux basiques",
+      "cta": "Choisir Famille"
+    },
+    "comparison": {
+      "title": "Comparez nos plans",
+      "featureName": {
+        "filterIa": "Filtrage IA",
+        "blacklist": "Liste Noire",
+        "whitelist": "Liste Blanche",
+        "callerId": "Identification de l'appelant",
+        "devices": "Appareils Connectés",
+        "support": "Support Client"
+      }
+    },
+    "faq": {
+      "title": "Questions sur les Tarifs",
+      "q1": "Puis-je changer de plan plus tard ?",
+      "a1": "Oui, vous pouvez changer de plan à tout moment depuis votre espace client. La modification prendra effet immédiatement ou à la fin de votre période de facturation actuelle.",
+      "q2": "Y a-t-il une période d'essai gratuite ?",
+      "a2": "Nous proposons occasionnellement des périodes d'essai. Consultez notre page d'accueil ou inscrivez-vous à notre newsletter pour être informé des offres en cours.",
+      "q3": "Quels sont les moyens de paiement acceptés ?",
+      "a3": "Nous acceptons les principales cartes de crédit (Visa, MasterCard, American Express) ainsi que PayPal."
+    }
+  },
+  "contactPage": {
+    "title": "Contactez-Nous",
+    "intro": "Vous avez une question, une suggestion ou besoin d'assistance ? Remplissez le formulaire ci-dessous ou utilisez nos coordonnées directes. Notre équipe est là pour vous aider.",
+    "info": {
+      "title": "Nos Coordonnées",
+      "addressLabel": "Adresse :",
+      "emailLabel": "Email :",
+      "phoneLabel": "Téléphone :",
+      "openingHoursLabel": "Heures d'ouverture du support :",
+      "openingHoursValue": "Lundi - Vendredi : 9h00 - 18h00 (CET)"
+    },
+    "mapTitle": "Retrouvez-nous sur la carte"
+  },
+  "legalPage": {
+    "title": "Mentions Légales",
+    "publisher": {
+      "title": "Éditeur du Site",
+      "name": "Nom de la société : ProtectAppel SAS",
+      "address": "Adresse : 123 Rue Imaginaire, 75000 Ville, France",
+      "capital": "Capital social : 10 000 €",
+      "rcs": "RCS : Paris B 123 456 789",
+      "vat": "Numéro de TVA intracommunautaire : FR00123456789",
+      "directorLabel": "Directeur de la publication :",
+      "directorName": "M. Jean Dupont",
+      "contactLabel": "Contact :",
+      "email": "contact@protectappel.example.com",
+      "phone": "+33 1 23 45 67 89"
+    },
+    "hosting": {
+      "title": "Hébergement",
+      "name": "Nom de l'hébergeur : Hébergeur Pro XYZ",
+      "address": "Adresse : 456 Avenue Virtuelle, 75000 Ville, France",
+      "phone": "Téléphone : +33 9 87 65 43 21"
+    },
+    "ip": {
+      "title": "Propriété Intellectuelle",
+      "p1": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.",
+      "p2": "La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication."
+    },
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "p1": "ProtectAppel s'efforce d'assurer au mieux de ses possibilités, l'exactitude et la mise à jour des informations diffusées sur ce site, dont elle se réserve le droit de corriger, à tout moment et sans préavis, le contenu. Toutefois, ProtectAppel ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à la disposition sur ce site."
+    },
+    "data": {
+      "title": "Données personnelles",
+      "p1": "Pour plus d'informations sur la gestion de vos données personnelles, veuillez consulter notre <a href=\"politique-confidentialite.html\" data-i18n=\"footer.nav.privacy\">Politique de Confidentialité</a>."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "Pour plus d'informations sur l'utilisation des cookies, veuillez consulter notre <a href=\"politique-confidentialite.html#cookies\" data-i18n=\"privacyPage.cookies.titleShort\">Politique de Cookies</a>."
+    },
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
+  "privacyPage": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "introduction": {
+      "title": "Introduction",
+      "p1": "ProtectAppel SAS ('nous', 'notre' ou 'nos') s'engage à proteger la vie privée de ses utilisateurs ('utilisateur' ou 'vous'). Cette Politique de Confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous utilisez notre site web [protectappel.example.com] (le 'Site') et nos services de filtrage d'appels (les 'Services').",
+      "p2": "Veuillez lire attentivement cette politique. Si vous n'êtes pas d'accord avec les termes de cette politique de confidentialité, veuillez ne pas accéder au site ni utiliser nos services."
+    },
+    "dataCollection": {
+      "title": "Collecte de Vos Informations",
+      "p1": "Nous pouvons collecter des informations vous concernant de différentes manières :",
+      "item1": {
+        "title": "Données personnelles identifiables :",
+        "description": "Informations que vous nous fournissez volontairement lors de votre inscription ou de l'utilisation de nos services, telles que votre nom, adresse e-mail, numéro de téléphone, et informations de paiement."
+      },
+      "item2": {
+        "title": "Données d'utilisation et journaux d'appels :",
+        "description": "Informations que nos serveurs collectent automatiquement lorsque vous accédez au Site ou utilisez les Services, telles que votre adresse IP, type de navigateur, système d'exploitation, heures d'accès, et les pages que vous avez consultées avant et après avoir accédé au Site. Pour le service de filtrage, nous pouvons collecter des métadonnées d'appels (numéros appelants, date, heure, durée, résultat du filtrage) mais jamais le contenu audio des appels."
+      },
+      "item3": {
+        "title": "Cookies et technologies de suivi :",
+        "description": "Nous utilisons des cookies et des technologies de suivi similaires pour collecter des informations sur votre interaction avec notre Site et nos Services. Vous pouvez contrôler l'utilisation des cookies au niveau de votre navigateur."
+      }
+    },
+    "dataUsage": {
+      "title": "Utilisation de Vos Informations",
+      "p1": "Avoir des informations précises sur vous nous permet de vous fournir une expérience fluide, efficace et personnalisée. Plus précisément, nous pouvons utiliser les informations collectées vous concernant pour :",
+      "listIntro": "",
+      "item1": "Créer et gérer votre compte.",
+      "item2": "Fournir, exploiter et améliorer nos Services, y compris le filtrage des appels.",
+      "item3": "Traiter vos transactions et envoyer des informations relatives, y compris les confirmations d'achat et les factures.",
+      "item4": "Vous envoyer des communications administratives, telles que des mises à jour de sécurité ou des informations sur les modifications de nos politiques.",
+      "item5": "Répondre à vos commentaires, questions et demandes, et fournir un service client.",
+      "item6": "Surveiller et analyser les tendances d'utilisation et les activités en rapport avec notre Site et nos Services.",
+      "item7": "Personnaliser et améliorer le Site et les Services et fournir des publicités, du contenu ou des fonctionnalités qui correspondent à vos intérêts.",
+      "item8": "Respecter nos obligations légales et réglementaires."
+    },
+    "dataSharing": {
+      "title": "Divulgation de Vos Informations",
+      "p1": "Nous ne partageons pas les informations personnelles que nous avons collectées à votre sujet, sauf dans les circonstances suivantes :",
+      "listIntro": "",
+      "item1": "<strong>Avec votre consentement :</strong> Nous pouvons divulguer vos informations à des tiers si vous nous y avez autorisés.",
+      "item2": "<strong>Fournisseurs de services :</strong> Nous pouvons partager vos informations avec des fournisseurs tiers qui effectuent des services pour nous ou en notre nom, tels que le traitement des paiements, l'analyse de données, la livraison d'e-mails, les services d'hébergement, le service client et l'assistance marketing.",
+      "item3": "<strong>Obligations légales :</strong> Nous pouvons divulguer vos informations si nous sommes tenus de le faire par la loi ou si nous croyons de bonne foi qu'une telle action est nécessaire pour se conformer à une obligation légale, protéger et défendre nos droits ou notre propriété, prévenir ou enquêter sur d'éventuels actes répréhensibles en relation avec le Service, ou protéger la sécurité personnelle des utilisateurs du Service ou du public.",
+      "item4": "<strong>Transferts d'entreprise :</strong> Nous pouvons partager ou transférer vos informations dans le cadre de, ou pendant les négociations de, toute fusion, vente d'actifs de la société, financement ou acquisition de tout ou partie de nos activités par une autre société."
+    },
+    "dataSecurity": {
+      "title": "Sécurité de Vos Informations",
+      "p1": "Nous utilisons des mesures de sécurité administratives, techniques et physiques pour aider à protéger vos informations personnelles. Bien que nous ayons pris des mesures raisonnables pour sécuriser les informations personnelles que vous nous fournissez, veuillez être conscient qu'aucun système de sécurité n'est parfait ou impénétrable, et aucune méthode de transmission de données ne peut être garantie contre toute interception ou autre type d'utilisation abusive."
+    },
+    "dataRetention": {
+      "title": "Conservation de Vos Informations",
+      "p1": "Nous conserverons vos informations personnelles uniquement aussi longtemps que nécessaire aux fins énoncées dans cette Politique de Confidentialité. Nous conserverons et utiliserons vos informations dans la mesure nécessaire pour nous conformer à nos obligations légales, résoudre les litiges et faire respecter nos politiques."
+    },
+    "cookies": {
+      "title": "Politique Relative aux Cookies",
+      "titleShort": "Politique de Cookies",
+      "p1": "Les cookies sont de petits fichiers texte placés sur votre appareil par les sites web que vous visitez. Ils sont largement utilisés pour faire fonctionner les sites web, ou fonctionner plus efficacement, ainsi que pour fournir des informations aux propriétaires du site.",
+      "p2": "Nous utilisons les types de cookies suivants :",
+      "listIntro": "",
+      "item1": "<strong>Cookies strictement nécessaires :</strong> Essentiels pour vous permettre de naviguer sur le site et d'utiliser ses fonctionnalités.",
+      "item2": "<strong>Cookies de performance/analytiques :</strong> Collectent des informations sur la façon dont vous utilisez notre site (par exemple, quelles pages vous visitez le plus souvent). Ces cookies ne collectent pas d'informations permettant de vous identifier.",
+      "item3": "<strong>Cookies de fonctionnalité :</strong> Permettent au site de se souvenir des choix que vous faites (comme votre nom d'utilisateur, votre langue ou la région où vous vous trouvez) et de fournir des fonctionnalités améliorées et plus personnelles.",
+      "p3": "Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur. La désactivation des cookies peut affecter la fonctionnalité de ce site."
+    },
+    "yourRights": {
+      "title": "Vos Droits en Matière de Protection des Données",
+      "p1": "Selon votre lieu de résidence, vous pouvez avoir les droits suivants concernant vos données personnelles :",
+      "listIntro": "",
+      "item1": "Le droit d'accès – Vous avez le droit de demander des copies de vos données personnelles.",
+      "item2": "Le droit de rectification – Vous avez le droit de demander que nous corrigions toute information que vous jugez inexacte ou que nous complétions toute information que vous jugez incomplète.",
+      "item3": "Le droit à l'effacement – Vous avez le droit de demander que nous effacions vos données personnelles, sous certaines conditions.",
+      "item4": "Le droit de restreindre le traitement – Vous avez le droit de demander que nous limitions le traitement de vos données personnelles, sous certaines conditions.",
+      "item5": "Le droit de vous opposer au traitement – Vous avez le droit de vous opposer à notre traitement de vos données personnelles, sous certaines conditions.",
+      "item6": "Le droit à la portabilité des données – Vous avez le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions.",
+      "p2": "Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter à <a href=\"mailto:privacy@protectappel.example.com\">privacy@protectappel.example.com</a>."
+    },
+    "children": {
+      "title": "Politique Concernant les Enfants",
+      "p1": "Nos Services ne s'adressent pas aux personnes de moins de 13 ans (ou l'âge applicable dans votre juridiction). Nous ne collectons pas sciemment d'informations personnelles identifiables auprès d'enfants de moins de 13 ans. Si vous êtes un parent ou un tuteur et que vous savez que votre enfant nous a fourni des données personnelles, veuillez nous contacter. Si nous apprenons que nous avons collecté des données personnelles d'enfants sans vérification du consentement parental, nous prenons des mesures pour supprimer ces informations de nos serveurs."
+    },
+    "policyUpdates": {
+      "title": "Modifications de cette Politique de Confidentialité",
+      "p1": "Nous pouvons mettre à jour notre Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle Politique de Confidentialité sur cette page et en mettant à jour la date de 'Dernière mise à jour' en haut de cette Politique de Confidentialité.",
+      "p2": "Il vous est conseillé de consulter périodiquement cette Politique de Confidentialité pour tout changement. Les changements à cette Politique de Confidentialité sont effectifs lorsqu'ils sont publiés sur cette page."
+    },
+    "contactUs": {
+      "title": "Nous Contacter",
+      "p1": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter :",
+      "email": "Par email : <a href=\"mailto:privacy@protectappel.example.com\">privacy@protectappel.example.com</a>",
+      "address": "Par courrier : ProtectAppel SAS, Service de la Confidentialité, 123 Rue Imaginaire, 75000 Ville, France."
+    }
+  },
+  "cguPage": {
+    "title": "Conditions Générales d'Utilisation",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "acceptance": {
+      "title": "1. Acceptation des Conditions",
+      "p1": "En accédant et en utilisant le site web ProtectAppel (le 'Site') et les services de filtrage d'appels (les 'Services') fournis par ProtectAppel SAS ('ProtectAppel', 'nous', 'notre'), vous acceptez d'être lié par ces Conditions Générales d'Utilisation ('CGU'). Si vous n'acceptez pas ces CGU, vous ne devez pas utiliser le Site ou les Services."
+    },
+    "serviceDescription": {
+      "title": "2. Description du Service",
+      "p1": "ProtectAppel fournit un service de filtrage d'appels basé sur l'intelligence artificielle conçu pour identifier et bloquer les appels indésirables, tels que les spams et les appels frauduleux. Les fonctionnalités exactes peuvent varier en fonction du plan d'abonnement choisi."
+    },
+    "registration": {
+      "title": "3. Inscription et Compte Utilisateur",
+      "p1": "Pour utiliser certaines fonctionnalités des Services, vous devrez peut-être créer un compte. Vous acceptez de fournir des informations exactes, actuelles et complètes lors du processus d'inscription et de mettre à jour ces informations pour qu'elles restent exactes, actuelles et complètes.",
+      "p2": "Vous êtes responsable de la protection de votre mot de passe et de toutes les activités qui se produisent sous votre compte. Vous acceptez de nous informer immédiatement de toute utilisation non autorisée de votre compte."
+    },
+    "userConduct": {
+      "title": "4. Conduite de l'Utilisateur",
+      "p1": "Vous acceptez de ne pas utiliser le Site ou les Services pour :",
+      "listIntro": "",
+      "item1": "Toute activité illégale ou frauduleuse.",
+      "item2": "Transmettre tout matériel qui est illégal, harcelant, diffamatoire, abusif, menaçant, nuisible, vulgaire, obscène, ou autrement répréhensible.",
+      "item3": "Interférer avec ou perturber le fonctionnement du Site ou des Services ou des serveurs ou réseaux connectés aux Services.",
+      "item4": "Tenter d'obtenir un accès non autorisé à toute partie du Site, des Services, à d'autres comptes, systèmes informatiques ou réseaux connectés aux Services, par piratage, extraction de mot de passe ou tout autre moyen."
+    },
+    "feesPayment": {
+      "title": "5. Frais et Paiement",
+      "p1": "Certains aspects des Services peuvent être fournis moyennant des frais. Vous acceptez de payer tous les frais applicables tels que décrits sur le Site en relation avec les Services que vous sélectionnez. Tous les frais ne sont pas remboursables, sauf indication contraire expresse ou disposition légale.",
+      "p2": "Nous pouvons modifier nos tarifs de temps à autre. Nous vous informerons de tout changement de prix en publiant les nouveaux tarifs sur le Site ou en vous envoyant une notification."
+    },
+    "ipRights": {
+      "title": "6. Droits de Propriété Intellectuelle",
+      "p1": "Le Site, les Services et tout leur contenu original, caractéristiques et fonctionnalités sont et resteront la propriété exclusive de ProtectAppel SAS et de ses concédants de licence. Le Site et les Services sont protégés par le droit d'auteur, les marques commerciales et d'autres lois de France et d'autres pays."
+    },
+    "termination": {
+      "title": "7. Résiliation",
+      "p1": "Nous pouvons résilier ou suspendre votre accès au Site et aux Services immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans s'y limiter, si vous violez ces CGU.",
+      "p2": "En cas de résiliation, votre droit d'utiliser les Services cessera immédiatement. Si vous souhaitez résilier votre compte, vous pouvez simplement cesser d'utiliser les Services ou nous contacter pour supprimer votre compte."
+    },
+    "disclaimer": {
+      "title": "8. Exonération de Garanties",
+      "p1": "Le Site et les Services sont fournis 'TELS QUELS' et 'TELS QUE DISPONIBLES'. ProtectAppel ne fait aucune déclaration ou garantie d'aucune sorte, expresse ou implicite, quant au fonctionnement du Site ou des Services, ou aux informations, contenus, matériaux ou produits inclus sur ceux-ci. Vous acceptez expressément que votre utilisation du Site et des Services se fait à vos risques et périls.",
+      "p2": "Bien que nous nous efforcions de fournir un service de filtrage d'appels précis et efficace, nous ne garantissons pas que tous les appels indésirables seront bloqués ou que tous les appels légitimes seront autorisés."
+    },
+    "liabilityLimitation": {
+      "title": "9. Limitation de Responsabilité",
+      "p1": "En aucun cas ProtectAppel, ni ses administrateurs, employés, partenaires, agents, fournisseurs ou affiliés, ne pourront être tenus responsables de tout dommage indirect, accessoire, spécial, consécutif ou punitif, y compris, sans s'y limiter, la perte de profits, de données, d'utilisation, de clientèle ou d'autres pertes intangibles, résultant de (i) votre accès ou utilisation ou incapacité d'accéder ou d'utiliser le Site ou les Services ; (ii) toute conduite ou contenu d'un tiers sur le Site ou les Services ; (iii) tout contenu obtenu à partir du Site ou des Services ; et (iv) l'accès, l'utilisation ou l'altération non autorisés de vos transmissions ou de votre contenu, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages."
+    },
+    "indemnification": {
+      "title": "10. Indemnisation",
+      "p1": "Vous acceptez de défendre, d'indemniser et de dégager de toute responsabilité ProtectAppel SAS et ses licenciés et concédants de licence, ainsi que leurs employés, sous-traitants, agents, dirigeants et administrateurs respectifs, contre toutes réclamations, dommages, obligations, pertes, responsabilités, coûts ou dettes, et dépenses (y compris, mais sans s'y limiter, les honoraires d'avocat), résultant de ou découlant de a) votre utilisation et votre accès au Site et aux Services, ou b) une violation de ces CGU."
+    },
+    "governingLaw": {
+      "title": "11. Droit Applicable",
+      "p1": "Ces CGU seront régies et interprétées conformément aux lois françaises, sans égard à ses dispositions en matière de conflit de lois."
+    },
+    "changes": {
+      "title": "12. Modifications des CGU",
+      "p1": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces CGU à tout moment. Si une révision est importante, nous nous efforcerons de fournir un préavis d'au moins 30 jours avant l'entrée en vigueur des nouvelles conditions. Ce qui constitue un changement important sera déterminé à notre seule discrétion.",
+      "p2": "En continuant à accéder ou à utiliser notre Site et nos Services après l'entrée en vigueur de ces révisions, vous acceptez d'être lié par les conditions révisées. Si vous n'acceptez pas les nouvelles conditions, veuillez cesser d'utiliser le Site et les Services."
+    },
+    "contact": {
+      "title": "13. Contact",
+      "p1": "Si vous avez des questions concernant ces CGU, veuillez nous contacter à <a href=\"mailto:legal@protectappel.example.com\">legal@protectappel.example.com</a>."
+    }
+  },
+  "sitemapPage": {
+    "title": "Plan du Site",
+    "mainNavTitle": "Navigation Principale",
+    "footerNavTitle": "Liens du Pied de Page",
+    "otherPagesTitle": "Autres Pages"
+  }
+}

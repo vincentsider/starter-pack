@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pricingPage.meta.title">Tarifs - Assistant Filtrage d'Appels</title>
+    <meta name="description" data-i18n="pricingPage.meta.description" content="Découvrez nos plans tarifaires flexibles pour l'assistant de filtrage d'appels. Choisissez l'offre qui correspond le mieux à vos besoins.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pricing.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <!-- Scripts pour i18next et chargement des composants -->
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/components.js" defer></script>
+    <script src="js/pricing.js" defer></script>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Section Hero de la Page Tarifs -->
+        <section class="page-hero-section" aria-labelledby="pricing-hero-title">
+            <div class="container">
+                <h1 id="pricing-hero-title" data-i18n="pricingPage.hero.title">Des Tarifs Adaptés à Chacun</h1>
+                <p class="subtitle" data-i18n="pricingPage.hero.subtitle">
+                    Choisissez le plan qui vous convient le mieux et commencez à filtrer vos appels intelligemment dès aujourd'hui.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section des Plans Tarifaires -->
+        <section class="pricing-plans-section" aria-labelledby="pricing-plans-title">
+            <div class="container">
+                <h2 id="pricing-plans-title" data-i18n="pricingPage.plans.title">Nos Offres</h2>
+                <p class="section-subtitle" data-i18n="pricingPage.plans.subtitle">
+                    Transparent, flexible et sans engagement à long terme.
+                </p>
+                <div class="pricing-grid">
+                    <!-- Plan Essentiel Placeholder -->
+                    <div id="pricing-plan-essential-placeholder" class="pricing-plan-card">
+                        <!-- Le contenu sera chargé par components.js -->
+                    </div>
+                    <!-- Plan Premium Placeholder -->
+                    <div id="pricing-plan-premium-placeholder" class="pricing-plan-card recommended">
+                        <!-- Le contenu sera chargé par components.js -->
+                    </div>
+                    <!-- Plan Entreprise Placeholder -->
+                    <div id="pricing-plan-enterprise-placeholder" class="pricing-plan-card">
+                        <!-- Le contenu sera chargé par components.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Tableau Comparatif des Fonctionnalités -->
+        <section class="features-comparison-section" aria-labelledby="features-comparison-title">
+            <div class="container">
+                <h2 id="features-comparison-title" data-i18n="pricingPage.comparison.title">Comparez nos Plans</h2>
+                <div id="pricing-comparison-table-placeholder">
+                    <!-- Le tableau comparatif sera chargé ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" data-i18n="pricingPage.faq.title">Questions Fréquemment Posées</h2>
+                <div id="faq-placeholder">
+                    <!-- Les FAQs seront chargées ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta-pricing-section" aria-labelledby="cta-pricing-title">
+            <div class="container">
+                <h2 id="cta-pricing-title" data-i18n="pricingPage.cta.title">Prêt à dire adieu aux appels indésirables ?</h2>
+                <p data-i18n="pricingPage.cta.subtitle">Rejoignez des milliers d'utilisateurs satisfaits et reprenez le contrôle de votre téléphone.</p>
+                <div id="cta-button-pricing-placeholder">
+                     <!-- Le bouton CTA sera chargé ici -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Initialiser i18next (déjà fait par i18n.js mais s'assurer qu'il est prêt)
+            await window.i18nPromise; // Attendre que i18n soit initialisé
+
+            // Charger les composants communs (Header, Footer)
+            await loadCommonComponents(); // Doit être défini dans components.js
+
+            // Charger les composants spécifiques à la page des tarifs
+            if (typeof loadPricingPageComponents === 'function') {
+                await loadPricingPageComponents();
+            } else {
+                console.error('loadPricingPageComponents function not found. Make sure pricing.js is loaded.');
+            }
+
+            // Mettre à jour le contenu traduit après le chargement de tous les composants
+            if (typeof updateContent === 'function') {
+                updateContent(); // Doit être défini dans i18n.js
+            } else {
+                console.error('updateContent function not found. Make sure i18n.js is loaded and initialized.');
+            }
+        });
+    </script>
+</body>
+</html>

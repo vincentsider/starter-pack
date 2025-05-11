@@ -1,0 +1,222 @@
+/* public/css/layout/footer.css */
+
+:root {
+    --footer-bg-color: var(--neutral-color-dark); /* Fond sombre pour le contraste */
+    --footer-text-color: var(--text-color-light);
+    --footer-link-color: var(--neutral-color-light);
+    --footer-link-hover-color: var(--primary-color-light);
+    --footer-padding-y: var(--space-xl);
+    --footer-padding-x: var(--space-lg);
+    --footer-border-top: 4px solid var(--primary-color); /* Ligne de séparation distinctive */
+    --footer-bottom-text-color: var(--neutral-color-medium);
+    --footer-icon-size: 24px;
+    --footer-icon-color: var(--neutral-color-light);
+    --footer-icon-hover-color: var(--primary-color-light);
+}
+
+.site-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: var(--footer-padding-y) var(--footer-padding-x);
+    border-top: var(--footer-border-top);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.footer-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: var(--space-lg); /* Espacement entre les colonnes */
+}
+
+.footer-column {
+    padding: 0 var(--space-sm); /* Léger padding interne pour les colonnes */
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white-color); /* Titres de section plus clairs */
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-bottom: var(--space-xs);
+}
+
+.footer-column h4::after { /* Soulignement subtil pour les titres */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-logo-container {
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-container img {
+    max-height: 35px; /* Logo un peu plus petit dans le footer */
+    margin-right: var(--space-sm);
+}
+
+.footer-logo-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+.footer-column p {
+    margin-bottom: var(--space-sm);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: var(--space-xs);
+}
+
+.footer-column a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-column a:hover,
+.footer-column a:focus {
+    color: var(--footer-link-hover-color);
+    padding-left: var(--space-xxs); /* Léger décalage au survol */
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md); /* Espacement entre les icônes sociales */
+    margin-top: var(--space-md);
+}
+
+.social-links a {
+    color: var(--footer-icon-color);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: var(--footer-icon-hover-color);
+    transform: scale(1.1); /* Agrandir légèrement l'icône au survol */
+}
+
+.social-links svg {
+    width: var(--footer-icon-size);
+    height: var(--footer-icon-size);
+    fill: currentColor; /* L'icône prend la couleur du lien <a> */
+}
+
+.footer-bottom {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--neutral-color-xdark); /* Séparateur plus subtil */
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--footer-bottom-text-color);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: var(--neutral-color-medium);
+    text-decoration: underline;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus {
+    color: var(--primary-color-light);
+}
+
+/* Style pour le formulaire de newsletter, si présent dans le footer */
+.newsletter-form {
+    margin-top: var(--space-md);
+}
+
+.newsletter-form .form-group {
+    display: flex;
+    margin-bottom: 0; /* Géré par le flex container */
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: var(--space-sm);
+    border: 1px solid var(--neutral-color-xdark);
+    border-right: none; /* Pour coller le bouton */
+    border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+    background-color: var(--neutral-color-xdark); /* Fond un peu plus clair que le footer */
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: var(--neutral-color-medium);
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--neutral-color-dark); /* Un peu plus sombre au focus */
+}
+
+.newsletter-form .btn-primary {
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    padding: var(--space-sm) var(--space-md);
+    white-space: nowrap; /* Empêche le texte du bouton de passer à la ligne */
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuster pour mobile */
+        gap: var(--space-md);
+    }
+
+    .footer-column {
+        text-align: center; /* Centrer le contenu des colonnes sur mobile */
+        padding: 0;
+    }
+
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%); /* Centrer le soulignement */
+    }
+
+    .social-links {
+        justify-content: center; /* Centrer les icônes sociales */
+    }
+
+    .newsletter-form .form-group {
+        flex-direction: column; /* Mettre l'input et le bouton en colonne */
+    }
+    .newsletter-form input[type="email"] {
+        border-right: 1px solid var(--neutral-color-xdark);
+        border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+        margin-bottom: var(--space-xs);
+        text-align: center;
+    }
+    .newsletter-form .btn-primary {
+        border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur très petits écrans */
+    }
+}

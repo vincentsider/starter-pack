@@ -1,0 +1,257 @@
+/* public/css/components/card.css */
+
+:root {
+    --card-bg: var(--background-color-light); /* Fond par défaut des cartes */
+    --card-border-color: var(--neutral-color-light);
+    --card-border-radius: var(--border-radius-large);
+    --card-padding: 1.5rem; /* Espace intérieur standard pour les cartes */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombre par défaut pour un effet de profondeur */
+    --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12); /* Ombre plus prononcée au survol */
+    --card-transition-duration: 0.3s;
+
+    --card-title-font-size: 1.5rem;
+    --card-title-color: var(--text-color-dark);
+    --card-text-color: var(--text-color-medium);
+    --card-link-color: var(--primary-color);
+    --card-link-color-hover: var(--primary-color-dark);
+
+    /* Variations spécifiques */
+    --card-highlighted-bg: var(--primary-color-lightest);
+    --card-highlighted-border: var(--primary-color-light);
+    --card-highlighted-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.15);
+
+    --card-pricing-bg: var(--background-color-light);
+    --card-pricing-border: var(--secondary-color-light);
+    --card-pricing-shadow: 0 5px 15px rgba(var(--secondary-color-rgb), 0.1);
+
+    --card-testimonial-bg: var(--neutral-color-lightest);
+    --card-testimonial-border: transparent; /* Souvent sans bordure explicite */
+    --card-testimonial-text-color: var(--text-color-dark);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--card-transition-duration) ease,
+                box-shadow var(--card-transition-duration) ease;
+    display: flex; /* Pour mieux organiser le contenu interne verticalement */
+    flex-direction: column;
+    height: 100%; /* Pour que les cartes dans une grille aient la même hauteur */
+    overflow: hidden; /* Pour s'assurer que les coins arrondis s'appliquent aux images/contenu */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Léger soulèvement au survol */
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-image-container {
+    width: 100%;
+    margin-bottom: var(--card-padding); /* Espace entre l'image et le corps */
+    overflow: hidden; /* S'assurer que l'image ne dépasse pas */
+}
+
+.card-image-container img.card-image {
+    width: 100%;
+    height: auto; /* Garder les proportions de l'image */
+    display: block;
+    border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0; /* Coins arrondis en haut si l'image est le premier élément */
+    object-fit: cover; /* Assure que l'image couvre bien la zone, peut être ajusté (contain, etc.) */
+}
+/* Si l'image est la première chose dans la carte, pas de marge en haut */
+.card > .card-image-container:first-child {
+    margin-top: calc(-1 * var(--card-padding));
+    margin-left: calc(-1 * var(--card-padding));
+    margin-right: calc(-1 * var(--card-padding));
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}
+.card > .card-image-container:first-child img.card-image {
+     border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}
+
+
+.card-body {
+    flex-grow: 1; /* Permet au corps de la carte de prendre l'espace disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: var(--card-title-font-size);
+    color: var(--card-title-color);
+    margin-top: 0;
+    margin-bottom: 0.75rem; /* Espace sous le titre */
+    font-weight: 700; /* Titre plus en évidence */
+    line-height: 1.3;
+}
+
+.card-text {
+    color: var(--card-text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Espace sous le texte principal */
+    flex-grow: 1; /* Permet au texte de pousser le footer/actions vers le bas */
+}
+
+.card-tags {
+    margin-bottom: 1rem; /* Espace avant les actions si des tags sont présents */
+}
+
+.card-tags .tag {
+    display: inline-block;
+    background-color: var(--neutral-color-light);
+    color: var(--text-color-dark);
+    padding: 0.25em 0.75em;
+    border-radius: var(--border-radius-small);
+    font-size: 0.8rem;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.card-actions {
+    margin-top: auto; /* Pousse les actions en bas de la carte si l'espace le permet */
+    padding-top: 1rem; /* Espace au-dessus des actions */
+    border-top: 1px solid var(--neutral-color-lighter); /* Séparateur léger */
+    display: flex;
+    gap: 0.5rem; /* Espace entre les boutons d'action */
+}
+.card-actions:empty {
+    display: none; /* Cache la section actions si elle est vide */
+}
+.card-actions .btn {
+    /* Style spécifique pour les boutons dans les cartes si nécessaire */
+    /* Par exemple, pour qu'ils prennent toute la largeur disponible s'il n'y en a qu'un */
+}
+.card-actions .card-action-link {
+    color: var(--card-link-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-actions .card-action-link:hover {
+    color: var(--card-link-color-hover);
+    text-decoration: underline;
+}
+
+.card-footer {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--neutral-color-lighter);
+    font-size: 0.85rem;
+    color: var(--text-color-light-emphasis); /* Texte plus discret */
+}
+.card-footer:empty {
+    display: none; /* Cache le footer s'il est vide */
+}
+
+
+/* Variante : Carte Mise en Avant (Highlighted) */
+.card-highlighted {
+    background-color: var(--card-highlighted-bg);
+    border-color: var(--card-highlighted-border);
+    box-shadow: var(--card-highlighted-shadow);
+}
+
+.card-highlighted .card-title {
+    color: var(--primary-color-dark); /* Titre plus en phase avec la couleur primaire */
+}
+
+/* Variante : Carte de Tarification (Pricing) */
+.card-pricing {
+    background-color: var(--card-pricing-bg);
+    border-color: var(--card-pricing-border);
+    box-shadow: var(--card-pricing-shadow);
+    text-align: center; /* Souvent, les cartes de prix sont centrées */
+}
+
+.card-pricing .card-title {
+    color: var(--secondary-color-dark); /* Titre en phase avec la couleur secondaire */
+    font-size: 1.75rem; /* Titre de prix souvent plus grand */
+}
+
+.card-pricing .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin: 0.5rem 0;
+}
+
+.card-pricing .price-period {
+    font-size: 0.9rem;
+    color: var(--text-color-medium);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.card-pricing ul.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left; /* Liste des fonctionnalités souvent alignée à gauche */
+}
+
+.card-pricing ul.features-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5em; /* Espace pour l'icône/puce */
+    position: relative;
+}
+
+.card-pricing ul.features-list li::before {
+    content: '✓'; /* Puce personnalisée (exemple) */
+    color: var(--success-color); /* Couleur pour la puce */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Variante : Carte Témoignage (Testimonial) */
+.card-testimonial {
+    background-color: var(--card-testimonial-bg);
+    border-color: var(--card-testimonial-border);
+    box-shadow: var(--card-shadow); /* Peut avoir une ombre standard ou plus subtile */
+}
+
+.card-testimonial .testimonial-text {
+    font-style: italic;
+    color: var(--card-testimonial-text-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem; /* Texte du témoignage légèrement plus grand */
+    position: relative;
+    padding-left: 2rem; /* Espace pour les guillemets */
+}
+
+.card-testimonial .testimonial-text::before {
+    content: '“'; /* Guillemet ouvrant */
+    font-family: Georgia, serif; /* Police avec de beaux guillemets */
+    font-size: 3rem;
+    color: var(--primary-color-light);
+    position: absolute;
+    left: -0.5rem;
+    top: -0.5rem;
+    line-height: 1;
+}
+
+.card-testimonial .testimonial-author {
+    font-weight: 600;
+    color: var(--text-color-dark);
+    text-align: right; /* Auteur souvent aligné à droite */
+}
+
+.card-testimonial .testimonial-author span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--text-color-medium);
+}
+
+/* S'assurer que le conteneur des cartes (grid/flex) est bien configuré */
+/* Exemple :
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--card-padding);
+}
+*/

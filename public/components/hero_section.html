@@ -1,0 +1,53 @@
+<!-- public/components/hero_section.html -->
+<!--
+    Composant: Section Héros (Hero Section)
+    Description: La section principale d'une page, typiquement en haut, pour capter l'attention avec un titre fort,
+                 un sous-titre et un appel à l'action.
+    Basé sur le pseudocode de `pseudocode/site_vitrine/common/ui_components.md`.
+
+    Attributs de données pour la personnalisation (à injecter dynamiquement via JS ou à définir lors de l'inclusion) :
+    - data-hero-id: Un ID unique pour la section.
+    - data-hero-eyebrow: Texte d'accroche court (optionnel).
+    - data-hero-title: Le titre principal.
+    - data-hero-subtitle: Le sous-titre ou la description.
+    - data-hero-cta-text: Le texte du bouton d'appel à l'action principal.
+    - data-hero-cta-link: Le lien du bouton d'appel à l'action principal.
+    - data-hero-cta-type: "primary" ou "secondary" pour le bouton principal.
+    - data-hero-secondary-cta-text: Texte pour un CTA secondaire (optionnel).
+    - data-hero-secondary-cta-link: Lien pour un CTA secondaire (optionnel).
+    - data-hero-secondary-cta-type: "primary" ou "secondary" pour le bouton secondaire.
+    - data-hero-image-src: Chemin vers une image d'arrière-plan ou une image de premier plan (optionnel).
+    - data-hero-image-alt: Texte alternatif pour l'image (si data-hero-image-src est utilisé).
+    - data-hero-layout: "text-left-image-right", "text-right-image-left", "text-center-image-bottom", "background-image" (défaut "text-left-image-right" ou "background-image" si une image de fond est spécifiée).
+    - data-hero-text-align: "left", "center", "right" (s'applique au bloc de texte).
+    - Une classe CSS spécifique peut être ajoutée pour l'image/couleur de fond.
+-->
+<section class="hero-section hero-layout--text-left-image-right"
+    data-hero-id="hero-default"
+    aria-labelledby="hero-title-default"
+>
+    <div class="container hero-section-content">
+        <div class="hero-text-content text-align--left">
+            <span class="hero-eyebrow" data-hero-eyebrow-content>Découvrez la sérénité</span>
+            <h1 id="hero-title-default" class="hero-title" data-hero-title-content>Ne soyez plus jamais dérangé par des appels indésirables.</h1>
+            <p class="hero-subtitle" data-hero-subtitle-content>Notre assistant intelligent filtre vos appels, vous laissant vous concentrer sur ce qui compte vraiment.</p>
+            <div class="hero-cta-buttons">
+                <a href="#" class="button button--primary hero-cta-button" data-hero-cta-button-content>
+                    Essayer gratuitement
+                </a>
+                <a href="#" class="button button--secondary hero-secondary-cta-button" data-hero-secondary-cta-button-content>
+                    Voir les fonctionnalités
+                </a>
+            </div>
+        </div>
+        <div class="hero-image-content">
+            <!-- Si data-hero-image-src est fourni et layout n'est pas background-image, une balise <img> est insérée ici -->
+            <!-- <img src="placeholder-image.jpg" alt="Illustration de l'assistant d'appel" data-hero-image-element> -->
+            <!-- Pour l'instant, on peut laisser vide ou mettre un placeholder CSS -->
+             <div class="hero-image-placeholder" data-hero-image-element>
+                <!-- L'image sera définie via CSS ou JS pour cet exemple -->
+             </div>
+        </div>
+    </div>
+    <!-- Si data-hero-layout est "background-image", l'image est appliquée à la section via CSS -->
+</section>

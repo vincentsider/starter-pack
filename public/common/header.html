@@ -1,0 +1,49 @@
+<!-- common/header.html -->
+<header id="main-header" class="main-header">
+    <div class="container header-container">
+        <a href="index.html" class="logo-link" aria-label="Accueil CallGuard">
+            <img src="img/logo_callguard.png" alt="Logo CallGuard" class="logo-image">
+            <span class="logo-text">CallGuard</span>
+        </a>
+
+        <nav class="main-navigation" id="main-navigation" aria-label="Navigation principale">
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-navigation">
+                <span class="sr-only" data-i18n-key="header.menu_toggle_sr">Ouvrir/Fermer le menu</span>
+                <span class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n-key="header.nav_home">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="features.html" class="nav-link" data-i18n-key="header.nav_features">Fonctionnalités</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link" data-i18n-key="header.nav_pricing">Tarifs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-i18n-key="header.nav_contact">Contact</a>
+                </li>
+                <li class="nav-item nav-item-cta">
+                    <a href="#cta-section-primary" class="btn btn-primary nav-cta-button" data-i18n-key="header.nav_cta_signup">S'inscrire</a>
+                </li>
+                 <li class="nav-item nav-item-lang-switcher">
+                    <div class="language-switcher">
+                        <button id="current-lang-btn" class="current-lang-btn" aria-haspopup="true" aria-expanded="false" data-i18n-key="header.language_switcher_label" aria-label="Changer de langue">
+                            <img src="img/flags/fr.svg" alt="Français" id="current-lang-flag" class="lang-flag"> FR
+                        </button>
+                        <ul id="lang-dropdown" class="lang-dropdown" role="menu">
+                            <li role="menuitem"><button class="lang-option" data-lang="fr"><img src="img/flags/fr.svg" alt="Français" class="lang-flag"> Français</button></li>
+                            <li role="menuitem"><button class="lang-option" data-lang="en"><img src="img/flags/gb.svg" alt="English" class="lang-flag"> English</button></li>
+                            <li role="menuitem"><button class="lang-option" data-lang="es"><img src="img/flags/es.svg" alt="Español" class="lang-flag"> Español</button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

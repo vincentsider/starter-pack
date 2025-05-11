@@ -1,0 +1,162 @@
+/* Styles spécifiques pour la page Fonctionnalités */
+
+/* Section titre de la page */
+.page-title-section {
+    background-color: var(--neutral-color-very-light); /* Ou une image/gradient spécifique */
+    padding: 4rem 1rem; /* Ajout de padding horizontal pour les petits écrans */
+    text-align: center;
+}
+
+.page-title-section h1 {
+    font-size: var(--font-size-xxxl);
+    color: var(--primary-color-dark);
+    margin-bottom: 0.5rem;
+}
+
+.page-title-section p {
+    font-size: var(--font-size-lg);
+    color: var(--text-color-secondary);
+    max-width: 700px;
+    margin: 0 auto 1rem; /* Ajout de marge en bas */
+}
+
+/* Styles généraux pour les sections de fonctionnalités */
+.feature-section {
+    padding: 3rem 1rem; /* Ajout de padding horizontal */
+    border-bottom: 1px solid var(--neutral-color-light);
+}
+
+.feature-section:last-of-type {
+    border-bottom: none;
+}
+
+.feature-section .container {
+    max-width: 960px; /* Limiter la largeur pour une meilleure lisibilité */
+    margin: 0 auto;
+}
+
+.feature-section h2 {
+    font-size: var(--font-size-xxl);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center; /* Centrer les titres de section */
+}
+
+.feature-section p {
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+    color: var(--text-color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.feature-section img,
+.feature-section .mockup-placeholder { /* Placeholder pour les images ou maquettes */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto; /* Centrer les images/maquettes */
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mockup-placeholder {
+    background-color: var(--neutral-color-light);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-color-secondary);
+    font-style: italic;
+}
+
+
+/* Section CTA Finale */
+.cta-section {
+    background-color: var(--secondary-color-light); /* Couleur de fond distincte */
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: var(--font-size-xxl);
+    color: var(--neutral-color-darkest);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: var(--font-size-lg);
+    color: var(--text-color-secondary-dark); /* Texte plus sombre sur fond clair */
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Pour les petits écrans */
+}
+
+/* Responsive Design pour la page Fonctionnalités */
+@media (max-width: 768px) {
+    .page-title-section h1 {
+        font-size: var(--font-size-xxl);
+    }
+    .page-title-section p {
+        font-size: var(--font-size-md);
+    }
+
+    .feature-section h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .cta-section h2 {
+        font-size: var(--font-size-xl);
+    }
+    .cta-section p {
+        font-size: var(--font-size-md);
+    }
+}
+
+/* Spécificités pour chaque section de fonctionnalité si nécessaire */
+/* Exemple : #filtering-process, #personalization-platform, etc. */
+
+#filtering-process .process-steps {
+    /* Styles pour une liste d'étapes par exemple */
+    list-style: none;
+    padding-left: 0;
+}
+
+#filtering-process .process-steps li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+#filtering-process .process-steps li::before {
+    content: '✔'; /* Ou une icône */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+#personalization-platform .options-grid {
+    /* Styles pour une grille d'options de personnalisation */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+#personalization-platform .option-card {
+    background-color: var(--neutral-color-white);
+    padding: 1.5rem;
+    border: 1px solid var(--neutral-color-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+#personalization-platform .option-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color-dark);
+    margin-bottom: 0.5rem;
+}

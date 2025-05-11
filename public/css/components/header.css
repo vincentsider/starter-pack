@@ -1,0 +1,180 @@
+/* public/css/components/header.css */
+
+.site-header {
+    background-color: var(--header-bg-color, #ffffff); /* Couleur de fond de l'en-tête */
+    padding: 1rem 0; /* Espacement interne vertical */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    position: sticky; /* En-tête collant */
+    top: 0;
+    z-index: 1000; /* S'assurer que l'en-tête est au-dessus des autres éléments */
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Espacer le logo et la navigation */
+    align-items: center; /* Centrer verticalement les éléments */
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x, 1rem);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-dark, #333);
+}
+
+#logo-img {
+    height: 40px; /* Hauteur du logo */
+    margin-right: 0.5rem; /* Marge à droite du logo */
+    transition: transform 0.3s ease;
+}
+
+#logo-img:hover {
+    transform: scale(1.05); /* Effet de survol léger */
+}
+
+.logo-text {
+    font-size: 1.5rem; /* Taille du texte du logo */
+    font-weight: bold; /* Graisse du texte du logo */
+    color: var(--primary-color, #007bff);
+}
+
+.main-navigation ul {
+    list-style: none; /* Supprimer les puces de la liste */
+    display: flex; /* Aligner les éléments de navigation horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation li {
+    margin-left: 1.5rem; /* Marge entre les éléments de navigation */
+}
+
+.main-navigation .nav-link {
+    text-decoration: none; /* Supprimer le soulignement des liens */
+    color: var(--nav-link-color, #333); /* Couleur des liens de navigation */
+    font-weight: 500; /* Graisse des liens */
+    padding: 0.5rem 0.25rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-navigation .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color, #007bff);
+    transition: width 0.3s ease;
+}
+
+.main-navigation .nav-link:hover,
+.main-navigation .nav-link.active { /* Style pour le lien actif */
+    color: var(--primary-color, #007bff); /* Couleur au survol */
+}
+
+.main-navigation .nav-link:hover::after,
+.main-navigation .nav-link.active::after {
+    width: 100%;
+}
+
+.main-navigation .auth-link.cta-button {
+    background-color: var(--primary-color, #007bff);
+    color: var(--button-text-color, #ffffff);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-small, 4px);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-navigation .auth-link.cta-button:hover {
+    background-color: var(--primary-color-dark, #0056b3);
+    transform: translateY(-1px);
+    color: var(--button-text-color, #ffffff); /* Maintenir la couleur du texte au survol */
+}
+.main-navigation .auth-link.cta-button:hover::after {
+    width: 0; /* Pas de soulignement pour le bouton CTA */
+}
+
+
+.mobile-nav-toggle {
+    display: none; /* Masqué par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-nav-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-color-dark, #333);
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Styles pour le menu mobile ouvert (avec JavaScript) */
+.main-navigation.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Se positionne juste en dessous de l'en-tête */
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg-color, #ffffff);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 0; /* Espacement pour les éléments du menu */
+    border-top: 1px solid var(--border-color, #e0e0e0);
+}
+
+.main-navigation.mobile-open ul {
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-navigation.mobile-open li {
+    margin-left: 0;
+    text-align: center; /* Centrer les liens */
+}
+
+.main-navigation.mobile-open .nav-link {
+    display: block; /* Faire en sorte que les liens prennent toute la largeur */
+    padding: 0.75rem 1rem; /* Plus d'espacement pour les liens mobiles */
+    border-bottom: 1px solid var(--border-color-light, #f0f0f0);
+}
+.main-navigation.mobile-open .nav-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-toggle.active .icon-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.mobile-nav-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+.mobile-nav-toggle.active .icon-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* Styles responsifs pour la navigation mobile */
+@media (max-width: 768px) {
+    .main-navigation {
+        display: none; /* Masquer la navigation standard */
+        /* Les styles pour .mobile-open prendront le relais lorsque la classe est ajoutée par JS */
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Afficher le bouton du menu mobile */
+    }
+}

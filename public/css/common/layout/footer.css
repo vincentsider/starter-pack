@@ -1,0 +1,192 @@
+/* public/css/common/layout/footer.css */
+
+/* Style de base pour le pied de page (footer) */
+.site-footer {
+    background-color: var(--footer-bg-color, var(--neutral-color-dark)); /* Souvent plus sombre */
+    color: var(--footer-text-color, var(--text-color-on-dark));
+    padding: var(--footer-padding-y, var(--spacing-xl)) var(--footer-padding-x, var(--container-padding-x));
+    font-size: var(--font-size-sm); /* Texte généralement plus petit dans le footer */
+    line-height: var(--line-height-relaxed, 1.7);
+}
+
+/* Conteneur à l'intérieur du pied de page */
+.footer-container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grille responsive pour les sections */
+    gap: var(--spacing-lg); /* Espace entre les colonnes/sections du footer */
+}
+
+/* Section individuelle dans le pied de page */
+.footer-section {
+    padding: var(--spacing-md) 0;
+}
+
+.footer-section h4,
+.footer-section .footer-title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--footer-title-color, var(--text-color-on-dark-emphasis));
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Listes de liens dans le footer */
+.footer-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: var(--footer-link-color, var(--text-color-on-dark-muted));
+    transition: color var(--transition-speed-base) ease-in-out;
+}
+
+.footer-section a:hover,
+.footer-section a:focus {
+    color: var(--footer-link-hover-color, var(--primary-color-light));
+    text-decoration: underline; /* Optionnel: souligner au survol */
+}
+
+/* Section "À propos" ou description courte */
+.footer-about p {
+    margin-bottom: var(--spacing-md);
+}
+.footer-about p:last-child {
+    margin-bottom: 0;
+}
+
+/* Icônes de réseaux sociaux */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0 0 0;
+    display: flex;
+    gap: var(--spacing-md); /* Espace entre les icônes */
+}
+
+.social-links li {
+    margin-bottom: 0; /* Annule la marge par défaut des li */
+}
+
+.social-links a {
+    display: inline-block;
+    color: var(--footer-social-icon-color, var(--text-color-on-dark-muted));
+    font-size: var(--font-size-lg); /* Taille des icônes */
+    transition: color var(--transition-speed-base) ease-in-out, transform var(--transition-speed-base) ease-in-out;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: var(--footer-social-icon-hover-color, var(--primary-color-light));
+    transform: translateY(-2px); /* Petit effet de lévitation */
+    text-decoration: none; /* Pas de soulignement pour les icônes */
+}
+
+/* Formulaire d'inscription à la newsletter (si présent) */
+.footer-newsletter .form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-newsletter input[type="email"] {
+    background-color: var(--footer-input-bg, rgba(255, 255, 255, 0.1));
+    border-color: var(--footer-input-border, rgba(255, 255, 255, 0.2));
+    color: var(--footer-input-text-color, var(--text-color-on-dark));
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+.footer-newsletter input[type="email"]::placeholder {
+    color: var(--footer-input-placeholder-color, var(--text-color-on-dark-muted));
+}
+.footer-newsletter input[type="email"]:focus {
+    border-color: var(--primary-color-light);
+    background-color: var(--footer-input-focus-bg, rgba(255, 255, 255, 0.15));
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-light-rgb), 0.25);
+}
+
+.footer-newsletter .button {
+    width: 100%;
+    background-color: var(--footer-button-bg, var(--primary-color));
+    color: var(--footer-button-text-color, var(--text-color-on-primary));
+    border: 1px solid var(--footer-button-border-color, var(--primary-color));
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: var(--font-weight-semibold);
+}
+.footer-newsletter .button:hover {
+    background-color: var(--footer-button-hover-bg, var(--primary-color-dark));
+    border-color: var(--footer-button-hover-border-color, var(--primary-color-dark));
+}
+
+/* Barre inférieure du pied de page (copyright, etc.) */
+.footer-bottom {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--footer-divider-color, rgba(255, 255, 255, 0.1));
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--footer-bottom-text-color, var(--text-color-on-dark-muted));
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: var(--footer-bottom-link-color, var(--text-color-on-dark-muted-emphasis));
+    font-weight: var(--font-weight-medium);
+}
+.footer-bottom a:hover,
+.footer-bottom a:focus {
+    color: var(--footer-bottom-link-hover-color, var(--primary-color-light));
+}
+
+/* Responsive pour le footer */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajuster minmax pour plus petits écrans */
+        gap: var(--spacing-md);
+    }
+    .footer-section {
+        padding: var(--spacing-sm) 0;
+    }
+    .footer-bottom {
+        text-align: center; /* Assure que le texte est centré */
+    }
+    .footer-bottom p {
+        margin-bottom: var(--spacing-xs); /* Espace entre les lignes si elles s'empilent */
+    }
+    .footer-bottom p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur très petits écrans */
+        text-align: center; /* Centrer le contenu des sections */
+    }
+    .footer-section ul {
+        /* display: inline-block; */ /* Si on veut centrer les listes */
+        /* text-align: left; */ /* Mais garder le texte des liens à gauche */
+    }
+    .social-links {
+        justify-content: center; /* Centrer les icônes sociales */
+    }
+    .footer-newsletter .button {
+        /* On pourrait vouloir un bouton moins large sur mobile,
+           mais width 100% est souvent ok dans une seule colonne */
+    }
+}

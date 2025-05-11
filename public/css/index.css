@@ -1,0 +1,196 @@
+/* Styles spécifiques pour la page d'accueil (index.html) */
+
+/* Section Héros */
+.hero-section {
+    background-color: var(--background-color-dark); /* Un fond un peu plus sombre pour le héros */
+    color: var(--text-color-light);
+    padding: 4rem 1rem; /* Plus de padding pour la section héros */
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: 2rem;
+    max-width: 700px; /* Limiter la largeur du sous-titre */
+    opacity: 0.9;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+}
+
+/* Section "Comment ça marche ?" */
+.how-it-works-section {
+    background-color: var(--background-color-light);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.step-card {
+    background-color: var(--background-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-sm);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-md);
+    fill: var(--primary-color); /* Si c'est un SVG */
+}
+
+.step-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-card p {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* Section "Avantages Clés" */
+.key-benefits-section {
+    background-color: var(--background-color); /* Fond légèrement différent pour alterner */
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* Les styles pour .card sont déjà dans components/card.css,
+   mais on pourrait ajouter des spécificités ici si besoin.
+   Par exemple, si les icônes des cartes d'avantages ont un style particulier. */
+.benefits-grid .card .card-icon { /* Exemple si on avait des icônes spécifiques */
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-md);
+    fill: var(--secondary-color);
+}
+
+/* Section "Témoignages" */
+.testimonials-section {
+    background-color: var(--background-color-light);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.testimonial-card {
+    background-color: var(--background-color);
+    padding: var(--spacing-lg);
+    border-left: 5px solid var(--primary-color); /* Accent pour les témoignages */
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: right;
+}
+
+
+/* Section "Appel à l'action final" */
+.final-cta-section {
+    color: var(--text-color-light);
+    padding: 3rem 1rem;
+}
+
+.bg-primary-gradient { /* Assurez-vous que cette classe est définie si vous l'utilisez */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.final-cta-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.final-cta-subtitle {
+    font-size: var(--font-size-md);
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+/* Assurer que les boutons CTA ont un contraste suffisant sur ce fond */
+.final-cta-section .cta-button-light {
+    background-color: var(--text-color-light);
+    color: var(--primary-color);
+    border-color: var(--text-color-light);
+}
+
+.final-cta-section .cta-button-light:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: var(--secondary-color);
+}
+
+
+/* Styles responsives pour la page d'accueil si nécessaire */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-md);
+    }
+
+    .steps-grid, .benefits-grid, .testimonials-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+}

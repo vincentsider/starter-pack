@@ -1,0 +1,134 @@
+/* Réinitialisation CSS (simple) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%; /* 1rem = 16px */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75em; /* 12px pour 16px base */
+    color: var(--heading-color);
+}
+
+h1 {
+    font-size: 2.5rem; /* 40px */
+}
+
+h2 {
+    font-size: 2rem; /* 32px */
+}
+
+h3 {
+    font-size: 1.75rem; /* 28px */
+}
+
+h4 {
+    font-size: 1.5rem; /* 24px */
+}
+
+p {
+    margin-bottom: 1rem; /* 16px */
+}
+
+ul, ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Variables de couleur */
+:root {
+    /* Palette principale */
+    --primary-color: #007bff; /* Bleu classique - utilisé pour liens, accents généraux */
+    --secondary-color: #6c757d; /* Gris pour textes secondaires, bordures */
+    --accent-color: #FF9800; /* Orange pour les CTA principaux */
+    --accent-color-hover: #FFC107; /* Jaune pour hover CTA, ou CTA secondaires */
+
+    /* Couleurs de texte */
+    --text-color: #333333;
+    --heading-color: #111111;
+    --text-light: #FFFFFF;
+    --text-muted: #6c757d;
+
+    /* Couleurs de fond */
+    --background-color: #FFFFFF;
+    --background-dark: #1A237E; /* Bleu foncé pour sections spécifiques comme Hero */
+    --background-light: #f8f9fa; /* Gris clair pour alternance de sections */
+
+    /* Couleurs sémantiques */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+
+    /* Polices */
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Lora', serif; /* Pour les titres */
+
+    /* Ombres */
+    --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175);
+
+    /* Transitions */
+    --transition-base: all 0.3s ease-in-out;
+
+    /* Rayon de bordure */
+    --border-radius-sm: .2rem;
+    --border-radius: .25rem;
+    --border-radius-lg: .3rem;
+    --border-radius-pill: 50rem;
+}
+
+/* Classes utilitaires pour l'accessibilité */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,461 @@
+/* public/css/common/ui_components/forms.css */
+
+/* Styles généraux pour les conteneurs de champs de formulaire */
+.form-group {
+    margin-bottom: var(--spacing-lg); /* Espace entre les groupes de champs */
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Styles pour les étiquettes (labels) */
+.form-label {
+    display: block;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-color-primary);
+    margin-bottom: var(--spacing-xs);
+    cursor: pointer; /* Change le curseur pour indiquer qu'il est cliquable (associé à l'input) */
+}
+
+/* Styles pour les champs de saisie (input, textarea, select) */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: var(--input-padding-y, var(--spacing-sm)) var(--input-padding-x, var(--spacing-md));
+    font-family: var(--font-family-inputs, var(--font-family-base));
+    font-size: var(--font-size-inputs, var(--font-size-base));
+    font-weight: var(--font-weight-inputs, var(--font-weight-normal));
+    line-height: var(--line-height-inputs, var(--line-height-base));
+    color: var(--text-color-inputs, var(--text-color-primary));
+    background-color: var(--input-bg-color, var(--surface-color));
+    background-clip: padding-box;
+    border: 1px solid var(--input-border-color, var(--border-color-medium));
+    border-radius: var(--input-border-radius, var(--border-radius-md));
+    box-shadow: var(--input-box-shadow, var(--shadow-inset-sm));
+    transition: border-color var(--transition-speed-base) ease-in-out,
+                box-shadow var(--transition-speed-base) ease-in-out;
+    -webkit-appearance: none; /* Supprime les styles par défaut de l'OS sur iOS */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Placeholder styles */
+.form-control::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="url"]::placeholder,
+input[type="search"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+    color: var(--text-color-placeholder, var(--text-color-muted));
+    opacity: 1; /* Firefox applique une opacité par défaut */
+}
+
+/* Focus styles */
+.form-control:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--input-focus-border-color, var(--primary-color));
+    outline: 0;
+    box-shadow: var(--input-focus-box-shadow, 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25));
+}
+
+/* Disabled state */
+.form-control:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+    background-color: var(--input-disabled-bg-color, var(--neutral-color-light));
+    border-color: var(--input-disabled-border-color, var(--border-color-light));
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Readonly state */
+.form-control[readonly],
+input[readonly],
+textarea[readonly] {
+    background-color: var(--input-readonly-bg-color, var(--neutral-color-extra-light));
+    /* Pas de changement de bordure spécifique pour readonly, mais on peut en ajouter */
+}
+
+
+/* Textarea spécifique */
+textarea.form-control {
+    min-height: calc(var(--line-height-inputs, var(--line-height-base)) * 3 + (var(--input-padding-y, var(--spacing-sm)) * 2) + 2px); /* Hauteur pour env. 3 lignes */
+    resize: vertical; /* Permet le redimensionnement vertical uniquement */
+}
+
+/* Select spécifique */
+select.form-control {
+    padding-right: calc(var(--input-padding-x, var(--spacing-md)) * 2 + 1rem); /* Espace pour la flèche */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--input-padding-x, var(--spacing-md)) center;
+    background-size: 16px 12px; /* Ajuster la taille de la flèche */
+}
+
+select.form-control:disabled {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Styles pour les cases à cocher (checkbox) et boutons radio */
+.form-check {
+    display: flex; /* Utilise flex pour aligner l'input et le label */
+    align-items: center;
+    position: relative; /* Pour positionner le label par rapport à l'input */
+    margin-bottom: var(--spacing-sm);
+    min-height: var(--line-height-inputs, var(--line-height-base)); /* Assure une hauteur minimale */
+}
+
+.form-check-input {
+    flex-shrink: 0; /* Empêche l'input de rétrécir */
+    width: 1.15em;
+    height: 1.15em;
+    margin-top: 0.1em; /* Ajustement vertical fin */
+    vertical-align: top;
+    background-color: var(--input-bg-color, var(--surface-color));
+    border: 1px solid var(--input-border-color, var(--border-color-medium));
+    -webkit-appearance: none; /* Masque l'apparence native */
+    -moz-appearance: none;
+    appearance: none;
+    transition: background-color var(--transition-speed-fast) ease-in-out,
+                border-color var(--transition-speed-fast) ease-in-out,
+                background-position var(--transition-speed-fast) ease-in-out; /* Pour l'état coché */
+    cursor: pointer;
+}
+
+.form-check-input[type="checkbox"] {
+    border-radius: var(--border-radius-sm);
+}
+
+.form-check-input[type="radio"] {
+    border-radius: 50%; /* Rond pour les boutons radio */
+}
+
+.form-check-input:focus {
+    border-color: var(--input-focus-border-color, var(--primary-color));
+    outline: 0;
+    box-shadow: var(--input-focus-box-shadow, 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25));
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Icône de coche pour checkbox */
+.form-check-input[type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+
+/* Indicateur pour radio */
+.form-check-input[type="radio"]:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+
+.form-check-input:disabled {
+    background-color: var(--input-disabled-bg-color, var(--neutral-color-light));
+    border-color: var(--input-disabled-border-color, var(--border-color-light));
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.form-check-input:disabled:checked {
+    background-color: var(--neutral-color-medium-light); /* Couleur pour l'état coché et désactivé */
+}
+.form-check-input[type="checkbox"]:disabled:checked {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+.form-check-input[type="radio"]:disabled:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23adb5bd'/%3e%3c/svg%3e");
+}
+
+
+.form-check-label {
+    margin-left: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    color: var(--text-color-primary);
+    cursor: pointer;
+    flex-grow: 1; /* Permet au label de prendre l'espace restant */
+}
+
+.form-check-label:empty {
+    display: none; /* Masque le label s'il est vide */
+}
+
+/* Styles pour les champs de type "file" (personnalisation basique) */
+input[type="file"].form-control {
+    padding-top: calc(var(--input-padding-y, var(--spacing-sm)) * 0.8); /* Ajustement pour un meilleur alignement vertical */
+    padding-bottom: calc(var(--input-padding-y, var(--spacing-sm)) * 0.8);
+    height: auto; /* Pour s'adapter au contenu du bouton "Browse..." */
+    box-shadow: none; /* Pas d'ombre interne pour les inputs file */
+}
+/* Plus de personnalisation pour input[type="file"] est complexe et nécessite souvent JS ou des astuces CSS.
+   Pour une personnalisation avancée, on utilise souvent un label stylisé comme un bouton
+   qui déclenche un input[type="file"] caché.
+*/
+input[type="file"]::file-selector-button {
+    font-weight: var(--font-weight-buttons, var(--font-weight-semibold));
+    color: var(--text-color-on-primary);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color-dark);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    margin-right: var(--spacing-md);
+    cursor: pointer;
+    transition: background-color var(--transition-speed-base) ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+
+/* Messages d'aide ou d'erreur sous les champs */
+.form-text {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--text-color-muted);
+}
+
+.form-error-text, .is-invalid + .form-text {
+    color: var(--error-color-dark, var(--error-color)); /* Plus sombre pour une meilleure lisibilité */
+}
+
+.form-success-text, .is-valid + .form-text {
+    color: var(--success-color-dark, var(--success-color));
+}
+
+/* États de validation (pour les inputs et labels) */
+.is-invalid .form-label, /* Si on veut colorer le label aussi */
+.form-control.is-invalid,
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid,
+.form-check-input.is-invalid ~ .form-check-label {
+    border-color: var(--error-color) !important; /* S'assure que la bordure d'erreur est prioritaire */
+}
+.form-check-input.is-invalid { /* Spécifique pour checkbox/radio sans label après */
+    border-color: var(--error-color) !important;
+}
+
+
+.form-control.is-invalid:focus,
+input.is-invalid:focus,
+textarea.is-invalid:focus,
+select.is-invalid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--error-color-rgb), 0.25) !important;
+}
+
+.is-valid .form-label,
+.form-control.is-valid,
+input.is-valid,
+textarea.is-valid,
+select.is-valid,
+.form-check-input.is-valid ~ .form-check-label {
+    border-color: var(--success-color) !important;
+}
+.form-check-input.is-valid {
+    border-color: var(--success-color) !important;
+}
+.form-check-input.is-valid:checked { /* Style pour la coche/point quand valide */
+    background-color: var(--success-color) !important;
+}
+
+
+.form-control.is-valid:focus,
+input.is-valid:focus,
+textarea.is-valid:focus,
+select.is-valid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--success-color-rgb), 0.25) !important;
+}
+
+
+/* Inputs avec icônes */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group > .form-control,
+.input-group > .form-select { /* Si vous avez une classe form-select distincte */
+    position: relative;
+    flex: 1 1 auto; /* L'input prend la majorité de l'espace */
+    width: 1%; /* Astuce pour que flex fonctionne correctement */
+    min-width: 0; /* Permet à l'input de rétrécir */
+}
+
+/* Évite les doubles bordures quand les éléments sont groupés */
+.input-group > .form-control:not(:last-child),
+.input-group > .form-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .form-control:not(:first-child),
+.input-group > .form-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px; /* Chevauchement des bordures */
+}
+
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: var(--input-padding-y, var(--spacing-sm)) var(--input-padding-x, var(--spacing-md));
+    font-size: var(--font-size-inputs, var(--font-size-base));
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-inputs, var(--line-height-base));
+    color: var(--text-color-secondary);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--input-group-addon-bg, var(--neutral-color-extra-light));
+    border: 1px solid var(--input-group-addon-border-color, var(--border-color-medium));
+    border-radius: var(--input-border-radius, var(--border-radius-md));
+}
+.input-group-text i,
+.input-group-text svg { /* Pour les icônes FontAwesome ou SVG */
+    height: 1em;
+    width: 1em;
+}
+
+/* Positionnement pour les input-group-text */
+.input-group .input-group-text:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group .input-group-text:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Input flottant (label qui se déplace) */
+/* Note: Ceci est une implémentation basique et peut nécessiter JS pour une meilleure UX ou pour tous les navigateurs */
+.form-floating {
+    position: relative;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+    height: calc(3.5rem + 2px); /* Hauteur fixe pour l'effet flottant */
+    line-height: 1.25;
+    padding: 1rem var(--input-padding-x, var(--spacing-md)); /* Padding pour laisser de la place au label */
+}
+
+.form-floating > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Couvre tout l'input */
+    padding: 1rem var(--input-padding-x, var(--spacing-md));
+    pointer-events: none; /* Le label ne capture pas les clics */
+    border: 1px solid transparent; /* Pour l'alignement */
+    transform-origin: 0 0;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    color: var(--text-color-placeholder, var(--text-color-muted));
+    margin-bottom: 0; /* Annule la marge par défaut du label */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-floating > label {
+        transition: none;
+    }
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label, /* Quand il y a du contenu */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-select:not([value=""]):valid ~ label, /* Pour select avec une valeur */
+.form-floating > .form-select:focus ~ label {
+    opacity: .85;
+    transform: scale(.85) translateY(-.7rem) translateX(.15rem);
+    font-weight: var(--font-weight-semibold); /* Peut-être rendre le label flottant plus audacieux */
+    color: var(--primary-color); /* Changer la couleur du label lorsqu'il flotte */
+    background-color: var(--input-bg-color, var(--surface-color)); /* Pour masquer la bordure de l'input en dessous */
+    padding-left: calc(var(--input-padding-x, var(--spacing-md)) * 0.5); /* Ajuster le padding */
+    padding-right: calc(var(--input-padding-x, var(--spacing-md)) * 0.5);
+    height: auto; /* Ajuster la hauteur pour ne pas masquer le contenu */
+    width: auto; /* Ajuster la largeur */
+    top: -0.1rem; /* Ajuster la position Y */
+    left: 0.5rem; /* Ajuster la position X */
+    border-radius: var(--border-radius-sm);
+}
+
+.form-floating > .form-control:disabled ~ label,
+.form-floating > .form-select:disabled ~ label {
+    color: var(--text-color-muted);
+    opacity: 0.7;
+}
+.form-floating > .form-control:-webkit-autofill ~ label { /* Pour les navigateurs Webkit avec autofill */
+    opacity: .85;
+    transform: scale(.85) translateY(-.7rem) translateX(.15rem);
+}
+
+/* Styles pour les switch (interrupteurs) */
+.form-switch {
+    padding-left: 2.5em; /* Espace pour le switch */
+}
+.form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em; /* Forme de pilule */
+    transition: background-position .15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    .form-switch .form-check-input {
+        transition: none;
+    }
+}
+.form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:disabled {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,.1)'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:disabled:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,.5)'/%3e%3c/svg%3e"); /* Cercle plus clair sur fond désactivé */
+}

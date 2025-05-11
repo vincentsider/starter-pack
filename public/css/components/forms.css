@@ -1,0 +1,460 @@
+/* public/css/components/forms.css */
+
+:root {
+    --form-element-padding-y: var(--space-sm);
+    --form-element-padding-x: var(--space-md);
+    --form-element-font-size: 1rem;
+    --form-element-line-height: 1.5;
+    --form-element-bg-color: var(--white-color);
+    --form-element-border-color: var(--neutral-color-medium);
+    --form-element-border-radius: var(--border-radius-md);
+    --form-element-focus-border-color: var(--primary-color);
+    --form-element-focus-box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Similaire à Bootstrap */
+    --form-element-disabled-bg-color: var(--neutral-color-xlight);
+    --form-element-disabled-border-color: var(--neutral-color-light);
+    --form-element-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    --form-label-font-weight: 600;
+    --form-label-margin-bottom: var(--space-xs);
+    --form-label-color: var(--text-color-dark);
+
+    --form-group-margin-bottom: var(--space-lg);
+
+    --form-help-text-font-size: 0.875rem;
+    --form-help-text-color: var(--text-color-muted);
+    --form-help-text-margin-top: var(--space-xxs);
+
+    --form-error-text-color: var(--danger-color);
+    --form-error-border-color: var(--danger-color);
+    --form-error-focus-box-shadow: 0 0 0 0.2rem rgba(var(--danger-color-rgb), 0.25);
+
+    --form-success-text-color: var(--success-color);
+    --form-success-border-color: var(--success-color);
+    --form-success-focus-box-shadow: 0 0 0 0.2rem rgba(var(--success-color-rgb), 0.25);
+
+    --input-placeholder-color: var(--neutral-color-dark);
+}
+
+/* Form Grouping */
+.form-group {
+    margin-bottom: var(--form-group-margin-bottom);
+}
+
+/* Form Labels */
+.form-label {
+    display: inline-block;
+    font-weight: var(--form-label-font-weight);
+    color: var(--form-label-color);
+    margin-bottom: var(--form-label-margin-bottom);
+    font-size: 1rem; /* Taille de base pour les labels */
+}
+
+/* Basic Input, Select, Textarea Styling */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--form-element-padding-y) var(--form-element-padding-x);
+    font-family: var(--font-family-base);
+    font-size: var(--form-element-font-size);
+    font-weight: 400;
+    line-height: var(--form-element-line-height);
+    color: var(--text-color-base);
+    background-color: var(--form-element-bg-color);
+    background-clip: padding-box;
+    border: 1px solid var(--form-element-border-color);
+    border-radius: var(--form-element-border-radius);
+    transition: var(--form-element-transition);
+    box-sizing: border-box; /* Important pour que padding et border n'ajoutent pas à la largeur */
+}
+
+.form-control::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1; /* Firefox a une opacité par défaut plus faible */
+}
+
+.form-control:focus {
+    color: var(--text-color-base);
+    background-color: var(--form-element-bg-color);
+    border-color: var(--form-element-focus-border-color);
+    outline: 0;
+    box-shadow: var(--form-element-focus-box-shadow);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--form-element-disabled-bg-color);
+    border-color: var(--form-element-disabled-border-color);
+    opacity: 1; /* Pour que le texte soit lisible */
+    cursor: not-allowed;
+}
+.form-control[readonly] {
+    cursor: default;
+}
+
+
+/* Textarea specific styling */
+textarea.form-control {
+    min-height: calc(1.5em + (var(--form-element-padding-y) * 2) + 2px); /* hauteur par défaut, ex: 3 lignes */
+    resize: vertical; /* Permet le redimensionnement vertical seulement */
+}
+
+/* Select specific styling */
+select.form-control {
+    /* S'assure que le select a la même hauteur que les inputs */
+    height: calc(1.5em + (var(--form-element-padding-y) * 2) + 2px + 2px); /* +2px pour bordures haut/bas */
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--form-element-padding-x) center;
+    background-size: 16px 12px; /* Taille de la flèche */
+    padding-right: calc(var(--form-element-padding-x) * 2 + 16px); /* Espace pour la flèche */
+}
+
+select.form-control:disabled {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Checkboxes and Radios */
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.5em; /* Espace pour la checkbox/radio personnalisée */
+    margin-bottom: var(--space-sm); /* Espacement entre les options */
+}
+
+.form-check-input {
+    position: absolute;
+    opacity: 0; /* Cache l'input natif */
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.form-check-label {
+    display: inline-block;
+    font-weight: 400; /* Label moins gras que le label de form-group */
+    color: var(--text-color-base);
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none; /* Empêcher la sélection du texte du label */
+}
+
+/* Custom checkbox/radio appearance */
+.form-check-label::before { /* Le carré/cercle extérieur */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.15em; /* Alignement vertical ajusté */
+    width: 1em;
+    height: 1em;
+    border: 1px solid var(--form-element-border-color);
+    background-color: var(--white-color);
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.form-check-input:focus + .form-check-label::before {
+    border-color: var(--form-element-focus-border-color);
+    box-shadow: var(--form-element-focus-box-shadow);
+}
+
+.form-check-input:checked + .form-check-label::before {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input:disabled + .form-check-label {
+    color: var(--text-color-muted);
+    cursor: not-allowed;
+}
+.form-check-input:disabled + .form-check-label::before {
+    background-color: var(--form-element-disabled-bg-color);
+    border-color: var(--form-element-disabled-border-color);
+}
+
+
+/* Custom checkbox specific */
+.form-check-input[type="checkbox"] + .form-check-label::before {
+    border-radius: var(--border-radius-sm);
+}
+.form-check-input[type="checkbox"]:checked + .form-check-label::after { /* La coche */
+    content: "";
+    position: absolute;
+    left: 0.3em;
+    top: 0.15em;
+    width: 0.4em;
+    height: 0.7em;
+    border: solid var(--white-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.form-check-input[type="checkbox"]:disabled:checked + .form-check-label::after {
+    border-color: var(--neutral-color-dark);
+}
+
+
+/* Custom radio specific */
+.form-check-input[type="radio"] + .form-check-label::before {
+    border-radius: 50%; /* Cercle pour radio */
+}
+.form-check-input[type="radio"]:checked + .form-check-label::after { /* Le point intérieur */
+    content: "";
+    position: absolute;
+    left: 0.25em; /* Centrage du point */
+    top: calc(0.15em + 0.25em);
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: var(--white-color);
+}
+.form-check-input[type="radio"]:disabled:checked + .form-check-label::after {
+    background-color: var(--neutral-color-dark);
+}
+
+
+/* Inline form checks */
+.form-check-inline {
+    display: inline-flex; /* Pour aligner correctement les éléments */
+    align-items: center;
+    padding-left: 0; /* Reset padding car l'input n'est pas caché de la même manière */
+    margin-right: var(--space-lg);
+}
+.form-check-inline .form-check-input { /* L'input natif est utilisé, moins de customisation possible en CSS pur */
+    opacity: 1;
+    position: static;
+    height: auto;
+    width: auto;
+    margin-right: var(--space-xs);
+}
+.form-check-inline .form-check-label {
+    padding-left: 0;
+}
+.form-check-inline .form-check-label::before,
+.form-check-inline .form-check-label::after {
+    display: none; /* Pas de customisation pour inline par défaut */
+}
+
+
+/* Help Text */
+.form-text {
+    display: block;
+    margin-top: var(--form-help-text-margin-top);
+    font-size: var(--form-help-text-font-size);
+    color: var(--form-help-text-color);
+}
+
+/* Validation States */
+.is-invalid .form-control,
+.form-control.is-invalid { /* Permet de mettre la classe sur le parent ou l'input */
+    border-color: var(--form-error-border-color);
+}
+.is-invalid .form-control:focus,
+.form-control.is-invalid:focus {
+    border-color: var(--form-error-border-color);
+    box-shadow: var(--form-error-focus-box-shadow);
+}
+.invalid-feedback {
+    display: none; /* Caché par défaut */
+    width: 100%;
+    margin-top: var(--form-help-text-margin-top);
+    font-size: var(--form-help-text-font-size);
+    color: var(--form-error-text-color);
+}
+.is-invalid ~ .invalid-feedback, /* S'affiche si l'élément précédent a .is-invalid (JS gère la classe sur l'input/select) */
+.form-control.is-invalid ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+/* Pour les checkboxes/radios, la couleur de la bordure doit aussi changer */
+.form-check-input.is-invalid + .form-check-label::before {
+    border-color: var(--form-error-border-color);
+}
+
+
+.is-valid .form-control,
+.form-control.is-valid {
+    border-color: var(--form-success-border-color);
+}
+.is-valid .form-control:focus,
+.form-control.is-valid:focus {
+    border-color: var(--form-success-border-color);
+    box-shadow: var(--form-success-focus-box-shadow);
+}
+.valid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: var(--form-help-text-margin-top);
+    font-size: var(--form-help-text-font-size);
+    color: var(--form-success-text-color);
+}
+.is-valid ~ .valid-feedback,
+.form-control.is-valid ~ .valid-feedback,
+.form-check-input.is-valid ~ .valid-feedback {
+    display: block;
+}
+.form-check-input.is-valid + .form-check-label::before {
+    border-color: var(--form-success-border-color);
+}
+
+/* Form in a row (inline form) */
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center; /* Aligne les éléments verticalement */
+}
+
+.form-inline .form-group {
+    margin-right: var(--space-md);
+    margin-bottom: var(--space-md); /* Pour le wrapping */
+}
+
+.form-inline .form-control {
+    display: inline-block; /* Permet aux inputs d'être sur la même ligne */
+    width: auto; /* S'adapte au contenu ou à une largeur spécifiée */
+    vertical-align: middle;
+}
+
+.form-inline .form-label {
+    margin-right: var(--space-sm);
+    margin-bottom: 0; /* Pas de marge en bas pour les labels inline */
+}
+
+.form-inline .form-check {
+    width: auto; /* Pour que les checks ne prennent pas toute la largeur */
+    margin-right: var(--space-md);
+}
+
+/* Input with icon */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Pour les addons multiples */
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group > .form-control {
+    position: relative;
+    flex: 1 1 auto; /* L'input prend l'espace restant */
+    width: 1%; /* Astuce pour que l'input prenne l'espace */
+    min-width: 0; /* Empêche le dépassement */
+}
+.input-group > .form-control:focus {
+    z-index: 3; /* Pour que le box-shadow soit au-dessus des addons */
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: var(--form-element-padding-y) var(--form-element-padding-x);
+    margin-bottom: 0; /* Pour alignement avec l'input */
+    font-size: var(--form-element-font-size);
+    font-weight: 400;
+    line-height: var(--form-element-line-height);
+    color: var(--text-color-muted);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--neutral-color-xlight);
+    border: 1px solid var(--form-element-border-color);
+    border-radius: var(--form-element-border-radius);
+}
+.input-group-text .icon { /* Style pour une icône SVG dans un input-group-text */
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+
+/* Arrondir les coins pour les groupes d'input */
+.input-group > .form-control:not(:last-child) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.input-group > .form-control:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: -1px; }
+
+.input-group > .input-group-text:not(:last-child) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.input-group > .input-group-text:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: -1px; }
+
+/* Prepend / Append */
+.input-group-prepend .input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group-prepend + .form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group-append .input-group-text {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group-append {
+    margin-left: -1px;
+}
+.form-control + .input-group-append {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/* Styles pour les inputs de type range */
+.form-range {
+    width: 100%;
+    height: 1.5rem; /* Hauteur totale incluant le thumb */
+    padding: 0; /* Pas de padding interne */
+    background-color: transparent;
+    appearance: none; /* Supprime le style par défaut */
+    cursor: pointer;
+}
+.form-range:focus {
+    outline: none; /* Le focus sera géré par le thumb */
+}
+.form-range::-webkit-slider-runnable-track { /* Track pour Webkit (Chrome, Safari) */
+    width: 100%;
+    height: 0.5rem;
+    cursor: pointer;
+    background: var(--neutral-color-light);
+    border-radius: var(--border-radius-lg);
+    border: 0.2px solid var(--neutral-color-medium);
+}
+.form-range::-webkit-slider-thumb { /* Thumb pour Webkit */
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    appearance: none;
+    margin-top: -0.25rem; /* (track height - thumb height) / 2, ajusté pour le border */
+    border: none;
+    box-shadow: var(--shadow-sm);
+}
+.form-range:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25), var(--shadow-sm);
+}
+
+.form-range::-moz-range-track { /* Track pour Firefox */
+    width: 100%;
+    height: 0.5rem;
+    cursor: pointer;
+    background: var(--neutral-color-light);
+    border-radius: var(--border-radius-lg);
+    border: 0.2px solid var(--neutral-color-medium);
+}
+.form-range::-moz-range-thumb { /* Thumb pour Firefox */
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-sm);
+}
+.form-range:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25), var(--shadow-sm);
+}
+
+.form-range:disabled::-webkit-slider-thumb,
+.form-range:disabled::-moz-range-thumb {
+    background: var(--neutral-color-medium);
+}
+.form-range:disabled::-webkit-slider-runnable-track,
+.form-range:disabled::-moz-range-track {
+    background: var(--neutral-color-xlight);
+    cursor: not-allowed;
+}

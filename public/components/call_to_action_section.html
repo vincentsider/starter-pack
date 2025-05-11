@@ -1,0 +1,32 @@
+<!-- public/components/call_to_action_section.html -->
+<!--
+    Composant: Section d'Appel à l'Action (Call To Action - CTA)
+    Description: Une section réutilisable pour inciter les utilisateurs à une action spécifique (par exemple, s'inscrire, en savoir plus).
+    Basé sur le pseudocode de `pseudocode/site_vitrine/common/ui_components.md`.
+
+    Attributs de données pour la personnalisation (à injecter dynamiquement via JS ou à définir lors de l'inclusion si templating serveur) :
+    - data-cta-title: Le titre principal de la section CTA.
+    - data-cta-text: Le texte descriptif ou persuasif.
+    - data-cta-button-text: Le texte du bouton d'action.
+    - data-cta-button-link: Le lien de destination du bouton.
+    - data-cta-button-type: "primary" ou "secondary" (influence le style via CSS).
+    - data-cta-id: Un ID unique pour la section, si nécessaire pour des styles spécifiques ou JS.
+    - data-cta-text-align: "left", "center", "right" (défaut "center").
+    - Une classe CSS spécifique peut être ajoutée pour l'image/couleur de fond. Par exemple: .cta-background-image-custom
+-->
+<section class="cta-section"
+    data-cta-id="cta-default"
+    aria-labelledby="cta-title-default"
+>
+    <div class="container cta-section-content text-align--center">
+        <h2 id="cta-title-default" class="cta-title" data-cta-title-content>Prêt à transformer votre communication ?</h2>
+        <p class="cta-text" data-cta-text-content>Rejoignez des milliers d'utilisateurs satisfaits et découvrez la tranquillité d'esprit.</p>
+        <a href="#" class="button button--primary cta-button" data-cta-button-content>
+            Commencer gratuitement
+        </a>
+        <!-- Zone pour contenu additionnel (ex: petits caractères, icônes) -->
+        <div class="cta-additional-content" data-cta-additional-content>
+            <!-- Slot pour contenu additionnel -->
+        </div>
+    </div>
+</section>

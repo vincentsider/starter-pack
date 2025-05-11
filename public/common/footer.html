@@ -1,0 +1,56 @@
+<!-- public/common/footer.html -->
+<footer class="main-footer" id="main-footer">
+    <div class="footer-container">
+        <div class="footer-section footer-logo-section">
+            <a href="index.html" class="logo-link" aria-label="Retour à la page d'accueil">
+                <img src="assets/images/logo_appels_filtrant_light.svg" alt="Logo Appel Filtrant" class="logo-image-footer" data-i18n-alt="footer.logoAlt">
+                <span class="logo-text-footer" data-i18n="global.appName">Appel Filtrant</span>
+            </a>
+            <p class="footer-tagline" data-i18n="footer.tagline">Reprenez le contrôle de vos appels.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Facebook" data-i18n-aria-label="footer.social.facebookAriaLabel"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Twitter" data-i18n-aria-label="footer.social.twitterAriaLabel"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur LinkedIn" data-i18n-aria-label="footer.social.linkedinAriaLabel"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Instagram" data-i18n-aria-label="footer.social.instagramAriaLabel"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section footer-links-section">
+            <h3 data-i18n="footer.sections.quickLinks">Liens Rapides</h3>
+            <ul class="footer-links-list">
+                <li><a href="index.html" class="footer-link" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="fonctionnalites.html" class="footer-link" data-i18n="nav.features">Fonctionnalités</a></li>
+                <li><a href="tarifs.html" class="footer-link" data-i18n="nav.pricing">Tarifs</a></li>
+                <li><a href="contact.html" class="footer-link" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="faq.html" class="footer-link" data-i18n="nav.faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-legal-section">
+            <h3 data-i18n="footer.sections.legal">Légal</h3>
+            <ul class="footer-links-list">
+                <li><a href="mentions-legales.html" class="footer-link" data-i18n="footer.legal.legalNotice">Mentions Légales</a></li>
+                <li><a href="politique-confidentialite.html" class="footer-link" data-i18n="footer.legal.privacyPolicy">Politique de Confidentialité</a></li>
+                <li><a href="cgu.html" class="footer-link" data-i18n="footer.legal.termsOfService">Conditions Générales d'Utilisation</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-newsletter-section">
+            <h3 data-i18n="footer.sections.newsletter">Newsletter</h3>
+            <p data-i18n="footer.newsletter.description">Restez informé des dernières nouveautés et offres.</p>
+            <form id="newsletter-form" class="newsletter-form">
+                <label for="newsletter-email" class="sr-only" data-i18n="footer.newsletter.emailLabel">Votre email</label>
+                <input type="email" id="newsletter-email" name="email" placeholder="Votre email" data-i18n-placeholder="footer.newsletter.emailPlaceholder" required>
+                <button type="submit" class="button button-primary" data-i18n="footer.newsletter.subscribeButton">S'inscrire</button>
+            </form>
+            <div id="newsletter-message" class="newsletter-message" role="status" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> <span data-i18n="global.appName">Appel Filtrant</span>. <span data-i18n="footer.copyright">Tous droits réservés.</span></p>
+        <button id="back-to-top" class="back-to-top-button" aria-label="Retour en haut de la page" data-i18n-aria-label="footer.backToTopAriaLabel">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+</footer>

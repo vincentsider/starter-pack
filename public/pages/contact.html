@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contactPage.meta.title">Contactez-Nous - Assistant Filtrage d'Appels</title>
+    <meta name="description" data-i18n="contactPage.meta.description" content="Contactez notre équipe pour toute question ou pour en savoir plus sur nos services de filtrage d'appels.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <!-- Scripts i18n et chargement des composants communs -->
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/components.js" defer></script>
+    <script src="../js/contact.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Section Hero de la Page Contact -->
+        <section class="page-hero-section" aria-labelledby="contact-hero-title">
+            <div class="container">
+                <h1 id="contact-hero-title" data-i18n="contactPage.hero.title">Contactez-Nous</h1>
+                <p class="subtitle" data-i18n="contactPage.hero.subtitle">Nous sommes là pour répondre à toutes vos questions. N'hésitez pas à nous joindre.</p>
+            </div>
+        </section>
+
+        <!-- Section Formulaire de Contact et Informations -->
+        <section class="contact-form-info-section" aria-labelledby="contact-form-title">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Formulaire de Contact -->
+                    <div class="contact-form-container">
+                        <h2 id="contact-form-title" data-i18n="contactPage.form.title">Envoyez-nous un message</h2>
+                        <form id="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contactPage.form.nameLabel">Nom complet</label>
+                                <input type="text" id="name" name="name" required data-i18n-placeholder="contactPage.form.namePlaceholder" placeholder="Votre nom complet">
+                                <span class="error-message" id="name-error" data-i18n="contactPage.form.errors.nameRequired" style="display:none;">Le nom est requis.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="contactPage.form.emailLabel">Adresse e-mail</label>
+                                <input type="email" id="email" name="email" required data-i18n-placeholder="contactPage.form.emailPlaceholder" placeholder="Votre adresse e-mail">
+                                <span class="error-message" id="email-error" data-i18n="contactPage.form.errors.emailInvalid" style="display:none;">Adresse e-mail invalide.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-i18n="contactPage.form.subjectLabel">Sujet</label>
+                                <input type="text" id="subject" name="subject" required data-i18n-placeholder="contactPage.form.subjectPlaceholder" placeholder="Sujet de votre message">
+                                <span class="error-message" id="subject-error" data-i18n="contactPage.form.errors.subjectRequired" style="display:none;">Le sujet est requis.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-i18n="contactPage.form.messageLabel">Message</label>
+                                <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contactPage.form.messagePlaceholder" placeholder="Votre message"></textarea>
+                                <span class="error-message" id="message-error" data-i18n="contactPage.form.errors.messageRequired" style="display:none;">Le message est requis.</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent" class="consent-label" data-i18n="contactPage.form.consentLabel">J'accepte que mes données soient traitées conformément à la politique de confidentialité.</label>
+                                <span class="error-message" id="consent-error" data-i18n="contactPage.form.errors.consentRequired" style="display:none;">Vous devez accepter les termes.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-i18n="contactPage.form.submitButton">Envoyer le Message</button>
+                        </form>
+                        <div id="form-status-message" style="display:none; margin-top: 1rem;"></div>
+                    </div>
+
+                    <!-- Informations de Contact -->
+                    <div class="contact-info-container">
+                        <h2 data-i18n="contactPage.info.title">Nos Coordonnées</h2>
+                        <div id="contact-details-placeholder">
+                            <!-- Les détails de contact (téléphone, email, adresse) seront chargés ici par components.js -->
+                            <!-- Exemple statique en attendant le chargement dynamique -->
+                            <p><strong data-i18n="contactPage.info.phoneLabel">Téléphone :</strong> <a href="tel:+33123456789" data-i18n="company.phone">+33 1 23 45 67 89</a></p>
+                            <p><strong data-i18n="contactPage.info.emailLabel">Email :</strong> <a href="mailto:contact@example.com" data-i18n="company.email">contact@example.com</a></p>
+                            <p><strong data-i18n="contactPage.info.addressLabel">Adresse :</strong> <span data-i18n="company.address">123 Rue Imaginaire, 75000 Paris, France</span></p>
+                        </div>
+
+                        <h3 data-i18n="contactPage.info.socialTitle">Suivez-nous</h3>
+                        <div id="social-media-links-placeholder">
+                            <!-- Les liens vers les réseaux sociaux seront chargés ici par components.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Carte (Optionnel) -->
+        <section class="map-section" aria-labelledby="map-section-title">
+            <div class="container">
+                <h2 id="map-section-title" data-i18n="contactPage.map.title">Nous Trouver</h2>
+                <div id="map-placeholder" style="height: 400px; background-color: #e9e9e9;">
+                    <!-- Le composant de carte sera chargé ici par contact.js -->
+                    <p style="text-align:center; padding-top:150px;" data-i18n="contactPage.map.loading">Chargement de la carte...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger les composants communs (Header, Footer)
+            loadCommonComponents().then(() => {
+                // Une fois les composants communs et i18n initialisés, charger les composants spécifiques à la page
+                if (typeof loadContactPageComponents === 'function') {
+                    loadContactPageComponents();
+                }
+                // S'assurer que le contenu traduit est mis à jour
+                if (typeof updateContent === 'function' && window.i18next.isInitialized) {
+                    updateContent();
+                } else if (!window.i18next.isInitialized) {
+                    // Si i18next n'est pas encore prêt, attendre l'événement 'initialized'
+                    window.i18next.on('initialized', updateContent);
+                }
+            }).catch(error => {
+                console.error("Erreur lors du chargement des composants communs sur la page contact:", error);
+            });
+        });
+    </script>
+</body>
+</html>

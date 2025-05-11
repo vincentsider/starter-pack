@@ -1,0 +1,218 @@
+/* public/css/components/modals.css */
+
+/* Conteneur de la modale (superposition et centrage) */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste en place lors du défilement */
+    z-index: var(--z-index-modal); /* Au-dessus des autres contenus */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permet le défilement si le contenu est trop grand */
+    background-color: var(--modal-backdrop-color); /* Fond semi-transparent */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center; /* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+}
+
+.modal.is-active {
+    display: flex; /* Flex pour le centrage du contenu */
+    opacity: 1;
+}
+
+/* Boîte de dialogue de la modale */
+.modal-dialog {
+    background-color: var(--background-color-light);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--box-shadow-modal);
+    margin: auto; /* Pour le centrage, bien que flex sur .modal s'en charge */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Largeur par défaut pour les petits écrans */
+    max-width: 600px; /* Largeur maximale par défaut */
+    max-height: 90vh; /* Hauteur maximale pour éviter de déborder de l'écran */
+    overflow: hidden; /* Pour gérer le contenu qui dépasse */
+    transform: scale(0.95) translateY(-20px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Pour l'animation d'apparition */
+}
+
+.modal.is-active .modal-dialog {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* En-tête de la modale */
+.modal-header {
+    display: flex;
+    align-items: flex-start; /* Aligne le titre et le bouton de fermeture */
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    line-height: 1.5;
+}
+
+/* Bouton de fermeture dans l'en-tête */
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text-color-muted);
+    opacity: 0.7;
+    padding: 0.5rem; /* Augmente la zone cliquable */
+    margin: -0.5rem -0.5rem -0.5rem auto; /* Aligne à droite */
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-color-dark);
+    opacity: 1;
+}
+
+/* Corps de la modale */
+.modal-body {
+    position: relative;
+    flex: 1 1 auto; /* Permet au corps de grandir et de rétrécir */
+    padding: 1.5rem;
+    overflow-y: auto; /* Permet le défilement si le contenu est trop grand */
+    color: var(--text-color-default);
+    line-height: 1.6;
+}
+
+/* Pied de page de la modale */
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
+    align-items: center; /* Aligne les boutons verticalement */
+    justify-content: flex-end; /* Aligne les boutons à droite par défaut */
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color-light);
+    border-bottom-left-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
+    background-color: var(--background-color-extra-light); /* Optionnel, pour différencier */
+}
+
+.modal-footer > * {
+    margin: 0.25rem; /* Espacement entre les boutons */
+}
+.modal-footer > :last-child {
+    margin-right: 0;
+}
+.modal-footer > :first-child {
+    margin-left: 0;
+}
+
+
+/* Tailles de modales */
+.modal-dialog-sm {
+    max-width: 380px;
+}
+
+.modal-dialog-lg {
+    max-width: 800px;
+}
+
+.modal-dialog-xl {
+    max-width: 1140px;
+}
+
+/* Modale plein écran (pour mobile ou contextes spécifiques) */
+.modal-dialog-fullscreen {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+}
+.modal-dialog-fullscreen .modal-header,
+.modal-dialog-fullscreen .modal-footer {
+    border-radius: 0;
+}
+
+/* Modale centrée verticalement (utile si le contenu est petit et que .modal n'est pas flex) */
+.modal-dialog-centered {
+    /* Déjà géré par display:flex sur .modal, mais peut être utile autrement */
+    /* display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem); /* Pour top/bottom margin */
+}
+/* @media (min-width: 576px) { */
+/*     .modal-dialog-centered { */
+/*         min-height: calc(100% - 3.5rem); /* Pour top/bottom margin sur écrans plus grands */ */
+/*     } */
+/* } */
+
+/* Modale scrollable (si le contenu dépasse la hauteur max de .modal-dialog) */
+/* .modal-dialog-scrollable .modal-body {
+    overflow-y: auto; /* Déjà présent sur .modal-body */
+/* } */
+
+/* Styles pour les boutons dans la modale (utiliser les classes .btn de buttons.css) */
+.modal-footer .btn {
+    /* Style spécifique si nécessaire, mais hérite de .btn */
+}
+
+/* Animation d'ouverture/fermeture du fond */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Animation d'ouverture/fermeture de la boîte de dialogue */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px) scale(0.98);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(50px) scale(0.98);
+        opacity: 0;
+    }
+}
+
+/* Appliquer les animations
+   Actuellement, la transition est utilisée. Les keyframes sont ici pour référence
+   si une animation plus complexe est souhaitée.
+   Si on utilise des keyframes, il faudrait les assigner via des classes comme :
+   .modal.is-opening { animation: fadeIn 0.3s forwards; }
+   .modal.is-closing { animation: fadeOut 0.3s forwards; }
+   .modal.is-opening .modal-dialog { animation: slideInUp 0.3s forwards; }
+   .modal.is-closing .modal-dialog { animation: slideOutDown 0.3s forwards; }
+*/
+
+/* Pour éviter le défilement de la page principale lorsque la modale est ouverte */
+body.modal-open {
+    overflow: hidden;
+}

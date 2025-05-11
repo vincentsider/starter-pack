@@ -1,0 +1,263 @@
+/* public/css/components/notifications.css */
+
+/* Conteneur global pour les notifications (si positionné fixement) */
+.notifications-container {
+    position: fixed;
+    top: 20px; /* Espace par rapport au haut de la page */
+    right: 20px; /* Espace par rapport à la droite de la page */
+    z-index: var(--z-index-notifications); /* Au-dessus de la plupart des contenus, mais sous les modales */
+    width: 100%;
+    max-width: 350px; /* Largeur maximale des notifications */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espace entre les notifications */
+}
+
+/* Style de base pour une notification/alerte */
+.notification {
+    padding: 1rem 1.25rem;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid transparent; /* Bordure par défaut, sera colorée par type */
+    box-shadow: var(--box-shadow-medium);
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône et le texte en haut */
+    position: relative; /* Pour le positionnement du bouton de fermeture */
+    opacity: 0;
+    transform: translateX(100%); /* Commence hors de l'écran à droite */
+    animation: slideInNotification 0.5s forwards, fadeOutNotification 0.5s 4.5s forwards; /* 4.5s de visibilité */
+}
+
+/* Animation d'apparition */
+@keyframes slideInNotification {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation de disparition */
+@keyframes fadeOutNotification {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Icône dans la notification (optionnel) */
+.notification-icon {
+    margin-right: 0.75rem;
+    font-size: 1.25rem; /* Taille de l'icône */
+    line-height: 1.4; /* Pour un meilleur alignement vertical avec le texte */
+}
+
+/* Contenu textuel de la notification */
+.notification-content {
+    flex-grow: 1; /* Prend l'espace restant */
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.notification-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* Bouton de fermeture de la notification */
+.notification-close-btn {
+    background: none;
+    border: none;
+    color: inherit; /* Hérite la couleur du texte de la notification */
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.7;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    margin-left: 1rem; /* Espace par rapport au contenu */
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.notification-close-btn:hover {
+    opacity: 1;
+}
+
+/* Variations de couleur par type de notification */
+
+/* Information (bleu) */
+.notification-info {
+    background-color: var(--info-color-light);
+    border-color: var(--info-color);
+    color: var(--info-color-dark);
+}
+.notification-info .notification-icon {
+    color: var(--info-color);
+}
+.notification-info .notification-close-btn {
+    color: var(--info-color-dark);
+}
+
+/* Succès (vert) */
+.notification-success {
+    background-color: var(--success-color-light);
+    border-color: var(--success-color);
+    color: var(--success-color-dark);
+}
+.notification-success .notification-icon {
+    color: var(--success-color);
+}
+.notification-success .notification-close-btn {
+    color: var(--success-color-dark);
+}
+
+/* Avertissement (jaune/orange) */
+.notification-warning {
+    background-color: var(--warning-color-light);
+    border-color: var(--warning-color);
+    color: var(--warning-color-dark);
+}
+.notification-warning .notification-icon {
+    color: var(--warning-color);
+}
+.notification-warning .notification-close-btn {
+    color: var(--warning-color-dark);
+}
+
+/* Erreur (rouge) */
+.notification-danger,
+.notification-error { /* Alias */
+    background-color: var(--danger-color-light);
+    border-color: var(--danger-color);
+    color: var(--danger-color-dark);
+}
+.notification-danger .notification-icon,
+.notification-error .notification-icon {
+    color: var(--danger-color);
+}
+.notification-danger .notification-close-btn,
+.notification-error .notification-close-btn {
+    color: var(--danger-color-dark);
+}
+
+/* Notification simple (sans icône ni titre proéminent) */
+.notification-simple {
+    /* Styles spécifiques si nécessaires */
+}
+
+
+/* Alertes intégrées dans le contenu (non flottantes) */
+.alert {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-medium);
+    display: flex;
+    align-items: flex-start;
+}
+
+.alert-icon {
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.alert-content {
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.alert-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: inherit; /* Hérite la couleur de l'alerte */
+}
+
+.alert-link {
+    font-weight: 700;
+    color: inherit; /* Hérite la couleur de l'alerte */
+    text-decoration: underline;
+}
+
+.alert-dismissible {
+    padding-right: 3rem; /* Espace pour le bouton de fermeture */
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1.25rem 1.25rem; /* Augmente la zone cliquable */
+    color: inherit;
+    background: transparent;
+    border: 0;
+    opacity: 0.5;
+    font-size: 1.2rem; /* Pour le 'x' si texte, ou taille de l'icône SVG */
+}
+.alert-dismissible .btn-close:hover {
+    opacity: 0.75;
+}
+
+
+.alert-primary {
+    color: var(--primary-color-dark);
+    background-color: var(--primary-color-light);
+    border-color: var(--primary-color-border);
+}
+.alert-primary .alert-icon { color: var(--primary-color); }
+
+.alert-secondary {
+    color: var(--secondary-color-dark);
+    background-color: var(--secondary-color-light);
+    border-color: var(--secondary-color-border);
+}
+.alert-secondary .alert-icon { color: var(--secondary-color); }
+
+.alert-success {
+    color: var(--success-color-dark);
+    background-color: var(--success-color-light);
+    border-color: var(--success-color-border);
+}
+.alert-success .alert-icon { color: var(--success-color); }
+
+.alert-danger {
+    color: var(--danger-color-dark);
+    background-color: var(--danger-color-light);
+    border-color: var(--danger-color-border);
+}
+.alert-danger .alert-icon { color: var(--danger-color); }
+
+.alert-warning {
+    color: var(--warning-color-dark);
+    background-color: var(--warning-color-light);
+    border-color: var(--warning-color-border);
+}
+.alert-warning .alert-icon { color: var(--warning-color); }
+
+.alert-info {
+    color: var(--info-color-dark);
+    background-color: var(--info-color-light);
+    border-color: var(--info-color-border);
+}
+.alert-info .alert-icon { color: var(--info-color); }
+
+.alert-light {
+    color: #636464;
+    background-color: #fdfdfe;
+    border-color: #fbfcfc;
+}
+.alert-light .alert-icon { color: #636464; } /* Ajuster si nécessaire */
+
+.alert-dark {
+    color: #141619;
+    background-color: #d1d3d5;
+    border-color: #c6c8ca;
+}
+.alert-dark .alert-icon { color: #141619; } /* Ajuster si nécessaire */

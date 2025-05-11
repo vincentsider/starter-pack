@@ -1,0 +1,113 @@
+/* Styles spécifiques pour la page Fonctionnalités (public/features.html) */
+
+/* Section Titre de Page (déjà stylé globalement, mais peut avoir des ajustements) */
+.page-title-section {
+    background-color: var(--light-gray-color); /* Un fond léger pour la distinguer */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.page-title-section .page-main-title {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.page-title-section .page-subtitle {
+    color: var(--text-color-secondary);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section Introduction aux Fonctionnalités */
+#features-intro .section-title {
+    margin-bottom: 1rem;
+}
+
+#features-intro p.lead {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color-secondary);
+}
+
+/* Grille des Fonctionnalités Détaillées */
+#detailed-features {
+    background-color: var(--background-color-light); /* var(--neutral-color-light) ou similaire */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive */
+    gap: 2rem; /* Espace entre les cartes */
+    margin-top: 3rem;
+}
+
+/* Placeholder pour les cartes de fonctionnalités - des styles plus spécifiques viendront avec les composants HTML réels */
+.feature-card-placeholder {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+    min-height: 200px; /* Hauteur minimale pour l'alignement visuel des placeholders */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Styles pour les cartes de fonctionnalités réelles (à appliquer une fois les composants créés) */
+/* .feature-card { ... } */
+/* .feature-card h3 { ... } */
+/* .feature-card p { ... } */
+/* .feature-card .icon { ... } */
+
+
+/* Section CTA */
+#features-cta {
+    /* background-color: var(--primary-color); */ /* Déjà géré par bg-primary-gradient */
+    color: #fff; /* Texte blanc sur fond sombre */
+}
+
+#features-cta .section-title-light {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#features-cta .lead-light {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive adjustments pour la grille si nécessaire */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* Une colonne sur mobile */
+    }
+
+    .page-title-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-section .page-main-title {
+        font-size: 2rem;
+    }
+    .page-title-section .page-subtitle {
+        font-size: 1rem;
+    }
+}

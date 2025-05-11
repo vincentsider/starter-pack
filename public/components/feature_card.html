@@ -1,0 +1,47 @@
+<!-- public/components/feature_card.html -->
+<!--
+    Composant: Carte de Fonctionnalité (Feature Card)
+    Description: Une carte pour afficher une fonctionnalité spécifique avec une icône/image, un titre et une description.
+    Basé sur le pseudocode de `pseudocode/site_vitrine/common/ui_components.md`.
+
+    Attributs de données pour la personnalisation:
+    - data-feature-id: ID unique pour la carte.
+    - data-feature-icon-src: Chemin vers une icône SVG ou une petite image.
+    - data-feature-icon-alt: Texte alternatif pour l'icône/image.
+    - data-feature-image-src: Chemin vers une image plus grande (optionnel, si on veut une image au lieu d'une icône).
+    - data-feature-image-alt: Texte alternatif pour l'image.
+    - data-feature-title: Titre de la fonctionnalité.
+    - data-feature-description: Description de la fonctionnalité.
+    - data-feature-link: Lien "En savoir plus" (optionnel).
+    - data-feature-link-text: Texte pour le lien "En savoir plus" (défaut "En savoir plus").
+    - data-feature-layout: "icon-top", "icon-left", "image-top" (défaut "icon-top").
+    - data-feature-text-align: "left", "center", "right" (défaut "left" pour icon-left, "center" pour icon-top).
+    - Une classe CSS spécifique peut être ajoutée pour le style de la carte.
+-->
+<div class="feature-card layout--icon-top text-align--center"
+    data-feature-id="feature-default"
+    aria-labelledby="feature-title-default"
+>
+    <div class="feature-card-icon-container">
+        <!-- Soit un <img> pour data-feature-icon-src, soit un élément pour une icône SVG inline/font -->
+        <!-- <img src="placeholder-icon.svg" alt="Icône de fonctionnalité" class="feature-card-icon" data-feature-icon-element> -->
+        <svg class="feature-card-icon" data-feature-icon-element xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48px" height="48px">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 12.17l7.59-7.59L19 6l-9 9z"/>
+        </svg>
+    </div>
+    <!-- Ou une image si data-feature-image-src est utilisé et layout est image-top -->
+    <!--
+    <div class="feature-card-image-container" style="display: none;">
+        <img src="" alt="" class="feature-card-image" data-feature-image-element>
+    </div>
+    -->
+    <div class="feature-card-content">
+        <h3 id="feature-title-default" class="feature-card-title" data-feature-title-content>Titre de la Fonctionnalité</h3>
+        <p class="feature-card-description" data-feature-description-content>
+            Description concise de la fonctionnalité, expliquant ses avantages et son fonctionnement.
+        </p>
+        <a href="#" class="feature-card-link link--learn-more" data-feature-link-element style="display: none;">
+            <span data-feature-link-text-content>En savoir plus</span> →
+        </a>
+    </div>
+</div>

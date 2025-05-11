@@ -1,0 +1,57 @@
+<!-- public/components/card.html -->
+<!-- Ceci est un template/squelette pour un composant carte.
+     Il sera utilisé dynamiquement ou comme référence pour construire des cartes spécifiques.
+     Pour une utilisation dynamique, JavaScript serait nécessaire pour cloner ce template
+     et injecter du contenu. Pour une utilisation statique, ce contenu peut être copié
+     et adapté là où une carte est nécessaire.
+
+     Attributs de données (data-*) peuvent être utilisés pour le remplissage dynamique :
+     - data-card-image-src: URL de l'image de la carte
+     - data-card-image-alt: Texte alternatif pour l'image
+     - data-card-title: Titre de la carte
+     - data-card-text: Contenu textuel principal de la carte
+     - data-card-link-href: URL pour le lien "En savoir plus"
+     - data-card-link-text: Texte pour le lien "En savoir plus"
+-->
+<article class="card"
+         data-card-variant="default"
+         aria-labelledby="card-title-{{id}}"
+         aria-describedby="card-text-{{id}}">
+
+    <div class="card-image-container" data-card-image-container>
+        <!-- L'image est optionnelle et peut être ajoutée ici -->
+        <!-- <img src="{{image_src}}" alt="{{image_alt}}" class="card-image" data-card-image> -->
+    </div>
+
+    <div class="card-body">
+        <h3 class="card-title" id="card-title-{{id}}" data-card-title>
+            <!-- Titre de la carte -->
+            Titre de la Carte
+        </h3>
+        <p class="card-text" id="card-text-{{id}}" data-card-text>
+            <!-- Contenu de la carte -->
+            Ceci est un texte descriptif pour la carte. Il donne un aperçu du contenu
+            ou de la fonctionnalité représentée par cette carte.
+        </p>
+        <div class="card-tags" data-card-tags-container>
+            <!-- Les tags sont optionnels et peuvent être ajoutés dynamiquement ici -->
+            <!-- <span class="tag">Tag 1</span> -->
+            <!-- <span class="tag">Tag 2</span> -->
+        </div>
+        <div class="card-actions" data-card-actions-container>
+            <!-- Les actions (boutons/liens) sont optionnelles -->
+            <!-- <a href="#" class="btn btn-primary card-action-link" data-card-link>En savoir plus</a> -->
+        </div>
+    </div>
+
+    <div class="card-footer" data-card-footer-container>
+        <!-- Le pied de page de la carte est optionnel -->
+        <!-- <small>Information supplémentaire</small> -->
+    </div>
+</article>
+
+<!-- Variations de la carte (exemples, peuvent être étendues) :
+<article class="card card-highlighted" ...> ... </article>
+<article class="card card-pricing" ...> ... </article>
+<article class="card card-testimonial" ...> ... </article>
+-->

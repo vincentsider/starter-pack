@@ -1,0 +1,185 @@
+/* public/css/components/button.css */
+
+:root {
+    /* Variables pour les boutons, peuvent être surchargées ou étendues */
+    --button-padding: 12px 24px;
+    --button-font-size: 1rem;
+    --button-border-radius: var(--border-radius-medium); /* Utilise le border-radius global */
+    --button-font-weight: 600;
+    --button-transition-duration: 0.3s;
+
+    /* Couleurs primaires */
+    --button-primary-bg: var(--primary-color);
+    --button-primary-text: var(--text-color-light);
+    --button-primary-border: var(--primary-color);
+    --button-primary-bg-hover: var(--primary-color-dark); /* Plus sombre au survol */
+    --button-primary-border-hover: var(--primary-color-dark);
+
+    /* Couleurs secondaires */
+    --button-secondary-bg: var(--secondary-color);
+    --button-secondary-text: var(--text-color-light);
+    --button-secondary-border: var(--secondary-color);
+    --button-secondary-bg-hover: var(--secondary-color-dark);
+    --button-secondary-border-hover: var(--secondary-color-dark);
+
+    /* Couleurs pour le style "outline" */
+    --button-outline-text: var(--primary-color);
+    --button-outline-border: var(--primary-color);
+    --button-outline-bg-hover: var(--primary-color-lightest); /* Fond très léger au survol */
+    --button-outline-text-hover: var(--primary-color-dark);
+    --button-outline-border-hover: var(--primary-color-dark);
+    
+    /* Couleurs pour le style "ghost" (transparent) */
+    --button-ghost-text: var(--text-color-dark);
+    --button-ghost-bg-hover: var(--neutral-color-light);
+    --button-ghost-text-hover: var(--primary-color);
+}
+
+.btn {
+    display: inline-block; /* Permet de définir padding/margin et d'aligner */
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    text-align: center;
+    text-decoration: none; /* Supprimer le soulignement des liens stylés en boutons */
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    border: 2px solid transparent; /* Bordure de base, peut être surchargée */
+    transition: background-color var(--button-transition-duration) ease,
+                border-color var(--button-transition-duration) ease,
+                color var(--button-transition-duration) ease,
+                transform var(--button-transition-duration) ease;
+    font-family: var(--font-family-sans-serif); /* Assurer la cohérence de la police */
+    line-height: 1.5; /* Pour un meilleur alignement vertical du texte */
+    white-space: nowrap; /* Empêcher le texte du bouton de passer à la ligne */
+}
+
+.btn:hover,
+.btn:focus {
+    outline: none; /* Supprimer l'outline par défaut pour un style personnalisé */
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile au survol/focus */
+}
+
+.btn:active {
+    transform: translateY(0); /* Remettre à la position initiale lors du clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre plus petite lors du clic */
+}
+
+/* Style Primaire */
+.btn-primary {
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-color: var(--button-primary-border);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--button-primary-bg-hover);
+    border-color: var(--button-primary-border-hover);
+    color: var(--button-primary-text); /* Maintenir la couleur du texte si nécessaire */
+}
+
+/* Style Secondaire */
+.btn-secondary {
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
+    border-color: var(--button-secondary-border);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--button-secondary-bg-hover);
+    border-color: var(--button-secondary-border-hover);
+    color: var(--button-secondary-text);
+}
+
+/* Style Outline */
+.btn-outline {
+    background-color: transparent;
+    color: var(--button-outline-text);
+    border-color: var(--button-outline-border);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+    background-color: var(--button-outline-bg-hover);
+    color: var(--button-outline-text-hover);
+    border-color: var(--button-outline-border-hover);
+}
+
+/* Style Ghost (transparent, sans bordure initiale) */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--button-ghost-text);
+    border-color: transparent; /* Pas de bordure initiale */
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    background-color: var(--button-ghost-bg-hover);
+    color: var(--button-ghost-text-hover);
+    /* Optionnel: ajouter une bordure subtile au survol si souhaité */
+    /* border-color: var(--neutral-color-medium); */
+}
+
+
+/* Tailles de boutons */
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.15rem;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+/* Bouton pleine largeur */
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* État désactivé */
+.btn:disabled,
+.btn.disabled { /* Classe .disabled pour les éléments <a> */
+    background-color: var(--neutral-color-light);
+    border-color: var(--neutral-color-medium);
+    color: var(--text-color-disabled);
+    cursor: not-allowed;
+    transform: none; /* Pas d'effet de soulèvement */
+    box-shadow: none; /* Pas d'ombre */
+}
+
+.btn:disabled:hover,
+.btn.disabled:hover {
+    background-color: var(--neutral-color-light); /* Maintenir le style désactivé au survol */
+    border-color: var(--neutral-color-medium);
+    color: var(--text-color-disabled);
+}
+
+/* Boutons avec icônes */
+.btn .icon {
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligner l'icône avec le texte */
+}
+
+.btn .icon-only { /* Si le bouton ne contient qu'une icône */
+    margin-right: 0;
+    padding: 10px; /* Ajuster le padding pour les icônes seules */
+}
+
+.btn .icon-right { /* Pour les icônes à droite */
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* Focus visible pour l'accessibilité, si on préfère le style par défaut au lieu de celui personnalisé */
+/*
+.btn:focus-visible {
+    outline: 2px solid var(--primary-color); 
+    outline-offset: 2px;
+}
+*/

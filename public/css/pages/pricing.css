@@ -1,0 +1,328 @@
+/* public/css/pages/pricing.css */
+
+/* --- En-tête de la page des tarifs --- */
+.pricing-header-section {
+    background-color: var(--primary-color-lighter);
+    padding: calc(var(--spacing-unit) * 3) 0;
+    text-align: center;
+}
+
+.pricing-header-section .section-title {
+    color: var(--primary-color-dark);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.pricing-header-section .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-unit);
+}
+
+/* --- Sélecteur de période de facturation (mensuel/annuel) --- */
+.billing-toggle-section {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.billing-toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--light-gray-background);
+    border-radius: var(--border-radius-lg); /* Coins arrondis pour le conteneur du switch */
+    padding: calc(var(--spacing-unit) / 4);
+    border: 1px solid var(--border-color-light);
+}
+
+.billing-toggle-switch label {
+    padding: calc(var(--spacing-unit) / 1.5) var(--spacing-unit); /* Augmentation du padding pour un meilleur aspect */
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-weight: 500;
+    border-radius: calc(var(--border-radius-lg) - (var(--spacing-unit) / 4)); /* Rayon interne légèrement plus petit */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.billing-toggle-switch input[type="radio"] {
+    display: none; /* Masquer les boutons radio réels */
+}
+
+.billing-toggle-switch input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: var(--button-primary-text-color);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.billing-discount-badge {
+    display: inline-block;
+    background-color: var(--accent-color); /* Couleur pour attirer l'attention */
+    color: #fff;
+    font-size: var(--font-size-sm);
+    padding: calc(var(--spacing-unit) / 4) calc(var(--spacing-unit) / 2);
+    border-radius: var(--border-radius);
+    margin-left: calc(var(--spacing-unit) / 2);
+    font-weight: bold;
+}
+
+
+/* --- Grille des plans tarifaires --- */
+.pricing-plans-section {
+    padding: calc(var(--spacing-unit) * 2) 0; /* Moins de padding car l'en-tête en a déjà */
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    align-items: stretch; /* S'assurer que les cartes ont la même hauteur si elles ont des contenus différents */
+}
+
+.pricing-plan-card { /* Surcharge de .card de ui_components.css */
+    display: flex;
+    flex-direction: column; /* Organiser le contenu verticalement */
+    border: 2px solid var(--border-color-light); /* Bordure par défaut */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.pricing-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.pricing-plan-card.recommended { /* Style pour le plan recommandé */
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-md); /* Ombre plus prononcée pour le recommandé */
+    position: relative;
+    overflow: hidden; /* Pour le bandeau de recommandation */
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -1px; /* Ajuster pour un meilleur alignement avec la bordure */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--button-primary-text-color);
+    padding: calc(var(--spacing-unit) / 3) var(--spacing-unit);
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    width: 100%; /* S'assurer que le bandeau prend toute la largeur */
+    text-align: center;
+    z-index: 2;
+}
+/* Ajustement pour le contenu de la carte recommandée pour ne pas être caché par le bandeau */
+.pricing-plan-card.recommended .card-header {
+    padding-top: calc(var(--spacing-unit) * 2.5); /* Espace supplémentaire en haut */
+}
+
+
+.pricing-plan-card .card-header {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+    background-color: var(--light-gray-background);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.plan-name {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-color-dark);
+    margin-bottom: calc(var(--spacing-unit) / 4);
+}
+
+.plan-description { /* Sous le nom du plan */
+    font-size: var(--font-size-sm);
+    color: var(--secondary-color);
+    min-height: calc(var(--font-size-sm) * var(--line-height-base) * 2); /* S'assurer d'une hauteur minimale pour 2 lignes */
+    margin-bottom: calc(var(--spacing-unit)/2);
+}
+
+.plan-price {
+    font-size: var(--font-size-xxxl); /* Prix bien visible */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: calc(var(--spacing-unit) / 2) 0;
+}
+
+.plan-price .currency {
+    font-size: var(--font-size-lg);
+    vertical-align: super; /* Aligner le symbole monétaire */
+    margin-right: 2px;
+}
+
+.plan-price .period {
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--secondary-color);
+}
+
+.plan-features-list {
+    list-style: none;
+    padding: 0 var(--spacing-unit);
+    margin: var(--spacing-unit) 0;
+    flex-grow: 1; /* Permet à cette section de grandir et pousser le bouton en bas */
+}
+
+.plan-features-list li {
+    position: relative;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: calc(var(--spacing-unit) / 1.5); /* Espacement accru */
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+.plan-features-list li::before {
+    content: '✓'; /* Icône de coche */
+    color: var(--success-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+.plan-features-list li.feature-unavailable::before {
+    content: '✕'; /* Icône de croix pour fonctionnalités non disponibles */
+    color: var(--danger-color);
+}
+.plan-features-list li.feature-unavailable {
+    color: var(--text-color-light); /* Texte plus clair pour fonctionnalité non disponible */
+    text-decoration: line-through;
+}
+
+
+.pricing-plan-card .card-footer {
+    padding: var(--spacing-unit);
+    text-align: center;
+    margin-top: auto; /* Pousse le footer en bas de la carte */
+}
+
+.select-plan-button { /* Utilise .button de ui_components.css */
+    width: 100%; /* Le bouton prend toute la largeur du footer */
+}
+
+
+/* --- Section Comparaison des plans (Tableau) --- */
+.comparison-table-section {
+    padding: calc(var(--spacing-unit) * 3) 0;
+    background-color: var(--background-color);
+}
+
+.features-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    box-shadow: var(--box-shadow-sm);
+    overflow-x: auto; /* Permet le défilement horizontal sur petits écrans */
+    display: block; /* Nécessaire pour overflow-x sur table */
+}
+
+.features-comparison-table th,
+.features-comparison-table td {
+    padding: var(--spacing-unit);
+    text-align: left;
+    border: 1px solid var(--border-color-light);
+    vertical-align: middle;
+}
+
+.features-comparison-table thead th {
+    background-color: var(--light-gray-background);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-color-dark);
+    text-align: center; /* Centrer les noms des plans */
+}
+.features-comparison-table thead th:first-child {
+    text-align: left; /* La première cellule (nom de la fonctionnalité) à gauche */
+}
+
+.features-comparison-table tbody th { /* Nom de la fonctionnalité dans le corps */
+    font-weight: 500;
+    background-color: var(--primary-color-lightest);
+}
+
+.features-comparison-table td {
+    text-align: center; /* Centrer les coches/croix */
+    font-size: var(--font-size-lg); /* Rendre les icônes plus visibles */
+}
+
+.feature-check { color: var(--success-color); }
+.feature-cross { color: var(--danger-color); }
+.feature-text-value { /* Pour les valeurs textuelles (ex: "Illimité") */
+    font-size: var(--font-size-sm);
+    color: var(--text-color);
+}
+
+
+/* --- Section "Garantie de satisfaction" ou "Informations supplémentaires" --- */
+.additional-info-pricing-section {
+    padding: calc(var(--spacing-unit) * 2) 0;
+    text-align: center;
+    background-color: var(--light-gray-background);
+}
+
+.additional-info-pricing-section p {
+    font-size: var(--font-size-md);
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-unit);
+}
+
+.additional-info-pricing-section .highlight {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+
+/* --- Styles responsifs pour la page des tarifs --- */
+@media (max-width: 992px) { /* Pour tablettes */
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .features-comparison-table {
+        font-size: var(--font-size-sm); /* Réduire la taille de la police pour la table */
+    }
+    .features-comparison-table th,
+    .features-comparison-table td {
+        padding: calc(var(--spacing-unit) / 1.5);
+    }
+}
+
+@media (max-width: 768px) { /* Pour mobiles */
+    .pricing-header-section .section-title {
+        font-size: var(--font-size-xxl);
+    }
+    .pricing-header-section .section-subtitle {
+        font-size: var(--font-size-md);
+    }
+
+    .billing-toggle-switch {
+        /* Si le switch devient trop large, le forcer sur une nouvelle ligne ou réduire la taille du texte */
+    }
+    .billing-toggle-switch label {
+        padding: calc(var(--spacing-unit) / 2) calc(var(--spacing-unit) / 1.5);
+        font-size: var(--font-size-sm);
+    }
+    .billing-discount-badge {
+        font-size: var(--font-size-xs);
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les plans */
+    }
+    .pricing-plan-card {
+        margin-bottom: var(--spacing-unit); /* Ajouter un espace si les cartes s'empilent */
+    }
+    /* Le tableau de comparaison devient difficile à lire, on peut le cacher ou le transformer */
+}
+
+@media (max-width: 480px) {
+     .plan-price {
+        font-size: var(--font-size-xxl);
+    }
+    .plan-price .currency {
+        font-size: var(--font-size-md);
+    }
+}

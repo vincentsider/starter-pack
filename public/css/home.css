@@ -1,0 +1,116 @@
+/* public/css/home.css */
+
+/* Styles pour la section Hero */
+.hero-section {
+    background-color: #f8f9fa; /* Couleur de fond exemple */
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-section .btn-primary {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Styles pour la section Aperçu des Fonctionnalités */
+.features-overview-section {
+    padding: 4rem 0;
+}
+
+.features-overview-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.feature-item {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.feature-item i { /* Pour les icônes Font Awesome ou Bootstrap Icons */
+    font-size: 3rem;
+    color: var(--bs-primary); /* Utilise la couleur primaire de Bootstrap */
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Styles pour la section Témoignages */
+.testimonials-section {
+    background-color: #e9ecef; /* Couleur de fond exemple */
+    padding: 4rem 0;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.testimonial-item blockquote {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-item .author {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Styles pour la section Appel à l'Action (CTA) */
+.cta-section {
+    background-color: var(--bs-primary); /* Utilise la couleur primaire de Bootstrap */
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-section .btn-light {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+}
+
+/* Styles responsifs si nécessaire */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,201 @@
+/* public/css/common/ui/alerts.css */
+
+:root {
+    /* Variables pour les alertes */
+    --alert-padding-y: var(--spacing-md, 0.75rem);
+    --alert-padding-x: var(--spacing-lg, 1rem);
+    --alert-margin-bottom: var(--spacing-lg, 1rem);
+    --alert-border-radius: var(--border-radius-base, 0.25rem);
+    --alert-border-width: var(--border-width-base, 1px);
+    --alert-link-font-weight: var(--font-weight-bold);
+
+    /* Couleurs de base pour les alertes - ces variables devraient être définies dans theme.css */
+    /* Fallback si non définies */
+    --primary-color-light: #cfe2ff;
+    --primary-color-dark: #084298;
+    --secondary-color-light: #e2e3e5;
+    --secondary-color-dark: #41464b;
+    --success-color-light: #d1e7dd;
+    --success-color-dark: #0f5132;
+    --danger-color-light: #f8d7da;
+    --danger-color-dark: #842029;
+    --warning-color-light: #fff3cd;
+    --warning-color-dark: #664d03;
+    --info-color-light: #cff4fc;
+    --info-color-dark: #055160;
+    --light-color-bg: #f8f9fa; /* Utilisé pour .alert-light */
+    --light-color-text: #636464;
+    --dark-color-bg: #d3d3d4;  /* Utilisé pour .alert-dark */
+    --dark-color-text: #141619;
+
+    /* Génération des couleurs pour chaque type d'alerte */
+    --alert-bg-scale: -80%; /* Pourcentage pour éclaircir/assombrir pour le fond */
+    --alert-border-scale: -70%; /* Pourcentage pour éclaircir/assombrir pour la bordure */
+    --alert-color-scale: 40%; /* Pourcentage pour éclaircir/assombrir pour le texte */
+}
+
+.alert {
+    position: relative;
+    padding: var(--alert-padding-y) var(--alert-padding-x);
+    margin-bottom: var(--alert-margin-bottom);
+    border: var(--alert-border-width) solid transparent;
+    border-radius: var(--alert-border-radius);
+    font-size: var(--font-size-base);
+}
+
+/* Liens dans les alertes */
+.alert-link {
+    font-weight: var(--alert-link-font-weight);
+}
+
+/* Titre d'alerte */
+.alert-heading {
+    /* color: inherit; Herite la couleur du parent .alert */
+    font-size: var(--font-size-lg); /* Ou h4-font-size */
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm, 0.5rem);
+}
+
+/* Alerte avec possibilité de la fermer */
+.alert-dismissible {
+    padding-right: calc(var(--alert-padding-x) + 2rem); /* Espace pour le bouton de fermeture */
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: var(--alert-padding-y) var(--alert-padding-x);
+    color: inherit; /* Hérite la couleur de l'alerte parente pour le bouton */
+    background: transparent;
+    border: 0;
+    font-size: 1.25rem; /* Taille de l'icône de fermeture */
+    line-height: 1;
+    opacity: 0.7;
+    cursor: pointer;
+}
+.alert-dismissible .btn-close:hover,
+.alert-dismissible .btn-close:focus {
+    opacity: 1;
+    outline: none;
+}
+
+
+/* Variantes de couleur pour les alertes */
+/* Fonction pour générer les couleurs (conceptuel, appliqué manuellement ci-dessous)
+   set-alert-variant(background, border, color)
+*/
+
+/* Alerte Primaire */
+.alert-primary {
+    color: var(--primary-color-dark);
+    background-color: var(--primary-color-light);
+    border-color: color-mix(in srgb, var(--primary-color-light) 70%, black); /* Assombrir primary-color-light */
+}
+.alert-primary .alert-link {
+    color: color-mix(in srgb, var(--primary-color-dark) 80%, black); /* Assombrir primary-color-dark */
+}
+.alert-primary.alert-dismissible .btn-close {
+    color: var(--primary-color-dark);
+}
+
+/* Alerte Secondaire */
+.alert-secondary {
+    color: var(--secondary-color-dark);
+    background-color: var(--secondary-color-light);
+    border-color: color-mix(in srgb, var(--secondary-color-light) 70%, black);
+}
+.alert-secondary .alert-link {
+    color: color-mix(in srgb, var(--secondary-color-dark) 80%, black);
+}
+.alert-secondary.alert-dismissible .btn-close {
+    color: var(--secondary-color-dark);
+}
+
+/* Alerte Succès */
+.alert-success {
+    color: var(--success-color-dark);
+    background-color: var(--success-color-light);
+    border-color: color-mix(in srgb, var(--success-color-light) 70%, black);
+}
+.alert-success .alert-link {
+    color: color-mix(in srgb, var(--success-color-dark) 80%, black);
+}
+.alert-success.alert-dismissible .btn-close {
+    color: var(--success-color-dark);
+}
+
+/* Alerte Danger */
+.alert-danger {
+    color: var(--danger-color-dark);
+    background-color: var(--danger-color-light);
+    border-color: color-mix(in srgb, var(--danger-color-light) 70%, black);
+}
+.alert-danger .alert-link {
+    color: color-mix(in srgb, var(--danger-color-dark) 80%, black);
+}
+.alert-danger.alert-dismissible .btn-close {
+    color: var(--danger-color-dark);
+}
+
+/* Alerte Avertissement */
+.alert-warning {
+    color: var(--warning-color-dark);
+    background-color: var(--warning-color-light);
+    border-color: color-mix(in srgb, var(--warning-color-light) 70%, black);
+}
+.alert-warning .alert-link {
+    color: color-mix(in srgb, var(--warning-color-dark) 80%, black);
+}
+.alert-warning.alert-dismissible .btn-close {
+    color: var(--warning-color-dark);
+}
+
+/* Alerte Information */
+.alert-info {
+    color: var(--info-color-dark);
+    background-color: var(--info-color-light);
+    border-color: color-mix(in srgb, var(--info-color-light) 70%, black);
+}
+.alert-info .alert-link {
+    color: color-mix(in srgb, var(--info-color-dark) 80%, black);
+}
+.alert-info.alert-dismissible .btn-close {
+    color: var(--info-color-dark);
+}
+
+/* Alerte Claire (Light) */
+.alert-light {
+    color: var(--light-color-text);
+    background-color: var(--light-color-bg);
+    border-color: color-mix(in srgb, var(--light-color-bg) 70%, black);
+}
+.alert-light .alert-link {
+    color: color-mix(in srgb, var(--light-color-text) 80%, black);
+}
+.alert-light.alert-dismissible .btn-close {
+    color: var(--light-color-text);
+}
+
+/* Alerte Sombre (Dark) */
+.alert-dark {
+    color: var(--dark-color-text);
+    background-color: var(--dark-color-bg);
+    border-color: color-mix(in srgb, var(--dark-color-bg) 70%, black);
+}
+.alert-dark .alert-link {
+    color: color-mix(in srgb, var(--dark-color-text) 80%, black);
+}
+.alert-dark.alert-dismissible .btn-close {
+    color: var(--dark-color-text);
+}
+
+/* JavaScript pour la fonctionnalité de fermeture (exemple)
+   document.querySelectorAll('.alert-dismissible .btn-close').forEach(button => {
+       button.addEventListener('click', function() {
+           this.closest('.alert-dismissible').style.display = 'none';
+           // ou this.closest('.alert-dismissible').remove(); pour le supprimer du DOM
+       });
+   });
+*/

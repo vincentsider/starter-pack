@@ -1,0 +1,259 @@
+/* public/css/common/ui/tabs.css */
+
+:root {
+    --tabs-border-color: var(--border-color-light, #dee2e6);
+    --tabs-nav-link-padding-y: var(--spacing-sm, 0.5rem);
+    --tabs-nav-link-padding-x: var(--spacing-md, 1rem);
+    --tabs-nav-link-color: var(--text-color-secondary, #495057);
+    --tabs-nav-link-hover-border-color: var(--neutral-color-200, #e9ecef);
+    --tabs-nav-link-active-color: var(--primary-color, #007bff);
+    --tabs-nav-link-active-bg: var(--background-color-light, #fff);
+    --tabs-nav-link-active-border-color: var(--tabs-border-color) var(--tabs-border-color) var(--tabs-nav-link-active-bg);
+    --tabs-nav-link-disabled-color: var(--text-color-muted, #6c757d);
+    --tabs-content-padding: var(--spacing-lg, 1.5rem);
+    --tabs-content-border-radius: var(--border-radius-md, 0.25rem);
+    --tabs-transition-duration: var(--transition-speed-base, 0.3s);
+}
+
+/* Conteneur principal des onglets */
+.tabs-container {
+    /* Peut contenir des styles globaux pour un ensemble d'onglets si nécessaire */
+}
+
+/* Navigation des onglets (liste des liens d'onglets) */
+.nav-tabs {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux onglets de passer à la ligne sur petits écrans */
+    padding-left: 0;
+    margin-bottom: 0; /* Annule la marge par défaut de <ul> */
+    list-style: none;
+    border-bottom: 1px solid var(--tabs-border-color);
+}
+
+/* Chaque item dans la navigation des onglets */
+.nav-tabs .nav-item {
+    margin-bottom: -1px; /* Pour que la bordure inférieure du lien actif fusionne avec celle de .nav-tabs */
+}
+
+/* Lien d'un onglet */
+.nav-tabs .nav-link {
+    display: block;
+    padding: var(--tabs-nav-link-padding-y) var(--tabs-nav-link-padding-x);
+    color: var(--tabs-nav-link-color);
+    text-decoration: none;
+    background: none; /* Pas de fond par défaut */
+    border: 1px solid transparent; /* Bordure transparente pour garder la dimension */
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+    transition: color var(--tabs-transition-duration) ease-in-out,
+                border-color var(--tabs-transition-duration) ease-in-out;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    color: var(--tabs-nav-link-active-color); /* Ou une couleur de hover spécifique */
+    border-color: var(--tabs-nav-link-hover-border-color) var(--tabs-nav-link-hover-border-color) var(--tabs-border-color);
+    isolation: isolate; /* Contexte d'empilement pour éviter que le fond ne passe sous la bordure de .nav-tabs */
+}
+
+.nav-tabs .nav-link.disabled {
+    color: var(--tabs-nav-link-disabled-color);
+    pointer-events: none;
+    cursor: default;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/* Lien de l'onglet actif */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link { /* .show pour les dropdowns dans les tabs (si utilisé) */
+    color: var(--tabs-nav-link-active-color);
+    background-color: var(--tabs-nav-link-active-bg);
+    border-color: var(--tabs-nav-link-active-border-color); /* haut, droite, bas (le bas est la couleur du fond) */
+    font-weight: var(--font-weight-semibold, 600);
+}
+
+/* Contenu des panneaux d'onglets */
+.tab-content {
+    /* Pas de styles spécifiques par défaut, mais on peut en ajouter si nécessaire */
+    /* Par exemple, si on veut une bordure autour du contenu qui correspond aux onglets:
+    border: 1px solid var(--tabs-border-color);
+    border-top: 0;
+    border-bottom-left-radius: var(--tabs-content-border-radius);
+    border-bottom-right-radius: var(--tabs-content-border-radius);
+    */
+}
+
+/* Panneau de contenu individuel */
+.tab-pane {
+    display: none; /* Caché par défaut */
+    padding: var(--tabs-content-padding);
+    /* Styles pour le fondu enchaîné */
+    opacity: 0;
+    transition: opacity var(--tabs-transition-duration) ease-in-out;
+    will-change: opacity;
+}
+
+.tab-pane.active {
+    display: block; /* Affiché lorsque actif */
+    opacity: 1;
+}
+/* Optionnel: .fade pour l'effet de fondu (si on veut le contrôler avec une classe) */
+.tab-pane.fade {
+    transition: opacity var(--tabs-transition-duration) linear;
+}
+.tab-pane.fade.show { /* Combinaison de classes pour l'état visible avec fondu */
+    opacity: 1;
+}
+
+
+/* Onglets de style "Pills" (pilules) */
+.nav-pills .nav-link {
+    background: none;
+    border: 0;
+    border-radius: var(--border-radius-md); /* Pilule arrondie */
+    transition: color var(--tabs-transition-duration) ease-in-out,
+                background-color var(--tabs-transition-duration) ease-in-out;
+}
+
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus {
+    color: var(--primary-color-dark, #0056b3);
+    background-color: var(--neutral-color-200, #e9ecef); /* Fond léger au survol */
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: var(--primary-color-contrast, #fff);
+    background-color: var(--primary-color, #007bff);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+.nav-pills .nav-link.disabled {
+    color: var(--tabs-nav-link-disabled-color);
+    background-color: transparent;
+}
+
+/* Onglets verticaux (nécessite une structure HTML adaptée ou des classes supplémentaires) */
+.nav-tabs-vertical,
+.nav-pills-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les items au début */
+    border-bottom: 0; /* Pas de bordure inférieure globale */
+    border-right: 1px solid var(--tabs-border-color); /* Bordure à droite pour .nav-tabs-vertical */
+}
+
+.nav-tabs-vertical .nav-item {
+    width: 100%; /* Les items prennent toute la largeur */
+    margin-bottom: 0;
+    margin-right: -1px; /* Pour fusionner la bordure droite du lien actif */
+}
+
+.nav-tabs-vertical .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: var(--border-radius-md);
+    border-bottom-left-radius: var(--border-radius-md);
+    border-top-right-radius: 0; /* Pas d'arrondi à droite */
+    border-bottom-right-radius: 0;
+    width: 100%; /* Les liens prennent toute la largeur de l'item */
+    text-align: left;
+}
+
+.nav-tabs-vertical .nav-link:hover,
+.nav-tabs-vertical .nav-link:focus {
+    border-color: var(--tabs-nav-link-hover-border-color) var(--tabs-border-color) var(--tabs-nav-link-hover-border-color) var(--tabs-nav-link-hover-border-color);
+}
+
+.nav-tabs-vertical .nav-link.active {
+    border-color: var(--tabs-border-color) var(--tabs-nav-link-active-bg) var(--tabs-border-color) var(--tabs-border-color);
+    /* La bordure droite est la couleur du fond pour la "cacher" */
+}
+
+.nav-pills-vertical .nav-item {
+    width: 100%;
+}
+.nav-pills-vertical .nav-link {
+    width: 100%;
+    text-align: left;
+}
+
+/* Contenu des onglets verticaux */
+.tab-content-vertical {
+    flex-grow: 1; /* Prend l'espace restant si .nav-*-vertical est dans un conteneur flex */
+    /* border-left: 1px solid var(--tabs-border-color); */ /* Optionnel si .nav-tabs-vertical a déjà une bordure droite */
+    /* padding-left: var(--tabs-content-padding); */ /* Ajuster le padding */
+}
+
+/* Onglets justifiés (prennent toute la largeur disponible) */
+.nav-fill .nav-item,
+.nav-justified .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+/* Pour .nav-justified, les liens eux-mêmes prennent toute la largeur de l'item */
+.nav-justified .nav-link {
+    width: 100%;
+}
+
+/* Peut nécessiter des ajustements de structure HTML pour un affichage correct */
+/* Exemple:
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    ...
+  </div>
+  <div class="tab-content" id="v-pills-tabContent">
+    ...
+  </div>
+</div>
+*/
+
+/* Dropdowns dans les onglets (plus complexe, souvent géré par des bibliothèques JS) */
+.nav-tabs .dropdown-menu { /* Si un dropdown est utilisé dans un nav-item */
+    margin-top: -1px; /* Pour aligner avec la bordure de .nav-tabs */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.nav-pills .dropdown-menu {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Responsive: les onglets peuvent devenir verticaux ou scrollables sur petits écrans */
+@media (max-width: 767.98px) { /* Exemple pour mobile */
+    .nav-tabs-responsive-stack { /* Classe à ajouter à .nav-tabs */
+        flex-direction: column;
+        border-bottom: 0;
+    }
+    .nav-tabs-responsive-stack .nav-item {
+        margin-bottom: 0;
+        width: 100%;
+    }
+    .nav-tabs-responsive-stack .nav-link {
+        border: 1px solid var(--tabs-border-color);
+        border-radius: var(--border-radius-md);
+        margin-bottom: var(--spacing-xs, 0.25rem);
+        text-align: left; /* Ou center */
+    }
+    .nav-tabs-responsive-stack .nav-link.active {
+        border-color: var(--primary-color);
+        /* Ajuster les autres styles si besoin */
+    }
+    .nav-tabs-responsive-stack .nav-link:hover,
+    .nav-tabs-responsive-stack .nav-link:focus {
+         border-color: var(--primary-color-light);
+    }
+
+    /* Pour le scroll horizontal si beaucoup d'onglets */
+    .nav-tabs-responsive-scroll { /* Classe à ajouter à .nav-tabs */
+        flex-wrap: nowrap; /* Empêche le retour à la ligne */
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch; /* Pour un scroll fluide sur iOS */
+        /* Peut nécessiter un wrapper pour un meilleur style des barres de défilement */
+    }
+    .nav-tabs-responsive-scroll .nav-item {
+        white-space: nowrap; /* Empêche le texte des liens de se casser */
+    }
+}

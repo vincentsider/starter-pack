@@ -1,0 +1,54 @@
+<!-- public/components/modal.html -->
+<!-- Ceci est un template/squelette pour un composant modal.
+     Il sera cloné et rempli dynamiquement par JavaScript.
+
+     Attributs pour le contrôle et l'accessibilité :
+     - id: Identifiant unique pour la modale (sera généré ou défini).
+     - aria-labelledby: Référence au titre de la modale.
+     - aria-describedby: Référence à la description principale de la modale.
+     - role="dialog": Indique que l'élément est une boîte de dialogue.
+     - aria-modal="true": Indique que le contenu en dehors de la modale est inaccessible.
+     - tabindex="-1": Permet à la modale de recevoir le focus programmatiquement.
+     - data-modal-state="closed": (ou "open") géré par JS.
+-->
+<div class="modal"
+     id="modal-template"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-template-title"
+     aria-describedby="modal-template-description"
+     tabindex="-1"
+     data-modal-state="closed">
+
+    <div class="modal-overlay" data-modal-close tabindex="-1">
+        <!-- Overlay pour fermer la modale en cliquant à l'extérieur -->
+    </div>
+
+    <div class="modal-content" role="document">
+        <header class="modal-header">
+            <h2 class="modal-title" id="modal-template-title" data-modal-title>
+                <!-- Titre de la modale (sera remplacé) -->
+                Titre de la Modale
+            </h2>
+            <button type="button" class="modal-close-button" data-modal-close aria-label="Fermer la modale">
+                <!-- Utiliser une icône SVG ou un caractère (×) pour le bouton de fermeture -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+        </header>
+
+        <section class="modal-body" id="modal-template-description" data-modal-body>
+            <!-- Contenu principal de la modale (sera remplacé) -->
+            <p>Ceci est le contenu par défaut du corps de la modale. Il sera remplacé par le contenu spécifique lors de l'utilisation de la modale.</p>
+        </section>
+
+        <footer class="modal-footer" data-modal-footer>
+            <!-- Pied de page de la modale, généralement pour les boutons d'action (sera remplacé si nécessaire) -->
+            <!-- Exemple:
+            <button type="button" class="btn btn-secondary" data-modal-close>Annuler</button>
+            <button type="button" class="btn btn-primary" data-modal-confirm>Confirmer</button>
+            -->
+        </footer>
+    </div>
+</div>

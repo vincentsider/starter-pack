@@ -1,0 +1,381 @@
+/* public/css/common/ui/navbar.css */
+
+:root {
+    --navbar-padding-y: var(--spacing-md, 0.75rem);
+    --navbar-padding-x: var(--spacing-lg, 1.5rem);
+    --navbar-bg-color: var(--neutral-color-100, #f8f9fa);
+    --navbar-text-color: var(--text-color-secondary, rgba(0,0,0,0.6));
+    --navbar-border-color: var(--border-color-light, #dee2e6);
+    --navbar-box-shadow: var(--shadow-sm, 0 0.125rem 0.25rem rgba(0,0,0,0.075));
+
+    --navbar-brand-font-size: var(--font-size-lg, 1.25rem);
+    --navbar-brand-font-weight: var(--font-weight-bold, 700);
+    --navbar-brand-color: var(--text-color-headings, #343a40);
+    --navbar-brand-hover-color: var(--primary-color-dark, #0056b3);
+    --navbar-brand-padding-y: calc(var(--navbar-padding-y) * 0.5); /* Un peu moins pour un meilleur alignement vertical */
+
+    --nav-link-padding-y: var(--spacing-sm, 0.5rem);
+    --nav-link-padding-x: var(--spacing-md, 0.75rem);
+    --nav-link-color: var(--text-color-secondary, rgba(0,0,0,0.6));
+    --nav-link-hover-color: var(--primary-color, #007bff);
+    --nav-link-active-color: var(--primary-color-dark, #0056b3);
+    --nav-link-disabled-color: var(--text-color-muted, #6c757d);
+    --nav-link-font-weight: var(--font-weight-medium, 500);
+
+    --navbar-toggler-padding-y: var(--spacing-xs, 0.25rem);
+    --navbar-toggler-padding-x: var(--spacing-sm, 0.5rem);
+    --navbar-toggler-font-size: var(--font-size-lg, 1.25rem);
+    --navbar-toggler-border-color: var(--border-color-transparent, rgba(0,0,0,0.1));
+    --navbar-toggler-border-radius: var(--border-radius-md, 0.25rem);
+    --navbar-toggler-focus-box-shadow: 0 0 0 0.2rem var(--primary-color-x-light-transparent, rgba(0,123,255,0.25));
+    --navbar-toggler-icon-bg: var(--navbar-toggler-icon-bg-image, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"));
+
+    --navbar-collapse-transition-duration: var(--transition-speed-base, 0.35s);
+    --navbar-dropdown-menu-bg: var(--background-color-light, #fff);
+    --navbar-dropdown-menu-border-color: var(--border-color-light, rgba(0,0,0,0.15));
+    --navbar-dropdown-item-padding-y: var(--spacing-sm, 0.5rem);
+    --navbar-dropdown-item-padding-x: var(--spacing-lg, 1.5rem);
+    --navbar-dropdown-item-color: var(--text-color-primary, #212529);
+    --navbar-dropdown-item-hover-bg: var(--neutral-color-100, #f8f9fa);
+    --navbar-dropdown-item-hover-color: var(--navbar-dropdown-item-color);
+}
+
+/* Base de la barre de navigation */
+.navbar {
+    position: relative; /* Pour le positionnement de .navbar-collapse */
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    align-items: center;
+    justify-content: space-between; /* Espace entre la marque/logo et les liens/toggler */
+    padding: var(--navbar-padding-y) var(--navbar-padding-x);
+    background-color: var(--navbar-bg-color);
+    border-bottom: 1px solid var(--navbar-border-color);
+    box-shadow: var(--navbar-box-shadow);
+}
+
+/* Container optionnel dans la navbar pour centrer le contenu */
+.navbar > .container,
+.navbar > .container-fluid {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    width: 100%;
+}
+/* Le container typique, centré et avec une largeur max */
+.container {
+    width: 100%;
+    padding-right: var(--container-padding-x, 15px);
+    padding-left: var(--container-padding-x, 15px);
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* Marque ou logo de la navbar */
+.navbar-brand {
+    display: inline-block;
+    padding-top: var(--navbar-brand-padding-y);
+    padding-bottom: var(--navbar-brand-padding-y);
+    margin-right: var(--navbar-padding-x); /* Espace après la marque */
+    font-size: var(--navbar-brand-font-size);
+    font-weight: var(--navbar-brand-font-weight);
+    color: var(--navbar-brand-color);
+    line-height: inherit; /* Hérite de la navbar pour l'alignement */
+    white-space: nowrap; /* Empêche la marque de se casser sur plusieurs lignes */
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out;
+}
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--navbar-brand-hover-color);
+    text-decoration: none;
+}
+.navbar-brand img { /* Si le logo est une image */
+    max-height: calc(var(--navbar-brand-font-size) * var(--line-height-base, 1.5)); /* S'adapte à la hauteur du texte */
+    vertical-align: middle;
+}
+
+/* Toggler pour les écrans mobiles (bouton hamburger) */
+.navbar-toggler {
+    padding: var(--navbar-toggler-padding-y) var(--navbar-toggler-padding-x);
+    font-size: var(--navbar-toggler-font-size);
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid var(--navbar-toggler-border-color);
+    border-radius: var(--navbar-toggler-border-radius);
+    transition: box-shadow var(--transition-speed-fast) ease-in-out;
+    cursor: pointer;
+}
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: var(--navbar-toggler-focus-box-shadow);
+}
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: var(--navbar-toggler-icon-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+/* Cacher le toggler sur les grands écrans (par défaut il est visible) */
+/* La logique d'affichage (navbar-expand-*) gère cela */
+
+
+/* Conteneur des liens de navigation qui s'effondre */
+.navbar-collapse {
+    display: flex; /* Caché par JS ou par .navbar-expand-* sur mobile */
+    flex-basis: 100%; /* Prend toute la largeur sur mobile lorsqu'ouvert */
+    flex-grow: 1;
+    align-items: center;
+    /* Animation d'ouverture/fermeture */
+    transition: height var(--navbar-collapse-transition-duration) ease-in-out;
+    /* Initialement caché */
+    /* height: 0;  -- Géré par JS en ajoutant/retirant une classe ou style inline */
+    /* overflow: hidden; */
+}
+.navbar-collapse.collapsing { /* État pendant la transition */
+    height: 0;
+    overflow: hidden;
+    transition: height var(--navbar-collapse-transition-duration) ease;
+}
+.navbar-collapse.show {
+    /* height: auto; -- JS calcule et applique la hauteur */
+}
+
+
+/* Liste principale des liens de navigation */
+.navbar-nav {
+    display: flex;
+    flex-direction: column; /* Par défaut en colonne pour mobile */
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+/* Espacement entre les items de la nav dans la direction principale */
+.navbar-nav .nav-item + .nav-item {
+    /* margin-left: var(--spacing-sm); // Pourrait être utilisé en mode horizontal */
+}
+
+/* Liens de navigation */
+.navbar-nav .nav-link {
+    display: block;
+    padding: var(--nav-link-padding-y) var(--nav-link-padding-x);
+    font-size: var(--font-size-base);
+    font-weight: var(--nav-link-font-weight);
+    color: var(--nav-link-color);
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) ease-in-out, background-color var(--transition-speed-fast) ease-in-out;
+    border-radius: var(--border-radius-sm); /* Léger arrondi pour l'état hover/active */
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: var(--nav-link-hover-color);
+    /* background-color: var(--nav-link-hover-bg, transparent); */
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link { /* .show pour les dropdowns ouverts */
+    color: var(--nav-link-active-color);
+    /* background-color: var(--nav-link-active-bg, transparent); */
+}
+.navbar-nav .nav-link.disabled {
+    color: var(--nav-link-disabled-color);
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Comportement d'expansion de la navbar */
+/* Exemple: .navbar-expand-lg -> la navbar s'étend (devient horizontale) à partir du breakpoint lg */
+/* Sur les écrans plus petits que le breakpoint:
+   - .navbar-toggler est visible
+   - .navbar-collapse est effondré (caché)
+   - .navbar-nav est en colonne
+*/
+/* Sur les écrans à partir du breakpoint et plus grands:
+   - .navbar-toggler est caché
+   - .navbar-collapse est toujours visible (display: flex)
+   - .navbar-nav est en ligne (flex-direction: row)
+*/
+@media (min-width: 992px) { /* Breakpoint LG par défaut, ajuster si nécessaire */
+    .navbar-expand-lg { /* Classe à mettre sur .navbar */
+        flex-wrap: nowrap; /* Empêche le retour à la ligne des éléments principaux */
+        justify-content: flex-start; /* Aligne la marque et les liens au début */
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row; /* Liens en ligne */
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: var(--nav-link-padding-x);
+        padding-left: var(--nav-link-padding-x);
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important; /* Force l'affichage, écrase le JS */
+        flex-basis: auto; /* La largeur s'adapte au contenu */
+        height: auto !important; /* Écrase la hauteur gérée par JS */
+        overflow: visible !important; /* Écrase l'overflow hidden */
+    }
+    .navbar-expand-lg .navbar-toggler {
+        display: none; /* Cache le toggler */
+    }
+    /* Pour pousser certains éléments à droite (ex: formulaire de recherche, profil utilisateur) */
+    .navbar-expand-lg .navbar-nav.ms-auto { /* ms-auto (margin-start: auto) ou mr-auto (margin-right: auto en LTR) */
+        margin-left: auto !important;
+    }
+}
+/* Répéter pour d'autres breakpoints (sm, md, xl) si nécessaire */
+/* .navbar-expand-md etc. */
+
+
+/* Styles pour les Dropdowns dans la Navbar */
+.navbar-nav .nav-item.dropdown {
+    position: relative;
+}
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Se positionne sous le .nav-link parent */
+    left: 0;
+    z-index: var(--z-index-dropdown, 1000);
+    display: none; /* Caché par défaut, affiché par JS */
+    min-width: var(--dropdown-min-width, 10rem);
+    padding: var(--dropdown-padding-y, 0.5rem) 0;
+    margin: var(--dropdown-margin-top, 0.125rem) 0 0; /* Petit espace au-dessus */
+    font-size: var(--font-size-base);
+    color: var(--text-color-primary);
+    text-align: left;
+    list-style: none;
+    background-color: var(--navbar-dropdown-menu-bg);
+    background-clip: padding-box;
+    border: 1px solid var(--navbar-dropdown-menu-border-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+.navbar-nav .dropdown-menu.show { /* Classe ajoutée par JS pour afficher */
+    display: block;
+}
+/* Dropdown menu aligné à droite */
+.navbar-nav .dropdown-menu-end { /* ou .dropdown-menu-right */
+    right: 0;
+    left: auto;
+}
+.navbar-nav .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: var(--navbar-dropdown-item-padding-y) var(--navbar-dropdown-item-padding-x);
+    clear: both;
+    font-weight: var(--font-weight-normal);
+    color: var(--navbar-dropdown-item-color);
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    transition: color var(--transition-speed-fast) ease-in-out, background-color var(--transition-speed-fast) ease-in-out;
+}
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+    color: var(--navbar-dropdown-item-hover-color);
+    background-color: var(--navbar-dropdown-item-hover-bg);
+    text-decoration: none;
+}
+.navbar-nav .dropdown-item.active,
+.navbar-nav .dropdown-item:active {
+    color: var(--primary-color-contrast, #fff);
+    text-decoration: none;
+    background-color: var(--primary-color);
+}
+.navbar-nav .dropdown-item.disabled,
+.navbar-nav .dropdown-item:disabled {
+    color: var(--text-color-muted);
+    pointer-events: none;
+    background-color: transparent;
+}
+/* Ajustements pour les dropdowns en mode horizontal (navbar-expand-*) */
+@media (min-width: 992px) { /* Doit correspondre au breakpoint de .navbar-expand-* */
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        /* position: absolute; déjà défini */
+    }
+}
+
+/* Formulaires dans la navbar */
+.navbar .form-inline { /* Si un style simple est suffisant */
+    display: flex;
+    align-items: center;
+}
+.navbar .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    margin-right: var(--spacing-sm); /* Espace avant le bouton */
+}
+.navbar .form-inline .btn {
+    vertical-align: middle;
+}
+/* Input group dans la navbar */
+.navbar .input-group {
+    width: auto; /* Pour qu'il ne prenne pas 100% */
+}
+
+/* Variantes de couleur pour la navbar (dark, primary, etc.) */
+.navbar-dark {
+    --navbar-bg-color: var(--dark-color, #343a40);
+    --navbar-text-color: rgba(255,255,255,0.75);
+    --navbar-border-color: rgba(255,255,255,0.1);
+    --navbar-brand-color: #fff;
+    --navbar-brand-hover-color: #fff;
+    --nav-link-color: rgba(255,255,255,0.75);
+    --nav-link-hover-color: #fff;
+    --nav-link-active-color: #fff;
+    --nav-link-disabled-color: rgba(255,255,255,0.25);
+    --navbar-toggler-border-color: rgba(255,255,255,0.1);
+    --navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --navbar-dropdown-menu-bg: var(--dark-color, #343a40);
+    --navbar-dropdown-menu-border-color: rgba(255,255,255,0.15);
+    --navbar-dropdown-item-color: rgba(255,255,255,0.75);
+    --navbar-dropdown-item-hover-bg: rgba(255,255,255,0.05);
+    --navbar-dropdown-item-hover-color: #fff;
+    --navbar-dropdown-item-active-bg: var(--primary-color); /* Ou une autre couleur de mise en évidence */
+}
+
+.navbar-primary { /* Si on veut une navbar de couleur primaire */
+    --navbar-bg-color: var(--primary-color, #007bff);
+    --navbar-text-color: var(--primary-color-contrast-x-light, rgba(255,255,255,0.85));
+    --navbar-border-color: var(--primary-color-dark, #0056b3);
+    --navbar-brand-color: var(--primary-color-contrast, #fff);
+    --navbar-brand-hover-color: var(--primary-color-contrast, #fff);
+    --nav-link-color: var(--primary-color-contrast-x-light, rgba(255,255,255,0.85));
+    --nav-link-hover-color: var(--primary-color-contrast, #fff);
+    --nav-link-active-color: var(--primary-color-contrast, #fff);
+    --nav-link-disabled-color: var(--primary-color-contrast-muted, rgba(255,255,255,0.35));
+    --navbar-toggler-border-color: var(--primary-color-contrast-muted, rgba(255,255,255,0.2));
+    --navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --navbar-dropdown-menu-bg: var(--primary-color);
+    --navbar-dropdown-menu-border-color: var(--primary-color-dark);
+    --navbar-dropdown-item-color: var(--primary-color-contrast-x-light);
+    --navbar-dropdown-item-hover-bg: var(--primary-color-light);
+    --navbar-dropdown-item-hover-color: var(--primary-color-contrast);
+    --navbar-dropdown-item-active-bg: var(--primary-color-dark);
+}
+
+/* Texte utilitaire (peut être utilisé pour des informations supplémentaires dans la navbar) */
+.navbar-text {
+    display: inline-block;
+    padding-top: var(--nav-link-padding-y);
+    padding-bottom: var(--nav-link-padding-y);
+    color: var(--navbar-text-color);
+}
+.navbar-text a {
+    color: var(--primary-color); /* Ou une couleur qui se démarque */
+    text-decoration: underline;
+}
+.navbar-text a:hover {
+    color: var(--primary-color-dark);
+}

@@ -1,0 +1,75 @@
+/* public/css/common/ui/breadcrumbs.css */
+
+:root {
+    /* Variables pour les breadcrumbs - ces variables devraient être définies dans theme.css ou variables.css */
+    /* Fallback si non définies */
+    --breadcrumb-padding-y: var(--spacing-sm, 0.75rem);
+    --breadcrumb-padding-x: var(--spacing-md, 1rem);
+    --breadcrumb-margin-bottom: var(--spacing-md, 1rem);
+    --breadcrumb-bg: var(--color-gray-100, #f8f9fa); /* Couleur de fond légère */
+    --breadcrumb-border-radius: var(--border-radius-md, 0.25rem);
+    --breadcrumb-item-padding-x: var(--spacing-xs, 0.5rem);
+    --breadcrumb-divider-color: var(--color-gray-600, #6c757d); /* Couleur du séparateur */
+    --breadcrumb-active-color: var(--color-gray-700, #495057); /* Couleur de l'élément actif */
+    --link-color: var(--primary-color, #0d6efd); /* Couleur des liens, définie dans theme.css */
+    --link-hover-color: var(--primary-dark-color, #0a58ca); /* Couleur des liens au survol */
+    --font-size-base: 1rem; /* Taille de police de base */
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--breadcrumb-padding-y) var(--breadcrumb-padding-x);
+    margin-bottom: var(--breadcrumb-margin-bottom);
+    list-style: none;
+    background-color: var(--breadcrumb-bg);
+    border-radius: var(--breadcrumb-border-radius);
+    font-size: calc(var(--font-size-base) * 0.9); /* Légèrement plus petit que le texte normal */
+}
+
+.breadcrumb-item {
+    display: flex; /* Pour aligner le séparateur correctement */
+    align-items: center; /* Pour aligner le séparateur correctement */
+}
+
+/* Séparateur pour les breadcrumbs */
+/* Utilise la propriété content pour insérer le séparateur */
+/* Le séparateur peut être personnalisé via une variable CSS */
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block; /* Permet le padding/margin */
+    padding-right: var(--breadcrumb-item-padding-x);
+    padding-left: var(--breadcrumb-item-padding-x);
+    color: var(--breadcrumb-divider-color);
+    content: var(--breadcrumb-divider, "/") ; /* Séparateur par défaut, peut être surchargé. Ex: ">" ou "·" */
+    /* Pour les SVGs : content: url('data:image/svg+xml,...'); */
+}
+
+/* Style pour l'élément de breadcrumb actif */
+.breadcrumb-item.active {
+    color: var(--breadcrumb-active-color);
+    font-weight: var(--font-weight-normal); /* Ou bold si l'on veut le mettre en avant */
+}
+
+/* Style pour les liens dans les breadcrumbs */
+.breadcrumb-item a {
+    color: var(--link-color);
+    text-decoration: none; /* Ou var(--link-decoration, none); */
+    transition: color 0.15s ease-in-out;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--link-hover-color);
+    text-decoration: var(--link-hover-decoration, underline);
+}
+
+/* Optionnel: Breadcrumbs sans fond ou bordures */
+.breadcrumb-transparent {
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Optionnel: Pour s'assurer que le dernier item n'a pas de séparateur après lui s'il est seul ou mal structuré */
+.breadcrumb-item:last-child::after {
+    content: ""; /* Assure qu'aucun séparateur n'est ajouté par erreur */
+}

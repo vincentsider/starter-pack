@@ -1,0 +1,124 @@
+/* Styles spécifiques pour la page Tarifs (public/pricing.html) */
+
+/* Section Titre de Page Tarifs */
+#pricing-page-title {
+    /* Styles similaires à #features-page-title mais peut être personnalisé si besoin */
+}
+
+/* Section Introduction Tarifs */
+#pricing-intro p.lead {
+    max-width: 700px; /* Limiter la largeur pour une meilleure lisibilité */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grille des Plans Tarifaires */
+#pricing-plans-section .pricing-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; /* Espace entre les cartes de plans */
+    margin-top: 2rem;
+}
+
+.pricing-card-placeholder {
+    /* Styles de base pour les placeholders, sera affiné par les composants réels */
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    background-color: var(--background-color-light);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Style pour le plan recommandé */
+.pricing-card-placeholder.recommended {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(var(--primary-color-rgb), 0.3); /* Ombre plus prononcée */
+    position: relative; /* Pour le badge "Recommandé" */
+}
+
+/* Badge "Recommandé" (sera probablement dans le composant pricing_card.css)
+   mais on peut prévoir un style de base pour le placeholder si le composant n'est pas là */
+.pricing-card-placeholder.recommended::before {
+    content: "Recommandé";
+    position: absolute;
+    top: -15px; /* Ajuster pour un positionnement correct */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 0.3rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+/* Section Comparaison des Fonctionnalités (Optionnel) */
+.features-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+.features-table th,
+.features-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.features-table th {
+    background-color: var(--background-color-alt);
+}
+
+.features-table td:not(:first-child) {
+    text-align: center; /* Centrer les coches/marques */
+}
+
+/* Section FAQ Tarifs */
+#faq-section .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.faq-item-placeholder {
+    /* Styles pour les placeholders FAQ, seront affinés par le composant */
+    background-color: var(--background-color-alt);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+/* Section CTA Tarifs */
+#pricing-cta {
+    /* Styles spécifiques si nécessaire, mais la plupart sont hérités de .bg-primary-gradient */
+}
+
+#pricing-cta .btn-light {
+    background-color: var(--text-color-light); /* Assurer un contraste élevé sur le dégradé */
+    color: var(--primary-color);
+    border: 2px solid var(--text-color-light);
+}
+
+#pricing-cta .btn-light:hover {
+    background-color: transparent;
+    color: var(--text-color-light);
+}
+
+/* Responsive pour la grille des tarifs et FAQ si nécessaire */
+@media (max-width: 768px) {
+    #pricing-plans-section .pricing-plans-grid,
+    #faq-section .faq-grid {
+        grid-template-columns: 1fr; /* Une colonne sur mobile */
+    }
+}

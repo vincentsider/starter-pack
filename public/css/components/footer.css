@@ -1,0 +1,152 @@
+/* public/css/components/footer.css */
+
+.site-footer {
+    background-color: var(--neutral-color-dark); /* Couleur de fond sombre pour le contraste */
+    color: var(--text-color-light); /* Texte clair sur fond sombre */
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--primary-color); /* Ligne de séparation décorative */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Espace entre les sections */
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1; /* Permet aux sections de grandir et de rétrécir de manière flexible */
+    min-width: 200px; /* Largeur minimale pour chaque section avant de passer à la ligne */
+    margin-bottom: 20px; /* Espace en bas de chaque section sur mobile */
+}
+
+.footer-section h4 {
+    color: var(--secondary-color); /* Titres de section avec la couleur secondaire */
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--neutral-color-medium); /* Ligne subtile sous les titres */
+    padding-bottom: 8px;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-link {
+    color: var(--text-color-light-accent); /* Liens légèrement plus clairs pour se démarquer */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: var(--primary-color); /* Changement de couleur au survol/focus */
+    text-decoration: underline;
+}
+
+.social-media-links .social-icon {
+    display: inline-block;
+    margin-right: 15px; /* Espace entre les icônes sociales */
+    font-size: 1.5rem; /* Taille des icônes */
+    color: var(--text-color-light-accent);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media-links .social-icon:hover,
+.social-media-links .social-icon:focus {
+    color: var(--primary-color);
+    transform: scale(1.1); /* Léger agrandissement au survol */
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px; /* Espace entre l'input et le bouton */
+    margin-bottom: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--neutral-color-medium);
+    border-radius: var(--border-radius-small);
+    background-color: var(--neutral-color-light); /* Fond clair pour le champ */
+    color: var(--text-color-dark);
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: var(--text-color-medium);
+}
+
+.newsletter-message {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.newsletter-message.success {
+    color: var(--success-color);
+}
+
+.newsletter-message.error {
+    color: var(--error-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--neutral-color-medium); /* Séparateur avant la ligne de copyright */
+    font-size: 0.85rem;
+    color: var(--text-color-medium); /* Copyright en couleur plus discrète */
+}
+
+/* Icônes (simulées, à remplacer par une vraie bibliothèque d'icônes si disponible) */
+.icon-mail::before { content: "📧"; margin-right: 5px; }
+.icon-phone::before { content: "📞"; margin-right: 5px; }
+.icon-facebook::before { content: "📘"; /* Placeholder */ }
+.icon-twitter::before { content: "🐦"; /* Placeholder */ }
+.icon-linkedin::before { content: "🔗"; /* Placeholder */ }
+
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Empiler les sections sur les petits écrans */
+        align-items: center; /* Centrer le contenu des sections */
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: 100%; /* Chaque section prend toute la largeur */
+        margin-bottom: 30px;
+    }
+
+    .footer-section ul {
+        padding-left: 0;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+        width: 100%;
+        max-width: 300px; /* Limiter la largeur sur mobile */
+        margin: 5px auto; /* Centrer */
+    }
+}

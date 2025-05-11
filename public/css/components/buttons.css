@@ -1,0 +1,177 @@
+/* public/css/components/buttons.css */
+
+/* Style de base pour les boutons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* Padding généreux pour une bonne cliquabilité */
+    font-size: 1rem;
+    font-weight: 600; /* Texte en gras pour l'importance */
+    text-align: center;
+    text-decoration: none;
+    border: none; /* Pas de bordure par défaut, sauf si spécifié */
+    border-radius: var(--border-radius-medium); /* Coins arrondis */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    line-height: 1.5; /* Hauteur de ligne standard */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+/* Bouton Primaire */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-on-primary); /* Texte clair sur fond primaire */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark); /* Assombrir légèrement au survol */
+    transform: translateY(-2px); /* Effet de soulèvement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+    transform: translateY(0); /* Retour à la position initiale au clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton Secondaire */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color-on-secondary); /* Texte clair sur fond secondaire */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton avec Contour (Outline) */
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-on-primary);
+    /* transform: translateY(-2px); Pas de soulèvement pour garder la ligne */
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color-on-secondary);
+}
+
+/* Bouton de Texte (Text/Link-like button) */
+.btn-text {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 0.5rem; /* Moins de padding pour un look plus léger */
+    font-weight: 500;
+}
+
+.btn-text:hover {
+    color: var(--primary-color-dark);
+    text-decoration: underline;
+}
+
+/* Tailles de boutons */
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Bouton pleine largeur */
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* État désactivé */
+.btn:disabled,
+.btn.disabled {
+    background-color: var(--neutral-color-light-gray);
+    color: var(--text-color-disabled);
+    border-color: var(--neutral-color-light-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-outline-primary:disabled,
+.btn-outline-primary.disabled,
+.btn-outline-secondary:disabled,
+.btn-outline-secondary.disabled {
+    background-color: transparent;
+    color: var(--neutral-color-gray);
+    border-color: var(--neutral-color-gray);
+}
+
+
+/* Boutons avec icônes (si nécessaire) */
+.btn .icon {
+    margin-right: 0.5rem; /* Espace entre l'icône et le texte */
+    /* S'assurer que l'icône est alignée verticalement */
+    vertical-align: middle;
+    /* Ajuster la taille de l'icône si besoin, par exemple: */
+    /* font-size: 1.1em; */
+}
+
+.btn .icon-only {
+    margin-right: 0;
+}
+
+/* Animation de chargement pour les boutons (optionnel) */
+.btn.loading {
+    position: relative;
+    color: transparent !important; /* Masque le texte */
+    pointer-events: none; /* Empêche les clics pendant le chargement */
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px; /* Taille du spinner */
+    height: 20px;
+    margin-top: -10px; /* Moitié de la hauteur */
+    margin-left: -10px; /* Moitié de la largeur */
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Couleur de la piste */
+    border-top-color: var(--text-color-on-primary); /* Couleur du spinner (s'adaptera au bouton) */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Pour les boutons outline en chargement */
+.btn-outline-primary.loading::after,
+.btn-outline-secondary.loading::after {
+    border-top-color: var(--primary-color); /* Ajuster la couleur du spinner */
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

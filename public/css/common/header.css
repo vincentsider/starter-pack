@@ -1,0 +1,318 @@
+/* public/css/common/header.css */
+
+.main-header {
+    background-color: var(--background-color-light);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-dark);
+}
+
+.logo-image {
+    height: 40px; /* Ajustez selon la taille de votre logo */
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-image,
+.logo-link:focus .logo-image {
+    transform: scale(1.1);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Ou une autre couleur de votre branding */
+}
+
+.main-navigation {
+    position: relative; /* Pour le positionnement du menu burger */
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 1.5rem; /* Espacement entre les éléments de navigation */
+}
+
+.nav-item:first-child {
+    margin-left: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+    font-weight: 500;
+    padding: 0.5rem 0.25rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active { /* Classe 'active' à ajouter dynamiquement avec JS */
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-item-cta .nav-cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+
+/* Style du menu burger */
+.menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 20px;
+    position: relative;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color-dark);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger-icon span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-icon span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Animation du menu burger quand actif */
+.menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+
+/* Language Switcher */
+.nav-item-lang-switcher {
+    margin-left: 1.5rem;
+}
+
+.language-switcher {
+    position: relative;
+}
+
+.current-lang-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color-light);
+    color: var(--text-color-secondary);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.current-lang-btn:hover,
+.current-lang-btn:focus {
+    background-color: var(--background-color-hover-light);
+    border-color: var(--primary-color-dark);
+}
+
+.lang-flag {
+    width: 20px;
+    height: auto;
+    margin-right: 0.5rem;
+    border-radius: 2px;
+}
+
+.lang-dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 5px); /* Espace entre le bouton et la liste déroulante */
+    right: 0;
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    z-index: 1001; /* S'assurer qu'il est au-dessus des autres éléments */
+}
+
+.language-switcher[data-open="true"] .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-dropdown li {
+    margin: 0;
+}
+
+.lang-option {
+    background: none;
+    border: none;
+    color: var(--text-color-secondary);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-option:hover,
+.lang-option:focus {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+}
+
+.lang-option .lang-flag {
+    margin-right: 0.75rem;
+}
+
+
+/* Responsive pour le menu burger */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Afficher sur les petits écrans */
+        order: 1; /* Pour le mettre après le logo si besoin avec flexbox */
+        margin-left: auto; /* Pousse le toggle à droite */
+    }
+
+    .main-navigation {
+        width: 100%; /* Prend toute la largeur pour le menu déroulant */
+    }
+
+    .nav-list {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 1px); /* Juste en dessous du header */
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color-light);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color-light);
+    }
+
+    .main-navigation[data-open="true"] .nav-list {
+        display: flex; /* Afficher quand le menu est ouvert */
+    }
+
+    .nav-item {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.75rem var(--container-padding); /* Plus de padding pour les items mobiles */
+        border-bottom: 1px solid var(--border-color-light);
+        text-align: center;
+    }
+    .nav-link::after {
+        display: none; /* Pas de soulignement sur mobile pour simplifier */
+    }
+
+    .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .nav-item-cta {
+        padding: 1rem var(--container-padding);
+    }
+
+    .nav-item-cta .nav-cta-button {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-item-lang-switcher {
+        padding: 0.75rem var(--container-padding);
+        display: flex;
+        justify-content: center;
+    }
+    .lang-dropdown {
+        /* Ajustements pour le menu déroulant des langues en mode mobile si nécessaire */
+        /* Par exemple, le faire apparaître en dessous ou le centrer. */
+        /* Pour l'instant, il devrait fonctionner car il est positionné par rapport à son parent */
+    }
+
+}

@@ -1,0 +1,119 @@
+/* public/css/components/notification.css */
+
+/* Styles personnalisés pour le composant Notification/Toast */
+/* Ces styles complètent les styles par défaut de Bootstrap Toast. */
+
+/* Conteneur principal des toasts (déjà stylé en JS, mais on peut ajuster) */
+.toast-container {
+    z-index: 1090 !important; /* Assurer une haute visibilité, Bootstrap utilise 1080 pour les modales */
+}
+
+/* Style de base pour un toast - Bootstrap s'en charge majoritairement */
+/* .toast {
+    max-width: 350px;
+    overflow: hidden;
+    font-size: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 0.25rem;
+} */
+
+/* En-tête du toast */
+.toast-header {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: #6c757d; /* Couleur du texte par défaut de Bootstrap */
+    background-color: rgba(255, 255, 255, 0.85); /* Un peu transparent */
+    background-clip: padding-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.toast-header .me-auto { /* strong title */
+    color: #212529; /* Texte plus foncé pour le titre */
+}
+
+/* Corps du toast */
+.toast-body {
+    padding: 0.75rem;
+    word-wrap: break-word;
+}
+
+/* Icônes - Bootstrap Icons sont utilisés dans le JS, mais on peut ajouter des styles spécifiques */
+.toast-header .bi {
+    font-size: 1.1rem; /* Ajuster la taille des icônes si nécessaire */
+}
+
+/* Styles spécifiques par type de notification, surtout si on n'utilise pas l'en-tête */
+/* Ces classes sont ajoutées dynamiquement dans notification.js si showHeader est false */
+
+.toast.border-success {
+    border-left: 0.25rem solid #198754 !important; /* Couleur succès de Bootstrap */
+}
+.toast.border-danger {
+    border-left: 0.25rem solid #dc3545 !important; /* Couleur danger de Bootstrap */
+}
+.toast.border-warning {
+    border-left: 0.25rem solid #ffc107 !important; /* Couleur warning de Bootstrap */
+}
+.toast.border-info {
+    border-left: 0.25rem solid #0dcaf0 !important; /* Couleur info de Bootstrap */
+}
+
+/* Pour s'assurer que les couleurs des icônes par type (définies en JS) s'affichent bien */
+.toast-header .text-success { color: #198754 !important; }
+.toast-header .text-danger { color: #dc3545 !important; }
+.toast-header .text-warning { color: #ffc107 !important; }
+.toast-header .text-info { color: #0dcaf0 !important; }
+
+
+/* Exemple de classe personnalisée (définie dans les options de NotificationManager.show) */
+/*
+.my-custom-toast-class {
+    background-color: #333;
+    color: #fff;
+}
+
+.my-custom-toast-class .toast-header {
+    background-color: #444;
+    color: #eee;
+    border-bottom-color: #555;
+}
+
+.my-custom-toast-class .toast-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+*/
+
+/* Thème sombre (exemple basique si non géré globalement) */
+/*
+@media (prefers-color-scheme: dark) {
+    .toast {
+        background-color: rgba(52, 58, 64, 0.9); // #343a40
+        border-color: rgba(73, 80, 87, 0.5); // #495057
+        color: #f8f9fa; // Texte clair
+    }
+
+    .toast-header {
+        background-color: rgba(52, 58, 64, 0.95);
+        color: #adb5bd; // Texte de l'en-tête
+        border-bottom-color: rgba(73, 80, 87, 0.7);
+    }
+
+    .toast-header .me-auto { // Titre
+        color: #f8f9fa;
+    }
+
+    .toast-header .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .toast-header .text-success { color: #20c997 !important; } // Vert plus clair
+    .toast-header .text-danger { color: #fd7e14 !important; }  // Orange/rouge plus clair
+    .toast-header .text-warning { color: #ffda6a !important; } // Jaune plus clair
+    .toast-header .text-info { color: #6edff6 !important; }   // Bleu clair
+}
+*/

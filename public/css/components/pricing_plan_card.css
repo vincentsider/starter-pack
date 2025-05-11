@@ -1,0 +1,149 @@
+/* public/css/components/pricing_plan_card.css */
+
+.pricing-plan-card {
+    background-color: var(--color-background-component);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 100%; /* Pour que les cartes dans une grille aient la même hauteur */
+}
+
+.pricing-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-plan-card.is-featured {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light), var(--shadow-md); /* Effet de "glow" */
+    position: relative; /* Pour le positionnement du badge */
+}
+
+.pricing-plan-card-header {
+    margin-bottom: var(--spacing-md);
+    position: relative; /* Pour le badge si positionné dans le header */
+}
+
+.pricing-plan-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-strong);
+    margin-bottom: var(--spacing-xs);
+}
+
+.pricing-plan-badge {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--spacing-xxs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-plan-card.is-featured .pricing-plan-badge {
+    position: absolute;
+    top: calc(-1 * var(--spacing-lg) - var(--spacing-sm)); /* Ajuster pour sortir de la carte */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+
+.pricing-plan-card-price-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-plan-price {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    display: inline-block; /* Pour que le span period s'aligne correctement */
+}
+
+.pricing-plan-period {
+    font-size: var(--font-size-md);
+    color: var(--color-text-muted);
+    margin-left: var(--spacing-xxs);
+}
+
+.pricing-plan-description {
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    min-height: 50px; /* Pour aligner les listes de fonctionnalités sur plusieurs cartes */
+}
+
+.pricing-plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+    text-align: left;
+    flex-grow: 1; /* Pousse le CTA vers le bas */
+}
+
+.pricing-plan-features-list .feature-item {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.pricing-plan-features-list .feature-item .feature-icon {
+    width: 1.2em; /* Pour aligner les icônes */
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.pricing-plan-features-list .feature-item.feature-item--included .feature-icon {
+    color: var(--color-success);
+    font-weight: bold;
+}
+
+.pricing-plan-features-list .feature-item.feature-item--excluded .feature-icon {
+    color: var(--color-error);
+    font-weight: bold;
+}
+.pricing-plan-features-list .feature-item.feature-item--excluded .feature-text {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+
+.pricing-plan-cta {
+    margin-top: auto; /* Pousse le bouton en bas de la carte */
+    width: 100%;
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .pricing-plan-card.is-featured .pricing-plan-badge {
+        /* Sur des écrans plus petits, le badge peut être à l'intérieur */
+        position: static;
+        transform: none;
+        margin-top: var(--spacing-sm);
+        display: inline-block;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-plan-name {
+        font-size: var(--font-size-lg);
+    }
+    .pricing-plan-price {
+        font-size: var(--font-size-xxl);
+    }
+    .pricing-plan-card {
+        padding: var(--spacing-md);
+    }
+}

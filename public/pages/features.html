@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez en détail les fonctionnalités de SerenKall, votre assistant de filtrage d'appels intelligent.">
+    <title data-i18n="page_fonctionnalites.meta.title">Fonctionnalités - SerenKall</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/features.css">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <header id="main-header" class="main-header">
+        <div class="container">
+            <p data-i18n="header.loading">Chargement du header...</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Introduction Fonctionnalités -->
+        <section id="features-intro" class="features-intro-section section-padding text-center">
+            <div class="container">
+                <h1 data-i18n="page_fonctionnalites.introduction.titre">Plongez au cœur de SerenKall</h1>
+                <p class="lead" data-i18n="page_fonctionnalites.introduction.texte">SerenKall n'est pas qu'un simple filtre d'appels. C'est une solution complète conçue pour vous redonner le contrôle total sur vos communications téléphoniques grâce à une technologie de pointe et une personnalisation intuitive.</p>
+            </div>
+        </section>
+
+        <!-- Section Processus de Filtrage Détaillé -->
+        <section id="filtering-process" class="filtering-process-section section-padding-top">
+            <div class="container">
+                <h2 class="section-title text-center" data-i18n="page_fonctionnalites.processus_filtrage.titre">Un Filtrage Intelligent et Transparent</h2>
+                <div class="steps-detailed-grid">
+                    <!-- Étape 1 -->
+                    <div class="step-detailed-item">
+                        <img src="../assets/icons/process-icon-reception.svg" alt="Icône réception appel" data-i18n="[alt]page_fonctionnalites.processus_filtrage.etape1.visuel_alt" class="step-detailed-icon">
+                        <h3 data-i18n="page_fonctionnalites.processus_filtrage.etape1.titre">1. Réception de l'Appel</h3>
+                        <p data-i18n="page_fonctionnalites.processus_filtrage.etape1.description">Lorsqu'un appel arrive, SerenKall l'intercepte avant même que votre téléphone ne sonne.</p>
+                    </div>
+                    <!-- Étape 2 -->
+                    <div class="step-detailed-item">
+                        <img src="../assets/icons/process-icon-analyse.svg" alt="Icône analyse IA" data-i18n="[alt]page_fonctionnalites.processus_filtrage.etape2.visuel_alt" class="step-detailed-icon">
+                        <h3 data-i18n="page_fonctionnalites.processus_filtrage.etape2.titre">2. Analyse Instantanée par l'IA</h3>
+                        <p data-i18n="page_fonctionnalites.processus_filtrage.etape2.description">Notre IA analyse en temps réel le numéro, la provenance, et croise les informations avec nos bases de données de spam actualisées en continu.</p>
+                    </div>
+                    <!-- Étape 3 -->
+                    <div class="step-detailed-item">
+                        <img src="../assets/icons/process-icon-decision.svg" alt="Icône décision filtrage" data-i18n="[alt]page_fonctionnalites.processus_filtrage.etape3.visuel_alt" class="step-detailed-icon">
+                        <h3 data-i18n="page_fonctionnalites.processus_filtrage.etape3.titre">3. Décision Éclairée</h3>
+                        <p data-i18n="page_fonctionnalites.processus_filtrage.etape3.description">Selon vos règles personnalisées (listes noires/blanches, mots-clés) et l'analyse IA, l'appel est bloqué, transféré vers messagerie, ou vous est notifié.</p>
+                    </div>
+                     <!-- Étape 4 -->
+                    <div class="step-detailed-item">
+                        <img src="../assets/icons/process-icon-notification.svg" alt="Icône notification discrète" data-i18n="[alt]page_fonctionnalites.processus_filtrage.etape4.visuel_alt" class="step-detailed-icon">
+                        <h3 data-i18n="page_fonctionnalites.processus_filtrage.etape4.titre">4. Notification Discrète</h3>
+                        <p data-i18n="page_fonctionnalites.processus_filtrage.etape4.description">Pour les appels filtrés, recevez un résumé ou une notification silencieuse, vous laissant le choix de consulter plus tard.</p>
+                    </div>
+                </div>
+                <div class="text-center section-padding-top">
+                    <img src="../assets/images/diagramme-flux-filtrage.svg" alt="Diagramme du processus de filtrage SerenKall" data-i18n="[alt]page_fonctionnalites.processus_filtrage.diagramme_alt" class="img-fluid diagram-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Plateforme de Simulation et Personnalisation -->
+        <section id="simulation-personalization" class="simulation-personalization-section section-padding colored-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-i18n="page_fonctionnalites.simulation_personnalisation.titre">Testez et Adaptez SerenKall à Vos Besoins</h2>
+                <div class="simulation-content grid-halves">
+                    <div class="simulation-demo">
+                        <h3 data-i18n="page_fonctionnalites.simulation_personnalisation.simulation.sous_titre">Essayez notre simulateur interactif</h3>
+                        <p data-i18n="page_fonctionnalites.simulation_personnalisation.simulation.description">Entrez un numéro ou un type d'appel (ex: "Démarchage CPF", "Livreur", "Famille") et voyez comment SerenKall réagirait.</p>
+                        <div class="simulator-controls">
+                            <input type="text" id="simulation-input" placeholder="Ex: 0123456789 ou 'Spam énergie'" data-i18n="[placeholder]page_fonctionnalites.simulation_personnalisation.simulation.input_placeholder" class="form-control">
+                            <button id="run-simulation-btn" class="btn btn-primary" data-i18n="page_fonctionnalites.simulation_personnalisation.simulation.bouton_simuler">Simuler</button>
+                        </div>
+                        <div id="simulation-result" class="simulation-result-display" aria-live="polite">
+                            {/* Les résultats de la simulation s'affichent ici */}
+                        </div>
+                        <p class="small-text" data-i18n="page_fonctionnalites.simulation_personnalisation.simulation.note_demo">Ceci est une démonstration simplifiée. L'application réelle offre des analyses plus poussées.</p>
+                    </div>
+                    <div class="personalization-options">
+                        <h3 data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.sous_titre">Une personnalisation poussée</h3>
+                        <ul class="features-list">
+                            <li data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.option1">Listes noires et blanches illimitées.</li>
+                            <li data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.option2">Filtrage par mots-clés (détectés par l'IA dans la retranscription).</li>
+                            <li data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.option3">Niveaux de sensibilité du filtre (Strict, Moyen, Personnalisé).</li>
+                            <li data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.option4">Actions personnalisées : bloquer silencieusement, envoyer vers messagerie vocale intelligente, notifier seulement.</li>
+                            <li data-i18n="page_fonctionnalites.simulation_personnalisation.personnalisation.option5">Planification (ex: mode "Ne pas déranger" la nuit sauf urgences).</li>
+                        </ul>
+                        <img src="../assets/images/personnalisation-interface.svg" alt="Interface de personnalisation de SerenKall" data-i18n="[alt]page_fonctionnalites.simulation_personnalisation.personnalisation.visuel_alt" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Tableau de Bord et Monitoring -->
+        <section id="monitoring-dashboard" class="monitoring-dashboard-section section-padding">
+            <div class="container">
+                <h2 class="section-title text-center" data-i18n="page_fonctionnalites.monitoring.titre">Gardez un Œil sur Votre Tranquillité</h2>
+                <p class="text-center lead-sm" data-i18n="page_fonctionnalites.monitoring.description">Accédez à des statistiques claires sur les appels filtrés, comprenez les tendances et ajustez vos paramètres pour une efficacité maximale.</p>
+                <div class="dashboard-visuals text-center">
+                    <img src="../assets/images/dashboard-stats.svg" alt="Exemple de tableau de bord SerenKall" data-i18n="[alt]page_fonctionnalites.monitoring.visuel_dashboard_alt" class="img-fluid">
+                </div>
+                <div class="dashboard-features grid-thirds section-padding-top">
+                    <div class="feature-item">
+                        <img src="../assets/icons/icon-stats-cles.svg" alt="Icône statistiques" data-i18n="[alt]page_fonctionnalites.monitoring.stats_icon_alt" class="feature-icon">
+                        <h4 data-i18n="page_fonctionnalites.monitoring.stats_titre">Statistiques Clés</h4>
+                        <p data-i18n="page_fonctionnalites.monitoring.stats_texte">Nombre d'appels bloqués, types de spam les plus fréquents, heures de pointe des appels indésirables.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="../assets/icons/icon-historique.svg" alt="Icône historique" data-i18n="[alt]page_fonctionnalites.monitoring.historique_icon_alt" class="feature-icon">
+                        <h4 data-i18n="page_fonctionnalites.monitoring.historique_titre">Historique Détaillé</h4>
+                        <p data-i18n="page_fonctionnalites.monitoring.historique_texte">Consultez la liste de tous les appels traités, avec les détails et la raison du filtrage.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="../assets/icons/icon-rapports.svg" alt="Icône rapports" data-i18n="[alt]page_fonctionnalites.monitoring.rapports_icon_alt" class="feature-icon">
+                        <h4 data-i18n="page_fonctionnalites.monitoring.rapports_titre">Rapports Personnalisables</h4>
+                        <p data-i18n="page_fonctionnalites.monitoring.rapports_texte">Générez des rapports périodiques pour suivre l'évolution et l'efficacité du filtrage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Confiance et Gestion des Données -->
+        <section id="data-privacy-trust" class="data-privacy-trust-section section-padding colored-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-i18n="page_fonctionnalites.confiance.titre">Votre Vie Privée, Notre Priorité Absolue</h2>
+                <div class="privacy-commitments grid-halves">
+                    <div class="commitment-text">
+                        <p data-i18n="page_fonctionnalites.confiance.introduction_texte">Chez SerenKall, la confiance et la transparence sont au cœur de notre démarche. Nous nous engageons à protéger vos données personnelles et à vous offrir un contrôle total.</p>
+                        <ul class="commitments-list">
+                            <li data-i18n="page_fonctionnalites.confiance.collecte_minimale"><strong>Collecte Minimale :</strong> Nous ne collectons que les données strictement nécessaires au fonctionnement du service (numéros appelants, métadonnées d'appel pour analyse).</li>
+                            <li data-i18n="page_fonctionnalites.confiance.pas_de_vente"><strong>Pas de Vente de Données :</strong> Vos données personnelles ne sont jamais vendues, louées ou partagées avec des tiers à des fins commerciales.</li>
+                            <li data-i18n="page_fonctionnalites.confiance.securite_avancee"><strong>Sécurité Avancée :</strong> Chiffrement des données en transit et au repos, serveurs sécurisés en Europe.</li>
+                            <li data-i18n="page_fonctionnalites.confiance.anonymisation"><strong>Anonymisation :</strong> Les données utilisées pour améliorer l'IA sont anonymisées pour protéger votre identité.</li>
+                            <li data-i18n="page_fonctionnalites.confiance.controle_total"><strong>Contrôle Total :</strong> Accédez, modifiez ou supprimez vos données à tout moment via votre espace personnel.</li>
+                        </ul>
+                        <p><a href="../politique-confidentialite.html" class="text-link" data-i18n="page_fonctionnalites.confiance.lien_politique">Consultez notre politique de confidentialité détaillée.</a></p>
+                    </div>
+                    <div class="commitment-visuals text-center">
+                        <img src="../assets/images/data-privacy-shield.svg" alt="Bouclier de protection des données" data-i18n="[alt]page_fonctionnalites.confiance.visuel_bouclier_alt" class="img-fluid">
+                        <img src="../assets/icons/rgpd-compliant.svg" alt="Logo conformité RGPD" data-i18n="[alt]page_fonctionnalites.confiance.visuel_rgpd_alt" class="logo-compliance">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Final -->
+        <section id="features-final-cta" class="final-cta-section section-padding-bottom text-center">
+            <div class="container">
+                <h2 data-i18n="page_fonctionnalites.cta_final.titre">Prêt à découvrir la sérénité téléphonique ?</h2>
+                <p data-i18n="page_fonctionnalites.cta_final.texte_introductif">Explorez nos offres et choisissez celle qui correspond le mieux à vos besoins. Essayez SerenKall et transformez votre expérience téléphonique dès aujourd'hui.</p>
+                <a href="tarifs.html" class="btn btn-primary btn-large" data-i18n="page_fonctionnalites.cta_final.cta_principal_texte">Voir les Tarifs et S'inscrire</a>
+                <p class="mt-3"><a href="contact.html" class="text-link" data-i18n="page_fonctionnalites.cta_final.cta_secondaire_contact">Une question ? Contactez-nous</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer id="main-footer" class="main-footer">
+        <div class="container">
+            <p data-i18n="footer.loading">Chargement du footer...</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/dist/umd/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <script src="../js/config/i18n.config.js"></script>
+    
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/ui_components.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/features.js"></script> 
+</body>
+</html>

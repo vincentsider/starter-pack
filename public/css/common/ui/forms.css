@@ -1,0 +1,483 @@
+/* public/css/common/ui/forms.css */
+
+:root {
+    /* Variables pour les formulaires - ces variables devraient être définies dans theme.css ou variables.css */
+    /* Fallback si non définies */
+    --form-label-margin-bottom: var(--spacing-xs, 0.25rem);
+    --form-label-font-size: var(--font-size-base, 1rem);
+    --form-label-font-weight: var(--font-weight-semibold, 600);
+    --form-label-color: var(--text-color-primary, #333);
+
+    --input-padding-y: var(--spacing-sm, 0.5rem);
+    --input-padding-x: var(--spacing-md, 0.75rem);
+    --input-font-family: inherit;
+    --input-font-size: var(--font-size-base, 1rem);
+    --input-font-weight: var(--font-weight-normal, 400);
+    --input-line-height: var(--line-height-base, 1.5);
+    --input-color: var(--text-color-input, #495057);
+    --input-bg: var(--background-color-input, #fff);
+    --input-border-width: var(--border-width-base, 1px);
+    --input-border-color: var(--border-color-light, #ced4da);
+    --input-border-radius: var(--border-radius-base, 0.25rem);
+    --input-box-shadow: var(--box-shadow-inset, inset 0 1px 1px rgba(0,0,0,.075));
+    --input-focus-bg: var(--background-color-input-focus, #fff);
+    --input-focus-border-color: var(--primary-light-color, #86b7fe); /* Couleur de focus */
+    --input-focus-color: var(--text-color-input-focus, #495057);
+    --input-focus-width: var(--border-width-focus, 1px); /* Épaisseur de la bordure de focus */
+    --input-focus-box-shadow: 0 0 0 var(--focus-ring-blur, 0.25rem) var(--focus-ring-color, rgba(13, 110, 253, 0.25));
+    --input-placeholder-color: var(--text-color-placeholder, #6c757d);
+    --input-disabled-bg: var(--background-color-disabled, #e9ecef);
+    --input-disabled-border-color: var(--border-color-disabled, #ced4da);
+    --input-height-border: calc(var(--input-border-width) * 2); /* Pour calculer la hauteur totale */
+
+    --form-text-margin-top: var(--spacing-xs, 0.25rem);
+    --form-text-font-size: var(--font-size-sm, 0.875rem);
+    --form-text-font-style: italic;
+    --form-text-color: var(--text-muted, #6c757d); /* Texte d'aide */
+
+    --form-check-input-width: 1em; /* Taille de la checkbox/radio */
+    --form-check-min-height: calc(var(--font-size-base, 1rem) * var(--line-height-base, 1.5));
+    --form-check-padding-start: calc(var(--form-check-input-width) + 0.5em); /* Espace pour le label après la checkbox */
+    --form-check-margin-bottom: var(--spacing-xs, 0.25rem);
+    --form-check-label-color: var(--form-label-color);
+    --form-check-label-cursor: pointer;
+    --form-check-input-active-filter: brightness(90%);
+    --form-check-input-bg: var(--input-bg);
+    --form-check-input-border: var(--input-border-width) solid var(--input-border-color);
+    --form-check-input-border-radius: 0.25em; /* Radius pour checkbox carrée */
+    --form-check-radio-border-radius: 50%; /* Radius pour radio rond */
+    --form-check-input-focus-border: var(--input-focus-border-color);
+    --form-check-input-focus-box-shadow: var(--input-focus-box-shadow);
+    --form-check-input-checked-color: var(--component-active-color, #fff); /* Couleur du checkmark/dot */
+    --form-check-input-checked-bg-color: var(--primary-color, #0d6efd); /* Fond quand coché */
+    --form-check-input-checked-border-color: var(--form-check-input-checked-bg-color);
+    --form-check-input-checked-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e"); /* Checkmark SVG */
+    --form-check-radio-checked-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e"); /* Dot SVG pour radio */
+    --form-check-input-disabled-opacity: .5;
+
+    --form-select-padding-y: var(--input-padding-y);
+    --form-select-padding-x: var(--input-padding-x);
+    --form-select-font-family: var(--input-font-family);
+    --form-select-font-size: var(--input-font-size);
+    --form-select-font-weight: var(--input-font-weight);
+    --form-select-line-height: var(--input-line-height);
+    --form-select-color: var(--input-color);
+    --form-select-bg: var(--input-bg);
+    --form-select-disabled-color: var(--text-muted, #6c757d);
+    --form-select-disabled-bg: var(--input-disabled-bg);
+    --form-select-disabled-border-color: var(--input-disabled-border-color);
+    --form-select-bg-size: 16px 12px; /* Taille de l'icône de flèche */
+    --form-select-indicator-color: var(--text-color-primary, #333);
+    --form-select-indicator: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    --form-select-border-width: var(--input-border-width);
+    --form-select-border-color: var(--input-border-color);
+    --form-select-border-radius: var(--input-border-radius);
+    --form-select-box-shadow: var(--input-box-shadow);
+    --form-select-focus-border-color: var(--input-focus-border-color);
+    --form-select-focus-box-shadow: var(--input-focus-box-shadow);
+
+    --form-feedback-margin-top: var(--spacing-xs, 0.25rem);
+    --form-feedback-font-size: var(--font-size-sm, 0.875rem);
+    --form-feedback-font-style: italic;
+    --form-feedback-valid-color: var(--success-color, #198754);
+    --form-feedback-invalid-color: var(--danger-color, #dc3545);
+
+    --input-group-addon-padding-y: var(--input-padding-y);
+    --input-group-addon-padding-x: var(--input-padding-x);
+    --input-group-addon-font-weight: var(--input-font-weight);
+    --input-group-addon-color: var(--input-color);
+    --input-group-addon-bg: var(--background-color-light, #e9ecef);
+    --input-group-addon-border-color: var(--input-border-color);
+}
+
+/* Groupe de formulaire */
+.form-group {
+    margin-bottom: var(--spacing-lg, 1rem); /* Espace entre les groupes de champs */
+}
+
+/* Label de formulaire */
+.form-label {
+    display: inline-block;
+    margin-bottom: var(--form-label-margin-bottom);
+    font-size: var(--form-label-font-size);
+    font-weight: var(--form-label-font-weight);
+    color: var(--form-label-color);
+}
+
+/* Contrôles de formulaire (input, textarea, select) */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--input-padding-y) var(--input-padding-x);
+    font-family: var(--input-font-family);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+    line-height: var(--input-line-height);
+    color: var(--input-color);
+    background-color: var(--input-bg);
+    background-clip: padding-box;
+    border: var(--input-border-width) solid var(--input-border-color);
+    appearance: none; /* Supprime l'apparence native sur certains OS */
+    border-radius: var(--input-border-radius);
+    box-shadow: var(--input-box-shadow);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-control {
+        transition: none;
+    }
+}
+
+.form-control:focus {
+    color: var(--input-focus-color);
+    background-color: var(--input-focus-bg);
+    border-color: var(--input-focus-border-color);
+    outline: 0;
+    box-shadow: var(--input-box-shadow), var(--input-focus-box-shadow); /* Combine les ombres */
+}
+
+.form-control::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1; /* Firefox met une opacité par défaut */
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--input-disabled-bg);
+    border-color: var(--input-disabled-border-color);
+    opacity: 1; /* S'assurer que l'opacité est gérée via le fond */
+}
+
+/* Textarea spécifique (si différent de .form-control) */
+textarea.form-control {
+    min-height: calc(1.5em + var(--input-padding-y) * 2 + var(--input-height-border)); /* Hauteur minimale pour textarea */
+    resize: vertical; /* Permet le redimensionnement vertical */
+}
+
+/* Fichiers (type="file") */
+.form-control[type="file"] {
+    overflow: hidden; /* Empêche le texte du bouton de dépasser */
+}
+.form-control[type="file"]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+}
+
+/* Texte d'aide ou de description pour un champ */
+.form-text {
+    display: block;
+    margin-top: var(--form-text-margin-top);
+    font-size: var(--form-text-font-size);
+    font-style: var(--form-text-font-style);
+    color: var(--form-text-color);
+}
+
+/* Checkbox et Radio */
+.form-check {
+    display: block;
+    min-height: var(--form-check-min-height);
+    padding-left: var(--form-check-padding-start);
+    margin-bottom: var(--form-check-margin-bottom);
+}
+
+.form-check-input {
+    float: left;
+    margin-left: calc(-1 * var(--form-check-padding-start)); /* Aligne avec le texte */
+    width: var(--form-check-input-width);
+    height: var(--form-check-input-width); /* Garde carré/rond */
+    margin-top: calc((var(--form-check-min-height) - var(--form-check-input-width)) / 2); /* Centre verticalement */
+    vertical-align: top;
+    background-color: var(--form-check-input-bg);
+    border: var(--form-check-input-border);
+    appearance: none; /* Supprime l'apparence native */
+    color-adjust: exact; /* For print */
+    transition: background-color .15s ease-in-out, background-position .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-check-input {
+    transition: none;
+  }
+}
+
+.form-check-input[type="checkbox"] {
+    border-radius: var(--form-check-input-border-radius);
+}
+.form-check-input[type="radio"] {
+    border-radius: var(--form-check-radio-border-radius);
+}
+
+.form-check-input:active {
+    filter: var(--form-check-input-active-filter);
+}
+
+.form-check-input:focus {
+    border-color: var(--form-check-input-focus-border);
+    outline: 0;
+    box-shadow: var(--form-check-input-focus-box-shadow);
+}
+
+.form-check-input:checked {
+    background-color: var(--form-check-input-checked-bg-color);
+    border-color: var(--form-check-input-checked-border-color);
+}
+.form-check-input:checked[type="checkbox"] {
+    background-image: var(--form-check-input-checked-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.form-check-input:checked[type="radio"] {
+    background-image: var(--form-check-radio-checked-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.form-check-input[type="checkbox"]:indeterminate { /* État indéterminé pour checkbox */
+    background-color: var(--primary-color, #0d6efd);
+    border-color: var(--primary-color, #0d6efd);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.form-check-input:disabled {
+    pointer-events: none;
+    filter: none;
+    opacity: var(--form-check-input-disabled-opacity);
+}
+.form-check-input[disabled] ~ .form-check-label,
+.form-check-input:disabled ~ .form-check-label {
+    cursor: default;
+    opacity: var(--form-check-input-disabled-opacity);
+}
+
+.form-check-label {
+    color: var(--form-check-label-color);
+    cursor: var(--form-check-label-cursor);
+}
+
+/* Formulaires en ligne */
+.form-check-inline {
+    display: inline-block;
+    margin-right: var(--spacing-md, 0.75rem); /* Espace entre les éléments en ligne */
+}
+
+/* Switch (bascule) */
+.form-switch {
+    padding-left: 2.5em; /* Plus d'espace pour la bascule */
+}
+.form-switch .form-check-input {
+    width: 2em; /* Plus large pour la bascule */
+    margin-left: -2.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/%3e%3c/svg%3e");
+    background-position: left center;
+    border-radius: 2em; /* Bord arrondi pour la piste */
+    transition: background-position .15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-switch .form-check-input {
+    transition: none;
+  }
+}
+.form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(0,0,0,0.25)'/%3e%3c/svg%3e"); /* Maintenir l'icône lors du focus */
+}
+.form-switch .form-check-input:checked {
+    background-position: right center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+
+/* Select */
+.form-select {
+    display: block;
+    width: 100%;
+    padding: var(--form-select-padding-y) 2.25rem var(--form-select-padding-y) var(--form-select-padding-x); /* Espace pour la flèche */
+    font-family: var(--form-select-font-family);
+    font-size: var(--form-select-font-size);
+    font-weight: var(--form-select-font-weight);
+    line-height: var(--form-select-line-height);
+    color: var(--form-select-color);
+    background-color: var(--form-select-bg);
+    background-image: var(--form-select-indicator);
+    background-repeat: no-repeat;
+    background-position: right var(--form-select-padding-x) center;
+    background-size: var(--form-select-bg-size);
+    border: var(--form-select-border-width) solid var(--form-select-border-color);
+    border-radius: var(--form-select-border-radius);
+    box-shadow: var(--form-select-box-shadow);
+    appearance: none; /* Supprime l'apparence native */
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-select {
+    transition: none;
+  }
+}
+.form-select:focus {
+    border-color: var(--form-select-focus-border-color);
+    outline: 0;
+    box-shadow: 0 0 0 var(--focus-ring-blur, 0.25rem) var(--focus-ring-color, rgba(13, 110, 253, .25));
+}
+.form-select:disabled {
+    color: var(--form-select-disabled-color);
+    background-color: var(--form-select-disabled-bg);
+    border-color: var(--form-select-disabled-border-color);
+}
+.form-select[multiple], .form-select[size]:not([size="1"]) { /* Style pour select multiple ou avec taille définie */
+    padding-right: var(--form-select-padding-x);
+    background-image: none; /* Pas de flèche pour multiple/size */
+}
+
+/* Validation (états valide/invalide) */
+.was-validated .form-control:valid, .form-control.is-valid {
+    border-color: var(--success-color, #198754);
+    padding-right: calc(1.5em + .75rem); /* Espace pour l'icône de validation */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+    border-color: var(--success-color, #198754);
+    box-shadow: 0 0 0 var(--focus-ring-blur, 0.25rem) rgba(var(--success-rgb, 25, 135, 84), .25);
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+    border-color: var(--danger-color, #dc3545);
+    padding-right: calc(1.5em + .75rem); /* Espace pour l'icône de validation */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+    border-color: var(--danger-color, #dc3545);
+    box-shadow: 0 0 0 var(--focus-ring-blur, 0.25rem) rgba(var(--danger-rgb, 220, 53, 69), .25);
+}
+
+/* Styles pour les messages de feedback de validation */
+.valid-feedback, .invalid-feedback {
+    display: none; /* Caché par défaut */
+    width: 100%;
+    margin-top: var(--form-feedback-margin-top);
+    font-size: var(--form-feedback-font-size);
+    font-style: var(--form-feedback-font-style);
+}
+.valid-feedback {
+    color: var(--form-feedback-valid-color);
+}
+.invalid-feedback {
+    color: var(--form-feedback-invalid-color);
+}
+
+.was-validated :valid ~ .valid-feedback,
+.was-validated :valid ~ .valid-tooltip,
+.is-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip {
+    display: block;
+}
+
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip {
+    display: block;
+}
+
+/* Groupe d'input (addon avant/après) */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    align-items: stretch; /* Étire les éléments pour qu'ils aient la même hauteur */
+    width: 100%;
+}
+.input-group > .form-control,
+.input-group > .form-select {
+    position: relative; /* Pour z-index si focus */
+    flex: 1 1 auto; /* Permet à l'input de grandir */
+    width: 1%; /* Pour IE11, empêche de prendre 100% de largeur */
+    min-width: 0; /* Empêche le dépassement */
+}
+.input-group > .form-control:focus,
+.input-group > .form-select:focus {
+    z-index: 3; /* Pour que l'ombre du focus soit au-dessus des addons */
+}
+
+.input-group-text { /* Style pour les addons */
+    display: flex;
+    align-items: center;
+    padding: var(--input-group-addon-padding-y) var(--input-group-addon-padding-x);
+    font-size: var(--input-font-size); /* Match input font size */
+    font-weight: var(--input-group-addon-font-weight);
+    line-height: var(--input-line-height);
+    color: var(--input-group-addon-color);
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de l'addon de passer à la ligne */
+    background-color: var(--input-group-addon-bg);
+    border: var(--input-border-width) solid var(--input-group-addon-border-color);
+    border-radius: var(--input-border-radius);
+}
+
+/* Ajustements des bordures pour les groupes d'input */
+.input-group > .form-control:not(:last-child),
+.input-group > .form-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .form-control:not(:first-child),
+.input-group > .form-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: calc(var(--input-border-width) * -1); /* Chevauchement pour éviter double bordure */
+}
+
+.input-group > .input-group-text:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .input-group-text:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: calc(var(--input-border-width) * -1);
+}
+
+/* Pour les boutons dans les input-group */
+.input-group > .btn {
+    position: relative;
+    z-index: 2; /* Pour que le bouton soit au-dessus de l'input en cas de focus */
+}
+.input-group > .btn:focus {
+    z-index: 3;
+}
+.input-group > .btn:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: calc(var(--input-border-width) * -1);
+}
+
+/* Formulaire de recherche simple */
+.form-search {
+    display: flex;
+    align-items: center;
+}
+.form-search .form-control {
+    flex-grow: 1;
+    margin-right: var(--spacing-sm, 0.5rem); /* Espace entre input et bouton */
+    /* Optionnel: ajuster les radius si le bouton est attaché */
+    /* border-top-right-radius: 0; */
+    /* border-bottom-right-radius: 0; */
+}
+.form-search .btn {
+    /* Optionnel: ajuster les radius si le bouton est attaché */
+    /* border-top-left-radius: 0; */
+    /* border-bottom-left-radius: 0; */
+}

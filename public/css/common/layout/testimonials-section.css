@@ -1,0 +1,269 @@
+/* public/css/common/layout/testimonials-section.css */
+
+/* Style de base pour la section des témoignages */
+.testimonials-section {
+    padding: var(--section-padding-y, var(--spacing-xxl)) var(--section-padding-x, var(--container-padding-x));
+    background-color: var(--testimonials-section-bg-color, var(--background-color-light));
+    text-align: center; /* Titre et sous-titre de la section centrés */
+    position: relative;
+    overflow: hidden; /* Pour les carrousels ou les éléments décoratifs */
+}
+
+/* Conteneur pour le contenu de la section */
+.testimonials-container {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Titre de la section des témoignages */
+.testimonials-section-title, .testimonials-section .section-title {
+    font-size: var(--section-title-font-size, var(--font-size-h2));
+    font-weight: var(--section-title-font-weight, var(--font-weight-bold));
+    color: var(--section-title-color, var(--text-color-headings));
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Sous-titre ou description de la section */
+.testimonials-section-subtitle, .testimonials-section .section-subtitle {
+    font-size: var(--section-subtitle-font-size, var(--font-size-lg));
+    color: var(--section-subtitle-color, var(--text-color-secondary));
+    margin-bottom: var(--spacing-xl);
+    max-width: var(--section-subtitle-max-width, 700px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grille ou carrousel pour afficher les témoignages */
+.testimonials-grid, .testimonials-slider {
+    display: grid; /* Ou flex si utilisé avec un slider JS */
+    grid-template-columns: repeat(auto-fit, minmax(var(--testimonial-item-min-width, 300px), 1fr));
+    gap: var(--testimonial-grid-gap, var(--spacing-lg));
+    margin-top: var(--spacing-xl);
+    text-align: left; /* Contenu des témoignages aligné à gauche */
+}
+
+/* Style pour un témoignage individuel */
+.testimonial-item {
+    background-color: var(--testimonial-item-bg-color, var(--background-color-base));
+    padding: var(--testimonial-item-padding, var(--spacing-lg));
+    border-radius: var(--testimonial-item-border-radius, var(--border-radius-lg));
+    box-shadow: var(--testimonial-item-shadow, var(--shadow-md));
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Pour que les cartes aient la même hauteur dans une grille */
+    position: relative; /* Pour les guillemets décoratifs */
+}
+
+/* Guillemets décoratifs */
+.testimonial-item::before {
+    content: var(--testimonial-quote-char, '“');
+    font-family: var(--testimonial-quote-font, 'Georgia', serif);
+    font-size: var(--testimonial-quote-size, 4rem);
+    color: var(--testimonial-quote-color, var(--primary-color-light-transparent));
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-md);
+    line-height: 1;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+/* Contenu du témoignage (texte) */
+.testimonial-content {
+    font-size: var(--testimonial-text-font-size, var(--font-size-base));
+    font-style: italic;
+    color: var(--testimonial-text-color, var(--text-color-secondary));
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg); /* Espace avant les détails de l'auteur */
+    position: relative; /* Pour être au-dessus des guillemets */
+    z-index: 1;
+    flex-grow: 1; /* Le texte prend l'espace disponible */
+}
+.testimonial-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Conteneur pour les informations de l'auteur du témoignage */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pousse l'auteur en bas de la carte */
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--testimonial-author-border-color, var(--border-color-light));
+    position: relative; /* Pour être au-dessus des guillemets */
+    z-index: 1;
+}
+
+/* Image/avatar de l'auteur */
+.testimonial-author-avatar {
+    width: var(--testimonial-avatar-size, 50px);
+    height: var(--testimonial-avatar-size, 50px);
+    border-radius: 50%;
+    margin-right: var(--spacing-md);
+    object-fit: cover; /* S'assure que l'image remplit bien le cercle */
+    border: 2px solid var(--testimonial-avatar-border-color, var(--border-color-base));
+}
+
+/* Conteneur pour le nom et la position de l'auteur */
+.testimonial-author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nom de l'auteur */
+.testimonial-author-name {
+    font-size: var(--testimonial-author-name-font-size, var(--font-size-md));
+    font-weight: var(--testimonial-author-name-font-weight, var(--font-weight-semibold));
+    color: var(--testimonial-author-name-color, var(--text-color-primary));
+    margin: 0;
+}
+
+/* Position/entreprise de l'auteur */
+.testimonial-author-position {
+    font-size: var(--testimonial-author-position-font-size, var(--font-size-sm));
+    color: var(--testimonial-author-position-color, var(--text-color-muted));
+    margin: 0;
+}
+
+/* Évaluation par étoiles (si applicable) */
+.testimonial-rating {
+    margin-bottom: var(--spacing-sm); /* Ou au-dessus du contenu du témoignage */
+    color: var(--testimonial-rating-color, var(--warning-color)); /* Couleur des étoiles */
+    font-size: var(--testimonial-rating-font-size, var(--font-size-lg));
+}
+.testimonial-rating .star-icon {
+    /* Style pour les icônes d'étoiles (ex: FontAwesome, SVG) */
+    margin-right: 2px;
+}
+
+
+/* Styles pour un carrousel de témoignages (si utilisé avec un JS comme Swiper, Slick, etc.) */
+.testimonials-slider-wrapper {
+    position: relative;
+}
+.testimonials-slider .swiper-slide { /* Adaptez à la classe de votre slider */
+    display: flex; /* Assurez-vous que les items dans le slide se comportent bien */
+    height: auto; /* Laisser le slider gérer la hauteur ou la fixer pour uniformité */
+}
+.testimonials-slider .testimonial-item {
+    width: 100%; /* L'item prend toute la largeur du slide */
+}
+
+/* Boutons de navigation du carrousel */
+.testimonial-slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--slider-nav-button-size, 40px);
+    height: var(--slider-nav-button-size, 40px);
+    background-color: var(--slider-nav-bg-color, var(--white-color));
+    color: var(--slider-nav-icon-color, var(--primary-color));
+    border: 1px solid var(--slider-nav-border-color, var(--border-color-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition-speed-base) ease, color var(--transition-speed-base) ease;
+}
+.testimonial-slider-nav:hover {
+    background-color: var(--slider-nav-hover-bg-color, var(--primary-color));
+    color: var(--slider-nav-hover-icon-color, var(--white-color));
+}
+.testimonial-slider-prev {
+    left: calc(var(--section-padding-x, var(--container-padding-x)) / -2 + var(--spacing-xs)); /* Hors du conteneur principal */
+}
+.testimonial-slider-next {
+    right: calc(var(--section-padding-x, var(--container-padding-x)) / -2 + var(--spacing-xs)); /* Hors du conteneur principal */
+}
+/* Ajustement si les boutons sont à l'intérieur */
+.testimonials-container .testimonial-slider-prev { left: var(--spacing-sm); }
+.testimonials-container .testimonial-slider-next { right: var(--spacing-sm); }
+
+/* Pagination du carrousel (points) */
+.testimonial-slider-pagination {
+    position: absolute;
+    bottom: calc(var(--spacing-md) * -1.5); /* En dessous du slider */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-xs);
+}
+.testimonial-slider-pagination .swiper-pagination-bullet { /* Adaptez à la classe de votre slider */
+    width: var(--slider-pagination-dot-size, 10px);
+    height: var(--slider-pagination-dot-size, 10px);
+    background-color: var(--slider-pagination-dot-color, var(--neutral-color-400));
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: background-color var(--transition-speed-base) ease, opacity var(--transition-speed-base) ease;
+}
+.testimonial-slider-pagination .swiper-pagination-bullet-active {
+    background-color: var(--slider-pagination-dot-active-color, var(--primary-color));
+    opacity: 1;
+}
+
+/* Responsive pour la section des témoignages */
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(var(--testimonial-item-min-width-md, 280px), 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les témoignages */
+    }
+    /* Ajustements pour les flèches de navigation du slider sur mobile */
+    .testimonial-slider-prev, .testimonial-slider-next {
+        /* Peut-être les cacher ou les rendre plus petites/positionner différemment */
+        /* display: none; */
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+     .testimonial-slider-prev {
+        left: var(--spacing-xs);
+    }
+    .testimonial-slider-next {
+        right: var(--spacing-xs);
+    }
+     .testimonial-slider-pagination {
+        bottom: calc(var(--spacing-sm) * -1);
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials-section-title, .testimonials-section .section-title {
+        font-size: calc(var(--section-title-font-size, var(--font-size-h2)) * 0.8);
+    }
+    .testimonials-section-subtitle, .testimonials-section .section-subtitle {
+        font-size: calc(var(--section-subtitle-font-size, var(--font-size-lg)) * 0.9);
+        margin-bottom: var(--spacing-lg);
+    }
+    .testimonial-item {
+        padding: var(--spacing-md);
+    }
+    .testimonial-item::before {
+        font-size: 3rem;
+        top: var(--spacing-xs);
+        left: var(--spacing-sm);
+    }
+    .testimonial-content {
+        font-size: calc(var(--testimonial-text-font-size, var(--font-size-base)) * 0.95);
+    }
+    .testimonial-author-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    .testimonial-author-name {
+        font-size: calc(var(--testimonial-author-name-font-size, var(--font-size-md)) * 0.9);
+    }
+}

@@ -1,0 +1,224 @@
+{
+  "common": {
+    "header": {
+      "content": "<div class=\"container header-container\">\n            <a href=\"index.html\" class=\"logo\" data-i18n=\"common.logo_text\">SerenKall</a>\n            <button class=\"menu-toggle\" id=\"menu-toggle\" aria-controls=\"main-nav\" aria-expanded=\"false\">\n                <span class=\"hamburger-icon\"></span>\n                <span class=\"sr-only\" data-i18n=\"common.menu_toggle_sr\">Open/Close menu</span>\n            </button>\n            <nav class=\"main-navigation\" id=\"main-nav\">\n                <ul>\n                    <li><a href=\"index.html\" class=\"nav-link\" data-i18n=\"common.nav.home\">Home</a></li>\n                    <li><a href=\"fonctionnalites.html\" class=\"nav-link\" data-i18n=\"common.nav.features\">Features</a></li>\n                    <li><a href=\"tarifs.html\" class=\"nav-link\" data-i18n=\"common.nav.pricing\">Pricing</a></li>\n                    <li><a href=\"contact.html\" class=\"nav-link\" data-i18n=\"common.nav.contact\">Contact</a></li>\n                </ul>\n            </nav>\n        </div>"
+    },
+    "footer": {
+      "content": "<div class=\"container\">\n            <div class=\"footer-content\">\n                <div class=\"footer-about\">\n                    <h4 data-i18n=\"common.logo_text\">SerenKall</h4>\n                    <p data-i18n=\"common.footer.tagline\">Your personal AI assistant for smart and efficient call screening.</p>\n                </div>\n                <div class=\"footer-links\">\n                    <h4 data-i18n=\"common.footer.useful_links\">Useful Links</h4>\n                    <ul>\n                        <li><a href=\"index.html\" data-i18n=\"common.nav.home\">Home</a></li>\n                        <li><a href=\"fonctionnalites.html\" data-i18n=\"common.nav.features\">Features</a></li>\n                        <li><a href=\"tarifs.html\" data-i18n=\"common.nav.pricing\">Pricing</a></li>\n                        <li><a href=\"contact.html\" data-i18n=\"common.nav.contact_us\">Contact Us</a></li>\n                        <li><a href=\"contact.html#faq\" data-i18n=\"common.nav.faq\">FAQ</a></li>\n                    </ul>\n                </div>\n                <div class=\"footer-contact\">\n                    <h4 data-i18n=\"common.footer.stay_connected\">Stay Connected</h4>\n                    <p data-i18n=\"[html]common.footer.email_contact\">Email : <a href=\"mailto:contact@serenkall.com\">contact@serenkall.com</a></p>\n                </div>\n            </div>\n            <div class=\"footer-bottom\">\n                <p data-i18n=\"[html]common.footer.copyright\">&copy; <span id=\"current-year\">{year}</span> SerenKall. All rights reserved.</p>\n                <p>\n                    <a href=\"mentions-legales.html\" data-i18n=\"common.legal_notice_link_text\">Legal Notice</a> |\n                    <a href=\"politique-confidentialite.html\" data-i18n=\"common.privacy_policy_link_text\">Privacy Policy</a> |\n                    <a href=\"cgu.html\" data-i18n=\"common.cgu_link_text\">Terms of Service</a>\n                </p>\n            </div>\n        </div>"
+    },
+    "logo_text": "SerenKall",
+    "menu_toggle_sr": "Open/Close menu",
+    "nav": {
+      "home": "Home",
+      "features": "Features",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "contact_us": "Contact Us",
+      "faq": "FAQ"
+    },
+    "footer_tagline": "Your personal AI assistant for smart and efficient call screening.",
+    "useful_links": "Useful Links",
+    "stay_connected": "Stay Connected",
+    "email_contact": "Email : <a href=\"mailto:contact@serenkall.com\">contact@serenkall.com</a>",
+    "copyright": "&copy; <span id=\"current-year\">{year}</span> SerenKall. All rights reserved.",
+    "legal_notice_link_text": "Legal Notice",
+    "privacy_policy_link_text": "Privacy Policy",
+    "cgu_link_text": "Terms of Service"
+  },
+  "legal_notice": {
+    "title": "Legal Notice",
+    "last_updated": "Last updated: {date}",
+    "site_editor": {
+      "title": "Site Editor",
+      "name": "SerenKall SAS",
+      "address": "123 Tech Avenue, 75000 Paris, France",
+      "phone": "+33 1 23 45 67 89",
+      "email": "contact@serenkall.com"
+    },
+    "publication_director": {
+      "title": "Publication Director",
+      "name": "Jean Dupont, CEO"
+    },
+    "hosting": {
+      "title": "Hosting Provider",
+      "name": "Tech Hosting Solutions",
+      "address": "456 Server Street, 1000 Brussels, Belgium",
+      "phone": "+32 2 98 76 54 32"
+    },
+    "intellectual_property": {
+      "title": "Intellectual Property",
+      "p1": "All content on the SerenKall website, including texts, graphics, logos, images, and their arrangement, is the exclusive property of SerenKall SAS or its content suppliers and protected by French and international copyright laws.",
+      "p2": "Any reproduction, distribution, modification, adaptation, retransmission, or publication, even partial, of these various elements is strictly prohibited without the express written consent of SerenKall SAS."
+    },
+    "personal_data": {
+      "title": "Personal Data",
+      "p1": "The collection and processing of personal data are carried out in accordance with our <a href=\"politique-confidentialite.html\" data-i18n=\"common.privacy_policy_link_text\">Privacy Policy</a>."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "The SerenKall website may use cookies to improve the user experience. For more information on the use of cookies, please consult our <a href=\"politique-confidentialite.html#cookies\" data-i18n=\"common.privacy_policy_link_text\">Privacy Policy</a> (section on cookies)."
+    },
+    "liability": {
+      "title": "Liability",
+      "p1": "SerenKall SAS strives to provide accurate and up-to-date information on its website. However, SerenKall SAS cannot guarantee the accuracy, precision, or completeness of the information made available on this site.",
+      "p2": "Consequently, SerenKall SAS declines all responsibility for any imprecision, inaccuracy, or omission concerning the information available on the site; for any damages resulting from fraudulent intrusion by a third party leading to a modification of the information made available on the site; and more generally for any damages, direct or indirect, whatever the causes, origins, nature, or consequences, caused by anyone's access to the site or inability to access it, as well as the use of the site and/or credit given to any information coming directly or indirectly from it."
+    },
+    "applicable_law": {
+      "title": "Applicable Law",
+      "p1": "These legal notices are governed by French law. In the event of a dispute, and failing an amicable agreement, the dispute will be brought before the competent courts of Paris."
+    },
+    "contact": {
+      "title": "Contact",
+      "p1": "For any questions regarding these legal notices, you can contact us at: <a href=\"mailto:legal@serenkall.com\">legal@serenkall.com</a>."
+    },
+    "completion_notice": "Information to be completed and validated by the site owner."
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: {date}",
+    "introduction": {
+      "title": "1. Introduction",
+      "p1": "SerenKall SAS (\"SerenKall\", \"we\", \"us\", or \"our\") is committed to protecting the privacy of its users. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website serenkall.com (the \"Site\") and use our call screening services (the \"Services\"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use the services."
+    },
+    "data_controller": {
+      "title": "2. Data Controller",
+      "p1": "SerenKall SAS, located at 123 Tech Avenue, 75000 Paris, France, is the data controller for the personal data collected via the Site and Services."
+    },
+    "data_collected": {
+      "title": "3. Information We Collect",
+      "p1": "We may collect information about you in a variety of ways. The information we may collect on the Site and through the Services includes:",
+      "list": {
+        "item1": "<strong>Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or Services or when you choose to participate in various activities related to the Site and Services, such as online chat and message boards.",
+        "item2": "<strong>Call Data:</strong> Information related to the calls processed by our Services, including calling numbers, called numbers, call duration, call recordings (if you opt-in), and transcripts of calls. This data is essential for the functioning of the call screening service.",
+        "item3": "<strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.",
+        "item4": "<strong>Financial Data:</strong> Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the Site. We store only very limited, if any, financial information that we collect. Otherwise, all financial information is stored by our payment processor, [Payment Processor Name], and you are encouraged to review their privacy policy and contact them directly for responses to your questions."
+      }
+    },
+    "purpose": {
+      "title": "4. Use of Your Information",
+      "p1": "Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site or Services to:",
+      "list": {
+        "item1": "Create and manage your account.",
+        "item2": "Provide and improve our call screening Services.",
+        "item3": "Email you regarding your account or order.",
+        "item4": "Fulfill and manage purchases, orders, payments, and other transactions related to the Site and Services."
+      }
+    },
+    "legal_basis": {
+      "title": "5. Legal Basis for Processing",
+      "p1": "We process your personal data based on the following legal grounds:",
+      "list": {
+        "item1": "<strong>Consent:</strong> We may process your data if you have given us specific consent to use your personal information for a specific purpose (e.g., call recording).",
+        "item2": "<strong>Contractual Necessity:</strong> We process your personal data to fulfill our contractual obligations to you when you subscribe to our Services.",
+        "item3": "<strong>Legitimate Interests:</strong> We may process your data when it is reasonably necessary to achieve our legitimate business interests, such as improving our Services and ensuring the security of our Site."
+      }
+    },
+    "data_retention": {
+      "title": "6. Data Retention",
+      "p1": "We will retain your personal data only for as long as is necessary for the purposes set out in this Privacy Policy. Call data may be retained for a period necessary to improve our AI models and provide the service, typically not exceeding [Number] months, unless you request earlier deletion or a longer retention period is required or permitted by law."
+    },
+    "data_sharing": {
+      "title": "7. Disclosure of Your Information",
+      "p1": "We may share information we have collected about you in certain situations. Your information may be disclosed as follows:",
+      "list": {
+        "item1": "<strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.",
+        "item2": "<strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance. Our AI model processing may involve third-party AI service providers, who are bound by confidentiality agreements and data processing addendums."
+      }
+    },
+    "data_security": {
+      "title": "8. Security of Your Information",
+      "p1": "We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse."
+    },
+    "user_rights": {
+      "title": "9. Your Rights",
+      "p1": "Depending on your location, you may have the following rights regarding your personal data:",
+      "list": {
+        "item1": "The right to access – You have the right to request copies of your personal data.",
+        "item2": "The right to rectification – You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.",
+        "item3": "The right to erasure – You have the right to request that we erase your personal data, under certain conditions.",
+        "item4": "The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.",
+        "item5": "The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+      },
+      "p2": "To exercise these rights, please contact us using the contact information provided below."
+    },
+    "cookies": {
+      "title": "10. Cookies and Tracking Technologies",
+      "p1": "We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. For more information on how we use cookies, please refer to our Cookie Policy, which should be read in conjunction with this Privacy Policy. [Link to Cookie Policy if separate, or detail here]."
+    },
+    "policy_changes": {
+      "title": "11. Changes to This Privacy Policy",
+      "p1": "We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of this Privacy Policy. You are encouraged to periodically review this Privacy Policy to stay informed of updates."
+    },
+    "contact": {
+      "title": "12. Contact Us",
+      "p1": "If you have questions or comments about this Privacy Policy, please contact us at: <br>SerenKall SAS <br>Attn: Data Protection Officer <br>123 Tech Avenue, 75000 Paris, France <br>Email: <a href=\"mailto:privacy@serenkall.com\">privacy@serenkall.com</a>"
+    }
+  },
+  "cgu": {
+    "title": "Terms of Service (ToS)",
+    "last_updated": "Last updated: {date}",
+    "article1": {
+      "title": "Article 1: Purpose",
+      "p1": "These Terms of Service (ToS) aim to define the terms and conditions for using the services offered by the SerenKall website (hereinafter referred to as the \"Service\"), as well as to define the rights and obligations of the parties in this context.",
+      "p2": "Accessing and/or using the Service implies unreserved acceptance and compliance with all terms of these ToS."
+    },
+    "article2": {
+      "title": "Article 2: Access to the Service",
+      "p1": "The Service is accessible free of charge to any User with internet access. All costs related to accessing the Service, whether hardware, software, or internet access fees, are exclusively the User's responsibility.",
+      "p2": "Certain sections of the site may be reserved for Users after identification using their Username and Password.",
+      "p3": "SerenKall reserves the right to refuse access to the Service, unilaterally and without prior notification, to any User not complying with these ToS."
+    },
+    "article3": {
+      "title": "Article 3: Description of Services",
+      "p1": "SerenKall offers an intelligent call screening service based on artificial intelligence technology. Detailed features are presented on the \"Features\" page of the site.",
+      "p2": "The Service aims to help users manage unwanted calls and optimize their telephone communication."
+    },
+    "article4": {
+      "title": "Article 4: User Obligations",
+      "p1": "The User undertakes to comply with all provisions of these ToS. In particular, the User agrees to:",
+      "list": {
+        "item1": "Use the Service in accordance with its intended purpose and applicable laws and regulations.",
+        "item2": "Not infringe upon the rights of third parties.",
+        "item3": "Provide accurate information during registration and use of the Service.",
+        "item4": "Ensure the confidentiality of their login credentials.",
+        "item5": "Not use the Service for illegal, fraudulent, or harmful purposes."
+      }
+    },
+    "article5": {
+      "title": "Article 5: SerenKall's Liability",
+      "p1": "SerenKall makes every effort to offer a Service accessible 24/7, except in cases of force majeure or an event beyond SerenKall's control, and subject to any breakdowns and maintenance interventions necessary for the proper functioning of the Service.",
+      "p2": "SerenKall's liability cannot be engaged in case of impossibility of accessing the Service or using the Services.",
+      "p3": "SerenKall cannot be held responsible for damages of any kind, direct or indirect, resulting from the use of the Service or the inability to use it.",
+      "p4": "Although the service aims for high efficiency, SerenKall does not guarantee perfect filtering of 100% of unwanted calls, nor the total absence of false positives (legitimate calls mistakenly filtered)."
+    },
+    "article6": {
+      "title": "Article 6: Intellectual Property",
+      "p1": "All elements constituting the SerenKall site (texts, graphics, software, photographs, images, videos, sounds, plans, names, logos, trademarks, various protectable creations, databases, etc.) as well as the site itself, are subject to French and international legislation on copyright and related rights (in particular Articles L122-4 and L122-5 of the Intellectual Property Code).",
+      "p2": "These elements are the exclusive property of SerenKall, except for elements created by external contributors to the SerenKall site who have not assigned their copyrights.",
+      "p3": "Any reproduction, representation, distribution, or redistribution, total or partial, of the content of this site on any medium or by any process whatsoever (including by caching, framing) as well as any sale, resale, retransmission, or making available to third parties in any manner whatsoever are prohibited without the express prior authorization of SerenKall."
+    },
+    "article7": {
+      "title": "Article 7: Personal Data",
+      "p1": "The collection and processing of Users' personal data are carried out in accordance with our <a href=\"politique-confidentialite.html\" data-i18n=\"common.privacy_policy_link_text\">Privacy Policy</a>, which is an integral part of these ToS."
+    },
+    "article8": {
+      "title": "Article 8: Hypertext Links",
+      "p1": "The SerenKall site may contain hypertext links to other sites on the Internet. Links to these other resources will take you away from the SerenKall site.",
+      "p2": "It is possible to create a link to the presentation page of this site without express authorization from SerenKall. No prior authorization or request for information may be required by SerenKall from a site wishing to establish a link to SerenKall's site. However, this site should be displayed in a new browser window. SerenKall reserves the right to request the removal of a link it deems non-compliant with the purpose of the SerenKall site."
+    },
+    "article9": {
+      "title": "Article 9: Modification of the ToS",
+      "p1": "SerenKall reserves the right to modify, at any time and without notice, these ToS in order to adapt them to changes in the site and/or its operation.",
+      "p2": "The User is therefore invited to regularly consult the latest version of the ToS available on the site."
+    },
+    "article10": {
+      "title": "Article 10: Applicable Law and Competent Jurisdiction",
+      "p1": "These ToS are governed by French law. In the event of a dispute and in the absence of an amicable agreement, jurisdiction is attributed to the competent courts of (City to be completed), notwithstanding multiple defendants or warranty claims."
+    },
+    "article11": {
+      "title": "Article 11: Contact",
+      "p1": "For any questions regarding these ToS, you can contact us at the following address: <a href=\"mailto:contact@serenkall.com\">contact@serenkall.com</a>."
+    },
+    "completion_notice": "Information to be completed and validated by the site owner."
+  }
+}

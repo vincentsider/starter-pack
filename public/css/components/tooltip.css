@@ -1,0 +1,130 @@
+/* public/css/components/tooltip.css */
+
+:root {
+    --tooltip-z-index: 1080; /* Au-dessus des modales, par exemple */
+    --tooltip-font-size: 0.875rem;
+    --tooltip-color: var(--white-color); /* Couleur du texte */
+    --tooltip-bg: var(--dark-color);   /* Couleur de fond */
+    --tooltip-opacity: 0.9; /* Légère transparence */
+    --tooltip-padding-y: var(--space-xs);
+    --tooltip-padding-x: var(--space-sm);
+    --tooltip-border-radius: var(--border-radius-md);
+    --tooltip-max-width: 200px;
+    --tooltip-arrow-width: 0.8rem; /* Largeur de la base de la flèche */
+    --tooltip-arrow-height: 0.4rem; /* Hauteur de la flèche */
+    --tooltip-transition-duration: 0.15s;
+    --tooltip-margin: 0; /* Marge par défaut par rapport à l'élément déclencheur */
+}
+
+/* Styles de base du tooltip */
+.tooltip {
+    position: absolute; /* Positionné par JS */
+    z-index: var(--tooltip-z-index);
+    display: block;
+    margin: var(--tooltip-margin);
+    font-family: var(--font-family-base);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: var(--tooltip-font-size);
+    word-wrap: break-word;
+    opacity: 0; /* Caché par défaut, affiché via JS et transition */
+    pointer-events: none; /* Le tooltip lui-même n'est pas interactif */
+    transition: opacity var(--tooltip-transition-duration) ease-in-out;
+}
+
+.tooltip.show {
+    opacity: var(--tooltip-opacity);
+}
+
+/* Contenu interne du tooltip */
+.tooltip-inner {
+    max-width: var(--tooltip-max-width);
+    padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+    color: var(--tooltip-color);
+    text-align: center;
+    background-color: var(--tooltip-bg);
+    border-radius: var(--tooltip-border-radius);
+}
+
+/* Flèche du tooltip */
+.tooltip .tooltip-arrow {
+    position: absolute;
+    display: block;
+    width: var(--tooltip-arrow-width);
+    height: var(--tooltip-arrow-height);
+}
+.tooltip .tooltip-arrow::before {
+    position: absolute;
+    content: "";
+    border-color: transparent;
+    border-style: solid;
+}
+
+/* Placement des tooltips et de leurs flèches */
+
+/* Tooltip en haut (bs-tooltip-top) */
+.bs-tooltip-top .tooltip-arrow,
+.tooltip.placement-top .tooltip-arrow { /* Classe personnalisée pour le placement */
+    bottom: calc(-1 * var(--tooltip-arrow-height)); /* Positionne la flèche en bas du tooltip */
+}
+.bs-tooltip-top .tooltip-arrow::before,
+.tooltip.placement-top .tooltip-arrow::before {
+    top: 0;
+    border-width: var(--tooltip-arrow-height) calc(var(--tooltip-arrow-width) / 2) 0; /* Haut, moitié largeur, bas=0 */
+    border-top-color: var(--tooltip-bg); /* La flèche pointe vers le haut, donc la couleur est en haut */
+}
+
+/* Tooltip à droite (bs-tooltip-end) */
+.bs-tooltip-end .tooltip-arrow,
+.tooltip.placement-right .tooltip-arrow {
+    left: calc(-1 * var(--tooltip-arrow-height));
+    width: var(--tooltip-arrow-height); /* La largeur devient la hauteur pour la flèche latérale */
+    height: var(--tooltip-arrow-width); /* La hauteur devient la largeur */
+}
+.bs-tooltip-end .tooltip-arrow::before,
+.tooltip.placement-right .tooltip-arrow::before {
+    right: 0;
+    border-width: calc(var(--tooltip-arrow-width) / 2) var(--tooltip-arrow-height) calc(var(--tooltip-arrow-width) / 2) 0;
+    border-right-color: var(--tooltip-bg); /* La flèche pointe vers la droite */
+}
+
+/* Tooltip en bas (bs-tooltip-bottom) */
+.bs-tooltip-bottom .tooltip-arrow,
+.tooltip.placement-bottom .tooltip-arrow {
+    top: calc(-1 * var(--tooltip-arrow-height));
+}
+.bs-tooltip-bottom .tooltip-arrow::before,
+.tooltip.placement-bottom .tooltip-arrow::before {
+    bottom: 0;
+    border-width: 0 calc(var(--tooltip-arrow-width) / 2) var(--tooltip-arrow-height);
+    border-bottom-color: var(--tooltip-bg); /* La flèche pointe vers le bas */
+}
+
+/* Tooltip à gauche (bs-tooltip-start) */
+.bs-tooltip-start .tooltip-arrow,
+.tooltip.placement-left .tooltip-arrow {
+    right: calc(-1 * var(--tooltip-arrow-height));
+    width: var(--tooltip-arrow-height);
+    height: var(--tooltip-arrow-width);
+}
+.bs-tooltip-start .tooltip-arrow::before,
+.tooltip.placement-left .tooltip-arrow::before {
+    left: 0;
+    border-width: calc(var(--tooltip-arrow-width) / 2) 0 calc(var(--tooltip-arrow-width) / 2) var(--tooltip-arrow-height);
+    border-left-color: var(--tooltip-bg); /* La flèche pointe vers la gauche */
+}
+
+/* Styles pour le déclencheur du tooltip (si nécessaire) */
+[data-tooltip] {
+    cursor: help; /* Indique qu'il y a une aide disponible */
+}

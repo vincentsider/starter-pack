@@ -1,0 +1,150 @@
+/* public/css/components/tabs.css */
+
+/* Variables pour les onglets, similaires à Bootstrap mais personnalisables */
+:root {
+    --nav-tabs-border-width: 1px;
+    --nav-tabs-border-color: #dee2e6;
+    --nav-tabs-border-radius: 0.375rem; /* Bootstrap 5.2 utilise .375rem */
+    --nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
+    --nav-tabs-link-active-color: #495057;
+    --nav-tabs-link-active-bg: var(--background-color-light, #fff);
+    --nav-tabs-link-active-border-color: #dee2e6 #dee2e6 var(--nav-tabs-link-active-bg);
+    --nav-link-padding-y: 0.5rem;
+    --nav-link-padding-x: 1rem;
+    --nav-link-font-weight: ; /* Laisser vide pour hériter ou spécifier comme 500 */
+    --nav-link-color: var(--primary-color, #0d6efd); /* Couleur de lien par défaut */
+    --nav-link-hover-color: var(--primary-color-dark, #0a58ca); /* Couleur de lien au survol */
+    --nav-link-disabled-color: #6c757d;
+
+    /* Variables pour les pilules (pills) */
+    --nav-pills-border-radius: 0.375rem;
+    --nav-pills-link-active-color: #fff;
+    --nav-pills-link-active-bg: var(--primary-color, #0d6efd);
+
+    /* Variables pour le contenu de l'onglet */
+    --tab-content-padding: 1rem; /* Padding à l'intérieur des tab-pane */
+}
+
+/* Style de base pour la navigation (ul) */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+/* Style de base pour les éléments de navigation (li) */
+.nav-item {
+    /* Pas de style spécifique nécessaire ici, dépend du type .nav-tabs ou .nav-pills */
+}
+
+/* Style de base pour les liens de navigation (a ou button) */
+.nav-link {
+    display: block;
+    padding: var(--nav-link-padding-y) var(--nav-link-padding-x);
+    color: var(--nav-link-color);
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    background: none; /* S'assurer qu'il n'y a pas de fond par défaut pour button */
+    border: none; /* S'assurer qu'il n'y a pas de bordure par défaut pour button */
+    cursor: pointer;
+    font-weight: var(--nav-link-font-weight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-link {
+        transition: none;
+    }
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--nav-link-hover-color);
+    /* Pour les boutons, outline peut être géré par les styles de focus globaux */
+}
+
+.nav-link.disabled {
+    color: var(--nav-link-disabled-color);
+    pointer-events: none;
+    cursor: default;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/* Styles pour .nav-tabs */
+.nav-tabs {
+    border-bottom: var(--nav-tabs-border-width) solid var(--nav-tabs-border-color);
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: calc(-1 * var(--nav-tabs-border-width)); /* Compense la bordure inférieure de .nav-tabs */
+    background: none;
+    border: var(--nav-tabs-border-width) solid transparent;
+    border-top-left-radius: var(--nav-tabs-border-radius);
+    border-top-right-radius: var(--nav-tabs-border-radius);
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    isolation: isolate; /* Pour s'assurer que la bordure ne se superpose pas étrangement */
+    border-color: var(--nav-tabs-link-hover-border-color);
+}
+
+.nav-tabs .nav-link.disabled {
+    color: var(--nav-link-disabled-color);
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link { /* .nav-item.show est pour les dropdowns dans les onglets, moins pertinent ici mais bon à avoir */
+    color: var(--nav-tabs-link-active-color);
+    background-color: var(--nav-tabs-link-active-bg);
+    border-color: var(--nav-tabs-link-active-border-color);
+}
+
+/* Styles pour .nav-pills */
+.nav-pills .nav-link {
+    background: none;
+    border: 0;
+    border-radius: var(--nav-pills-border-radius);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link { /* .show > .nav-link pour les dropdowns dans les pilules */
+    color: var(--nav-pills-link-active-color);
+    background-color: var(--nav-pills-link-active-bg);
+}
+
+/* Conteneur pour le contenu des onglets */
+.tab-content {
+    /* Peut avoir un padding global si souhaité, ou le laisser aux tab-pane */
+}
+
+/* Panneau de contenu individuel */
+.tab-pane {
+    display: none; /* Masqué par défaut */
+    padding: var(--tab-content-padding); /* Padding interne pour le contenu */
+    /* border: 1px solid var(--nav-tabs-border-color); Optionnel, pour encadrer le contenu */
+    /* border-top: none; Si encadré et utilisé avec .nav-tabs */
+}
+
+.tab-pane.active {
+    display: block; /* Affiché lorsque actif */
+}
+
+/* Animation de fondu (fade) pour les tab-panes, comme Bootstrap */
+.tab-pane.fade {
+    transition: opacity .15s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tab-pane.fade {
+        transition: none;
+    }
+}
+
+.tab-pane.fade:not(.show) {
+    opacity: 0;
+}

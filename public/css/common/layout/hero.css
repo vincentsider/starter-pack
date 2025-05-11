@@ -1,0 +1,236 @@
+/* public/css/common/layout/hero.css */
+
+/* Style de base pour la section Hero */
+.hero-section {
+    background-color: var(--hero-bg-color, var(--primary-color-light-transparent)); /* Couleur de fond par défaut */
+    color: var(--hero-text-color, var(--text-color-primary));
+    padding: var(--hero-padding-y, var(--spacing-xxl)) var(--hero-padding-x, var(--container-padding-x));
+    text-align: center; /* Centrer le contenu par défaut */
+    overflow: hidden; /* Pour s'assurer que les images de fond ou les formes ne débordent pas bizarrement */
+    position: relative; /* Pour les éléments positionnés absolument à l'intérieur (images de fond, formes) */
+}
+
+/* Image de fond pour la section Hero */
+.hero-section.has-background-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--hero-text-color-on-image, var(--white-color)); /* Texte souvent blanc sur une image */
+}
+
+/* Superposition pour améliorer la lisibilité du texte sur une image de fond */
+.hero-section.has-background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--hero-bg-overlay-color, rgba(0, 0, 0, 0.5)); /* Superposition sombre par défaut */
+    z-index: 1; /* Assure que la superposition est au-dessus de l'image de fond mais en dessous du contenu */
+}
+
+/* Conteneur à l'intérieur de la section Hero */
+.hero-container {
+    max-width: var(--hero-container-max-width, 800px); /* Limite la largeur du contenu pour une meilleure lisibilité */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Pour que le contenu soit au-dessus de la superposition */
+    z-index: 2;
+}
+
+/* Titre principal de la section Hero (H1) */
+.hero-title, .hero-section h1 {
+    font-size: var(--hero-title-font-size, var(--font-size-h1));
+    font-weight: var(--hero-title-font-weight, var(--font-weight-bold));
+    color: inherit; /* Hérite de la couleur du .hero-section ou .hero-section.has-background-image */
+    margin-bottom: var(--hero-title-margin-bottom, var(--spacing-md));
+    line-height: var(--line-height-tight, 1.2);
+    text-shadow: var(--hero-title-text-shadow, 1px 1px 2px rgba(0,0,0,0.2)); /* Ombre légère pour la lisibilité */
+}
+
+/* Sous-titre ou description de la section Hero (paragraphe) */
+.hero-subtitle, .hero-section .subtitle, .hero-section p {
+    font-size: var(--hero-subtitle-font-size, var(--font-size-lg));
+    font-weight: var(--hero-subtitle-font-weight, var(--font-weight-normal));
+    color: inherit; /* Hérite aussi */
+    margin-bottom: var(--hero-subtitle-margin-bottom, var(--spacing-lg));
+    line-height: var(--line-height-normal, 1.6);
+    max-width: var(--hero-subtitle-max-width, 600px); /* Limite la largeur du sous-titre pour une meilleure lisibilité */
+    margin-left: auto; /* Centre le sous-titre s'il est plus étroit que le conteneur */
+    margin-right: auto;
+    opacity: 0.9; /* Légère transparence pour le sous-titre */
+}
+
+/* Zone pour les boutons d'appel à l'action (CTA) */
+.hero-cta-buttons {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    align-items: center;
+    gap: var(--spacing-md); /* Espace entre les boutons */
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petits écrans */
+    margin-top: var(--spacing-lg);
+}
+
+/* Styles spécifiques pour les boutons dans la section Hero si nécessaire */
+.hero-cta-buttons .button {
+    font-size: var(--button-font-size-lg, var(--font-size-md)); /* Boutons potentiellement plus grands */
+    padding: var(--button-padding-y-lg, var(--spacing-md)) var(--button-padding-x-lg, var(--spacing-lg));
+}
+
+.hero-cta-buttons .button-primary {
+    /* Style spécifique pour le bouton primaire dans le hero */
+}
+
+.hero-cta-buttons .button-secondary {
+    /* Style spécifique pour le bouton secondaire dans le hero */
+    background-color: var(--hero-secondary-cta-bg, transparent);
+    border-color: var(--hero-secondary-cta-border-color, currentColor); /* Bordure de la couleur du texte */
+    color: inherit;
+}
+.hero-section.has-background-image .hero-cta-buttons .button-secondary {
+    border-color: var(--hero-secondary-cta-border-color-on-image, var(--white-color));
+    color: var(--hero-secondary-cta-text-color-on-image, var(--white-color));
+}
+.hero-section.has-background-image .hero-cta-buttons .button-secondary:hover {
+    background-color: var(--hero-secondary-cta-hover-bg-on-image, var(--white-color));
+    color: var(--hero-secondary-cta-hover-text-on-image, var(--primary-color));
+    border-color: var(--hero-secondary-cta-hover-border-on-image, var(--white-color));
+}
+
+
+/* Image ou illustration dans la section Hero (si séparée du fond) */
+.hero-image-wrapper {
+    margin-top: var(--spacing-xl);
+    max-width: 100%;
+}
+
+.hero-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg, 8px); /* Optionnel: arrondir les coins de l'image */
+    box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)); /* Optionnel: ajouter une ombre */
+}
+
+/* Variante Hero avec contenu à gauche et image à droite */
+.hero-section.split-content {
+    text-align: left; /* Aligner le texte à gauche pour la variante split */
+}
+
+.hero-section.split-content .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    max-width: var(--container-max-width); /* Utiliser la largeur max standard du conteneur pour le split */
+}
+
+.hero-section.split-content .hero-content {
+    flex: 1 1 50%; /* Le contenu textuel prend environ 50% */
+    max-width: 600px; /* Limite pour le texte */
+}
+
+.hero-section.split-content .hero-image-wrapper {
+    flex: 1 1 45%; /* L'image prend environ 45%, laissant de l'espace */
+    margin-top: 0; /* Pas de marge supérieure si c'est à côté */
+    max-width: 500px; /* Limite pour l'image */
+}
+
+.hero-section.split-content .hero-title,
+.hero-section.split-content .hero-subtitle,
+.hero-section.split-content .hero-section p {
+    margin-left: 0; /* Réinitialise les marges auto pour l'alignement à gauche */
+    margin-right: 0;
+}
+
+.hero-section.split-content .hero-cta-buttons {
+    justify-content: flex-start; /* Aligner les boutons à gauche */
+}
+
+/* Responsive pour la section Hero */
+@media (max-width: 992px) {
+    .hero-title, .hero-section h1 {
+        font-size: calc(var(--hero-title-font-size, var(--font-size-h1)) * 0.85);
+    }
+    .hero-subtitle, .hero-section .subtitle, .hero-section p {
+        font-size: calc(var(--hero-subtitle-font-size, var(--font-size-lg)) * 0.9);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+    .hero-title, .hero-section h1 {
+        font-size: calc(var(--hero-title-font-size, var(--font-size-h1)) * 0.75);
+    }
+    .hero-subtitle, .hero-section .subtitle, .hero-section p {
+        font-size: calc(var(--hero-subtitle-font-size, var(--font-size-lg)) * 0.85);
+    }
+    .hero-cta-buttons .button {
+        font-size: var(--button-font-size-md, var(--font-size-base));
+        padding: var(--button-padding-y-md, var(--spacing-sm)) var(--button-padding-x-md, var(--spacing-md));
+    }
+
+    .hero-section.split-content .hero-container {
+        flex-direction: column; /* Empiler le contenu et l'image */
+        text-align: center; /* Recentrer le texte quand c'est empilé */
+    }
+    .hero-section.split-content .hero-content {
+        order: 2; /* Mettre le texte après l'image sur mobile si désiré */
+        max-width: 100%;
+    }
+    .hero-section.split-content .hero-image-wrapper {
+        order: 1; /* Mettre l'image avant le texte sur mobile */
+        margin-bottom: var(--spacing-lg);
+        max-width: 80%; /* Réduire un peu la taille de l'image empilée */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-section.split-content .hero-title,
+    .hero-section.split-content .hero-subtitle,
+    .hero-section.split-content .hero-section p {
+        margin-left: auto; /* Recentrer */
+        margin-right: auto;
+    }
+    .hero-section.split-content .hero-cta-buttons {
+        justify-content: center; /* Recentrer les boutons */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title, .hero-section h1 {
+        font-size: calc(var(--hero-title-font-size, var(--font-size-h1)) * 0.65);
+    }
+    .hero-subtitle, .hero-section .subtitle, .hero-section p {
+        font-size: var(--font-size-base); /* Taille de base pour le sous-titre sur très petits écrans */
+    }
+    .hero-cta-buttons {
+        flex-direction: column; /* Empiler les boutons verticalement */
+        align-items: stretch; /* Faire en sorte que les boutons prennent toute la largeur disponible */
+        gap: var(--spacing-sm);
+    }
+    .hero-cta-buttons .button {
+        width: 100%; /* Boutons pleine largeur */
+        max-width: 300px; /* Mais avec une largeur max pour ne pas être trop larges */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Formes décoratives (optionnel) */
+/* .hero-shape {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.hero-shape.shape-1 {
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+} */

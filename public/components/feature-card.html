@@ -1,0 +1,70 @@
+<!-- public/components/feature-card.html -->
+<!-- 
+    Utilisation : Ce composant est une structure pour afficher une fonctionnalité.
+    Il est destiné à être utilisé de manière répétée avec des données différentes.
+    Les données (icône, titre, description) doivent être personnalisées à chaque utilisation.
+
+    Exemple d'intégration (généralement dans une boucle si les données viennent d'un JS) :
+    <div class="feature-card">
+        <div class="feature-card-icon">
+            <i class="fas fa-VOTRE_ICONE_FONTAWESOME"></i> 
+            <!-- ou <img src="VOTRE_CHEMIN_ICONE.svg" alt="Icône de fonctionnalité"> -->
+        </div>
+        <h3 class="feature-card-title" data-i18n="VOTRE_CLE_I18N_POUR_TITRE">Titre de la Fonctionnalité</h3>
+        <p class="feature-card-description" data-i18n="VOTRE_CLE_I18N_POUR_DESCRIPTION">
+            Description de la fonctionnalité, expliquant ses avantages et son fonctionnement.
+        </p>
+        <!-- Optionnel : Lien vers plus de détails -->
+        <!-- <a href="VOTRE_LIEN_DETAILS" class="feature-card-link" data-i18n="ui.learnMore">En savoir plus</a> -->
+    </div>
+
+    Pour une intégration dynamique avec JS :
+    (Supposons une div placeholder <div id="feature-cards-container"></div> dans votre HTML principal)
+
+    const featuresData = [
+        { iconClass: 'fa-shield-alt', titleKey: 'features.security.title', descriptionKey: 'features.security.description', link: 'features.html#security' },
+        { iconClass: 'fa-brain', titleKey: 'features.ai.title', descriptionKey: 'features.ai.description', link: 'features.html#ai' },
+        // ... autres fonctionnalités
+    ];
+
+    fetch('components/feature-card.html')
+        .then(response => response.text())
+        .then(cardHtmlTemplate => {
+            const container = document.getElementById('feature-cards-container');
+            featuresData.forEach(feature => {
+                let cardHtml = cardHtmlTemplate
+                    .replace('{{feature_icon_class}}', feature.iconClass) // Pour FontAwesome
+                    // .replace('{{feature_icon_path}}', feature.iconPath) // Pour images
+                    // .replace('{{feature_icon_alt_key}}', feature.iconAltKey) // Pour images
+                    .replace('{{feature_title_key}}', feature.titleKey)
+                    .replace('{{feature_description_key}}', feature.descriptionKey);
+                
+                // Gérer le lien optionnel
+                // if (feature.link) {
+                //     cardHtml = cardHtml.replace('<!-- feature_link_placeholder -->', `<a href="${feature.link}" class="feature-card-link" data-i18n="ui.learnMore">En savoir plus</a>`);
+                // } else {
+                //     cardHtml = cardHtml.replace('<!-- feature_link_placeholder -->', '');
+                // }
+
+                const cardElement = document.createElement('div');
+                cardElement.className = 'feature-card-wrapper'; // Pour la grille CSS
+                cardElement.innerHTML = cardHtml;
+                container.appendChild(cardElement);
+            });
+            // Si i18n est utilisé, réappliquer les traductions après l'insertion
+            if (window.i18n && typeof window.i18n.updateContent === 'function') {
+                window.i18n.updateContent();
+            }
+        });
+-->
+<div class="feature-card">
+    <div class="feature-card-icon">
+        <i class="fas {{feature_icon_class}}"></i>
+        <!-- Alternative pour image: <img src="{{feature_icon_path}}" alt="{{feature_icon_alt_key}}" data-i18n-alt="{{feature_icon_alt_key}}"> -->
+    </div>
+    <h3 class="feature-card-title" data-i18n="{{feature_title_key}}"></h3>
+    <p class="feature-card-description" data-i18n="{{feature_description_key}}"></p>
+    <!-- Décommentez et personnalisez si un lien "En savoir plus" est nécessaire -->
+    <!-- <a href="{{feature_link_href}}" class="feature-card-link" data-i18n="{{feature_link_text_key}}"></a> -->
+    <!-- feature_link_placeholder -->
+</div>

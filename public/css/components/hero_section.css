@@ -1,0 +1,210 @@
+/* public/css/components/hero_section.css */
+
+.hero-section {
+    padding: var(--spacing-xxl) 0; /* Plus de padding vertical pour l'importance */
+    background-color: var(--color-background-page);
+    overflow: hidden; /* Pour éviter les débordements d'images de fond */
+    position: relative; /* Pour les images de fond ou éléments positionnés */
+}
+
+.hero-section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+}
+
+.hero-text-content {
+    flex: 1 1 55%; /* Prend plus de place par défaut */
+    padding-right: var(--spacing-lg); /* Espace par rapport à l'image si elle est à droite */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-image-content {
+    flex: 1 1 45%; /* Moins de place par défaut */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-placeholder,
+[data-hero-image-element] {
+    width: 100%;
+    max-width: 500px; /* Limite la taille de l'image */
+    height: auto;
+    max-height: 450px;
+    object-fit: contain; /* S'assure que l'image est bien proportionnée */
+    border-radius: var(--border-radius-lg);
+    background-color: var(--color-neutral-200); /* Placeholder color */
+}
+
+.hero-eyebrow {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-title {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-strong);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px; /* Pour une meilleure lisibilité */
+}
+
+.hero-cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Pour les petits écrans */
+}
+
+.hero-cta-button,
+.hero-secondary-cta-button {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+
+/* Layouts */
+.hero-layout--text-right-image-left .hero-section-content {
+    flex-direction: row-reverse;
+}
+.hero-layout--text-right-image-left .hero-text-content {
+    padding-right: 0;
+    padding-left: var(--spacing-lg);
+}
+
+.hero-layout--text-center-image-bottom .hero-section-content {
+    flex-direction: column;
+    text-align: center;
+}
+.hero-layout--text-center-image-bottom .hero-text-content {
+    padding-right: 0;
+    align-items: center; /* Centre les éléments flexibles comme les boutons */
+}
+.hero-layout--text-center-image-bottom .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-layout--text-center-image-bottom .hero-image-content {
+    margin-top: var(--spacing-xl);
+    width: 100%;
+    max-width: 600px; /* L'image peut être plus large ici */
+}
+
+.hero-layout--background-image {
+    background-size: cover;
+    background-position: center center;
+    color: var(--color-white); /* S'attendre à un fond sombre */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Améliore la lisibilité sur image */
+}
+.hero-layout--background-image .hero-section-content {
+    position: relative;
+    z-index: 1;
+    flex-direction: column; /* Par défaut, contenu centré sur image de fond */
+    text-align: center;
+    min-height: 60vh; /* Donne de la hauteur pour voir l'image */
+    justify-content: center;
+}
+.hero-layout--background-image .hero-text-content {
+    background-color: rgba(0,0,0,0.3); /* Optionnel: un léger fond pour le texte */
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    align-items: center;
+}
+.hero-layout--background-image .hero-eyebrow,
+.hero-layout--background-image .hero-title,
+.hero-layout--background-image .hero-subtitle {
+    color: var(--color-white);
+}
+.hero-layout--background-image .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-layout--background-image .hero-image-content {
+    display: none; /* L'image est dans le fond */
+}
+
+/* Text alignment helpers */
+.hero-text-content.text-align--left { text-align: left; align-items: flex-start; }
+.hero-text-content.text-align--center { text-align: center; align-items: center; }
+.hero-text-content.text-align--center .hero-subtitle { margin-left: auto; margin-right: auto; }
+.hero-text-content.text-align--right { text-align: right; align-items: flex-end; }
+.hero-text-content.text-align--right .hero-subtitle { margin-left: auto; /* Garde la largeur max */ }
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: var(--font-size-xxl);
+    }
+    .hero-subtitle {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: var(--spacing-xl) 0;
+    }
+    .hero-section-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+    .hero-text-content {
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+        order: 2; /* Texte en dessous de l'image par défaut sur mobile */
+    }
+    .hero-image-content {
+        order: 1; /* Image au-dessus par défaut sur mobile */
+        width: 100%;
+        max-width: 350px; /* Réduire l'image sur mobile */
+    }
+    .hero-eyebrow, .hero-title, .hero-subtitle {
+        text-align: center;
+    }
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+
+    /* Pour les layouts spécifiques sur mobile */
+    .hero-layout--text-right-image-left .hero-section-content,
+    .hero-layout--text-center-image-bottom .hero-section-content {
+        flex-direction: column; /* Standardiser en colonne */
+    }
+    .hero-layout--text-right-image-left .hero-text-content {
+        padding-left: 0;
+        order: 2;
+    }
+     .hero-layout--text-center-image-bottom .hero-image-content {
+        margin-top: var(--spacing-lg); /* Moins d'espace */
+    }
+
+    .hero-layout--background-image .hero-section-content {
+        min-height: 50vh;
+    }
+    .hero-layout--background-image .hero-text-content {
+        padding: var(--spacing-lg);
+    }
+}

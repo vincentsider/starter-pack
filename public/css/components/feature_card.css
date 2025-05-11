@@ -1,0 +1,151 @@
+/* public/css/components/feature_card.css */
+
+.feature-card {
+    background-color: var(--color-background-component);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Flex pour les layouts icon-left */
+    flex-direction: column; /* Défaut pour icon-top */
+    height: 100%; /* Pour que les cartes dans une grille aient la même hauteur */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-card-icon-container {
+    margin-bottom: var(--spacing-md);
+    display: inline-flex; /* Pour que l'alignement du texte fonctionne bien si la carte est centrée */
+}
+
+.feature-card-icon,
+[data-feature-icon-element] {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary);
+    /* Styles pour les SVG inline ou les balises <img> */
+}
+.feature-card-icon img,
+[data-feature-icon-element] img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.feature-card-image-container {
+    margin-bottom: var(--spacing-md);
+    overflow: hidden; /* Pour s'assurer que l'image respecte le border-radius */
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; /* Si l'image est tout en haut */
+}
+
+.feature-card-image,
+[data-feature-image-element] {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-card-content {
+    flex-grow: 1; /* S'assure que le contenu remplit l'espace, poussant le lien en bas si nécessaire */
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-strong);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-card-description {
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Pousse le lien vers le bas */
+}
+
+.feature-card-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: auto; /* Pousse le lien en bas de la carte */
+}
+
+.feature-card-link:hover {
+    text-decoration: underline;
+    color: var(--color-primary-dark);
+}
+
+/* Layouts & Alignments */
+
+/* Layout: Icon Top (défaut implicite via flex-direction: column sur .feature-card) */
+.feature-card.layout--icon-top .feature-card-icon-container,
+.feature-card.layout--image-top .feature-card-image-container {
+    align-self: var(--_feature-card-item-align, center); /* Sera défini par text-align */
+}
+
+/* Layout: Icon Left */
+.feature-card.layout--icon-left {
+    flex-direction: row;
+    gap: var(--spacing-md);
+    align-items: flex-start; /* Aligne l'icône et le bloc de texte en haut */
+}
+.feature-card.layout--icon-left .feature-card-icon-container {
+    margin-bottom: 0;
+    margin-right: var(--spacing-sm); /* Espace entre icone et texte */
+    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+}
+.feature-card.layout--icon-left .feature-card-icon,
+.feature-card.layout--icon-left [data-feature-icon-element] {
+    width: 36px; /* Icônes potentiellement plus petites pour ce layout */
+    height: 36px;
+}
+.feature-card.layout--icon-left .feature-card-content {
+    text-align: left; /* Par défaut pour ce layout */
+}
+
+/* Text alignment */
+.feature-card.text-align--left { --_feature-card-item-align: flex-start; text-align: left; }
+.feature-card.layout--icon-left.text-align--left .feature-card-icon-container { align-self: flex-start; }
+
+
+.feature-card.text-align--center { --_feature-card-item-align: center; text-align: center; }
+.feature-card.layout--icon-left.text-align--center .feature-card-icon-container { align-self: center; } /* Si on veut vraiment centrer l'icône verticalement dans ce layout */
+.feature-card.layout--icon-left.text-align--center .feature-card-content { align-items: center; } /* Centre le titre/description si layout=icon-left et text=center */
+
+
+.feature-card.text-align--right { --_feature-card-item-align: flex-end; text-align: right; }
+.feature-card.layout--icon-left.text-align--right .feature-card-icon-container { align-self: flex-end; }
+.feature-card.layout--icon-left.text-align--right .feature-card-content { align-items: flex-end; }
+
+/* Ajustements pour le responsive si nécessaire */
+@media (max-width: 768px) {
+    /* Sur mobile, on pourrait forcer un layout icon-top pour la lisibilité */
+    .feature-card.layout--icon-left {
+        flex-direction: column;
+        align-items: var(--_feature-card-item-align, center); /* Utilise l'alignement de texte */
+    }
+    .feature-card.layout--icon-left .feature-card-icon-container {
+        margin-bottom: var(--spacing-md);
+        margin-right: 0;
+        align-self: var(--_feature-card-item-align, center); /* Assure que l'icône suit l'alignement */
+    }
+    .feature-card.layout--icon-left .feature-card-content {
+        text-align: var(--_text-align, center); /* Le text-align est déjà sur .feature-card */
+         align-items: var(--_feature-card-item-align, center);
+    }
+    .feature-card.text-align--left { --_text-align: left; }
+    .feature-card.text-align--center { --_text-align: center; }
+    .feature-card.text-align--right { --_text-align: right; }
+
+}

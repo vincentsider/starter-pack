@@ -1,0 +1,271 @@
+/* public/css/ui/card.css */
+
+:root {
+    --card-bg-color: var(--white-color);
+    --card-border-color: var(--border-color); /* Défini dans style.css global */
+    --card-border-radius: var(--border-radius-lg); /* Plus grand que les boutons */
+    --card-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre subtile */
+    --card-padding: var(--space-md);
+    --card-header-bg: transparent; /* Peut être personnalisé */
+    --card-footer-bg: transparent; /* Peut être personnalisé */
+    --card-title-font-size: 1.25rem;
+    --card-title-font-weight: 600;
+    --card-subtitle-font-size: 0.9rem;
+    --card-subtitle-color: #6c757d; /* Gris doux */
+    --card-link-color: var(--primary-color);
+    --card-text-color: var(--text-color-secondary); /* Défini dans style.css global */
+    --card-image-border-radius: var(--border-radius-md); /* Si l'image est en haut */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Empêche le contenu de déborder */
+    word-wrap: break-word;
+    background-color: var(--card-bg-color);
+    background-clip: border-box;
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    margin-bottom: var(--space-md); /* Marge par défaut en bas */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px); /* Léger effet de soulèvement au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    flex: 1 1 auto; /* Permet au corps de la carte de grandir et rétrécir */
+    padding: var(--card-padding);
+}
+
+.card-title {
+    font-size: var(--card-title-font-size);
+    font-weight: var(--card-title-font-weight);
+    color: var(--text-color-primary); /* Défini dans style.css global */
+    margin-bottom: var(--space-xs);
+}
+
+.card-subtitle {
+    font-size: var(--card-subtitle-font-size);
+    color: var(--card-subtitle-color);
+    margin-top: calc(-1 * var(--space-xs) / 2); /* Rapproche du titre */
+    margin-bottom: var(--space-sm);
+}
+
+.card-text {
+    color: var(--card-text-color);
+    margin-bottom: var(--space-sm); /* Espace avant le prochain élément */
+    line-height: 1.6;
+}
+
+.card-text:last-child {
+    margin-bottom: 0; /* Pas de marge si c'est le dernier enfant */
+}
+
+.card-link {
+    color: var(--card-link-color);
+    text-decoration: none;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* Images dans les cartes */
+.card-img,
+.card-img-top,
+.card-img-bottom {
+    width: 100%; /* Prend toute la largeur de la carte */
+}
+
+.card-img-top {
+    border-top-left-radius: calc(var(--card-border-radius) - 1px); /* Ajuste pour la bordure */
+    border-top-right-radius: calc(var(--card-border-radius) - 1px);
+}
+
+.card-img-bottom {
+    border-bottom-left-radius: calc(var(--card-border-radius) - 1px);
+    border-bottom-right-radius: calc(var(--card-border-radius) - 1px);
+}
+
+/* Entête de carte */
+.card-header {
+    padding: var(--card-padding);
+    margin-bottom: 0; /* Annule la marge par défaut des titres */
+    background-color: var(--card-header-bg);
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.card-header:first-child {
+    border-radius: calc(var(--card-border-radius) - 1px) calc(var(--card-border-radius) - 1px) 0 0;
+}
+
+/* Pied de carte */
+.card-footer {
+    padding: var(--card-padding);
+    background-color: var(--card-footer-bg);
+    border-top: 1px solid var(--card-border-color);
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 calc(var(--card-border-radius) - 1px) calc(var(--card-border-radius) - 1px);
+}
+
+/* Styles spécifiques pour différents types de cartes */
+
+/* Carte avec image de fond */
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    color: var(--white-color); /* Le texte doit être lisible sur l'image */
+}
+
+.card-img-overlay .card-title,
+.card-img-overlay .card-subtitle,
+.card-img-overlay .card-text {
+    color: inherit; /* Hérite de la couleur de .card-img-overlay */
+}
+
+/* Carte de type "feature" ou "icon-card" */
+.feature-card {
+    text-align: center;
+}
+
+.feature-card .feature-icon {
+    font-size: 3rem; /* Grande icône */
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+    display: inline-block; /* Pour centrer avec text-align */
+}
+
+.feature-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+}
+
+.feature-card .card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Carte pour les témoignages ou citations */
+.testimonial-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial-card .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-sm);
+    border: 3px solid var(--white-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.testimonial-card .testimonial-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: var(--space-xs);
+}
+
+.testimonial-card .testimonial-author {
+    font-weight: 600;
+    color: var(--text-color-primary);
+}
+
+.testimonial-card .testimonial-author-title {
+    font-size: 0.8rem;
+    color: var(--text-color-secondary);
+}
+
+/* Carte pour les plans tarifaires */
+.pricing-card {
+    text-align: center;
+    border-top: 4px solid transparent; /* Sera coloré par plan */
+}
+
+.pricing-card .card-header {
+    background-color: var(--light-gray-color); /* Gris clair pour l'entête */
+    border-bottom: none;
+}
+
+.pricing-card .plan-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xxs);
+}
+
+.pricing-card .plan-price {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    margin-bottom: var(--space-xs);
+}
+
+.pricing-card .plan-price .currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+    margin-right: 2px;
+}
+
+.pricing-card .plan-price .period {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+.pricing-card .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+}
+
+.pricing-card .plan-features li {
+    padding: var(--space-xxs) 0;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.pricing-card .plan-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card .btn {
+    width: 80%;
+    margin-top: var(--space-sm);
+}
+
+/* Couleur de la bordure supérieure pour les plans tarifaires spécifiques */
+.pricing-card.basic { border-top-color: var(--secondary-color); }
+.pricing-card.pro { border-top-color: var(--primary-color); }
+.pricing-card.enterprise { border-top-color: var(--accent-color); }
+
+/* Style pour un plan tarifaire "populaire" ou "recommandé" */
+.pricing-card.popular {
+    transform: scale(1.05); /* Met en évidence le plan */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Au-dessus des autres cartes */
+}
+
+.pricing-card.popular .card-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pricing-card.popular .plan-name,
+.pricing-card.popular .plan-price {
+    color: var(--white-color);
+}
+.pricing-card.popular .plan-price .period{
+    color: rgba(255,255,255,0.8);
+}

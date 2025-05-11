@@ -1,0 +1,28 @@
+<!-- public/components/language-selector.html -->
+<!-- 
+    Utilisation : Ce composant affiche un sélecteur de langue.
+    Il est généralement placé dans le header ou le footer.
+    Le script i18n.js gérera la logique de changement de langue.
+
+    Exemple d'intégration :
+    (Supposons une div placeholder <div id="language-selector-container"></div> dans votre HTML)
+
+    fetch('components/language-selector.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('language-selector-container').innerHTML = html;
+            // Attacher les écouteurs d'événements si nécessaire (géré par i18n.js)
+            if (window.i18n && typeof window.i18n.setupLanguageSwitcher === 'function') {
+                 window.i18n.setupLanguageSwitcher();
+            }
+        });
+-->
+<div class="language-selector">
+    <label for="language-select" class="visually-hidden" data-i18n="ui.languageSelector.label">Changer de langue :</label>
+    <select id="language-select" aria-labelledby="language-select-label">
+        <option value="fr" data-i18n="ui.languageSelector.french">Français</option>
+        <option value="en" data-i18n="ui.languageSelector.english">English</option>
+        <option value="es" data-i18n="ui.languageSelector.spanish">Español</option>
+        <!-- Ajoutez d'autres langues si nécessaire -->
+    </select>
+</div>

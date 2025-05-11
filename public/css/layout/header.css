@@ -1,0 +1,276 @@
+/* public/css/layout/header.css */
+
+:root {
+    --header-height: 70px; /* Hauteur standard du header */
+    --header-bg-color: var(--white-color);
+    --header-text-color: var(--text-color-dark);
+    --header-border-bottom: 1px solid var(--border-color-light);
+    --header-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --header-z-index: 1000; /* Pour s'assurer qu'il est au-dessus des autres contenus */
+    --header-padding-x: var(--space-lg);
+    --header-padding-y: 0;
+
+    --nav-link-color: var(--text-color-secondary);
+    --nav-link-hover-color: var(--primary-color);
+    --nav-link-active-color: var(--primary-color-dark);
+    --nav-link-padding: var(--space-sm) var(--space-md);
+    --nav-link-font-size: 0.95rem;
+    --nav-link-font-weight: 500;
+
+    --logo-max-height: 40px; /* Hauteur max du logo */
+    --logo-margin-right: var(--space-lg);
+
+    --mobile-menu-breakpoint: 768px; /* Point de rupture pour le menu mobile */
+    --mobile-menu-icon-size: 24px;
+    --mobile-menu-bg-color: var(--white-color);
+    --mobile-menu-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --mobile-nav-link-padding: var(--space-md);
+}
+
+.site-header {
+    position: fixed; /* Ou sticky, selon le comportement désiré */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    border-bottom: var(--header-border-bottom);
+    box-shadow: var(--header-box-shadow);
+    z-index: var(--header-z-index);
+    padding: var(--header-padding-y) var(--header-padding-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Léger effet de transparence au scroll */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header-container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Au cas où le logo est un lien */
+}
+
+.logo-container img {
+    max-height: var(--logo-max-height);
+    margin-right: var(--logo-margin-right);
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover img {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color-dark); /* Utiliser une couleur de marque forte */
+    letter-spacing: -0.5px;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: var(--space-xs); /* Espace entre les liens */
+}
+
+.nav-item:first-child {
+    margin-left: 0;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: var(--nav-link-color);
+    padding: var(--nav-link-padding);
+    font-size: var(--nav-link-font-size);
+    font-weight: var(--nav-link-font-weight);
+    border-radius: var(--border-radius-sm);
+    transition: color 0.2s ease, background-color 0.2s ease;
+    position: relative; /* Pour la pseudo-bordure active */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--nav-link-hover-color);
+    background-color: var(--primary-color-x-light); /* Léger fond au survol */
+}
+
+.nav-link.active {
+    color: var(--nav-link-active-color);
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Aligné avec la bordure du header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* Largeur de la bordure active */
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-actions .btn {
+    margin-left: var(--space-md);
+}
+
+.language-selector-container {
+    margin-left: var(--space-md);
+    position: relative;
+}
+
+#language-selector {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-light);
+    background-color: var(--white-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#language-selector:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem var(--primary-color-transparent);
+}
+
+
+/* Menu mobile */
+.mobile-menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 1001; /* Au-dessus du menu mobile */
+}
+
+.mobile-menu-icon {
+    width: var(--mobile-menu-icon-size);
+    height: var(--mobile-menu-icon-size);
+    fill: var(--header-text-color); /* Couleur de l'icône */
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-toggle.active .mobile-menu-icon {
+    transform: rotate(90deg); /* Ou une autre animation pour l'état actif */
+}
+
+
+@media (max-width: calc(var(--mobile-menu-breakpoint) + 150px)) { /* Ajuster le breakpoint pour les actions */
+    .header-actions .btn-secondary { /* Cacher le bouton "Login" moins prioritaire sur petits écrans */
+        display: none;
+    }
+}
+
+
+@media (max-width: var(--mobile-menu-breakpoint)) {
+    .main-navigation {
+        position: fixed;
+        top: 0; /* Se positionne sous le header après ouverture */
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--mobile-menu-bg-color);
+        box-shadow: var(--mobile-menu-box-shadow);
+        padding-top: calc(var(--header-height) + var(--space-md)); /* Espace pour le header */
+        transform: translateX(-100%);
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); /* Animation fluide */
+        overflow-y: auto; /* Permet le scroll si beaucoup d'items */
+        z-index: 999; /* Sous le header mais au-dessus du reste */
+    }
+
+    .main-navigation.active {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center; /* Centrer les liens dans le menu mobile */
+        width: 100%;
+    }
+
+    .nav-item {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color-x-light);
+    }
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: var(--mobile-nav-link-padding);
+        width: 100%;
+        border-radius: 0; /* Pas de coins arrondis pour les liens pleine largeur */
+    }
+    .nav-link.active::after {
+      display: none; /* Pas de bordure active dans le menu mobile, le fond suffit */
+    }
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.active {
+        background-color: var(--primary-color-x-light);
+        color: var(--primary-color-dark);
+    }
+
+    .header-actions {
+        /* S'assurer que les actions restent visibles ou sont gérées différemment */
+        /* Ici, on les garde à droite du toggle */
+        margin-left: auto; /* Pousse le toggle à gauche si les actions sont présentes */
+    }
+    .header-actions .btn {
+        /* Ajuster la taille ou le style pour mobile si nécessaire */
+        font-size: 0.9rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    .language-selector-container {
+        margin-left: var(--space-sm); /* Réduire la marge sur mobile */
+    }
+
+
+    .mobile-menu-toggle {
+        display: block;
+        order: -1; /* Place le toggle avant le logo si nécessaire, ou ajuster le flex du container */
+        margin-right: var(--space-md); /* Espace entre toggle et logo */
+    }
+
+    .header-container {
+        /* S'assurer que le logo et le toggle sont bien positionnés */
+        /* Si le logo doit être centré quand le menu est ouvert, cela nécessite JS */
+    }
+}

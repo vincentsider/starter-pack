@@ -1,0 +1,189 @@
+/* public/css/pages/accueil.css */
+
+/* Styles pour la Section Héros */
+.hero-section {
+    background-color: #f0f8ff; /* Bleu clair et aéré */
+    padding: 4rem 0;
+    color: #333;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0056b3; /* Bleu foncé pour le titre principal */
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section .btn-primary {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour la Section Fonctionnalités Clés */
+.key-features-section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #007bff; /* Bleu pour les titres de section */
+}
+
+.feature-item {
+    margin-bottom: 2rem;
+}
+
+.feature-icon {
+    width: 70px; /* Taille des icônes */
+    height: 70px;
+    margin-bottom: 1rem;
+    /* Considérer d'utiliser des SVG ou des polices d'icônes pour une meilleure qualité */
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #343a40; /* Couleur foncée pour les titres de fonctionnalités */
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #6c757d; /* Gris pour les descriptions */
+    line-height: 1.6;
+}
+
+/* Styles pour la Section Témoignages */
+.testimonials-section {
+    padding: 3rem 0;
+    background-color: #f8f9fa; /* Fond légèrement gris pour différencier la section */
+}
+
+.testimonial {
+    padding: 2rem;
+    background-color: #ffffff; /* Fond blanc pour chaque témoignage */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem; /* Espace si plusieurs témoignages sont visibles hors carrousel */
+    min-height: 280px; /* Hauteur minimale pour l'alignement dans le carrousel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #007bff; /* Bordure de couleur pour l'avatar */
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Ajustements pour le carrousel Bootstrap si nécessaire */
+#testimonialCarousel .carousel-inner {
+    padding-bottom: 20px; /* Espace pour les indicateurs si positionnés en bas */
+}
+#testimonialCarousel .carousel-item {
+    /* S'assurer que les items ont une hauteur suffisante pour le contenu */
+    /* min-height géré dans .testimonial */
+}
+
+
+/* Styles pour la Section Appel à l'Action (CTA) */
+.cta-banner-section {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Dégradé bleu */
+    color: #ffffff; /* Texte blanc */
+    padding: 4rem 0;
+}
+
+.cta-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-banner-section .btn-primary {
+    background-color: #ffffff; /* Bouton blanc sur fond bleu */
+    color: #007bff; /* Texte bleu */
+    border-color: #ffffff;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cta-banner-section .btn-primary:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    color: #0056b3;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .feature-item h3 {
+        font-size: 1.3rem;
+    }
+    .cta-title {
+        font-size: 1.9rem;
+    }
+    .cta-text {
+        font-size: 1rem;
+    }
+    .testimonial {
+        padding: 1.5rem;
+        min-height: auto; /* Ajuster pour mobile */
+    }
+}

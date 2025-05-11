@@ -1,0 +1,231 @@
+/* public/css/common/ui_components/buttons.css */
+
+/* Styles de base pour tous les boutons */
+.button {
+    display: inline-flex; /* Permet d'aligner le texte et les icônes */
+    align-items: center;
+    justify-content: center;
+    padding: var(--button-padding-y, var(--spacing-sm)) var(--button-padding-x, var(--spacing-lg));
+    font-family: var(--font-family-buttons, var(--font-family-base));
+    font-size: var(--font-size-buttons, var(--font-size-base));
+    font-weight: var(--font-weight-buttons, var(--font-weight-semibold));
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--button-border-radius, var(--border-radius-md));
+    cursor: pointer;
+    transition: background-color var(--transition-speed-base) ease-in-out,
+                color var(--transition-speed-base) ease-in-out,
+                border-color var(--transition-speed-base) ease-in-out,
+                transform var(--transition-speed-fast) ease-in-out,
+                box-shadow var(--transition-speed-base) ease-in-out;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    box-shadow: var(--shadow-sm);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Style au focus pour l'accessibilité */
+.button:focus-visible {
+    outline: 2px solid var(--focus-ring-color, var(--accent-color-dark));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--focus-ring-color-transparent, rgba(var(--accent-color-rgb), 0.3));
+}
+
+/* Effet au survol et au focus */
+.button:hover,
+.button:focus {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* État actif (cliqué) */
+.button:active {
+    transform: translateY(0px);
+    box-shadow: var(--shadow-xs); /* Ombre plus petite pour effet "pressé" */
+}
+
+/* État désactivé */
+.button:disabled,
+.button.disabled {
+    background-color: var(--neutral-color-medium-light) !important;
+    border-color: var(--neutral-color-medium) !important;
+    color: var(--neutral-color-dark) !important;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* Bouton primaire */
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-on-primary);
+    border-color: var(--primary-color-dark); /* Bordure légèrement plus foncée */
+}
+
+.button-primary:hover,
+.button-primary:focus {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-darker);
+    color: var(--text-color-on-primary-hover, var(--text-color-on-primary));
+}
+
+/* Bouton secondaire (souvent un style "outline") */
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+    background-color: var(--primary-color-light-transparent, rgba(var(--primary-color-rgb), 0.1));
+    color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+/* Bouton d'accentuation */
+.button-accent {
+    background-color: var(--accent-color);
+    color: var(--text-color-on-accent);
+    border-color: var(--accent-color-dark);
+}
+
+.button-accent:hover,
+.button-accent:focus {
+    background-color: var(--accent-color-dark);
+    border-color: var(--accent-color-darker);
+    color: var(--text-color-on-accent-hover, var(--text-color-on-accent));
+}
+
+/* Bouton de danger/alerte */
+.button-danger {
+    background-color: var(--error-color);
+    color: var(--text-color-on-error, #FFFFFF); /* Assurer un bon contraste */
+    border-color: var(--error-color-dark);
+}
+
+.button-danger:hover,
+.button-danger:focus {
+    background-color: var(--error-color-dark);
+    border-color: var(--error-color-darker);
+    color: var(--text-color-on-error-hover, var(--text-color-on-error));
+}
+
+/* Bouton de succès */
+.button-success {
+    background-color: var(--success-color);
+    color: var(--text-color-on-success, #FFFFFF); /* Assurer un bon contraste */
+    border-color: var(--success-color-dark);
+}
+
+.button-success:hover,
+.button-success:focus {
+    background-color: var(--success-color-dark);
+    border-color: var(--success-color-darker);
+    color: var(--text-color-on-success-hover, var(--text-color-on-success));
+}
+
+
+/* Bouton lien (style minimaliste) */
+.button-link {
+    background-color: transparent;
+    color: var(--link-color, var(--primary-color));
+    border: none;
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
+    text-decoration: underline;
+    box-shadow: none;
+}
+
+.button-link:hover,
+.button-link:focus {
+    color: var(--link-hover-color, var(--primary-color-dark));
+    text-decoration: none; /* Peut-être supprimer le soulignement au survol */
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Boutons de différentes tailles */
+.button-sm {
+    font-size: var(--font-size-sm);
+    padding: calc(var(--button-padding-y, var(--spacing-sm)) * 0.8) calc(var(--button-padding-x, var(--spacing-lg)) * 0.8);
+    border-radius: var(--button-border-radius-sm, var(--border-radius-sm));
+}
+
+.button-lg {
+    font-size: var(--font-size-lg);
+    padding: calc(var(--button-padding-y, var(--spacing-sm)) * 1.2) calc(var(--button-padding-x, var(--spacing-lg)) * 1.2);
+    border-radius: var(--button-border-radius-lg, var(--border-radius-lg));
+}
+
+/* Bouton pleine largeur */
+.button-full-width {
+    display: block;
+    width: 100%;
+}
+
+/* Bouton avec icône */
+.button .icon {
+    margin-right: var(--spacing-xs); /* Espace entre l'icône et le texte */
+    font-size: 1.1em; /* Légèrement plus grand que le texte */
+    line-height: 1; /* Assure un bon alignement vertical */
+}
+
+.button .icon-right {
+    margin-right: 0;
+    margin-left: var(--spacing-xs);
+}
+
+.button.icon-only {
+    padding: var(--spacing-sm); /* Padding carré pour les boutons icône seule */
+    width: auto; /* S'adapte à la taille de l'icône */
+}
+
+.button.icon-only .icon {
+    margin: 0; /* Pas de marge pour l'icône seule */
+}
+
+/* Styles pour les groupes de boutons */
+.button-group {
+    display: inline-flex;
+    border-radius: var(--button-border-radius, var(--border-radius-md));
+    overflow: hidden; /* Pour que les coins arrondis fonctionnent bien */
+    box-shadow: var(--shadow-sm);
+}
+
+.button-group .button {
+    border-radius: 0; /* Pas de coins arrondis individuels dans un groupe */
+    margin-left: -1px; /* Chevauchement des bordures pour éviter les doubles bordures */
+    box-shadow: none; /* Pas d'ombre individuelle */
+}
+
+.button-group .button:hover,
+.button-group .button:focus {
+    position: relative; /* Pour que le bouton survolé/focus passe au-dessus des autres */
+    z-index: 1;
+    transform: none; /* Pas de transform dans un groupe pour éviter les décalages */
+    box-shadow: none;
+}
+
+.button-group .button:first-child {
+    margin-left: 0;
+    border-top-left-radius: var(--button-border-radius, var(--border-radius-md));
+    border-bottom-left-radius: var(--button-border-radius, var(--border-radius-md));
+}
+
+.button-group .button:last-child {
+    border-top-right-radius: var(--button-border-radius, var(--border-radius-md));
+    border-bottom-right-radius: var(--button-border-radius, var(--border-radius-md));
+}
+
+.button-group .button:focus-visible {
+    z-index: 2; /* Pour que l'outline soit visible par-dessus les autres */
+}
+
+/* Bouton de type "pill" (arrondi) */
+.button-pill {
+    border-radius: var(--border-radius-pill, 50px);
+}

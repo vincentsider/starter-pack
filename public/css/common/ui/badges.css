@@ -1,0 +1,125 @@
+/* public/css/common/ui/badges.css */
+
+:root {
+    /* Variables pour les badges */
+    --badge-padding-y: var(--spacing-xs, 0.35em); /* em pour s'adapter à la taille de la police */
+    --badge-padding-x: var(--spacing-sm, 0.65em); /* em pour s'adapter à la taille de la police */
+    --badge-font-size: var(--font-size-sm, 0.75em); /* plus petit que le texte normal */
+    --badge-font-weight: var(--font-weight-bold);
+    --badge-line-height: 1;
+    --badge-border-radius: var(--border-radius-sm, 0.2rem);
+    --badge-text-transform: none; /* ou 'uppercase' si désiré */
+
+    /* Couleurs de base pour les badges - ces variables devraient être définies dans theme.css */
+    /* Fallback si non définies */
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa; /* Utilisé pour .badge-light */
+    --dark-color: #212529;  /* Utilisé pour .badge-dark */
+    --color-white: #fff;
+    --color-black: #000;
+
+    /* Variables pour la couleur du texte en fonction du fond du badge */
+    --badge-color-threshold: 0.5; /* Luminance threshold for text color */
+}
+
+.badge {
+    display: inline-block;
+    padding: var(--badge-padding-y) var(--badge-padding-x);
+    font-size: var(--badge-font-size);
+    font-weight: var(--badge-font-weight);
+    line-height: var(--badge-line-height);
+    color: var(--color-white); /* Couleur de texte par défaut, sera surchargée */
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--badge-border-radius);
+    text-transform: var(--badge-text-transform);
+}
+
+/* Pour les éléments vides, ne pas afficher */
+.badge:empty {
+    display: none;
+}
+
+/* Badges de type "pilule" (arrondis) */
+.badge-pill, .rounded-pill { /* .rounded-pill est plus courant/moderne */
+    padding-right: var(--badge-padding-x);
+    padding-left: var(--badge-padding-x);
+    border-radius: 50rem; /* Grande valeur pour assurer un arrondi complet */
+}
+
+/* Variantes de couleur pour les badges */
+/* La couleur du texte est déterminée dynamiquement (conceptuellement) pour le contraste.
+   En CSS pur, nous devons définir explicitement la couleur du texte.
+   Utilisation de variables pour les couleurs de fond et de texte. */
+
+.badge-primary, .bg-primary { /* Ajout de .bg-* pour la compatibilité avec d'autres frameworks */
+    background-color: var(--primary-color);
+    color: var(--color-white); /* Assumant que primary-color est sombre */
+}
+
+.badge-secondary, .bg-secondary {
+    background-color: var(--secondary-color);
+    color: var(--color-white); /* Assumant que secondary-color est sombre */
+}
+
+.badge-success, .bg-success {
+    background-color: var(--success-color);
+    color: var(--color-white); /* Assumant que success-color est sombre */
+}
+
+.badge-danger, .bg-danger {
+    background-color: var(--danger-color);
+    color: var(--color-white); /* Assumant que danger-color est sombre */
+}
+
+.badge-warning, .bg-warning {
+    background-color: var(--warning-color);
+    color: var(--color-black); /* Warning-color est souvent clair */
+}
+/* Si --warning-color peut être sombre, ajouter une logique de contraste ou une variable dédiée */
+/* Exemple : --badge-warning-text-color: var(--color-black); */
+
+.badge-info, .bg-info {
+    background-color: var(--info-color);
+    color: var(--color-black); /* Info-color est souvent clair */
+}
+
+.badge-light, .bg-light {
+    background-color: var(--light-color);
+    color: var(--color-black); /* Light-color est clair par définition */
+}
+
+.badge-dark, .bg-dark {
+    background-color: var(--dark-color);
+    color: var(--color-white); /* Dark-color est sombre par définition */
+}
+
+/* Utilitaires de positionnement pour les badges (par exemple, dans les boutons) */
+.btn .badge {
+    position: relative;
+    top: -1px; /* Ajustement fin vertical */
+    margin-left: var(--spacing-xs, 0.25rem);
+}
+
+/* Exemple de badge de notification dans un coin */
+.notification-badge-container {
+    position: relative;
+    display: inline-block; /* Ou block selon le cas d'usage */
+}
+
+.notification-badge {
+    position: absolute;
+    top: -0.5em; /* Ajuster pour chevaucher */
+    right: -0.5em; /* Ajuster pour chevaucher */
+    /* Styles additionnels pour le rendre petit et circulaire si désiré */
+    font-size: 0.6em; /* Plus petit pour les notifications */
+    border-radius: 50%;
+    padding: 0.4em 0.6em; /* Ajuster pour la circularité */
+    line-height: 1;
+}

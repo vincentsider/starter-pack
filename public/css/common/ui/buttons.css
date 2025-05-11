@@ -1,0 +1,271 @@
+/* public/css/common/ui/buttons.css */
+
+:root {
+    /* Variables pour les boutons - ces variables devraient être définies dans theme.css ou variables.css */
+    /* Fallback si non définies */
+    --btn-padding-y: var(--spacing-sm, 0.375rem);
+    --btn-padding-x: var(--spacing-md, 0.75rem);
+    --btn-font-family: inherit; /* Utilise la police du parent */
+    --btn-font-size: var(--font-size-base, 1rem);
+    --btn-font-weight: var(--font-weight-normal, 400);
+    --btn-line-height: var(--line-height-base, 1.5);
+    --btn-border-width: var(--border-width-base, 1px);
+    --btn-border-radius: var(--border-radius-md, 0.25rem);
+    --btn-box-shadow: none; /* Pas d'ombre par défaut */
+    --btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb, 13, 110, 253), .25); /* Ombre au focus */
+    --btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    /* Couleurs de base pour les boutons */
+    --primary-color: var(--primary-color, #0d6efd);
+    --primary-text-color: var(--color-white, #fff);
+    --primary-border-color: var(--primary-color, #0d6efd);
+    --primary-hover-bg: var(--primary-dark-color, #0b5ed7);
+    --primary-hover-border: var(--primary-dark-color, #0a58ca);
+    --primary-active-bg: var(--primary-darker-color, #0a58ca);
+    --primary-active-border: var(--primary-darker-color, #0a53be);
+
+    --secondary-color: var(--secondary-color, #6c757d);
+    --secondary-text-color: var(--color-white, #fff);
+    --secondary-border-color: var(--secondary-color, #6c757d);
+    --secondary-hover-bg: var(--secondary-dark-color, #5c636a);
+    --secondary-hover-border: var(--secondary-dark-color, #565e64);
+    --secondary-active-bg: var(--secondary-darker-color, #565e64);
+    --secondary-active-border: var(--secondary-darker-color, #51585e);
+
+    /* ... ajouter d'autres types de boutons comme success, danger, warning, info, light, dark ... */
+    --success-color: var(--success-color, #198754);
+    --success-text-color: var(--color-white, #fff);
+    /* etc. pour success, danger, warning, info */
+
+    /* Boutons Outline */
+    --primary-outline-text-color: var(--primary-color, #0d6efd);
+    --primary-outline-border-color: var(--primary-color, #0d6efd);
+    --primary-outline-hover-bg: var(--primary-color, #0d6efd);
+    --primary-outline-hover-text-color: var(--color-white, #fff);
+
+    --secondary-outline-text-color: var(--secondary-color, #6c757d);
+    --secondary-outline-border-color: var(--secondary-color, #6c757d);
+    --secondary-outline-hover-bg: var(--secondary-color, #6c757d);
+    --secondary-outline-hover-text-color: var(--color-white, #fff);
+    /* etc. pour success, danger, warning, info outline */
+
+    /* Tailles de boutons */
+    --btn-padding-y-sm: 0.25rem;
+    --btn-padding-x-sm: 0.5rem;
+    --btn-font-size-sm: 0.875rem;
+    --btn-border-radius-sm: 0.2rem;
+
+    --btn-padding-y-lg: 0.5rem;
+    --btn-padding-x-lg: 1rem;
+    --btn-font-size-lg: 1.25rem;
+    --btn-border-radius-lg: 0.3rem;
+}
+
+.btn {
+    display: inline-block;
+    font-family: var(--btn-font-family);
+    font-weight: var(--btn-font-weight);
+    line-height: var(--btn-line-height);
+    color: var(--text-color, #212529); /* Couleur de texte par défaut si non spécifiée par le type */
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: var(--btn-border-width) solid transparent;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    font-size: var(--btn-font-size);
+    border-radius: var(--btn-border-radius);
+    box-shadow: var(--btn-box-shadow);
+    transition: var(--btn-transition);
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: var(--btn-focus-box-shadow);
+}
+
+.btn:disabled, .btn.disabled,
+fieldset:disabled .btn {
+    pointer-events: none;
+    opacity: 0.65;
+    box-shadow: none;
+}
+
+
+/* Style de base pour les boutons de couleur (primaire, secondaire, etc.) */
+.btn-primary {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-border-color);
+}
+.btn-primary:hover {
+    color: var(--primary-text-color);
+    background-color: var(--primary-hover-bg);
+    border-color: var(--primary-hover-border);
+}
+.btn-primary:focus, .btn-primary.focus {
+    color: var(--primary-text-color);
+    background-color: var(--primary-hover-bg);
+    border-color: var(--primary-hover-border);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb, 13, 110, 253), .5); /* Assurez-vous que primary-color-rgb est défini */
+}
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+    color: var(--primary-text-color);
+    background-color: var(--primary-active-bg);
+    border-color: var(--primary-active-border);
+}
+.btn-primary:active:focus, .btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb, 13, 110, 253), .5);
+}
+.btn-primary:disabled, .btn-primary.disabled {
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-border-color);
+}
+
+
+.btn-secondary {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-border-color);
+}
+.btn-secondary:hover {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-hover-bg);
+    border-color: var(--secondary-hover-border);
+}
+.btn-secondary:focus, .btn-secondary.focus {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-hover-bg);
+    border-color: var(--secondary-hover-border);
+    box-shadow: 0 0 0 0.25rem rgba(var(--secondary-color-rgb, 108, 117, 125), .5); /* Assurez-vous que secondary-color-rgb est défini */
+}
+.btn-secondary:active, .btn-secondary.active,
+.show > .btn-secondary.dropdown-toggle {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-active-bg);
+    border-color: var(--secondary-active-border);
+}
+.btn-secondary:active:focus, .btn-secondary.active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--secondary-color-rgb, 108, 117, 125), .5);
+}
+.btn-secondary:disabled, .btn-secondary.disabled {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-border-color);
+}
+
+/* ... Répéter pour .btn-success, .btn-danger, .btn-warning, .btn-info, .btn-light, .btn-dark ... */
+/* Exemple pour .btn-success */
+.btn-success {
+    color: var(--success-text-color);
+    background-color: var(--success-color);
+    border-color: var(--success-color); /* Adaptez si une couleur de bordure spécifique est nécessaire */
+}
+/* ... Ajoutez les états :hover, :focus, :active, :disabled pour .btn-success ... */
+
+/* Style pour les boutons "outline" */
+.btn-outline-primary {
+    color: var(--primary-outline-text-color);
+    border-color: var(--primary-outline-border-color);
+    background-color: transparent;
+}
+.btn-outline-primary:hover {
+    color: var(--primary-outline-hover-text-color);
+    background-color: var(--primary-outline-hover-bg);
+    border-color: var(--primary-outline-hover-bg); /* La bordure prend la couleur du fond au survol */
+}
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb, 13, 110, 253), .5);
+}
+.btn-outline-primary:active, .btn-outline-primary.active {
+    color: var(--primary-outline-hover-text-color);
+    background-color: var(--primary-active-bg); /* Ou --primary-outline-active-bg si défini */
+    border-color: var(--primary-active-border); /* Ou --primary-outline-active-border si défini */
+}
+.btn-outline-primary:disabled, .btn-outline-primary.disabled {
+    color: var(--primary-outline-text-color);
+    background-color: transparent;
+}
+
+
+.btn-outline-secondary {
+    color: var(--secondary-outline-text-color);
+    border-color: var(--secondary-outline-border-color);
+    background-color: transparent;
+}
+.btn-outline-secondary:hover {
+    color: var(--secondary-outline-hover-text-color);
+    background-color: var(--secondary-outline-hover-bg);
+    border-color: var(--secondary-outline-hover-bg);
+}
+.btn-outline-secondary:focus, .btn-outline-secondary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--secondary-color-rgb, 108, 117, 125), .5);
+}
+/* ... Répéter pour :active et :disabled pour .btn-outline-secondary ... */
+/* ... Répéter pour .btn-outline-success, .btn-outline-danger, etc. ... */
+
+/* Tailles de boutons */
+.btn-lg {
+    padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+    font-size: var(--btn-font-size-lg);
+    border-radius: var(--btn-border-radius-lg);
+}
+
+.btn-sm {
+    padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+    font-size: var(--btn-font-size-sm);
+    border-radius: var(--btn-border-radius-sm);
+}
+
+/* Bouton de type bloc (prend toute la largeur) */
+.btn-block, .btn-full-width {
+    display: block;
+    width: 100%;
+}
+/* Utile pour empiler des boutons de type bloc */
+.btn-block + .btn-block {
+    margin-top: var(--spacing-xs, 0.5rem);
+}
+
+/* Boutons avec icônes (suppose que vous utilisez FontAwesome ou des SVGs) */
+.btn .icon {
+    margin-right: var(--spacing-xxs, 0.25rem); /* Espace entre l'icône et le texte */
+}
+.btn .icon-only { /* Si le bouton ne contient qu'une icône */
+    margin-right: 0;
+}
+.btn .icon.icon-right { /* Si l'icône est à droite */
+    margin-right: 0;
+    margin-left: var(--spacing-xxs, 0.25rem);
+}
+
+/* Boutons de type lien (apparence d'un lien mais comportement de bouton) */
+.btn-link {
+    font-weight: var(--font-weight-normal);
+    color: var(--link-color, #0d6efd);
+    text-decoration: var(--link-decoration, underline); /* Ou none si désiré */
+    background-color: transparent;
+    border-color: transparent;
+}
+.btn-link:hover {
+    color: var(--link-hover-color, #0a58ca);
+    text-decoration: var(--link-hover-decoration, underline);
+}
+.btn-link:focus, .btn-link.focus {
+    text-decoration: var(--link-hover-decoration, underline);
+    box-shadow: none; /* Les liens n'ont généralement pas de box-shadow au focus */
+}
+.btn-link:disabled, .btn-link.disabled {
+    color: var(--text-muted, #6c757d);
+    pointer-events: none;
+}

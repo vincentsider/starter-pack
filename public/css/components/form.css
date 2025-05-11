@@ -1,0 +1,287 @@
+/* public/css/components/form.css */
+
+.form-group {
+    margin-bottom: var(--form-group-margin-bottom, 1.5rem);
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: var(--form-label-margin-bottom, 0.5rem);
+    font-weight: var(--form-label-font-weight, var(--font-weight-semibold));
+    color: var(--form-label-color, var(--text-color-secondary));
+}
+
+.form-control,
+.form-select {
+    display: block;
+    width: 100%;
+    padding: var(--form-control-padding-y, 0.75rem) var(--form-control-padding-x, 1rem);
+    font-size: var(--form-control-font-size, var(--font-size-base));
+    font-weight: var(--form-control-font-weight, var(--font-weight-normal));
+    line-height: var(--form-control-line-height, 1.5);
+    color: var(--form-control-color, var(--text-color-base));
+    background-color: var(--form-control-bg-color, var(--neutral-color-white));
+    background-clip: padding-box;
+    border: 1px solid var(--form-control-border-color, var(--neutral-color-gray));
+    appearance: none; /* Supprime l'apparence par défaut pour certains navigateurs */
+    border-radius: var(--form-control-border-radius, var(--border-radius-md));
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control::placeholder {
+    color: var(--form-control-placeholder-color, var(--neutral-color-dark-gray));
+    opacity: 1; /* Firefox ajoute une opacité par défaut */
+}
+
+.form-control:focus,
+.form-select:focus {
+    color: var(--form-control-focus-color, var(--text-color-base));
+    background-color: var(--form-control-focus-bg-color, var(--neutral-color-white));
+    border-color: var(--form-control-focus-border-color, var(--primary-color));
+    outline: 0;
+    box-shadow: var(--form-control-focus-box-shadow, 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25));
+}
+
+/* Styles pour les champs invalides/valides */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: var(--danger-color, #dc3545);
+    padding-right: calc(1.5em + 0.75rem); /* Espace pour l'icône de validation */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+    border-color: var(--danger-color, #dc3545);
+    box-shadow: 0 0 0 0.25rem rgba(var(--danger-color-rgb, 220, 53, 69), 0.25);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: var(--success-color, #198754);
+    padding-right: calc(1.5em + 0.75rem); /* Espace pour l'icône de validation */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4L1.1 2.7c-.1-.7.3-1.1.7-1.1h.2c.7 0 1.1.6 1.1 1.1L4 6.46l2.8-2.4c.4-.4 1.1-.4 1.5 0l.7.7c.4.4.4 1.1 0 1.5L3.8 7.9c-.3.2-.8.1-1-.2L2.3 6.73z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.form-control.is-valid:focus,
+.form-select.is-valid:focus {
+    border-color: var(--success-color, #198754);
+    box-shadow: 0 0 0 0.25rem rgba(var(--success-color-rgb, 25, 135, 84), 0.25);
+}
+
+.invalid-feedback,
+.valid-feedback {
+    display: none; /* Caché par défaut, affiché par JS ou .was-validated */
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: var(--font-size-sm);
+}
+
+.invalid-feedback {
+    color: var(--danger-color, #dc3545);
+}
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .valid-feedback { /* Si on veut afficher un message valide même si le champ est invalide, rare */
+    display: block;
+}
+
+
+.valid-feedback {
+    color: var(--success-color, #198754);
+}
+.is-valid ~ .valid-feedback {
+    display: block;
+}
+
+
+/* Textarea */
+textarea.form-control {
+    min-height: calc(1.5em * 3 + 2 * var(--form-control-padding-y, 0.75rem) + 2px); /* Hauteur minimale pour 3 lignes */
+    resize: vertical; /* Permet le redimensionnement vertical uniquement */
+}
+
+/* Checkbox et Radio */
+.form-check {
+    display: block;
+    min-height: 1.5rem; /* Hauteur de ligne de base */
+    padding-left: 1.75em; /* Espace pour le contrôle personnalisé */
+    margin-bottom: var(--form-check-margin-bottom, 0.125rem);
+}
+
+.form-check-input {
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 0.125em; /* Alignement vertical avec le label */
+    vertical-align: top;
+    background-color: var(--form-check-input-bg-color, var(--neutral-color-white));
+    border: 1px solid var(--form-check-input-border-color, rgba(0,0,0,.25));
+    appearance: none;
+    -webkit-print-color-adjust: exact; /* Permet d'imprimer les couleurs d'arrière-plan */
+    print-color-adjust: exact;
+    transition: background-color .15s ease-in-out, background-position .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+}
+.form-check-input[type="checkbox"] {
+    border-radius: var(--form-check-input-checkbox-border-radius, 0.25em);
+}
+.form-check-input[type="radio"] {
+    border-radius: var(--form-check-input-radio-border-radius, 50%);
+}
+
+.form-check-input:active {
+    filter: brightness(90%);
+}
+
+.form-check-input:focus {
+    border-color: var(--form-control-focus-border-color, var(--primary-color));
+    outline: 0;
+    box-shadow: var(--form-control-focus-box-shadow, 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25));
+}
+
+.form-check-input:checked {
+    background-color: var(--form-check-input-checked-bg-color, var(--primary-color));
+    border-color: var(--form-check-input-checked-border-color, var(--primary-color));
+}
+
+.form-check-input:checked[type="checkbox"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+
+.form-check-input:checked[type="radio"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-check-input[type="checkbox"]:indeterminate {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
+}
+
+.form-check-input:disabled {
+    pointer-events: none;
+    filter: none;
+    opacity: .5;
+}
+
+.form-check-label {
+    margin-left: 0.25em; /* Espacement entre l'input et le label */
+    color: var(--form-check-label-color, var(--text-color-base));
+    cursor: pointer;
+}
+.form-check-input:disabled ~ .form-check-label,
+.form-check-input[disabled] ~ .form-check-label {
+    opacity: .5;
+    cursor: default;
+}
+
+
+/* Form Select (flèche personnalisée) */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--form-control-padding-x, 1rem) center;
+    background-size: 16px 12px; /* Ajuster la taille de la flèche */
+    padding-right: calc(var(--form-control-padding-x, 1rem) + 16px + 0.5rem); /* Espace pour la flèche */
+}
+.form-select:disabled {
+    background-color: var(--form-select-disabled-bg-color, var(--neutral-color-lighter-gray));
+    opacity: 1; /* S'assurer que le fond désactivé est visible */
+}
+
+/* Groupes d'input (pour préfixe/suffixe) */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* S'assurer que les éléments s'enroulent correctement */
+    align-items: stretch;
+    width: 100%;
+}
+.input-group > .form-control,
+.input-group > .form-select {
+    position: relative; /* Nécessaire pour z-index: 2; pour :focus */
+    flex: 1 1 auto;
+    width: 1%; /* Permet au flex de fonctionner correctement */
+    min-width: 0; /* Empêche le dépassement */
+}
+/* Ajuster les coins arrondis pour les éléments groupés */
+.input-group > .form-control:not(:last-child),
+.input-group > .form-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .form-control:not(:first-child),
+.input-group > .form-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px; /* Superpose les bordures */
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: var(--form-control-padding-y, 0.75rem) var(--form-control-padding-x, 1rem);
+    font-size: var(--form-control-font-size, var(--font-size-base));
+    font-weight: var(--form-label-font-weight, var(--font-weight-normal));
+    line-height: var(--form-control-line-height, 1.5);
+    color: var(--input-group-text-color, var(--text-color-secondary));
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--input-group-text-bg-color, var(--neutral-color-lightest-gray));
+    border: 1px solid var(--input-group-text-border-color, var(--neutral-color-gray));
+    border-radius: var(--form-control-border-radius, var(--border-radius-md));
+}
+/* Ajuster les coins pour le texte de groupe */
+.input-group > .input-group-text:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .input-group-text:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px; /* Superpose les bordures */
+}
+
+/* Formulaire en ligne */
+.form-inline .form-group {
+    display: inline-block; /* Ou flex pour un meilleur alignement */
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+.form-inline .form-label {
+    margin-bottom: 0; /* Pas de marge en bas pour les labels en ligne */
+    margin-right: 0.5rem;
+}
+.form-inline .form-control {
+    display: inline-block;
+    width: auto; /* La largeur s'adapte au contenu ou à une largeur définie */
+    vertical-align: middle;
+}
+
+/* Pour les formulaires qui ont été validés (souvent via JS après soumission) */
+.was-validated .form-control:invalid, .was-validated .form-select:invalid {
+    /* Les styles .is-invalid sont déjà appliqués, mais on peut forcer l'affichage des messages */
+}
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .valid-feedback, /* Au cas où */
+.was-validated .form-select:invalid ~ .invalid-feedback,
+.was-validated .form-select:invalid ~ .valid-feedback {
+    display: block;
+}
+
+.was-validated .form-control:valid, .was-validated .form-select:valid {
+    /* Les styles .is-valid sont déjà appliqués */
+}
+.was-validated .form-control:valid ~ .valid-feedback,
+.was-validated .form-select:valid ~ .valid-feedback {
+    display: block;
+}
+
+.form-text {
+    margin-top: 0.25rem;
+    font-size: var(--font-size-sm);
+    color: var(--text-color-muted);
+}

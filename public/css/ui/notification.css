@@ -1,0 +1,193 @@
+/* public/css/ui/notification.css */
+
+:root {
+    --notification-z-index: 1060; /* Au-dessus des modales par défaut */
+    --notification-default-bg: #f8f9fa;
+    --notification-default-text: #212529;
+    --notification-default-border: #dee2e6;
+
+    --notification-primary-bg: var(--primary-color-light);
+    --notification-primary-text: var(--primary-color-dark);
+    --notification-primary-border: var(--primary-color);
+
+    --notification-success-bg: var(--success-color-light);
+    --notification-success-text: var(--success-color-dark);
+    --notification-success-border: var(--success-color);
+
+    --notification-danger-bg: var(--danger-color-light);
+    --notification-danger-text: var(--danger-color-dark);
+    --notification-danger-border: var(--danger-color);
+
+    --notification-warning-bg: var(--warning-color-light);
+    --notification-warning-text: var(--warning-color-dark);
+    --notification-warning-border: var(--warning-color);
+
+    --notification-info-bg: var(--info-color-light);
+    --notification-info-text: var(--info-color-dark);
+    --notification-info-border: var(--info-color);
+
+    --notification-padding: var(--space-md);
+    --notification-border-radius: var(--border-radius-md);
+    --notification-margin-bottom: var(--space-sm);
+    --notification-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    --notification-close-font-size: 1.25rem;
+    --notification-transition-duration: 0.35s;
+}
+
+.notification-container {
+    position: fixed;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    z-index: var(--notification-z-index);
+    width: auto;
+    max-width: 350px; /* Largeur maximale pour les notifications */
+}
+
+.notification {
+    position: relative;
+    padding: var(--notification-padding);
+    margin-bottom: var(--notification-margin-bottom);
+    border: 1px solid transparent;
+    border-radius: var(--notification-border-radius);
+    box-shadow: var(--notification-box-shadow);
+    opacity: 0;
+    transform: translateX(100%); /* Position initiale pour l'animation d'entrée */
+    transition: opacity var(--notification-transition-duration) ease-in-out,
+                transform var(--notification-transition-duration) ease-in-out;
+    overflow: hidden; /* Pour s'assurer que le contenu ne déborde pas pendant l'animation */
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0); /* Position finale pour l'animation d'entrée */
+}
+
+.notification.fade-out {
+    opacity: 0;
+    transform: translateX(100%); /* Animation de sortie */
+}
+
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.notification-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.notification-body {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.notification-close-btn {
+    background: transparent;
+    border: none;
+    color: inherit; /* Hérite de la couleur du texte de la notification */
+    opacity: 0.7;
+    font-size: var(--notification-close-font-size);
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 var(--space-xs); /* Ajuster le padding */
+    cursor: pointer;
+    margin-left: var(--space-sm); /* Espace par rapport au contenu */
+}
+
+.notification-close-btn:hover,
+.notification-close-btn:focus {
+    opacity: 1;
+    outline: none;
+}
+
+/* Styles par défaut */
+.notification-default {
+    background-color: var(--notification-default-bg);
+    color: var(--notification-default-text);
+    border-color: var(--notification-default-border);
+}
+.notification-default .notification-header {
+    border-bottom-color: var(--notification-default-border);
+}
+.notification-default .notification-close-btn {
+    color: var(--notification-default-text);
+}
+
+
+/* Styles pour les types de notifications */
+.notification-primary {
+    background-color: var(--notification-primary-bg);
+    color: var(--notification-primary-text);
+    border-left: 5px solid var(--primary-color);
+}
+.notification-primary .notification-header {
+    border-bottom-color: var(--primary-color-transparent);
+}
+.notification-primary .notification-close-btn {
+    color: var(--notification-primary-text);
+}
+
+
+.notification-success {
+    background-color: var(--notification-success-bg);
+    color: var(--notification-success-text);
+    border-left: 5px solid var(--success-color);
+}
+.notification-success .notification-header {
+    border-bottom-color: var(--success-color-transparent);
+}
+.notification-success .notification-close-btn {
+    color: var(--notification-success-text);
+}
+
+.notification-danger {
+    background-color: var(--notification-danger-bg);
+    color: var(--notification-danger-text);
+    border-left: 5px solid var(--danger-color);
+}
+.notification-danger .notification-header {
+    border-bottom-color: var(--danger-color-transparent);
+}
+.notification-danger .notification-close-btn {
+    color: var(--notification-danger-text);
+}
+
+.notification-warning {
+    background-color: var(--notification-warning-bg);
+    color: var(--notification-warning-text);
+    border-left: 5px solid var(--warning-color);
+}
+.notification-warning .notification-header {
+    border-bottom-color: var(--warning-color-transparent);
+}
+.notification-warning .notification-close-btn {
+    color: var(--notification-warning-text);
+}
+
+.notification-info {
+    background-color: var(--notification-info-bg);
+    color: var(--notification-info-text);
+    border-left: 5px solid var(--info-color);
+}
+.notification-info .notification-header {
+    border-bottom-color: var(--info-color-transparent);
+}
+.notification-info .notification-close-btn {
+    color: var(--notification-info-text);
+}
+
+/* Option pour que le bouton de fermeture soit plus discret */
+.notification-close-btn.discreet {
+    font-size: 1rem;
+    opacity: 0.5;
+}
+.notification-close-btn.discreet:hover {
+    opacity: 0.8;
+}

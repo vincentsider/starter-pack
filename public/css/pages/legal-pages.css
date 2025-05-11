@@ -1,0 +1,119 @@
+/* Styles spécifiques pour les pages légales (Mentions Légales, CGU, Politique de Confidentialité) */
+
+.legal-page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 900px; /* Limiter la largeur pour une meilleure lisibilité */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legal-page h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 2.5rem; /* Taille de police plus grande pour le titre principal */
+}
+
+.legal-page .last-updated {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+}
+
+.legal-page section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.legal-page section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1rem; /* Moins de marge pour la dernière section avant le disclaimer */
+}
+
+.legal-page h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem; /* Taille de police pour les sous-titres */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color-light);
+    display: inline-block; /* Pour que la bordure ne prenne que la largeur du texte */
+}
+
+.legal-page p,
+.legal-page ul li {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1rem; /* Taille de police standard pour le corps du texte */
+}
+
+.legal-page ul {
+    list-style-type: disc;
+    padding-left: 2rem; /* Indentation pour les listes */
+    margin-bottom: 1.5rem;
+}
+
+.legal-page strong {
+    color: var(--text-strong);
+    font-weight: 600; /* Légèrement plus gras */
+}
+
+.legal-page a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color var(--transition-speed) ease;
+}
+
+.legal-page a:hover,
+.legal-page a:focus {
+    color: var(--primary-color-dark);
+    text-decoration: none;
+}
+
+.legal-page .completion-notice {
+    background-color: var(--background-light-accent);
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    margin-top: 3rem;
+    font-style: italic;
+    color: var(--text-muted);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+}
+
+/* Styles spécifiques pour les listes de définitions ou d'informations structurées */
+.legal-page dl dt {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: var(--secondary-color);
+}
+
+.legal-page dl dd {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .legal-page {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .legal-page h1 {
+        font-size: 2rem;
+    }
+
+    .legal-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .legal-page p,
+    .legal-page ul li {
+        font-size: 0.95rem;
+    }
+}

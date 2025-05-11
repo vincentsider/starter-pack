@@ -1,0 +1,399 @@
+/* public/css/components/ui_components.css */
+
+/* --- Boutons --- */
+.button {
+    display: inline-block;
+    padding: calc(var(--spacing-unit) / 1.2) calc(var(--spacing-unit) * 1.8);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--button-border-radius, var(--border-radius));
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    line-height: var(--line-height-normal); /* Assurer une hauteur de ligne correcte */
+    white-space: nowrap; /* Empêcher le texte du bouton de passer à la ligne */
+}
+
+.button:active {
+    transform: translateY(1px); /* Effet d'appui léger */
+}
+
+/* Bouton Primaire (Couleur principale) */
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--neutral-white);
+    border-color: var(--primary-color);
+}
+.button-primary:hover,
+.button-primary:focus {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    color: var(--neutral-white);
+}
+
+/* Bouton Secondaire (Couleur secondaire ou alternative) */
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--neutral-white);
+    border-color: var(--secondary-color);
+}
+.button-secondary:hover,
+.button-secondary:focus {
+    background-color: var(--secondary-color-dark);
+    border-color: var(--secondary-color-dark);
+    color: var(--neutral-white);
+}
+
+/* Bouton Outline (Contour) */
+.button-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.button-outline-primary:hover,
+.button-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: var(--neutral-white);
+}
+
+.button-outline-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.button-outline-secondary:hover,
+.button-outline-secondary:focus {
+    background-color: var(--secondary-color);
+    color: var(--neutral-white);
+}
+
+/* Bouton Texte (style lien mais se comporte comme un bouton) */
+.button-text {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit); /* Moins de padding pour un look plus léger */
+    text-decoration: underline;
+}
+.button-text:hover,
+.button-text:focus {
+    color: var(--primary-color-dark);
+    background-color: var(--primary-color-lightest);
+}
+
+/* Tailles de boutons */
+.button-sm { /* Petit */
+    padding: calc(var(--spacing-unit) / 1.5) var(--spacing-unit);
+    font-size: var(--font-size-sm);
+}
+.button-lg { /* Grand */
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2.2);
+    font-size: var(--font-size-lg);
+}
+
+/* Bouton Pleine largeur */
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+/* Bouton avec icône */
+.button .icon {
+    margin-right: calc(var(--spacing-unit) / 2); /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Mieux aligner l'icône avec le texte */
+}
+.button .icon-right { /* Pour icône à droite */
+    margin-right: 0;
+    margin-left: calc(var(--spacing-unit) / 2);
+}
+
+
+/* --- Cartes (Cards) --- */
+.card {
+    background-color: var(--neutral-white);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--card-border-radius, var(--border-radius-lg));
+    box-shadow: var(--box-shadow-sm);
+    overflow: hidden; /* Pour s'assurer que les images/contenus ne dépassent pas les coins arrondis */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex; /* Permet une structure interne flexible */
+    flex-direction: column; /* Les éléments de la carte s'empilent verticalement */
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-lg);
+    transform: translateY(-3px); /* Léger effet de soulèvement */
+}
+
+.card-image {
+    width: 100%;
+    height: auto; /* Hauteur s'adapte au contenu, ou peut être fixe */
+    max-height: 200px; /* Limiter la hauteur de l'image de la carte */
+    object-fit: cover; /* S'assurer que l'image couvre bien la zone, peut couper des parties */
+    border-bottom: 1px solid var(--border-color-lighter); /* Séparateur optionnel */
+}
+
+.card-body {
+    padding: var(--spacing-unit); /* Espacement interne de la carte */
+    flex-grow: 1; /* Permet au corps de la carte de prendre l'espace restant */
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.card-text {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-unit);
+}
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+.card-footer {
+    padding: var(--spacing-unit);
+    background-color: var(--light-gray-background); /* Couleur de fond pour le pied de carte */
+    border-top: 1px solid var(--border-color-lighter);
+    margin-top: auto; /* Pousse le footer en bas si la carte a une hauteur fixe ou utilise flex */
+}
+.card-footer .button { /* Ajustement pour les boutons dans le footer de la carte */
+    /* par exemple, les rendre plus petits ou les aligner */
+}
+
+
+/* --- Grille de cartes --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Responsive par défaut */
+    gap: calc(var(--spacing-unit) * 1.5); /* Espace entre les cartes */
+}
+/* Variations pour nombre de colonnes fixe si besoin */
+/* .card-grid-2cols { grid-template-columns: repeat(2, 1fr); } */
+/* .card-grid-3cols { grid-template-columns: repeat(3, 1fr); } */
+
+
+/* --- Formulaires (styles de base pour les champs, complétés par page-specific CSS) --- */
+.form-group {
+    margin-bottom: var(--spacing-unit);
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: calc(var(--spacing-unit) / 4);
+    color: var(--text-color-dark);
+}
+
+.form-control { /* Style générique pour input, select, textarea */
+    display: block;
+    width: 100%;
+    padding: calc(var(--spacing-unit) / 1.5) var(--spacing-unit);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--text-color);
+    background-color: var(--neutral-white);
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075); /* Ombre intérieure légère */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    color: var(--text-color-dark);
+    background-color: var(--neutral-white);
+    border-color: var(--primary-color-light);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-check { /* Pour checkboxes et radios */
+    display: flex;
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+.form-check-input {
+    margin-right: calc(var(--spacing-unit) / 2);
+    width: auto; /* Ne pas prendre toute la largeur */
+}
+.form-check-label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.form-text { /* Petit texte d'aide sous un champ */
+    display: block;
+    margin-top: calc(var(--spacing-unit) / 4);
+    font-size: var(--font-size-sm);
+    color: var(--text-color-muted);
+}
+
+/* Style pour les champs invalides (validation) */
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--danger-color-rgb), 0.25);
+}
+.invalid-feedback {
+    display: none; /* Masqué par défaut, affiché par JS ou si classe .is-invalid est présente */
+    width: 100%;
+    margin-top: .25rem;
+    font-size: var(--font-size-sm);
+    color: var(--danger-color);
+}
+.form-control.is-invalid ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+
+/* --- Badges / Étiquettes --- */
+.badge {
+    display: inline-block;
+    padding: .35em .65em; /* Utiliser em pour s'adapter à la taille de police */
+    font-size: 75%; /* Plus petit que le texte environnant */
+    font-weight: 700;
+    line-height: 1;
+    color: var(--neutral-white);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--border-radius-sm);
+}
+
+.badge-primary { background-color: var(--primary-color); }
+.badge-secondary { background-color: var(--secondary-color); }
+.badge-success { background-color: var(--success-color); }
+.badge-danger { background-color: var(--danger-color); }
+.badge-warning { background-color: var(--warning-color); color: var(--text-color-darkest); } /* Texte sombre pour warning jaune */
+.badge-info { background-color: var(--info-color); }
+.badge-light { background-color: var(--light-gray-background); color: var(--text-color-dark); }
+.badge-dark { background-color: var(--text-color-darkest); }
+
+/* Badges arrondis (pilules) */
+.badge-pill {
+    padding-right: .8em;
+    padding-left: .8em;
+    border-radius: 10rem; /* Très arrondi */
+}
+
+/* --- Alertes / Notifications --- */
+.alert {
+    position: relative;
+    padding: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+}
+.alert-primary {
+    color: var(--primary-color-dark);
+    background-color: var(--primary-color-lightest);
+    border-color: var(--primary-color-lighter);
+}
+.alert-secondary {
+    color: var(--secondary-color-dark);
+    background-color: var(--secondary-color-lightest);
+    border-color: var(--secondary-color-lighter);
+}
+.alert-success {
+    color: var(--success-color-dark);
+    background-color: var(--success-color-light);
+    border-color: var(--success-color);
+}
+.alert-danger {
+    color: var(--danger-color-dark);
+    background-color: var(--danger-color-light);
+    border-color: var(--danger-color);
+}
+.alert-warning {
+    color: var(--warning-color-dark); /* Souvent un marron/orange foncé */
+    background-color: var(--warning-color-light); /* Jaune pâle */
+    border-color: var(--warning-color); /* Jaune/Orange */
+}
+.alert-info {
+    color: var(--info-color-dark);
+    background-color: var(--info-color-light);
+    border-color: var(--info-color);
+}
+
+/* --- Modals (structure de base, comportement géré par JS) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: none; /* Affiché par JS */
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-index-modal-overlay, 1040);
+}
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-dialog {
+    background-color: var(--neutral-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-xl);
+    width: 90%;
+    max-width: 600px; /* Largeur maximale du modal */
+    max-height: 90vh; /* Hauteur maximale, pour éviter de dépasser l'écran */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Important pour gérer le scroll interne */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-unit);
+    border-bottom: 1px solid var(--border-color-light);
+}
+.modal-title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+.modal-close-button { /* Style .button-text ou .button simple */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text-color-muted);
+    cursor: pointer;
+    padding: calc(var(--spacing-unit)/2);
+}
+.modal-close-button:hover {
+    color: var(--text-color-dark);
+}
+
+.modal-body {
+    padding: var(--spacing-unit);
+    overflow-y: auto; /* Permet le scroll si le contenu est trop long */
+    flex-grow: 1;
+}
+
+.modal-footer {
+    padding: var(--spacing-unit);
+    border-top: 1px solid var(--border-color-light);
+    display: flex;
+    justify-content: flex-end; /* Aligner les boutons à droite par défaut */
+    gap: calc(var(--spacing-unit) / 2);
+}

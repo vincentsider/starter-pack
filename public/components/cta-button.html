@@ -1,0 +1,32 @@
+<!-- public/components/cta-button.html -->
+<!-- 
+    Utilisation : Ce composant peut être inclus dynamiquement ou copié.
+    Le texte et le lien (href) doivent être personnalisés à chaque utilisation.
+    Des classes supplémentaires peuvent être ajoutées pour un style spécifique.
+
+    Exemple d'intégration dans une page HTML :
+    <div id="cta-button-placeholder"></div>
+    <script>
+        fetch('components/cta-button.html')
+            .then(response => response.text())
+            .then(html => {
+                const ctaButtonHTML = html
+                    .replace('{{cta_link}}', 'tarifs.html')
+                    .replace('{{cta_text_key}}', 'home.hero.cta') // Clé i18n
+                    .replace('{{cta_additional_classes}}', 'btn-primary btn-lg'); 
+                document.getElementById('cta-button-placeholder').innerHTML = ctaButtonHTML;
+                // Si i18n est utilisé, réappliquer les traductions après l'insertion
+                if (window.i18n && typeof window.i18n.updateContent === 'function') {
+                    window.i18n.updateContent();
+                }
+            });
+    </script>
+
+    Ou, pour une inclusion simple, si le contenu est statique ou géré côté serveur :
+    <a href="VOTRE_LIEN_ICI" class="btn btn-primary VOTRE_CLASSE_ADDITIONNELLE_ICI" data-i18n="VOTRE_CLE_I18N_POUR_TEXTE">
+        Texte par défaut du bouton
+    </a>
+-->
+<a href="{{cta_link}}" class="btn {{cta_additional_classes}}" data-i18n="{{cta_text_key}}">
+    <!-- Le texte sera inséré par i18n.js ou par défaut si data-i18n n'est pas trouvé -->
+</a>

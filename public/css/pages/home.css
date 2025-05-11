@@ -1,0 +1,203 @@
+/* public/css/pages/home.css */
+
+/* Styles pour la section Hero */
+.hero-section {
+    background-color: var(--hero-bg-color, #f0f4f8); /* Couleur de fond par défaut */
+    color: var(--hero-text-color, #333); /* Couleur de texte par défaut */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color, #ddd);
+}
+
+.hero-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Taille de police responsive */
+    margin-bottom: 20px;
+    color: var(--primary-color, #007bff); /* Couleur du titre principal */
+}
+
+.hero-section p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem); /* Taille de police responsive */
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    max-height: 300px; /* Limite la hauteur pour ne pas être trop imposant */
+}
+
+/* Styles pour la section Présentation */
+.presentation-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--section-bg-color-alt, #ffffff); /* Couleur de fond alternée */
+}
+
+.presentation-section .container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.presentation-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    color: var(--secondary-color, #555);
+}
+
+.presentation-section p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--text-color-secondary, #666);
+}
+
+/* Styles pour la section Fonctionnalités Clés */
+.key-features-section {
+    padding: 60px 20px;
+    background-color: var(--section-bg-color, #f9f9f9);
+    text-align: center;
+}
+
+.key-features-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+    color: var(--secondary-color, #555);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--card-bg-color, #fff);
+    padding: 30px;
+    border-radius: var(--border-radius-medium, 8px);
+    box-shadow: var(--shadow-light, 0 2px 10px rgba(0,0,0,0.07));
+    text-align: left;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    /* Assurez-vous que les icônes SVG peuvent hériter de la couleur ou spécifiez ici */
+    /* fill: var(--primary-color); */
+}
+
+.feature-card h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 10px;
+    color: var(--primary-color, #007bff);
+}
+
+.feature-card p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+    color: var(--text-color-secondary, #666);
+}
+
+
+/* Styles pour la section Témoignages */
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: var(--section-bg-color-alt, #ffffff);
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+    color: var(--secondary-color, #555);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg-color, #fff);
+    padding: 25px;
+    border-radius: var(--border-radius-medium, 8px);
+    border-left: 5px solid var(--primary-color, #007bff);
+    box-shadow: var(--shadow-light, 0 2px 10px rgba(0,0,0,0.07));
+    text-align: left;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-color-secondary, #666);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+    color: var(--primary-color-dark, #0056b3);
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+}
+
+/* Styles pour la section Appel à l'action (CTA) */
+.cta-section {
+    padding: 60px 20px;
+    background-color: var(--primary-color, #007bff);
+    color: var(--text-color-light, #fff);
+    text-align: center;
+}
+
+.cta-section .container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+    color: var(--text-color-light, #fff); /* Assure la lisibilité sur fond coloré */
+}
+
+.cta-section p {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Styles responsives spécifiques à la page d'accueil si nécessaire */
+@media (max-width: 768px) {
+    .features-grid, .testimonials-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .feature-card, .testimonial-card {
+        text-align: center;
+    }
+    .feature-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .testimonial-author {
+        text-align: center;
+    }
+}

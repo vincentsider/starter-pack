@@ -1,0 +1,303 @@
+/* public/css/common/ui/cards.css */
+
+:root {
+    /* Variables pour les cartes - ces variables devraient être définies dans theme.css ou variables.css */
+    /* Fallback si non définies */
+    --card-spacer-y: var(--spacing-md, 0.75rem);
+    --card-spacer-x: var(--spacing-md, 0.75rem);
+    --card-title-spacer-y: var(--spacing-sm, 0.5rem);
+    --card-border-width: var(--border-width-base, 1px);
+    --card-border-color: var(--border-color-light, rgba(0, 0, 0, 0.175));
+    --card-border-radius: var(--border-radius-lg, 0.375rem);
+    --card-box-shadow: var(--box-shadow-sm, 0 .125rem .25rem rgba(0,0,0,.075));
+    --card-inner-border-radius: calc(var(--card-border-radius) - var(--card-border-width)); /* Pour les éléments internes comme header/footer */
+    --card-cap-padding-y: var(--spacing-sm, 0.5rem);
+    --card-cap-padding-x: var(--spacing-md, 0.75rem);
+    --card-cap-bg: var(--background-color-light, rgba(0, 0, 0, 0.03));
+    --card-cap-color: inherit; /* Hérite la couleur du texte */
+    --card-height: null; /* Pas de hauteur fixe par défaut */
+    --card-color: inherit; /* Hérite la couleur du texte */
+    --card-bg: var(--background-color-body, #fff); /* Couleur de fond de la carte */
+
+    --card-img-overlay-padding: var(--spacing-md, 0.75rem);
+
+    --card-group-margin: calc(var(--grid-gutter-width, 1.5rem) / 2); /* Supposant une variable --grid-gutter-width */
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Empêche le contenu de dépasser */
+    height: var(--card-height);
+    word-wrap: break-word;
+    background-color: var(--card-bg);
+    background-clip: border-box;
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    color: var(--card-color);
+}
+
+.card > hr,
+.card > .list-group:first-child .list-group-item:first-child, /* Pour les list-groups */
+.card > .list-group:last-child .list-group-item:last-child {
+    border-radius: 0; /* Ajustement pour les éléments internes */
+}
+
+.card > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+}
+.card > .list-group:first-child {
+    border-top-width: 0;
+    border-top-left-radius: var(--card-inner-border-radius);
+    border-top-right-radius: var(--card-inner-border-radius);
+}
+.card > .list-group:last-child {
+    border-bottom-width: 0;
+    border-bottom-left-radius: var(--card-inner-border-radius);
+    border-bottom-right-radius: var(--card-inner-border-radius);
+}
+
+
+/* Body de la carte */
+.card-body {
+    flex: 1 1 auto; /* Permet au corps de grandir et rétrécir */
+    padding: var(--card-spacer-y) var(--card-spacer-x);
+    color: var(--card-color); /* Si la couleur de texte du body doit être spécifique */
+}
+
+/* Titre, sous-titre, texte de la carte */
+.card-title {
+    margin-bottom: var(--card-title-spacer-y);
+    font-size: var(--font-size-lg, 1.25rem); /* Taille de police pour le titre */
+    font-weight: var(--font-weight-bold, 700);
+}
+
+.card-subtitle {
+    margin-top: calc(-.5 * var(--card-title-spacer-y)); /* Rapproche du titre */
+    margin-bottom: 0;
+    font-size: var(--font-size-md, 1rem); /* Taille de police pour le sous-titre */
+    font-weight: var(--font-weight-normal, 400);
+    color: var(--text-muted, #6c757d);
+}
+
+.card-text:last-child {
+    margin-bottom: 0; /* Enlève la marge du dernier paragraphe de texte */
+}
+
+.card-link + .card-link {
+    margin-left: var(--card-spacer-x); /* Espace entre les liens */
+}
+
+/* Header et Footer de la carte */
+.card-header {
+    padding: var(--card-cap-padding-y) var(--card-cap-padding-x);
+    margin-bottom: 0; /* Reset */
+    color: var(--card-cap-color);
+    background-color: var(--card-cap-bg);
+    border-bottom: var(--card-border-width) solid var(--card-border-color);
+}
+.card-header:first-child {
+    border-radius: var(--card-inner-border-radius) var(--card-inner-border-radius) 0 0;
+}
+
+.card-footer {
+    padding: var(--card-cap-padding-y) var(--card-cap-padding-x);
+    color: var(--card-cap-color);
+    background-color: var(--card-cap-bg);
+    border-top: var(--card-border-width) solid var(--card-border-color);
+}
+.card-footer:last-child {
+    border-radius: 0 0 var(--card-inner-border-radius) var(--card-inner-border-radius);
+}
+
+/* Superposition d'image de carte */
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: var(--card-img-overlay-padding);
+    border-radius: var(--card-inner-border-radius);
+}
+
+/* Images de carte */
+.card-img,
+.card-img-top,
+.card-img-bottom {
+    width: 100%; /* Les images prennent toute la largeur */
+}
+
+.card-img,
+.card-img-top {
+    border-top-left-radius: var(--card-inner-border-radius);
+    border-top-right-radius: var(--card-inner-border-radius);
+}
+
+.card-img,
+.card-img-bottom {
+    border-bottom-left-radius: var(--card-inner-border-radius);
+    border-bottom-right-radius: var(--card-inner-border-radius);
+}
+
+/* Cartes avec couleurs de fond (accentuées) */
+/* Suppose l'existence de variables comme --primary-color, --secondary-color etc. et leurs versions text/border */
+.card.text-bg-primary, .card.bg-primary {
+    color: var(--primary-text-on-bg, #fff) !important; /* S'assurer que le texte est lisible */
+    background-color: var(--primary-color, #0d6efd) !important;
+    border-color: var(--primary-border-on-bg, var(--primary-color, #0d6efd)) !important;
+}
+.card.text-bg-secondary, .card.bg-secondary {
+    color: var(--secondary-text-on-bg, #fff) !important;
+    background-color: var(--secondary-color, #6c757d) !important;
+    border-color: var(--secondary-border-on-bg, var(--secondary-color, #6c757d)) !important;
+}
+/* ... Ajouter pour .text-bg-success, .text-bg-danger, etc. ... */
+
+/* Utilitaires pour les bordures de cartes colorées */
+.card.border-primary {
+    border-color: var(--primary-color, #0d6efd) !important;
+}
+.card.border-primary .card-header,
+.card.border-primary .card-footer {
+    /* Optionnel: si le header/footer doivent aussi avoir la couleur de bordure */
+    /* border-color: var(--primary-color, #0d6efd) !important; */
+}
+.card.border-secondary {
+    border-color: var(--secondary-color, #6c757d) !important;
+}
+/* ... Ajouter pour .border-success, .border-danger, etc. ... */
+
+
+/* Groupe de cartes (affichage en ligne avec marges égales) */
+/* Note: nécessite une structure parente comme <div class="card-group"> */
+.card-group {
+    display: flex;
+    flex-flow: row wrap; /* Permet le retour à la ligne sur petits écrans */
+    /* margin-left: calc(-1 * var(--card-group-margin));
+    margin-right: calc(-1 * var(--card-group-margin)); */
+}
+.card-group > .card {
+    margin-bottom: var(--grid-gutter-width, 1.5rem); /* Espace vertical entre les cartes dans un groupe */
+    /* Les marges horizontales sont gérées par le conteneur de la grille (colonnes) */
+}
+
+/* Pour un layout où les cartes dans un groupe ont la même hauteur.
+   Ceci est plus complexe et dépend souvent de la structure HTML globale (flexbox/grid sur le parent).
+   Une approche simple si les cartes sont des enfants directs de .card-group : */
+@media (min-width: 576px) { /* sm breakpoint ou plus grand */
+    .card-group {
+        /* Pour que les cartes aient la même hauteur quand elles sont sur la même ligne */
+    }
+    .card-group > .card {
+        flex: 1 0 0%; /* Permet aux cartes de grandir et prendre l'espace disponible */
+        margin-bottom: 0; /* Pas de marge en bas si elles sont sur la même ligne */
+    }
+    .card-group > .card + .card {
+        margin-left: 0;
+        border-left: 0; /* Enlève la double bordure entre les cartes adjacentes */
+    }
+    .card-group > .card:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .card-group > .card:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+/* Styles spécifiques pour les cartes de témoignages, de fonctionnalités, de prix, etc.
+   peuvent être ajoutés ici ou dans des fichiers CSS spécifiques à ces composants s'ils sont complexes. */
+
+.card-feature { /* Exemple pour une carte de fonctionnalité */
+    text-align: center;
+}
+.card-feature .icon { /* Supposant une classe .icon pour l'icône de la fonctionnalité */
+    font-size: 3rem; /* Grande icône */
+    margin-bottom: var(--spacing-md, 0.75rem);
+    color: var(--primary-color, #0d6efd);
+}
+
+.card-pricing { /* Exemple pour une carte de tarif */
+    text-align: center;
+}
+.card-pricing .price {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold, 700);
+    margin-bottom: var(--spacing-sm, 0.5rem);
+}
+.card-pricing .period {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--text-muted, #6c757d);
+    margin-bottom: var(--spacing-md, 0.75rem);
+}
+.card-pricing ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-lg, 1rem);
+}
+.card-pricing ul li {
+    padding: var(--spacing-xs, 0.25rem) 0;
+    border-bottom: var(--border-width-base, 1px) solid var(--border-color-extra-light, #eee);
+}
+.card-pricing ul li:last-child {
+    border-bottom: none;
+}
+.card-pricing.featured { /* Carte de tarif mise en avant */
+    border-color: var(--primary-color, #0d6efd);
+    box-shadow: var(--box-shadow-lg, 0 1rem 3rem rgba(0,0,0,.175));
+    transform: scale(1.05); /* Effet de zoom léger */
+    z-index: 1;
+}
+.card-pricing.featured .card-header {
+    background-color: var(--primary-color, #0d6efd);
+    color: var(--primary-text-on-bg, #fff);
+    border-color: var(--primary-color, #0d6efd);
+}
+
+/* Carte de témoignage */
+.card-testimonial {
+    /* Styles spécifiques pour les cartes de témoignages */
+}
+.card-testimonial .testimonial-author img {
+    width: 60px; /* Taille de l'avatar */
+    height: 60px;
+    border-radius: 50%;
+    margin-right: var(--spacing-md, 0.75rem);
+    object-fit: cover;
+}
+.card-testimonial .testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-md, 0.75rem);
+}
+.card-testimonial .testimonial-author-info .name {
+    font-weight: var(--font-weight-bold, 700);
+}
+.card-testimonial .testimonial-author-info .title {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--text-muted, #6c757d);
+}
+.card-testimonial .card-body {
+    position: relative; /* Pour le positionnement des guillemets */
+}
+.card-testimonial .card-body::before { /* Guillemets décoratifs */
+    content: "\201C"; /* Left double quotation mark */
+    font-family: serif;
+    font-size: 5rem;
+    color: var(--primary-light-color, #cfe2ff); /* Couleur claire pour les guillemets */
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    z-index: 0;
+    opacity: 0.7;
+    line-height: 1;
+}
+.card-testimonial .card-text {
+    position: relative; /* Pour être au-dessus des guillemets */
+    z-index: 1;
+}

@@ -1,0 +1,53 @@
+<!-- public/components/testimonial-card.html -->
+<!-- 
+    Utilisation : Ce composant est une structure pour afficher un témoignage client.
+    Il est conçu pour être réutilisé avec des données différentes pour chaque témoignage.
+    Les données (citation, nom de l'auteur, rôle/entreprise, image) doivent être personnalisées.
+
+    Exemple d'intégration (généralement dans une boucle si les données viennent d'un JS) :
+    <div class="testimonial-card">
+        <img src="CHEMIN_VERS_IMAGE_AUTEUR.jpg" alt="Photo de [Nom Auteur]" class="testimonial-author-image">
+        <blockquote class="testimonial-quote" data-i18n="VOTRE_CLE_I18N_POUR_CITATION">
+            "Ceci est un témoignage fantastique sur le produit."
+        </blockquote>
+        <p class="testimonial-author-name" data-i18n="VOTRE_CLE_I18N_POUR_NOM_AUTEUR">Nom de l'Auteur</p>
+        <p class="testimonial-author-role" data-i18n="VOTRE_CLE_I18N_POUR_ROLE_AUTEUR">Rôle, Entreprise</p>
+    </div>
+
+    Pour une intégration dynamique avec JS :
+    (Supposons une div placeholder <div id="testimonials-container"></div> dans votre HTML principal)
+
+    const testimonialsData = [
+        { imagePath: 'assets/images/author1.jpg', imageAltKey: 'testimonials.author1.alt', quoteKey: 'testimonials.author1.quote', authorNameKey: 'testimonials.author1.name', authorRoleKey: 'testimonials.author1.role' },
+        // ... autres témoignages
+    ];
+
+    fetch('components/testimonial-card.html')
+        .then(response => response.text())
+        .then(cardHtmlTemplate => {
+            const container = document.getElementById('testimonials-container');
+            testimonialsData.forEach(testimonial => {
+                let cardHtml = cardHtmlTemplate
+                    .replace('{{testimonial_image_path}}', testimonial.imagePath)
+                    .replace('{{testimonial_image_alt_key}}', testimonial.imageAltKey)
+                    .replace('{{testimonial_quote_key}}', testimonial.quoteKey)
+                    .replace('{{testimonial_author_name_key}}', testimonial.authorNameKey)
+                    .replace('{{testimonial_author_role_key}}', testimonial.authorRoleKey);
+                
+                const cardElement = document.createElement('div');
+                cardElement.className = 'testimonial-card-wrapper'; // Pour la grille CSS
+                cardElement.innerHTML = cardHtml;
+                container.appendChild(cardElement);
+            });
+            // Si i18n est utilisé, réappliquer les traductions après l'insertion
+            if (window.i18n && typeof window.i18n.updateContent === 'function') {
+                window.i18n.updateContent();
+            }
+        });
+-->
+<div class="testimonial-card">
+    <img src="{{testimonial_image_path}}" alt="" class="testimonial-author-image" data-i18n-alt="{{testimonial_image_alt_key}}">
+    <blockquote class="testimonial-quote" data-i18n="{{testimonial_quote_key}}"></blockquote>
+    <p class="testimonial-author-name" data-i18n="{{testimonial_author_name_key}}"></p>
+    <p class="testimonial-author-role" data-i18n="{{testimonial_author_role_key}}"></p>
+</div>

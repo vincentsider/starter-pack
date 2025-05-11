@@ -1,0 +1,238 @@
+/* public/css/common/layout/cta-section.css */
+
+/* Style de base pour une section d'appel à l'action (CTA) */
+.cta-section {
+    padding: var(--section-padding-y-lg, var(--spacing-xxxl)) var(--section-padding-x, var(--container-padding-x));
+    background-color: var(--cta-section-bg-color, var(--primary-color)); /* Fond coloré pour attirer l'attention */
+    color: var(--cta-section-text-color, var(--text-color-on-primary)); /* Texte contrastant */
+    text-align: center;
+    overflow: hidden; /* Pour les formes décoratives */
+    position: relative;
+}
+
+/* Variante avec une image de fond */
+.cta-section.has-background-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--cta-section-text-color-on-image, var(--white-color));
+}
+.cta-section.has-background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cta-bg-overlay-color, rgba(0, 0, 0, 0.4)); /* Superposition pour lisibilité */
+    z-index: 1;
+}
+
+/* Conteneur pour le contenu CTA */
+.cta-container {
+    max-width: var(--cta-container-max-width, 700px);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Au-dessus de la superposition */
+    z-index: 2;
+}
+
+/* Titre de la section CTA (H2 ou H3) */
+.cta-title, .cta-section h2, .cta-section h3 {
+    font-size: var(--cta-title-font-size, var(--font-size-h2));
+    font-weight: var(--cta-title-font-weight, var(--font-weight-bold));
+    color: inherit; /* Hérite de .cta-section */
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-tight);
+    text-shadow: var(--cta-title-text-shadow, 1px 1px 2px rgba(0,0,0,0.1));
+}
+
+/* Texte descriptif ou incitatif de la section CTA */
+.cta-description, .cta-section p {
+    font-size: var(--cta-description-font-size, var(--font-size-lg));
+    color: inherit;
+    margin-bottom: var(--spacing-xl); /* Espace avant les boutons */
+    line-height: var(--line-height-normal);
+    opacity: 0.9;
+}
+
+/* Conteneur pour les boutons CTA */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+}
+
+/* Style des boutons dans la section CTA */
+.cta-buttons .button {
+    font-size: var(--button-font-size-lg, var(--font-size-md));
+    padding: var(--button-padding-y-lg, var(--spacing-md)) var(--button-padding-x-lg, var(--spacing-lg));
+    /* Les couleurs des boutons sont généralement inversées ou spécifiques pour les sections CTA */
+}
+
+.cta-buttons .button-primary {
+    background-color: var(--cta-primary-btn-bg, var(--white-color)); /* Bouton primaire souvent clair sur fond sombre/coloré */
+    color: var(--cta-primary-btn-text, var(--primary-color));
+    border-color: var(--cta-primary-btn-border, var(--white-color));
+}
+.cta-buttons .button-primary:hover,
+.cta-buttons .button-primary:focus {
+    background-color: var(--cta-primary-btn-hover-bg, var(--neutral-color-100));
+    color: var(--cta-primary-btn-hover-text, var(--primary-color-dark));
+    border-color: var(--cta-primary-btn-hover-border, var(--neutral-color-100));
+}
+
+.cta-buttons .button-secondary {
+    background-color: transparent;
+    color: inherit; /* Texte de la couleur de la section */
+    border: 2px solid currentColor; /* Bordure de la couleur du texte */
+}
+.cta-buttons .button-secondary:hover,
+.cta-buttons .button-secondary:focus {
+    background-color: var(--cta-secondary-btn-hover-bg, var(--white-color)); /* Fond clair au survol */
+    color: var(--cta-secondary-btn-hover-text, var(--primary-color)); /* Texte de la couleur primaire */
+    border-color: var(--cta-secondary-btn-hover-border, var(--white-color));
+}
+
+/* Si le CTA est sur une image, les styles de bouton peuvent devoir s'adapter davantage */
+.cta-section.has-background-image .cta-buttons .button-primary {
+    background-color: var(--cta-primary-btn-bg-on-image, var(--white-color));
+    color: var(--cta-primary-btn-text-on-image, var(--primary-color));
+    border-color: var(--cta-primary-btn-border-on-image, var(--white-color));
+}
+.cta-section.has-background-image .cta-buttons .button-primary:hover {
+    background-color: var(--cta-primary-btn-hover-bg-on-image, var(--neutral-color-200));
+    color: var(--cta-primary-btn-hover-text-on-image, var(--primary-color-dark));
+}
+
+.cta-section.has-background-image .cta-buttons .button-secondary {
+    color: var(--cta-secondary-btn-text-on-image, var(--white-color));
+    border-color: var(--cta-secondary-btn-border-on-image, var(--white-color));
+}
+.cta-section.has-background-image .cta-buttons .button-secondary:hover {
+    background-color: var(--cta-secondary-btn-hover-bg-on-image, var(--white-color));
+    color: var(--cta-secondary-btn-hover-text-on-image, var(--text-color-primary)); /* Ou la couleur d'accentuation principale */
+}
+
+
+/* CTA section avec contenu à gauche et formulaire/boutons à droite */
+.cta-section.split-layout .cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xxl);
+    text-align: left;
+    max-width: var(--container-max-width); /* Plus large pour le split */
+}
+.cta-section.split-layout .cta-content {
+    flex: 1 1 55%; /* Plus de place pour le texte */
+}
+.cta-section.split-layout .cta-actions {
+    flex: 1 1 40%; /* Moins de place pour les actions/formulaire */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligner à gauche si le texte est à gauche */
+}
+.cta-section.split-layout .cta-actions .cta-buttons {
+    justify-content: flex-start;
+    width: 100%;
+}
+.cta-section.split-layout .cta-title,
+.cta-section.split-layout .cta-description {
+    margin-left: 0;
+    margin-right: 0;
+}
+.cta-section.split-layout .cta-description {
+    margin-bottom: var(--spacing-lg); /* Moins de marge si les boutons sont à côté */
+}
+.cta-section.split-layout .cta-form { /* Si un formulaire simple est inclus */
+    width: 100%;
+    max-width: 400px; /* Limiter la largeur du formulaire */
+}
+.cta-section.split-layout .cta-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+.cta-section.split-layout .cta-form .form-control {
+    width: 100%;
+    /* Styles hérités ou spécifiques */
+}
+.cta-section.split-layout .cta-form .button {
+    width: 100%; /* Bouton du formulaire pleine largeur */
+}
+
+
+/* Responsive pour la section CTA */
+@media (max-width: 768px) {
+    .cta-section {
+        padding-top: var(--spacing-xxl);
+        padding-bottom: var(--spacing-xxl);
+    }
+    .cta-title, .cta-section h2, .cta-section h3 {
+        font-size: calc(var(--cta-title-font-size, var(--font-size-h2)) * 0.85);
+    }
+    .cta-description, .cta-section p {
+        font-size: calc(var(--cta-description-font-size, var(--font-size-lg)) * 0.95);
+    }
+
+    .cta-section.split-layout .cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xl);
+    }
+    .cta-section.split-layout .cta-content,
+    .cta-section.split-layout .cta-actions {
+        flex-basis: auto;
+        align-items: center; /* Centrer les actions */
+    }
+    .cta-section.split-layout .cta-actions {
+        width: 100%; /* Actions pleine largeur en colonne */
+    }
+    .cta-section.split-layout .cta-buttons {
+        justify-content: center;
+    }
+     .cta-section.split-layout .cta-description {
+        margin-bottom: var(--spacing-xl); /* Rétablir la marge inférieure complète */
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-title, .cta-section h2, .cta-section h3 {
+        font-size: calc(var(--cta-title-font-size, var(--font-size-h2)) * 0.75);
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch; /* Boutons pleine largeur de leur conteneur */
+    }
+    .cta-buttons .button {
+        width: 100%;
+        max-width: 320px; /* Limiter la largeur des boutons */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Optionnel: Formes décoratives */
+/* .cta-shape {
+    position: absolute;
+    z-index: 0; // en dessous du contenu
+    opacity: 0.1; // ou plus élevé si c'est une couleur claire
+    pointer-events: none; // pour ne pas interférer avec les clics
+}
+.cta-shape.shape-circle {
+    width: 200px;
+    height: 200px;
+    background-color: var(--white-color); // couleur de la forme
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+}
+.cta-shape.shape-rectangle {
+    width: 150px;
+    height: 300px;
+    background-color: var(--secondary-color); // autre couleur
+    bottom: -100px;
+    left: -75px;
+    transform: rotate(45deg);
+} */

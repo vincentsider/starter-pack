@@ -1,0 +1,72 @@
+<!-- public/components/pricing-plan-card.html -->
+<!-- 
+    Utilisation : Ce composant est une structure pour afficher un plan tarifaire.
+    Il est conçu pour être réutilisé avec des données différentes pour chaque plan.
+    Les données (nom du plan, prix, fonctionnalités, texte du bouton) doivent être personnalisées.
+
+    Exemple d'intégration (généralement dans une boucle si les données viennent d'un JS) :
+    <div class="pricing-plan-card [pricing-plan-featured]"> <!-- Ajouter 'pricing-plan-featured' pour le plan mis en avant -->
+        <h3 class="pricing-plan-name" data-i18n="VOTRE_CLE_I18N_POUR_NOM_PLAN">Nom du Plan</h3>
+        <p class="pricing-plan-price">
+            <span class="price-amount" data-i18n="VOTRE_CLE_I18N_POUR_PRIX_MONTANT">XX€</span>
+            <span class="price-period" data-i18n="ui.pricing.perMonth">/mois</span>
+        </p>
+        <ul class="pricing-plan-features">
+            <li data-i18n="VOTRE_CLE_I18N_POUR_FONCTIONNALITE_1">Fonctionnalité 1</li>
+            <li data-i18n="VOTRE_CLE_I18N_POUR_FONCTIONNALITE_2">Fonctionnalité 2</li>
+            <!-- ... autres fonctionnalités -->
+        </ul>
+        <a href="VOTRE_LIEN_INSCRIPTION" class="cta-button pricing-plan-cta" data-i18n="VOTRE_CLE_I18N_POUR_BOUTON_CTA">Choisir ce plan</a>
+    </div>
+
+    Pour une intégration dynamique avec JS :
+    (Supposons une div placeholder <div id="pricing-plans-container"></div> dans votre HTML principal)
+
+    const pricingPlansData = [
+        { nameKey: 'pricing.basic.name', priceAmountKey: 'pricing.basic.price', featuresKeys: ['pricing.basic.feature1', 'pricing.basic.feature2'], ctaLink: '/subscribe?plan=basic', ctaTextKey: 'pricing.basic.cta', isFeatured: false },
+        // ... autres plans
+    ];
+
+    fetch('components/pricing-plan-card.html')
+        .then(response => response.text())
+        .then(cardHtmlTemplate => {
+            const container = document.getElementById('pricing-plans-container');
+            pricingPlansData.forEach(plan => {
+                let featuresHtml = '';
+                plan.featuresKeys.forEach(key => {
+                    featuresHtml += `<li data-i18n="${key}"></li>`;
+                });
+
+                let cardHtml = cardHtmlTemplate
+                    .replace('{{plan_name_key}}', plan.nameKey)
+                    .replace('{{plan_price_amount_key}}', plan.priceAmountKey)
+                    .replace('<!-- {{plan_features_list}} -->', featuresHtml)
+                    .replace('{{plan_cta_link}}', plan.ctaLink)
+                    .replace('{{plan_cta_text_key}}', plan.ctaTextKey)
+                    .replace('{{plan_featured_class}}', plan.isFeatured ? 'pricing-plan-featured' : '');
+                
+                const cardElement = document.createElement('div');
+                cardElement.className = 'pricing-plan-wrapper'; // Pour la grille CSS
+                cardElement.innerHTML = cardHtml;
+                container.appendChild(cardElement);
+            });
+            // Si i18n est utilisé, réappliquer les traductions après l'insertion
+            if (window.i18n && typeof window.i18n.updateContent === 'function') {
+                window.i18n.updateContent();
+            }
+        });
+-->
+<div class="pricing-plan-card {{plan_featured_class}}">
+    <h3 class="pricing-plan-name" data-i18n="{{plan_name_key}}"></h3>
+    <p class="pricing-plan-price">
+        <span class="price-amount" data-i18n="{{plan_price_amount_key}}"></span>
+        <span class="price-period" data-i18n="ui.pricing.perMonth"></span> <!-- Texte comme "/mois" -->
+    </p>
+    <ul class="pricing-plan-features">
+        <!-- Les éléments <li> seront insérés dynamiquement ici par JS -->
+        <!-- Exemple de placeholder pour JS: {{plan_features_list}} -->
+         <!-- <li data-i18n="feature_key_1"></li> -->
+         <!-- <li data-i18n="feature_key_2"></li> -->
+    </ul>
+    <a href="{{plan_cta_link}}" class="cta-button pricing-plan-cta" data-i18n="{{plan_cta_text_key}}"></a>
+</div>

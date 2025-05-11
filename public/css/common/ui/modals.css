@@ -1,0 +1,296 @@
+/* public/css/common/ui/modals.css */
+
+:root {
+    /* Variables pour les modales - ces variables devraient être définies dans theme.css ou variables.css */
+    /* Fallback si non définies */
+    --modal-zindex: var(--zindex-modal, 1050);
+    --modal-backdrop-zindex: var(--zindex-modal-backdrop, 1040);
+    --modal-backdrop-bg: var(--overlay-bg-color, rgba(0, 0, 0, 0.5));
+    --modal-backdrop-opacity: 0.5; /* Utilisé si --modal-backdrop-bg n'a pas d'alpha */
+    --modal-transition-duration: 0.3s;
+
+    --modal-dialog-margin: var(--spacing-md, 0.5rem);
+    --modal-dialog-margin-y-sm-up: var(--spacing-xl, 1.75rem); /* Marge pour écrans sm et plus */
+    --modal-dialog-pointer-events: none; /* Permet les clics à travers la dialog initialement */
+
+    --modal-content-bg: var(--background-color-body, #fff);
+    --modal-content-border-color: var(--border-color-light, rgba(0,0,0,.2));
+    --modal-content-border-width: var(--border-width-lg, 1px);
+    --modal-content-border-radius: var(--border-radius-lg, 0.3rem);
+    --modal-content-box-shadow-xs: var(--box-shadow-lg, 0 0.25rem 0.5rem rgba(0,0,0,.5));
+    --modal-content-box-shadow-sm-up: var(--box-shadow-xl, 0 0.5rem 1rem rgba(0,0,0,.5));
+    --modal-content-pointer-events: auto; /* Rétablit les événements pour le contenu */
+
+    --modal-header-padding-y: var(--spacing-lg, 1rem);
+    --modal-header-padding-x: var(--spacing-lg, 1rem);
+    --modal-header-border-color: var(--border-color-base, #dee2e6);
+    --modal-header-border-width: var(--border-width-base, 1px);
+    --modal-header-padding: var(--modal-header-padding-y) var(--modal-header-padding-x); /* Raccourci */
+
+    --modal-title-line-height: var(--line-height-base, 1.5);
+    --modal-title-font-size: var(--font-size-lg, 1.25rem); /* Assurez-vous que --h5-font-size est défini ou utilisez une valeur directe */
+    --modal-title-font-weight: var(--font-weight-bold, 700);
+
+    --modal-body-padding-y: var(--spacing-lg, 1rem);
+    --modal-body-padding-x: var(--spacing-lg, 1rem);
+    --modal-body-padding: var(--modal-body-padding-y) var(--modal-body-padding-x);
+
+    --modal-footer-gap: var(--spacing-sm, 0.5rem); /* Espace entre les éléments du footer */
+    --modal-footer-bg: transparent; /* Pas de couleur de fond par défaut */
+    --modal-footer-border-color: var(--modal-header-border-color);
+    --modal-footer-border-top-width: var(--modal-header-border-width);
+    --modal-footer-padding-y: var(--spacing-md, 0.75rem);
+    --modal-footer-padding-x: var(--spacing-lg, 1rem);
+    --modal-footer-padding: var(--modal-footer-padding-y) var(--modal-footer-padding-x);
+
+    --btn-close-color: var(--text-color-primary, #000);
+    --btn-close-bg: transparent;
+    --btn-close-opacity: .5;
+    --btn-close-hover-opacity: .75;
+    --btn-close-focus-opacity: 1;
+    --btn-close-focus-shadow: var(--focus-ring-box-shadow, 0 0 0 .25rem rgba(13,110,253,.25));
+    --btn-close-padding-y: var(--spacing-sm, 0.5rem);
+    --btn-close-padding-x: var(--spacing-sm, 0.5rem);
+}
+
+/* Conteneur principal de la modale (inclut le backdrop) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--modal-zindex);
+    display: none; /* Caché par défaut, affiché via JS */
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0; /* Supprime l'outline sur le conteneur de la modale */
+}
+
+.modal.fade .modal-dialog {
+    transition: transform var(--modal-transition-duration) ease-out;
+    transform: translateY(-50px); /* Position initiale pour l'animation */
+}
+@media (prefers-reduced-motion: reduce) {
+    .modal.fade .modal-dialog {
+        transition: none;
+    }
+}
+.modal.show .modal-dialog {
+    transform: translateY(0);
+}
+
+
+/* Boîte de dialogue de la modale */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: var(--modal-dialog-margin);
+    pointer-events: var(--modal-dialog-pointer-events); /* Permet de cliquer à travers */
+}
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -50px); /* Animation de haut en bas */
+}
+.modal.show .modal-dialog {
+    transform: translate(0, 0);
+}
+
+/* Modales centrées verticalement */
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - (var(--modal-dialog-margin) * 2));
+}
+
+/* Modales scrollables (quand le contenu dépasse la hauteur de la fenêtre) */
+.modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - (var(--modal-dialog-margin) * 2)); /* vh pour viewport height */
+    overflow: hidden; /* Le scroll est sur modal-body */
+}
+.modal-dialog-scrollable .modal-body {
+    overflow-y: auto;
+}
+
+
+/* Contenu de la modale */
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Prend toute la largeur de .modal-dialog */
+    color: var(--text-color-primary); /* Utiliser la variable globale pour la couleur du texte */
+    pointer-events: var(--modal-content-pointer-events); /* Rétablit les événements */
+    background-color: var(--modal-content-bg);
+    background-clip: padding-box;
+    border: var(--modal-content-border-width) solid var(--modal-content-border-color);
+    border-radius: var(--modal-content-border-radius);
+    box-shadow: var(--modal-content-box-shadow-xs);
+    outline: 0; /* Supprime l'outline par défaut */
+}
+
+/* En-tête de la modale */
+.modal-header {
+    display: flex;
+    flex-shrink: 0; /* Empêche le header de rétrécir */
+    align-items: center; /* Centre verticalement le titre et le bouton de fermeture */
+    justify-content: space-between; /* Pousse le titre à gauche et le bouton à droite */
+    padding: var(--modal-header-padding);
+    border-bottom: var(--modal-header-border-width) solid var(--modal-header-border-color);
+    border-top-left-radius: var(--modal-content-border-radius); /* Coins arrondis hérités */
+    border-top-right-radius: var(--modal-content-border-radius);
+}
+
+/* Titre de la modale */
+.modal-title {
+    margin-bottom: 0; /* Supprime la marge par défaut des titres */
+    line-height: var(--modal-title-line-height);
+    font-size: var(--modal-title-font-size);
+    font-weight: var(--modal-title-font-weight);
+}
+
+/* Bouton de fermeture standard (peut être utilisé pour d'autres éléments aussi) */
+.btn-close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: var(--btn-close-padding-y) var(--btn-close-padding-x);
+    color: var(--btn-close-color);
+    background: var(--btn-close-bg) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    border: 0;
+    border-radius: var(--border-radius-sm, 0.2rem);
+    opacity: var(--btn-close-opacity);
+    transition: opacity .15s ease-in-out;
+}
+.btn-close:hover {
+    color: var(--btn-close-color);
+    text-decoration: none;
+    opacity: var(--btn-close-hover-opacity);
+}
+.btn-close:focus {
+    outline: 0;
+    box-shadow: var(--btn-close-focus-shadow);
+    opacity: var(--btn-close-focus-opacity);
+}
+.btn-close:disabled, .btn-close.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: .25; /* Opacité pour désactivé */
+}
+/* Version blanche pour fonds sombres */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+
+/* Corps de la modale */
+.modal-body {
+    position: relative;
+    flex: 1 1 auto; /* Permet au corps de grandir et de rétrécir */
+    padding: var(--modal-body-padding);
+    overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse */
+}
+
+/* Pied de page de la modale */
+.modal-footer {
+    display: flex;
+    flex-shrink: 0; /* Empêche le footer de rétrécir */
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: flex-end; /* Aligne les boutons à droite par défaut */
+    padding: var(--modal-footer-padding);
+    background-color: var(--modal-footer-bg);
+    border-top: var(--modal-footer-border-top-width) solid var(--modal-footer-border-color);
+    border-bottom-right-radius: var(--modal-content-border-radius); /* Coins arrondis hérités */
+    border-bottom-left-radius: var(--modal-content-border-radius);
+}
+/* Espace entre les éléments du footer (boutons typiquement) */
+.modal-footer > * {
+    margin: calc(var(--modal-footer-gap) / 2);
+}
+
+
+/* Backdrop (fond semi-transparent derrière la modale) */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--modal-backdrop-zindex);
+    width: 100vw; /* vw pour viewport width */
+    height: 100vh; /* vh pour viewport height */
+    background-color: var(--modal-backdrop-bg);
+}
+.modal-backdrop.fade {
+    opacity: 0;
+    transition: opacity var(--modal-transition-duration) linear;
+}
+.modal-backdrop.show {
+    opacity: var(--modal-backdrop-opacity);
+}
+
+/* Tailles de modales optionnelles */
+@media (min-width: 576px) { /* sm */
+    .modal-dialog {
+        max-width: 500px;
+        margin: var(--modal-dialog-margin-y-sm-up) auto; /* Centrage horizontal */
+    }
+    .modal-dialog-scrollable .modal-content {
+        max-height: calc(100vh - (var(--modal-dialog-margin-y-sm-up) * 2));
+    }
+    .modal-dialog-centered .modal-dialog {
+      min-height: calc(100% - (var(--modal-dialog-margin-y-sm-up) * 2));
+    }
+    .modal-content {
+        box-shadow: var(--modal-content-box-shadow-sm-up);
+    }
+}
+
+@media (min-width: 992px) { /* lg */
+    .modal-lg,
+    .modal-xl { /* Si .modal-xl utilise la même base que .modal-lg */
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1200px) { /* xl */
+    .modal-xl {
+        max-width: 1140px;
+    }
+}
+
+/* Mode plein écran (sur tous les breakpoints) */
+.modal-fullscreen .modal-dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+}
+.modal-fullscreen .modal-content {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+}
+.modal-fullscreen .modal-header,
+.modal-fullscreen .modal-footer {
+    border-radius: 0;
+}
+.modal-fullscreen .modal-body {
+    overflow-y: auto;
+}
+
+/* Styles spécifiques pour les modales plein écran par breakpoint */
+/* Exemple: .modal-fullscreen-sm-down signifie plein écran JUSQU'AU breakpoint sm */
+@media (max-width: 575.98px) { /* xs */
+    .modal-fullscreen-sm-down .modal-dialog {
+        width: 100vw; max-width: none; height: 100%; margin: 0;
+    }
+    .modal-fullscreen-sm-down .modal-content {
+        height: 100%; border: 0; border-radius: 0;
+    }
+    .modal-fullscreen-sm-down .modal-header,
+    .modal-fullscreen-sm-down .modal-footer {
+        border-radius: 0;
+    }
+    .modal-fullscreen-sm-down .modal-body { overflow-y: auto; }
+}
+/* Ajoutez d'autres breakpoints (md, lg, xl, xxl) si nécessaire */

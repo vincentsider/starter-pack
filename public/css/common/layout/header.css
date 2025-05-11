@@ -1,0 +1,260 @@
+/* public/css/common/layout/header.css */
+
+/* Style de base pour l'en-tête (header) */
+.site-header {
+    background-color: var(--header-bg-color, var(--surface-color));
+    color: var(--header-text-color, var(--text-color-primary));
+    padding: var(--header-padding-y, var(--spacing-md)) var(--header-padding-x, var(--container-padding-x));
+    box-shadow: var(--header-shadow, var(--shadow-md));
+    position: sticky; /* Rend l'en-tête collant en haut de la page lors du défilement */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-sticky, 1000);
+    transition: background-color var(--transition-speed-base) ease-in-out,
+                box-shadow var(--transition-speed-base) ease-in-out;
+}
+
+/* Conteneur à l'intérieur de l'en-tête pour gérer l'alignement et la largeur */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Logo du site dans l'en-tête */
+.site-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--header-logo-color, var(--primary-color)); /* Couleur du logo, peut être différente */
+    font-size: var(--font-size-logo, var(--font-size-h3));
+    font-weight: var(--font-weight-bold);
+    margin-right: var(--spacing-lg); /* Espace entre le logo et la navigation */
+}
+
+.site-logo img {
+    height: var(--logo-height, 40px); /* Ajuster la hauteur du logo */
+    width: auto;
+    margin-right: var(--spacing-sm); /* Espace entre l'image du logo et le texte (si présent) */
+}
+
+/* Navigation principale dans l'en-tête */
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--nav-item-gap, var(--spacing-md)); /* Espace entre les éléments de navigation */
+}
+
+.main-navigation li {
+    position: relative; /* Pour les sous-menus ou indicateurs actifs */
+}
+
+.main-navigation a {
+    text-decoration: none;
+    color: var(--nav-link-color, var(--text-color-secondary));
+    font-size: var(--font-size-nav, var(--font-size-base));
+    font-weight: var(--font-weight-nav, var(--font-weight-medium));
+    padding: var(--nav-link-padding-y, var(--spacing-xs)) var(--nav-link-padding-x, var(--spacing-sm));
+    border-radius: var(--nav-link-border-radius, var(--border-radius-sm));
+    transition: color var(--transition-speed-base) ease-in-out,
+                background-color var(--transition-speed-base) ease-in-out;
+    position: relative; /* Pour la barre de soulignement animée */
+    display: block;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+    color: var(--nav-link-hover-color, var(--primary-color));
+    background-color: var(--nav-link-hover-bg, transparent); /* Peut avoir un fond au survol */
+}
+
+/* Indicateur de page active */
+.main-navigation a.active {
+    color: var(--nav-link-active-color, var(--primary-color-dark));
+    font-weight: var(--font-weight-bold); /* Optionnel: rendre le lien actif plus audacieux */
+}
+
+/* Barre de soulignement pour le lien actif ou au survol (optionnel) */
+.main-navigation a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position de la barre sous le texte */
+    left: 50%;
+    width: 0;
+    height: 2px; /* Épaisseur de la barre */
+    background-color: var(--nav-link-active-color, var(--primary-color-dark));
+    transition: width var(--transition-speed-base) ease-in-out,
+                left var(--transition-speed-base) ease-in-out;
+}
+
+.main-navigation a:hover::after,
+.main-navigation a:focus::after,
+.main-navigation a.active::after {
+    width: calc(100% - (2 * var(--nav-link-padding-x, var(--spacing-sm)))); /* Ajuster la largeur pour correspondre au padding */
+    left: var(--nav-link-padding-x, var(--spacing-sm));
+}
+.main-navigation a.active::after { /* S'assurer que la barre est toujours visible pour l'actif */
+    width: calc(100% - (2 * var(--nav-link-padding-x, var(--spacing-sm))));
+    left: var(--nav-link-padding-x, var(--spacing-sm));
+}
+
+
+/* Actions dans l'en-tête (boutons CTA, connexion, etc.) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm); /* Espace entre les boutons d'action */
+    margin-left: var(--spacing-lg); /* Espace par rapport à la navigation */
+}
+
+.header-actions .button {
+    /* Styles spécifiques pour les boutons dans l'en-tête si nécessaire */
+    /* Par exemple, des boutons plus petits ou d'un style différent */
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: calc(var(--font-size-base) * 0.9);
+}
+
+
+/* Hamburger menu pour les petits écrans */
+.menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    color: var(--header-text-color, var(--text-color-primary));
+    font-size: var(--font-size-h3); /* Taille de l'icône hamburger */
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    margin-left: var(--spacing-md); /* Espace par rapport aux autres éléments s'il y en a */
+}
+
+.menu-toggle:focus {
+    outline: 2px solid var(--focus-ring-color, var(--primary-color));
+    outline-offset: 2px;
+}
+
+
+/* Styles pour l'en-tête lors du défilement (scrolled state) */
+.site-header.scrolled {
+    background-color: var(--header-scrolled-bg-color, var(--surface-color-opaque, rgba(255, 255, 255, 0.95)));
+    box-shadow: var(--header-scrolled-shadow, var(--shadow-lg));
+    /* backdrop-filter: blur(5px); /* Optionnel: effet de flou si le fond est transparent/translucide */
+}
+
+
+/* Responsive pour les petits écrans */
+@media (max-width: 992px) { /* Point de rupture pour la navigation mobile, ajuster si nécessaire */
+    .main-navigation {
+        display: none; /* Cache la navigation principale */
+        position: absolute;
+        top: 100%; /* Se positionne sous l'en-tête */
+        left: 0;
+        right: 0;
+        background-color: var(--mobile-nav-bg-color, var(--surface-color));
+        box-shadow: var(--shadow-md-bottom, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+        padding: var(--spacing-md) 0;
+        border-top: 1px solid var(--border-color-light, #E0E0E0);
+        z-index: calc(var(--z-index-sticky, 1000) - 1); /* Pour être sous l'en-tête mais au-dessus du contenu */
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: stretch; /* Étire les éléments pour prendre toute la largeur */
+        max-height: calc(100vh - var(--header-height, 60px)); /* Hauteur max pour le menu déroulant */
+        overflow-y: auto; /* Permet le défilement si le menu est trop long */
+    }
+
+    .main-navigation.is-open {
+        display: flex; /* Affiche la navigation quand elle est ouverte */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* Les éléments de liste s'empilent */
+        width: 100%;
+        gap: 0; /* Gérer l'espacement avec le padding des liens */
+    }
+
+    .main-navigation li {
+        width: 100%;
+    }
+
+    .main-navigation a {
+        display: block;
+        padding: var(--spacing-md) var(--container-padding-x); /* Plus de padding pour les éléments mobiles */
+        text-align: left; /* Alignement du texte à gauche */
+        border-bottom: 1px solid var(--border-color-extra-light, #F0F0F0);
+        border-radius: 0;
+    }
+    .main-navigation li:last-child a {
+        border-bottom: none;
+    }
+
+    .main-navigation a::after { /* Cache la barre de soulignement sur mobile */
+        display: none;
+    }
+
+    .main-navigation a.active {
+        background-color: var(--primary-color-light-transparent, rgba(var(--primary-color-rgb), 0.1));
+        color: var(--primary-color-dark);
+    }
+
+
+    .header-actions {
+        /* Peut aussi être déplacé dans le menu hamburger ou rester visible selon le design */
+        /* Pour cet exemple, on les garde visibles mais on pourrait les cacher aussi */
+        /* display: none; /* Si on les met dans le menu hamburger */
+        margin-left: auto; /* S'ils sont à côté du hamburger */
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton hamburger */
+    }
+}
+
+@media (max-width: 576px) {
+    .site-logo {
+        font-size: var(--font-size-h4); /* Réduire la taille du logo sur très petits écrans */
+    }
+    .site-logo img {
+        height: 30px;
+    }
+    .header-actions .button {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+     .header-actions {
+        /* Cache les actions principales si l'espace est très limité,
+           en supposant qu'elles sont accessibles via le menu ou autrement */
+        /* display: none; */
+     }
+}
+
+/* Variables pour la hauteur de l'en-tête (peut être utilisée par d'autres modules) */
+:root {
+    --header-height: 70px; /* Ajuster cette valeur en fonction du padding et du contenu de l'en-tête */
+}
+.site-header {
+    min-height: var(--header-height); /* Assure une hauteur minimale pour l'en-tête */
+}
+
+
+/* Option: En-tête transparent au repos, devient opaque au défilement */
+/*
+.site-header.transparent-init {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.site-header.transparent-init.scrolled {
+    background-color: var(--header-scrolled-bg-color, var(--surface-color-opaque, rgba(255, 255, 255, 0.95)));
+    box-shadow: var(--header-scrolled-shadow, var(--shadow-lg));
+}
+*/

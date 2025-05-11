@@ -1,0 +1,51 @@
+<!-- public/components/pricing_plan_card.html -->
+<!--
+    Composant: Carte de Plan Tarifaire (Pricing Plan Card)
+    Description: Une carte pour afficher un plan tarifaire avec son nom, prix, fonctionnalités et un bouton d'appel à l'action.
+    Basé sur le pseudocode de `pseudocode/site_vitrine/common/ui_components.md`.
+
+    Attributs de données pour la personnalisation:
+    - data-plan-id: ID unique pour le plan.
+    - data-plan-name: Nom du plan (ex: "Basique", "Pro").
+    - data-plan-price: Prix du plan (ex: "9.99€").
+    - data-plan-period: Périodicité du prix (ex: "/mois").
+    - data-plan-description: Courte description du plan.
+    - data-plan-features: Liste des fonctionnalités (séparées par ';'). Chaque fonctionnalité peut avoir un préfixe (ex: "✓;Accès complet", "✗;Support prioritaire").
+    - data-plan-cta-link: Lien pour le bouton CTA.
+    - data-plan-cta-text: Texte pour le bouton CTA (ex: "Choisir ce plan").
+    - data-plan-is-featured: "true" ou "false" pour marquer un plan comme "populaire" ou "recommandé".
+    - data-plan-badge-text: Texte pour un badge (ex: "Populaire").
+    - Une classe CSS spécifique peut être ajoutée pour le style de la carte.
+-->
+<div class="pricing-plan-card" data-plan-id="plan-default" aria-labelledby="plan-name-default">
+    <div class="pricing-plan-card-header">
+        <h3 id="plan-name-default" class="pricing-plan-name" data-plan-name-content>Nom du Plan</h3>
+        <p class="pricing-plan-badge" data-plan-badge-element style="display: none;" data-plan-badge-text-content></p>
+    </div>
+    <div class="pricing-plan-card-price-section">
+        <span class="pricing-plan-price" data-plan-price-content>--.--€</span>
+        <span class="pricing-plan-period" data-plan-period-content>/mois</span>
+    </div>
+    <p class="pricing-plan-description" data-plan-description-content>
+        Description courte de ce que ce plan tarifaire inclut.
+    </p>
+    <ul class="pricing-plan-features-list" data-plan-features-list-container>
+        <!-- Les fonctionnalités seront injectées ici par JavaScript -->
+        <!-- Exemple de structure pour une fonctionnalité:
+        <li class="feature-item feature-item--included">
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Fonctionnalité incluse</span>
+        </li>
+        <li class="feature-item feature-item--excluded">
+            <span class="feature-icon">✗</span>
+            <span class="feature-text">Fonctionnalité non incluse</span>
+        </li>
+        <li class="feature-item">
+             Fonctionnalité standard
+        </li>
+        -->
+    </ul>
+    <a href="#" class="pricing-plan-cta button button--primary" data-plan-cta-link-element>
+        <span data-plan-cta-text-content>Choisir ce Plan</span>
+    </a>
+</div>
