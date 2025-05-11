@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="23" failures="13" errors="0" time="7.587">
+  <testsuite name="UserService" errors="0" failures="13" skipped="0" timestamp="2025-05-10T08:54:23" time="6.622" tests="23">
+    <testcase classname="UserService createUser devrait créer un utilisateur avec succès, hasher le mot de passe, générer un token de validation et envoyer un email" name="UserService createUser devrait créer un utilisateur avec succès, hasher le mot de passe, générer un token de validation et envoyer un email" time="0.007">
+      <failure>Error: Le mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).
+    at UserService.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.ts:62:13)
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.ts:4:12)
+    at UserService.createUser (/workspaces/starter-pack/src/services/user-service/user.service.ts:61:16)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:135:40
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:94:139)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService createUser devrait lever une erreur générique et logger l&apos;information si l&apos;email existe déjà" name="UserService createUser devrait lever une erreur générique et logger l&apos;information si l&apos;email existe déjà" time="0.005">
+    </testcase>
+    <testcase classname="UserService createUser devrait lever une erreur générique et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" name="UserService createUser devrait lever une erreur générique et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" time="0.025">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Impossible de créer le compte. Veuillez vérifier vos informations ou essayer plus tard.&quot;
+Received message:   &quot;Format d&apos;email invalide.&quot;
+
+      57 |     // 1. Valider les données d&apos;entrée (email, mot de passe)
+      58 |     if (!validator.isEmail(createUserDto.email)) {
+    &gt; 59 |       throw new Error(&quot;Format d&apos;email invalide.&quot;);
+         |             ^
+      60 |     }
+      61 |     if (!this.isPasswordComplex(createUserDto.mot_de_passe)) {
+      62 |       throw new Error(
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:59:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.createUser (src/services/user-service/user.service.ts:61:16)
+      at src/services/user-service/user.service.spec.ts:195:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:187:144)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:195:67
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:187:144)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService createUser devrait lever une erreur générique et logger l&apos;information si le mot de passe est trop court" name="UserService createUser devrait lever une erreur générique et logger l&apos;information si le mot de passe est trop court" time="0.01">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Impossible de créer le compte. Veuillez vérifier vos informations ou essayer plus tard.&quot;
+Received message:   &quot;Le mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).&quot;
+
+      60 |     }
+      61 |     if (!this.isPasswordComplex(createUserDto.mot_de_passe)) {
+    &gt; 62 |       throw new Error(
+         |             ^
+      63 |         `Le mot de passe ne respecte pas les critères de complexité (minimum ${MIN_PASSWORD_LENGTH} caractères, une majuscule, une minuscule, un chiffre, un symbole).`,
+      64 |       );
+      65 |     }
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:62:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.createUser (src/services/user-service/user.service.ts:61:16)
+      at src/services/user-service/user.service.spec.ts:217:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:209:116)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:217:67
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:209:116)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService loginUser devrait connecter un utilisateur avec succès et retourner un token JWT" name="UserService loginUser devrait connecter un utilisateur avec succès et retourner un token JWT" time="0.004">
+    </testcase>
+    <testcase classname="UserService loginUser devrait lever une erreur si l&apos;email n&apos;est pas trouvé" name="UserService loginUser devrait lever une erreur si l&apos;email n&apos;est pas trouvé" time="0.002">
+    </testcase>
+    <testcase classname="UserService loginUser devrait lever une erreur si le mot de passe est incorrect" name="UserService loginUser devrait lever une erreur si le mot de passe est incorrect" time="0.003">
+    </testcase>
+    <testcase classname="UserService loginUser devrait lever une erreur si le compte est en attente de validation" name="UserService loginUser devrait lever une erreur si le compte est en attente de validation" time="0.001">
+    </testcase>
+    <testcase classname="UserService loginUser devrait lever une erreur si le compte est inactif (hors PENDING_EMAIL_VALIDATION)" name="UserService loginUser devrait lever une erreur si le compte est inactif (hors PENDING_EMAIL_VALIDATION)" time="0.001">
+    </testcase>
+    <testcase classname="UserService loginUser devrait lever une erreur et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" name="UserService loginUser devrait lever une erreur et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" time="0.001">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: &quot;Tentative de connexion avec un email au format invalide: invalid-login-format&quot;
+
+Number of calls: 0
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:421:31
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:5:58)</failure>
+    </testcase>
+    <testcase classname="UserService validateEmail devrait valider un email avec succès, activer le compte et envoyer un email de bienvenue" name="UserService validateEmail devrait valider un email avec succès, activer le compte et envoyer un email de bienvenue" time="0.002">
+    </testcase>
+    <testcase classname="UserService validateEmail devrait lever une erreur si le token de validation est invalide ou non trouvé" name="UserService validateEmail devrait lever une erreur si le token de validation est invalide ou non trouvé" time="0.001">
+    </testcase>
+    <testcase classname="UserService validateEmail devrait lever une erreur si le token de validation est expiré et appeler deleteValidationToken" name="UserService validateEmail devrait lever une erreur si le token de validation est expiré et appeler deleteValidationToken" time="0.001">
+    </testcase>
+    <testcase classname="UserService validateEmail devrait lever une erreur si le compte est déjà actif" name="UserService validateEmail devrait lever une erreur si le compte est déjà actif" time="0.008">
+    </testcase>
+    <testcase classname="UserService requestPasswordReset devrait traiter une demande de réinitialisation avec succès pour un utilisateur ACTIF" name="UserService requestPasswordReset devrait traiter une demande de réinitialisation avec succès pour un utilisateur ACTIF" time="0.005">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: ObjectContaining {&quot;date_expiration_token_reinit&quot;: Any&lt;Date&gt;, &quot;id_utilisateur&quot;: &quot;userIdActive&quot;, &quot;token_reinitialisation_mdp&quot;: &quot;newResetToken123&quot;}
+Received: {&quot;date_derniere_connexion&quot;: 2025-05-10T08:54:29.567Z, &quot;date_expiration_token_reinit&quot;: 2025-05-10T09:54:29.708Z, &quot;date_expiration_token_validation&quot;: null, &quot;date_inscription&quot;: 2025-05-10T08:54:29.567Z, &quot;email&quot;: &quot;user@example.com&quot;, &quot;id_utilisateur&quot;: &quot;userIdActive&quot;, &quot;mot_de_passe_hash&quot;: &quot;hashedPassword&quot;, &quot;nom_complet&quot;: &quot;Active User&quot;, &quot;statut_compte&quot;: &quot;ACTIF&quot;, &quot;token_reinitialisation_mdp&quot;: &quot;generatedUserId&quot;, &quot;token_validation_email&quot;: null}
+
+Number of calls: 1
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:580:46
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:5:58)</failure>
+    </testcase>
+    <testcase classname="UserService requestPasswordReset devrait traiter une demande de réinitialisation avec succès pour un utilisateur PENDING_EMAIL_VALIDATION" name="UserService requestPasswordReset devrait traiter une demande de réinitialisation avec succès pour un utilisateur PENDING_EMAIL_VALIDATION" time="0.002">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: ObjectContaining {&quot;id_utilisateur&quot;: &quot;userIdPending&quot;, &quot;token_reinitialisation_mdp&quot;: &quot;newResetToken123&quot;}
+Received: {&quot;date_derniere_connexion&quot;: 2025-05-10T08:54:29.567Z, &quot;date_expiration_token_reinit&quot;: 2025-05-10T09:54:29.713Z, &quot;date_expiration_token_validation&quot;: null, &quot;date_inscription&quot;: 2025-05-10T08:54:29.567Z, &quot;email&quot;: &quot;user@example.com&quot;, &quot;id_utilisateur&quot;: &quot;userIdPending&quot;, &quot;mot_de_passe_hash&quot;: &quot;hashedPassword&quot;, &quot;nom_complet&quot;: &quot;Active User&quot;, &quot;statut_compte&quot;: &quot;EN_ATTENTE_VALIDATION_EMAIL&quot;, &quot;token_reinitialisation_mdp&quot;: &quot;randomValidationToken&quot;, &quot;token_validation_email&quot;: null}
+
+Number of calls: 1
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:602:46
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:5:58)</failure>
+    </testcase>
+    <testcase classname="UserService requestPasswordReset devrait se terminer silencieusement si l&apos;email n&apos;est pas trouvé" name="UserService requestPasswordReset devrait se terminer silencieusement si l&apos;email n&apos;est pas trouvé" time="0.002">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: StringContaining &quot;Tentative de réinitialisation de mot de passe pour un email non trouvé: user@example.com&quot;
+
+Number of calls: 0
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:622:30
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:5:58)</failure>
+    </testcase>
+    <testcase classname="UserService requestPasswordReset devrait se terminer silencieusement si le compte utilisateur est SUSPENDED" name="UserService requestPasswordReset devrait se terminer silencieusement si le compte utilisateur est SUSPENDED" time="0.004">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: StringContaining &quot;Tentative de réinitialisation de mot de passe pour un compte inactif/suspendu: user@example.com&quot;
+
+Number of calls: 0
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:642:30
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:5:58)</failure>
+    </testcase>
+    <testcase classname="UserService requestPasswordReset devrait lever une erreur et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" name="UserService requestPasswordReset devrait lever une erreur et logger l&apos;information si le format de l&apos;email est invalide (selon validator.isEmail)" time="0.005">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Format d&apos;email invalide.&quot;
+Received message:   &quot;Si un compte avec cet email existe et est valide, un email de réinitialisation a été envoyé.&quot;
+
+      239 |       this.logger.warn(`Tentative de réinitialisation de mot de passe avec email invalide: ${requestPasswordResetDto.email}`);
+      240 |       // Réponse générique pour ne pas indiquer si le format est le problème vs l&apos;existence de l&apos;email
+    &gt; 241 |       throw new Error(&quot;Si un compte avec cet email existe et est valide, un email de réinitialisation a été envoyé.&quot;);
+          |             ^
+      242 |     }
+      243 |
+      244 |     // 2. Rechercher l&apos;utilisateur par email
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:241:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.requestPasswordReset (src/services/user-service/user.service.ts:188:16)
+      at src/services/user-service/user.service.spec.ts:653:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:650:134)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:653:79
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:650:134)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService resetPassword devrait réinitialiser le mot de passe avec succès" name="UserService resetPassword devrait réinitialiser le mot de passe avec succès" time="0.001">
+      <failure>Error: Le nouveau mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).
+    at UserService.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.ts:298:13)
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.ts:4:12)
+    at UserService.resetPassword (/workspaces/starter-pack/src/services/user-service/user.service.ts:228:16)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:694:25
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:690:72)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService resetPassword devrait lever une erreur si le token de réinitialisation est invalide ou non trouvé" name="UserService resetPassword devrait lever une erreur si le token de réinitialisation est invalide ou non trouvé" time="0.011">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Token de réinitialisation invalide ou expiré.&quot;
+Received message:   &quot;Le nouveau mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).&quot;
+
+      296 |     // 1. Valider le nouveau mot de passe
+      297 |     if (!this.isPasswordComplex(resetPasswordDto.nouveau_mot_de_passe)) {
+    &gt; 298 |       throw new Error(
+          |             ^
+      299 |         `Le nouveau mot de passe ne respecte pas les critères de complexité (minimum ${MIN_PASSWORD_LENGTH} caractères, une majuscule, une minuscule, un chiffre, un symbole).`,
+      300 |       );
+      301 |     }
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:298:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.resetPassword (src/services/user-service/user.service.ts:228:16)
+      at src/services/user-service/user.service.spec.ts:715:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:712:106)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:715:73
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:712:106)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService resetPassword devrait lever une erreur si le token de réinitialisation est expiré et invalider le token" name="UserService resetPassword devrait lever une erreur si le token de réinitialisation est expiré et invalider le token" time="0.013">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Token de réinitialisation expiré. Veuillez refaire une demande.&quot;
+Received message:   &quot;Le nouveau mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).&quot;
+
+      296 |     // 1. Valider le nouveau mot de passe
+      297 |     if (!this.isPasswordComplex(resetPasswordDto.nouveau_mot_de_passe)) {
+    &gt; 298 |       throw new Error(
+          |             ^
+      299 |         `Le nouveau mot de passe ne respecte pas les critères de complexité (minimum ${MIN_PASSWORD_LENGTH} caractères, une majuscule, une minuscule, un chiffre, un symbole).`,
+      300 |       );
+      301 |     }
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:298:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.resetPassword (src/services/user-service/user.service.ts:228:16)
+      at src/services/user-service/user.service.spec.ts:730:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:722:112)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:730:73
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:722:112)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="UserService resetPassword devrait lever une erreur si le nouveau mot de passe est trop court" name="UserService resetPassword devrait lever une erreur si le nouveau mot de passe est trop court" time="0.008">
+      <failure>Error: expect(received).rejects.toThrow(expected)
+
+Expected substring: &quot;Le nouveau mot de passe doit contenir au moins 8 caractères.&quot;
+Received message:   &quot;Le nouveau mot de passe ne respecte pas les critères de complexité (minimum 8 caractères, une majuscule, une minuscule, un chiffre, un symbole).&quot;
+
+      296 |     // 1. Valider le nouveau mot de passe
+      297 |     if (!this.isPasswordComplex(resetPasswordDto.nouveau_mot_de_passe)) {
+    &gt; 298 |       throw new Error(
+          |             ^
+      299 |         `Le nouveau mot de passe ne respecte pas les critères de complexité (minimum ${MIN_PASSWORD_LENGTH} caractères, une majuscule, une minuscule, un chiffre, un symbole).`,
+      300 |       );
+      301 |     }
+
+      at UserService.&lt;anonymous&gt; (src/services/user-service/user.service.ts:298:13)
+      at src/services/user-service/user.service.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.ts:4:12)
+      at UserService.resetPassword (src/services/user-service/user.service.ts:228:16)
+      at src/services/user-service/user.service.spec.ts:751:32
+      at src/services/user-service/user.service.spec.ts:8:71
+      at Object.&lt;anonymous&gt;.__awaiter (src/services/user-service/user.service.spec.ts:4:12)
+      at Object.&lt;anonymous&gt; (src/services/user-service/user.service.spec.ts:744:89)
+    at Object.toThrow (/workspaces/starter-pack/node_modules/expect/build/index.js:218:22)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:751:77
+    at Generator.next (&lt;anonymous&gt;)
+    at /workspaces/starter-pack/src/services/user-service/user.service.spec.ts:8:71
+    at new Promise (&lt;anonymous&gt;)
+    at Object.&lt;anonymous&gt;.__awaiter (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:4:12)
+    at Object.&lt;anonymous&gt; (/workspaces/starter-pack/src/services/user-service/user.service.spec.ts:744:89)
+    at Promise.then.completed (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/workspaces/starter-pack/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:121:9)
+    at run (/workspaces/starter-pack/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/workspaces/starter-pack/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/workspaces/starter-pack/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
