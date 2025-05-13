@@ -31,7 +31,7 @@ You have a few options for working with your project files:
 - **Codespaces:** Use GitHub Codespaces for an online VS Code IDE environment. This is highly recommended for a seamless experience.
 - **VS Code with Remote Development:** Open your local VS Code and connect to your Codespace.
 
-### 3. Set up Roo Code
+### 3. Set up Roo Code!
 
 Roo Code is a VS Code extension that enables autonomous coding capabilities.
 
