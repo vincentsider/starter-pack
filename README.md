@@ -5,7 +5,7 @@ STARTER PACK
 
 Welcome to the Autonomous Coding Starter Pack! This project is designed to help you get started with autonomous coding using Roo Code and SPARC.
 
-## Getting Started
+## Getting Started!
 
 Follow these steps to set up your environment and start using Roo Code and SPARC.
 
