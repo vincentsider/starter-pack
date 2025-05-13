@@ -1,7 +1,7 @@
 STARTER PACK
 
 
-# Autonomous Coding Starter Pack - In Cloud Building
+# Autonomous Coding Starter Pack - In Cloud Building!!
 
 Welcome to the Autonomous Coding Starter Pack! This project is designed to help you get started with autonomous coding using Roo Code and SPARC.
 
